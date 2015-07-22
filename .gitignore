@@ -41,3 +41,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Eclipse Local Project Settings
+target
+
+.classpath
+.project
+.idea
+.settings
