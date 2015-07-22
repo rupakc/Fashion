@@ -10,7 +10,7 @@ import com.cybozu.labs.langdetect.Language;
 
 /**
  * @author Rupak Chakraborty
- * @for Adobe Systems, India
+ * @for Kutty
  * @since 18 July, 2015 
  * 
  * Utility Class to detect the language of a given post since facebook pages get posts from 

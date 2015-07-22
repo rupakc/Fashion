@@ -442,9 +442,9 @@ public class FacebookFetch extends Thread {
 	}
 	
 	/** 
-	 * 
-	 * @param filename
-	 * @return
+	 * Retrieves a set of page names from a given file and returns a set
+	 * @param filename String containing the filename
+	 * @return Set<String> containing the set of page names
 	 * @throws IOException
 	 */ 
 	
@@ -472,7 +472,7 @@ public class FacebookFetch extends Thread {
 	} 
 	
 	/** 
-	 * 
+	 * Defines the facebook pipeline for fetching and storing the facebook fashion page tags
 	 * @param filename
 	 * @throws IOException
 	 * @throws FacebookException
@@ -493,7 +493,7 @@ public class FacebookFetch extends Thread {
 	} 
 	
 	/** 
-	 * 
+	 * Main function to check the functionality of the class
 	 * @param args
 	 * @throws LangDetectException
 	 * @throws FacebookException
@@ -505,5 +505,4 @@ public class FacebookFetch extends Thread {
 		FacebookFetch fb = new FacebookFetch();
 		fb.facebookPipelineForFashionTrends("facebook_fashion_list.txt","Fashion");
 	}
-
 }
