@@ -376,9 +376,9 @@ public class TweetFetch extends Thread {
 	}
 	
 	/** 
-	 * 
-	 * @param filename
-	 * @return
+	 * Loads a set of hashtags from a given file
+	 * @param filename String containing the filename
+	 * @return Set<String> containing the hashtag names
 	 * @throws IOException
 	 */ 
 	
@@ -406,9 +406,9 @@ public class TweetFetch extends Thread {
 	} 
 	
 	/** 
-	 * 
-	 * @param filename
-	 * @param collection_name
+	 * Defines the pipeline for populating the database with tweets associated a given hashtag
+	 * @param filename String containing the filename where the hashtags are
+	 * @param collection_name String containing the collection name
 	 * @throws IOException
 	 */ 
 	
