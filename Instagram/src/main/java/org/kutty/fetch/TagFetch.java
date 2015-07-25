@@ -717,11 +717,11 @@ public class TagFetch extends Thread{
 	 * @throws ParseException
 	 */ 
 
-	public void TagPipelineForTopTags(String query) throws IOException, ParseException { 
+	public void TagPipelineForTopTags(String query,String collection_name) throws IOException, ParseException { 
 
 		HashMap<String,Long> tag_map;
 		tag_map = getTopTags(query);
-		setCollectionName("Fashion"); 
+		setCollectionName(collection_name); 
 
 		for (String s : tag_map.keySet()) { 
 

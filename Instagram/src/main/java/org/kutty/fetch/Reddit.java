@@ -257,11 +257,11 @@ public class Reddit extends Thread {
 		results.addAll(getSubmission(prompt,result_type));
 		printResults(results);
 		MongoBase mongo = null; 
-
+		setCollectionName(collection_name);
 		try { 
 
 			mongo = new MongoBase();
-			mongo.putInDB(results,"Fashion"); 
+			mongo.putInDB(results,collection_name); 
 
 		} catch (Exception e) { 
 
@@ -287,9 +287,21 @@ public class Reddit extends Thread {
 		results.addAll(getSubmission(prompt,"CONTROVERSIAL"));
 		results.addAll(getSubmission(prompt,"RISING")); 
 		printResults(results);
-		MongoBase mongo = new MongoBase();
-		mongo.putInDB(results,"Fashion");
-		mongo.closeConnection();
+		MongoBase mongo = null; 
+		
+		try { 
+			
+			mongo = new MongoBase();
+			mongo.putInDB(results,collection_name); 
+			
+		} catch (Exception e) { 
+			
+			e.printStackTrace();
+		} finally {
+			if (mongo != null) {
+				mongo.closeConnection();
+			}
+		}
 	}
 
 	/** 
@@ -344,13 +356,13 @@ public class Reddit extends Thread {
 	 * @throws IOException
 	 */ 
 
-	public void fetchTopTrendsReddit() throws IOException { 
+	public void fetchTopTrendsReddit(String collection_name) throws IOException { 
 
 		for (String s : prompt_names) { 
 
 			try { 
 
-				redditPipeline(s);  
+				redditPipeline(s,collection_name);  
 
 			} catch (Exception e) { 
 
@@ -364,12 +376,17 @@ public class Reddit extends Thread {
 	 * @throws IOException
 	 */ 
 
-	public void redditPipeline(String prompt_name) throws IOException { 
+	public void redditPipeline(String prompt_name,String collection_name) throws IOException { 
 
 		Reddit red_hot = new Reddit(prompt_name,"hot");
 		Reddit red_new = new Reddit(prompt_name,"New");
 		Reddit red_top = new Reddit(prompt_name,"ToP");
 		Reddit def = new Reddit(prompt_name,"");
+
+		red_hot.collection_name = collection_name;
+		red_new.collection_name = collection_name;
+		red_top.collection_name = collection_name; 
+		def.collection_name = collection_name; 
 
 		red_hot.start();
 		red_new.start();
@@ -388,6 +405,6 @@ public class Reddit extends Thread {
 	public static void main(String[] args) throws IOException { 
 
 		Reddit reddit = new Reddit();
-		reddit.fetchTopTrendsReddit();
+		reddit.fetchTopTrendsReddit("Fashion");
 	} 
 }
