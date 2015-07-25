@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.kutty.brands;
+package org.kutty.giveaway;
 
 /** 
  * Fetches posts relating to Instagram Giveways

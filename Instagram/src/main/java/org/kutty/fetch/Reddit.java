@@ -256,9 +256,23 @@ public class Reddit extends Thread {
 		results = getSearch(prompt,result_type); 
 		results.addAll(getSubmission(prompt,result_type));
 		printResults(results);
-		MongoBase mongo = new MongoBase();
-		mongo.putInDB(results,"Fashion");
-		mongo.closeConnection();
+		MongoBase mongo = null; 
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.putInDB(results,"Fashion"); 
+
+		} catch (Exception e) { 
+
+			e.printStackTrace(); 
+
+		} finally { 
+
+			if (mongo != null) {
+				mongo.closeConnection();
+			}
+		}
 	}
 
 	/** 
@@ -323,13 +337,13 @@ public class Reddit extends Thread {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/** 
 	 * For a given set of reddit prompts defined in the file reddit_prompt_list.txt
 	 * retrieves and stores the results prompt results
 	 * @throws IOException
 	 */ 
-	
+
 	public void fetchTopTrendsReddit() throws IOException { 
 
 		for (String s : prompt_names) { 
@@ -343,13 +357,13 @@ public class Reddit extends Thread {
 			}
 		}
 	} 
-	
+
 	/** 
 	 * Defines the reddit storage and retrieval pipeline
 	 * @param prompt_name String containing the prompt_name
 	 * @throws IOException
 	 */ 
-	
+
 	public void redditPipeline(String prompt_name) throws IOException { 
 
 		Reddit red_hot = new Reddit(prompt_name,"hot");

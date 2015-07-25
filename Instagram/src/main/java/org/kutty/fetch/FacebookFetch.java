@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -84,7 +83,7 @@ public class FacebookFetch extends Thread {
 	}  
 
 	public FacebookFetch() throws FacebookException, LangDetectException { 
-		
+
 		setToken();	
 	} 
 
@@ -196,19 +195,29 @@ public class FacebookFetch extends Thread {
 		try { 
 
 			response_list = getPosts(page_name); 
-			printPosts(response_list);
-			System.out.println(response_list.size());
-			MongoBase mongo = new MongoBase();
-			mongo.putInDB(response_list, product_name);
-			mongo.closeConnection();
+			//printPosts(response_list);
+			//System.out.println(response_list.size());
+			MongoBase mongo = null; 
 
-		} catch (FacebookException e) {
+			try {
+				mongo = new MongoBase();
+				mongo.putInDB(response_list, product_name); 
+
+			} catch(Exception e) { 
+
+				e.printStackTrace(); 
+
+			} finally { 
+
+				if (mongo != null) {
+					
+					mongo.closeConnection();
+				}
+			}
+
+		} catch (FacebookException e) { 
 
 			e.printStackTrace(); 
-
-		} catch (UnknownHostException e) {
-
-			e.printStackTrace();
 		}
 	} 
 
@@ -440,14 +449,14 @@ public class FacebookFetch extends Thread {
 
 		return false;
 	}
-	
+
 	/** 
 	 * Retrieves a set of page names from a given file and returns a set
 	 * @param filename String containing the filename
 	 * @return Set<String> containing the set of page names
 	 * @throws IOException
 	 */ 
-	
+
 	public Set<String> getFashionPageNames(String filename) throws IOException { 
 
 		BufferedReader br;
@@ -470,7 +479,7 @@ public class FacebookFetch extends Thread {
 
 		return prompt_names;
 	} 
-	
+
 	/** 
 	 * Defines the facebook pipeline for fetching and storing the facebook fashion page tags
 	 * @param filename
@@ -478,20 +487,20 @@ public class FacebookFetch extends Thread {
 	 * @throws FacebookException
 	 * @throws LangDetectException
 	 */ 
-	
+
 	public void facebookPipelineForFashionTrends(String filename,String collection_name) throws IOException, FacebookException, LangDetectException { 
 
 		Set<String> fashion_names = getFashionPageNames(filename); 
-		
+
 		for (String fashion : fashion_names) {  
-			
+
 			FacebookFetch fb = new FacebookFetch();
 			fb.page_name = fashion;
 			fb.product_name = collection_name;
 			fb.start();
 		}
 	} 
-	
+
 	/** 
 	 * Main function to check the functionality of the class
 	 * @param args
@@ -499,10 +508,11 @@ public class FacebookFetch extends Thread {
 	 * @throws FacebookException
 	 * @throws IOException
 	 */ 
-	
+
 	public static void main(String args[])throws LangDetectException, FacebookException, IOException {
 
-		FacebookFetch fb = new FacebookFetch();
-		fb.facebookPipelineForFashionTrends("facebook_fashion_list.txt","Fashion");
+		FacebookFetch fb = new FacebookFetch("Forever21");
+		fb.start();
+		//fb.facebookPipelineForFashionTrends("facebook_fashion_list.txt","Fashion");
 	}
 }
