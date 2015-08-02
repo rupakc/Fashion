@@ -11,8 +11,8 @@ import java.util.StringTokenizer;
 /** 
  * Class to return HashMap containing country codes and their respective count
  * @author Rupak Chakraborty
- * @for Adobe Systems, India
- * @since 1 June, 2015
+ * @for kutty
+ * @since 27 July, 2015
  * 
  * TODO - Resolve Known Issue of similar naming cities in different countries 
  */ 

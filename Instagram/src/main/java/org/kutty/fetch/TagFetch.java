@@ -362,17 +362,17 @@ public class TagFetch extends Thread{
 		while(!next_url.isEmpty()) { 
 
 			JSONArray data_array = getParsedDataArray(response,"data");
-			System.out.println("==================== Tag set ===================\n");
+			/*System.out.println("==================== Tag set ===================\n");
 			System.out.println(getTagSet(data_array));
 			System.out.println("\n==============================================\n");
 			System.out.println("====================== Caption Text ==================\n");
 			System.out.println(getCaptionTimeText(data_array));
-			System.out.println("\n======================================================\n");
+			System.out.println("\n======================================================\n"); */
 			response = getJSONResponse(next_url);
 			next_url = getNextURL(response);
-			System.out.println("Page Count : " + page_count++);
+			/*System.out.println("Page Count : " + page_count++);
 			System.out.println("Next URL : " + next_url);
-			System.out.println();  
+			System.out.println();  */
 
 			long comment_count = 0;
 			long like_count = 0; 
@@ -763,6 +763,7 @@ public class TagFetch extends Thread{
 	public static void main(String args[]) throws IOException, ParseException { 
 
 		TagFetch tags = new TagFetch("guess");
+		tags.pagination_limit = 100;
 		tags.start();
 	}
 }

@@ -131,7 +131,7 @@ public class TweetFetch extends Thread {
 
 		try {
 			result = getQuery(query);
-			printTweets(result);
+			//printTweets(result);
 			MongoBase mongo = null; 
 			mongo = new MongoBase();
 			

@@ -514,6 +514,12 @@ public class MongoBase {
 		return comment_doc;
 	}
 	
+	/** 
+	 * Converts a given Instagram user object into a BasicDBObject
+	 * @param user Instagram User object which is to be converted
+	 * @return BasicDBObject which contains the Instagram user object information
+	 */ 
+	
 	public BasicDBObject getInstagramUserAdaptor(User user) { 
 		
 		BasicDBObject user_doc = new BasicDBObject("Channel","Instagram").

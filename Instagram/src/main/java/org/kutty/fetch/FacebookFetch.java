@@ -195,8 +195,8 @@ public class FacebookFetch extends Thread {
 		try { 
 
 			response_list = getPosts(page_name); 
-			printPosts(response_list);
-			System.out.println(response_list.size());
+			//printPosts(response_list);
+			//System.out.println(response_list.size());
 			MongoBase mongo = null; 
 
 			try {

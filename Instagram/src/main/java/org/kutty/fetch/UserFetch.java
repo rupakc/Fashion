@@ -91,7 +91,7 @@ public class UserFetch {
 		User user; 
 
 		json_response = getJSONResponse(this.user_endpoint); 
-		System.out.println(json_response);
+		//System.out.println(json_response);
 		parser = new JSONParser();
 		user_object = (JSONObject) parser.parse(json_response);
 		data_object = (JSONObject) user_object.get("data");

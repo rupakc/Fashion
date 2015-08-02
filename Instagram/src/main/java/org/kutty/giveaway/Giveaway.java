@@ -47,7 +47,7 @@ public class Giveaway extends TimerTask {
 	
 	public void run() { 
 		
-		getGiveaway(1000);
+		getGiveaway(500);
 	}
 	
 	public static void executeTimer() { 

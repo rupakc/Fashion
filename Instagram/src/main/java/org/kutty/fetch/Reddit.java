@@ -255,7 +255,7 @@ public class Reddit extends Thread {
 
 		results = getSearch(prompt,result_type); 
 		results.addAll(getSubmission(prompt,result_type));
-		printResults(results);
+		//printResults(results);
 		MongoBase mongo = null; 
 		setCollectionName(collection_name);
 		try { 
@@ -286,7 +286,7 @@ public class Reddit extends Thread {
 		results = getSearch(prompt,"RELEVANCE");
 		results.addAll(getSubmission(prompt,"CONTROVERSIAL"));
 		results.addAll(getSubmission(prompt,"RISING")); 
-		printResults(results);
+		//printResults(results);
 		MongoBase mongo = null; 
 		
 		try { 
