@@ -83,9 +83,7 @@ public class DateConverter {
 	
 	public static Date getJavaDateFromJulian(double julian) { 
 
-		long temp = DateTimeUtils.fromJulianDay(julian);
-		Date java_date = new Date(temp);
-
+		Date java_date = new Date((long) (julian*1000));
 		return java_date;
 	}
 }

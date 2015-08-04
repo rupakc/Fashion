@@ -14,6 +14,7 @@ public class InstaLocation {
 	private double location_longitude;
 	private String location_name;
 	private Tag location_media;
+	private double timestamp;
 	
 	/** 
 	 * public constructor to initialize the InstaLocation object with default values 
@@ -28,7 +29,8 @@ public class InstaLocation {
 	 * @return the location_id
 	 */ 
 	
-	public String getLocationId() {
+	public String getLocationId() { 
+		
 		return location_id;
 	}
 
@@ -37,7 +39,8 @@ public class InstaLocation {
 	 * @param location_id the location_id to set
 	 */ 
 	
-	public void setLocationId(String location_id) {
+	public void setLocationId(String location_id) { 
+		
 		this.location_id = location_id;
 	}
 
@@ -46,7 +49,8 @@ public class InstaLocation {
 	 * @return the location_latitude
 	 */ 
 	
-	public double getLocationLatitude() {
+	public double getLocationLatitude() { 
+		
 		return location_latitude;
 	}
 
@@ -55,7 +59,8 @@ public class InstaLocation {
 	 * @param location_latitude the location_latitude to set
 	 */ 
 	
-	public void setLocationLatitude(double location_latitude) {
+	public void setLocationLatitude(double location_latitude) { 
+		
 		this.location_latitude = location_latitude;
 	}
 
@@ -64,7 +69,8 @@ public class InstaLocation {
 	 * @return the location_longitude
 	 */ 
 	
-	public double getLocationLongitude() {
+	public double getLocationLongitude() { 
+		
 		return location_longitude;
 	}
 
@@ -73,7 +79,8 @@ public class InstaLocation {
 	 * @param location_longitude the location_longitude to set
 	 */ 
 	
-	public void setLocationLongitude(double location_longitude) {
+	public void setLocationLongitude(double location_longitude) { 
+		
 		this.location_longitude = location_longitude;
 	}
 
@@ -82,7 +89,8 @@ public class InstaLocation {
 	 * @return the location_name
 	 */ 
 	
-	public String getLocationName() {
+	public String getLocationName() { 
+		
 		return location_name;
 	}
 
@@ -91,21 +99,46 @@ public class InstaLocation {
 	 * @param location_name the location_name to set
 	 */ 
 	
-	public void setLocationName(String location_name) {
+	public void setLocationName(String location_name) { 
+		
 		this.location_name = location_name;
 	}
 
 	/**
 	 * @return the location_media
-	 */
-	public Tag getLocationMedia() {
+	 */ 
+	
+	public Tag getLocationMedia() { 
+		
 		return location_media;
 	}
 
 	/**
 	 * @param location_media the location_media to set
-	 */
-	public void setLocationMedia(Tag location_media) {
+	 */ 
+	
+	public void setLocationMedia(Tag location_media) { 
+		
 		this.location_media = location_media;
+	}
+	
+	/** 
+	 * 
+	 * @return
+	 */ 
+	
+	public double getTimestamp() { 
+		
+		return timestamp;
+	}
+	
+	/** 
+	 * 
+	 * @param timestamp
+	 */ 
+	
+	public void setTimestamp(double timestamp) { 
+		
+		this.timestamp = timestamp;
 	}
 }

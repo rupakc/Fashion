@@ -9,6 +9,7 @@ import org.kutty.dbo.CountryBase;
 import org.kutty.dbo.GeoData;
 import org.kutty.dbo.InstaComment;
 import org.kutty.dbo.InstaLike;
+import org.kutty.dbo.InstaLocation;
 import org.kutty.dbo.Tag;
 import org.kutty.dbo.User;
 
@@ -241,6 +242,7 @@ public class MongoBase {
 	/** 
 	 * Converts a Instagram object into BasicDBObject for insertion into MongoDB
 	 * @param instagram Instagram tag object which is to be inserted
+	 * @param tag_searched the tag query with which the result has been found
 	 * @return BasicDBObject which is a representation of the Instagram tag object
 	 */ 
 
@@ -270,6 +272,59 @@ public class MongoBase {
 				append("Type", "tag");
 
 		return insta_doc;
+	}
+	
+	/** 
+	 * Converts a Instagram object into BasicDBObject for insertion into MongoDB
+	 * @param instagram Instagram tag object which is to be inserted
+	 * @return BasicDBObject which is a representation of the Instagram tag object
+	 */ 
+
+	public BasicDBObject getInstagramAdaptor(Tag instagram) { 
+
+		BasicDBObject insta_doc = new BasicDBObject("Username", instagram.getUsername()).
+				append("ProfilePicture", instagram.getProfilePicture()).
+				append("Author", instagram.getAuthor()).
+				append("UserId", instagram.getUserId()).
+				append("Timestamp",instagram.getTimestamp()).
+				append("TagId", instagram.getTagId()).
+				append("Filter", instagram.getFilter()).
+				append("Type",instagram.getType()).
+				append("CaptionText", instagram.getCaptionText()).
+				append("TagSet", instagram.getTagSet()).
+				append("LikeCount", instagram.getLikeCount()).
+				append("Link", instagram.getLink()).
+				append("Latitude", instagram.getLatitude()).
+				append("Longitude", instagram.getLongitude()).
+				append("CommentCount", instagram.getCommentCount()).
+				append("ImageLink", instagram.getImageURL()).
+				append("ImageWidth", instagram.getImageWidth()).
+				append("ImageHeight", instagram.getImageHeight()).
+				append("Country",instagram.getCountry());
+
+		return insta_doc;
+	}
+	
+	/** 
+	 * Adaptor function to convert a given Instagram Location object into a BasicDBObject
+	 * @param location Instagram Location object which is to be inserted in the database
+	 * @return BasicDBObject containing the representation of the Instagram Location object
+	 */ 
+	
+	public BasicDBObject getInstaLocationAdaptor(InstaLocation location) { 
+		
+		BasicDBObject location_doc;
+		
+		location_doc = new BasicDBObject("Channel","Instagram").
+						   append("LocationId",location.getLocationId()).
+						   append("LocationLatitude", location.getLocationLatitude()).
+						   append("LocationLongitude", location.getLocationLongitude()).
+						   append("LocationName", location.getLocationName()).
+						   append("Timestamp",location.getTimestamp()).
+						   append("Media", getInstagramAdaptor(location.getLocationMedia())).
+						   append("Type", "Location");
+		
+		return location_doc;
 	}
 
 	/** 
@@ -646,6 +701,28 @@ public class MongoBase {
 			collection.update(query, update);
 		}
 	} 
+	
+	/** 
+	 * Inserts a given Instagram Location in the DB if it doesn't already exist
+	 * @param location Instagram Location object which is to be inserted in the DB
+	 */ 
+	
+	public void putInDB(InstaLocation location) { 
+		
+		DBObject query;
+		DBCursor cursor; 
+		
+		query = new BasicDBObject("Channel","Instagram").append("LocationId", location.getLocationId()).
+				append("Timestamp", location.getTimestamp()); 
+		
+		cursor = collection.find(query); 
+		
+		if (!cursor.hasNext()) {  
+			
+			BasicDBObject location_doc = getInstaLocationAdaptor(location);
+			insertDocument(location_doc);
+		}
+	}
 		
 	/** 
 	 * Adpator function to convert the youtube comment object into a DBObject for serialization and insertion in MongoDB

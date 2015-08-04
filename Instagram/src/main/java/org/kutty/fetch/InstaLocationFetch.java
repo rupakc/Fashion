@@ -12,6 +12,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.kutty.db.MongoBase;
 import org.kutty.dbo.GeoData;
 import org.kutty.dbo.InstaLocation;
 import org.kutty.dbo.Tag;
@@ -23,7 +24,7 @@ import org.kutty.dbo.Tag;
  * @for Kutty
  * @since 2 August,2015
  * 
- * TODO - Add Database Support and Multi-threading
+ * TODO - Pipeline for Lat and Long and Multi-threading
  */ 
 
 public class InstaLocationFetch {
@@ -37,8 +38,8 @@ public class InstaLocationFetch {
 	public String ACCESS_TOKEN = "1058271351.5b9e1e6.c1ba660f72704f8d98c48340e3029e9e";
 
 	/** 
-	 * 
-	 * @return
+	 * Builds a search link given the latitude and longitude of a place
+	 * @return String containing the complete url
 	 */ 
 
 	public String getLocationSearchLink() { 
@@ -56,10 +57,10 @@ public class InstaLocationFetch {
 	}
 
 	/** 
-	 * 
-	 * @param lat
-	 * @param longi
-	 * @return
+	 * Builds the full search url of a given location
+	 * @param lat double containing the latitude of the place
+	 * @param longi double containing the longitude of the place
+	 * @return String containing the fully formed url
 	 */ 
 
 	public String getLocationSearchLink(double lat,double longi) { 
@@ -78,9 +79,9 @@ public class InstaLocationFetch {
 	}
 
 	/** 
-	 * 
-	 * @param location_id
-	 * @return
+	 * Builds the link for fetching recent media of a given location
+	 * @param location_id String containing the location id of a given place
+	 * @return String containing the fully formed url
 	 */ 
 
 	public String getLocationMediaLink(String location_id) { 
@@ -138,7 +139,7 @@ public class InstaLocationFetch {
 	 * @return JSONObject containing the JSON response
 	 * @throws ParseException
 	 */ 
-	
+
 	public static JSONObject getParsedJSON(String response) throws ParseException { 
 
 		JSONParser parser;
@@ -149,7 +150,7 @@ public class InstaLocationFetch {
 
 		return json;
 	}
-	
+
 	/** 
 	 * Returns the set of tags in a given tag 
 	 * @param data_object JSONObject containing a Instagram tag
@@ -168,7 +169,7 @@ public class InstaLocationFetch {
 
 		return tag_set;
 	}
-	
+
 	/** 
 	 * Given a set of coordinates returns a set of places
 	 * @param latitude Double containing the latitude
@@ -177,7 +178,7 @@ public class InstaLocationFetch {
 	 * @throws IOException
 	 * @throws ParseException
 	 */ 
-	
+
 	public ArrayList<InstaLocation> getLocationObjects(double latitude,double longitude) throws IOException, ParseException {
 
 
@@ -229,17 +230,18 @@ public class InstaLocationFetch {
 
 		return locale;
 	} 
-	
+
 	/** 
-	 * 
-	 * @param locationId
+	 * Define the processing pipeline for fetching recent media of a given location
+	 * @param locationId String containing the locationId whose data is to be fetched and stored
 	 */
-	
+
 	public void fetchLocationPipeline(String locationId) { 
 
 		String link = getLocationMediaLink(locationId); 
-		
-		try{
+
+		try { 
+
 			String json_response = getJSONResponse(link);
 			JSONObject response_object = getParsedJSON(json_response);
 			JSONArray data_array = (JSONArray) response_object.get("data"); 
@@ -247,9 +249,9 @@ public class InstaLocationFetch {
 			Tag tag_info; 
 			InstaLocation location_object; 
 			JSONObject location; 
-			
+
 			for (int i = 0; i < data_array.size(); i++) { 
-				
+
 				location_object = new InstaLocation();
 				temp = (JSONObject) data_array.get(i);
 				location = (JSONObject) temp.get("location");
@@ -259,8 +261,10 @@ public class InstaLocationFetch {
 				location_object.setLocationName((String) location.get("name"));
 				tag_info = getInstagramTagObject(temp);
 				location_object.setLocationMedia(tag_info);
+				location_object.setTimestamp(tag_info.getTimestamp());
+				insertLocationInDB(location_object);
 			} 
-			
+
 		} catch(IOException e) {  
 			e.printStackTrace();
 		} catch (ParseException e) {
@@ -268,6 +272,34 @@ public class InstaLocationFetch {
 		}
 	} 
 	
+	/** 
+	 * Inserts a given Instagram Location object in the database
+	 * @param location Instagram Location object which is to be inserted in the db
+	 */ 
+	
+	public void insertLocationInDB(InstaLocation location) { 
+
+		MongoBase mongo = null; 
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.setCollection("Fashion");
+			mongo.putInDB(location); 
+
+		} catch (Exception e) { 
+
+			e.printStackTrace(); 
+
+		} finally {  
+			
+			if (mongo != null) { 
+				
+				mongo.closeConnection();
+			}
+		}
+	} 
+
 	/** 
 	 * Converts a given JSON post object into a Instagram Tag object
 	 * @param data_object JSONObject which is to be inserted into the database
@@ -396,9 +428,9 @@ public class InstaLocationFetch {
 
 		return tag;
 	} 
-	
+
 	/** 
-	 * 
+	 * Main function to test the function of the class
 	 * @param args
 	 */
 
