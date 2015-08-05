@@ -52,7 +52,7 @@ public class DateConverter {
 
 	public static double getJulianDate(Date date) { 
 
-		DateTime joda_date = new DateTime(date); 
+		DateTime joda_date = new DateTime(date);
 
 		return DateTimeUtils.fromJulianDay(DateTimeUtils.toJulianDay(joda_date.getMillis()))/1000.0;
 	}
