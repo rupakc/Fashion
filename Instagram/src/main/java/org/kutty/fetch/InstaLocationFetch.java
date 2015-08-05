@@ -24,10 +24,9 @@ import org.kutty.dbo.Tag;
  * @for Kutty
  * @since 2 August,2015
  * 
- * TODO - Pipeline for Lat and Long and Multi-threading
  */ 
 
-public class InstaLocationFetch {
+public class InstaLocationFetch extends Thread {
 
 	public String BASE_URL = "https://api.instagram.com/v1/locations/search?";
 	public String LAT_URL = "lat=";
@@ -36,6 +35,86 @@ public class InstaLocationFetch {
 	public double LONG = 8.3041;
 	public String ACCESS_TOKEN_URL = "&access_token=";
 	public String ACCESS_TOKEN = "1058271351.5b9e1e6.c1ba660f72704f8d98c48340e3029e9e";
+
+	/** 
+	 * public constructor to initialize the InstaLocationFetch object with default values
+	 */ 
+
+	public InstaLocationFetch() {
+
+	} 
+
+	/** 
+	 * public constructor to initialize the InstaLocation fetch object with latitude and longitude
+	 * @param latitude Double containing the latitude of the given place
+	 * @param longitude Double containing the longitude of the given place
+	 */ 
+
+	public InstaLocationFetch(double latitude,double longitude) { 
+
+		this.LAT = latitude;
+		this.LONG = longitude;
+	} 
+
+	/** 
+	 * Returns the latitude of a given place
+	 * @return Double containing the latitude
+	 */ 
+
+	public double getLatitude() {
+
+		return LAT;
+	}
+
+	/** 
+	 * Sets the latitude of a given place 
+	 * @param lAT latitude of a given place
+	 */ 
+
+	public void setLatitude(double latitude) { 
+
+		LAT = latitude;
+	}
+
+	/** 
+	 * Returns the longitude of a given place
+	 * @return Double containing the longitude
+	 */ 
+
+	public double getLongitude() { 
+
+		return LONG;
+	}
+
+	/** 
+	 * Sets the longitude of a given place
+	 * @param lONG Double containing the longitude
+	 */ 
+
+	public void setLongitude(double longitude) { 
+
+		LONG = longitude;
+	}
+
+	/** 
+	 * Returns the access token associated with a given API call
+	 * @return String containing the access token
+	 */ 
+
+	public String getACCESS_TOKEN() { 
+
+		return ACCESS_TOKEN;
+	}
+
+	/** 
+	 * Sets the access token for a given api call
+	 * @param aCCESS_TOKEN String containing the access token
+	 */ 
+
+	public void setACCESS_TOKEN(String aCCESS_TOKEN) { 
+
+		ACCESS_TOKEN = aCCESS_TOKEN;
+	} 
 
 	/** 
 	 * Builds a search link given the latitude and longitude of a place
@@ -232,6 +311,31 @@ public class InstaLocationFetch {
 	} 
 
 	/** 
+	 * Given a pair of latitude and longitude retrieves nearby locations and inserts them in the db
+	 * @param latitude Double containing the latitude of the given place
+	 * @param longitude Double containing the longitude of the given place
+	 */ 
+
+	public void fetchLocationPipeline(double latitude,double longitude) { 
+
+		try { 
+
+			ArrayList<InstaLocation> location_objects = getLocationObjects(latitude, longitude); 
+			String locationId = ""; 
+
+			for (int i = 0; i < location_objects.size(); i++) { 
+
+				locationId = location_objects.get(i).getLocationId();
+				fetchLocationPipeline(locationId);
+			} 
+
+		} catch (IOException | ParseException e) { 
+
+			e.printStackTrace();
+		}
+	} 
+
+	/** 
 	 * Define the processing pipeline for fetching recent media of a given location
 	 * @param locationId String containing the locationId whose data is to be fetched and stored
 	 */
@@ -271,12 +375,12 @@ public class InstaLocationFetch {
 			e.printStackTrace();
 		}
 	} 
-	
+
 	/** 
 	 * Inserts a given Instagram Location object in the database
 	 * @param location Instagram Location object which is to be inserted in the db
 	 */ 
-	
+
 	public void insertLocationInDB(InstaLocation location) { 
 
 		MongoBase mongo = null; 
@@ -292,9 +396,9 @@ public class InstaLocationFetch {
 			e.printStackTrace(); 
 
 		} finally {  
-			
+
 			if (mongo != null) { 
-				
+
 				mongo.closeConnection();
 			}
 		}
@@ -429,6 +533,11 @@ public class InstaLocationFetch {
 		return tag;
 	} 
 
+	public void run() { 
+
+		fetchLocationPipeline(this.LAT, this.LONG);
+	} 
+
 	/** 
 	 * Main function to test the function of the class
 	 * @param args
@@ -436,14 +545,6 @@ public class InstaLocationFetch {
 
 	public static void main(String args[]) { 
 
-		try { 
-
-			new InstaLocationFetch().getLocationObjects(47.049,8.3041);
-			new InstaLocationFetch().fetchLocationPipeline("213160630"); 
-
-		} catch (IOException | ParseException e) { 
-
-			e.printStackTrace();
-		}
+		new InstaLocationFetch(47.049,8.3041).start();
 	}
 }
