@@ -12,4 +12,4 @@ ragandbone=RagandBone
 7forallmankind=SevenForAllMankind
 sevenforallmankind=SevenForAllMankind
 fashion=Fashion
-giveaway=giveaway
+giveaway=Giveaway
