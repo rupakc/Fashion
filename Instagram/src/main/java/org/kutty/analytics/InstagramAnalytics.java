@@ -25,7 +25,9 @@ import com.mongodb.DBObject;
  * Performs basic analytics on the Instagram tags and associated content stored in the db
  * @author Rupak Chakraborty
  * @for Kutty 
- * @since 18 July, 2015
+ * @since 18 July, 2015 
+ *  
+ *  TODO - Add latitude,longitude and user analytics
  */ 
 
 public class InstagramAnalytics {
@@ -33,7 +35,11 @@ public class InstagramAnalytics {
 	public static String product_name;
 	public static String collection_name = "Fashion";
 	public static Map<String,String> collection_names = new HashMap<String,String>();
-
+	
+	/** 
+	 * Static block to initialize the product list and collection name
+	 */ 
+	
 	static { 
 
 		try {
@@ -79,16 +85,17 @@ public class InstagramAnalytics {
 		br.close();
 		fr.close();
 	}  
+	
 	/** 
-	 * 
-	 * @param product_name
-	 * @param from
-	 * @param to
-	 * @param n
-	 * @return
+	 * Returns a set of most recent tag captions for a given product and a given time interval 
+	 * @param product_name String containing the product name which is to be searched
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @param n Integer containing the number of results to be returned
+	 * @return Set<String> containing the set of most recent caption associated with a tag
 	 */ 
 
-	public static Set<String> getMostRecentTags(String product_name,Date from,Date to,int n) { 
+	public static Set<String> getMostRecentTagCaptions(String product_name,Date from,Date to,int n) { 
 
 		double from_date = DateConverter.getJulianDate(from);
 		double to_date = DateConverter.getJulianDate(to);
@@ -132,12 +139,12 @@ public class InstagramAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @param product_name
-	 * @param from
-	 * @param to
-	 * @param n
-	 * @return
+	 * Returns the caption text of a set of most liked tags during a given time interval
+	 * @param product_name String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @param n Integer containing the number of results to be fetched
+	 * @return Set<String> containing the caption text of most liked posts
 	 */ 
 
 	public static Set<String> getMostLikedTags(String product_name,Date from,Date to,int n) { 
@@ -189,12 +196,12 @@ public class InstagramAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @param product_name
-	 * @param from
-	 * @param to
-	 * @param n
-	 * @return
+	 * Returns a set of caption text corresponding to most liked tags
+	 * @param product_name String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @param n Integer containing the number of top comments
+	 * @return Set<String> containing the caption text of the top commented posts
 	 */ 
 
 	public static Set<String> getMostCommentedTags(String product_name,Date from,Date to,int n) { 
@@ -245,12 +252,12 @@ public class InstagramAnalytics {
 	} 
 	
 	/** 
-	 * 
-	 * @param product_name
-	 * @param from
-	 * @param to
-	 * @param n
-	 * @return
+	 * Returns a set of caption text corresponding to most commented tags
+	 * @param product_name String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @param n Integer containing the number of top comments
+	 * @return Set<String> containing the caption text of the top commented posts
 	 */ 
 	
 	public static Set<String> getMostPopularTagLinks(String product_name,Date from,Date to,int n) { 
@@ -302,12 +309,12 @@ public class InstagramAnalytics {
 	}  
 	
 	/** 
-	 * 
-	 * @param product_name
-	 * @param from
-	 * @param to
-	 * @param n
-	 * @return
+	 * Returns a set of most popular image links
+	 * @param product_name String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @param n Integer containing number of top links to display
+	 * @return Set<String> containing the most poplular image links
 	 */ 
 	
 	public static Set<ArrayList<String>> getMostPopularTags(String product_name,Date from,Date to,int n) {
@@ -322,7 +329,6 @@ public class InstagramAnalytics {
 		DBObject fields;
 		BasicDBList query_list;
 		BasicDBList tag_list; 
-		DBObject temp;
 		MongoBase mongo = null; 
 		collection_name = collection_names.get(product_name.toLowerCase().trim()); 
 
@@ -356,6 +362,62 @@ public class InstagramAnalytics {
 			mongo.closeConnection();
 		}
 		
+		return tag_set;
+	} 
+	
+	/** 
+	 * Returns a set of most popular image links
+	 * @param product_name String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @param n Integer containing number of top links to display
+	 * @return Set<String> containing the most poplular image links
+	 */ 
+	
+	public static Set<String> getMostPopularImageLinks(String product_name,Date from,Date to,int n) { 
+
+		double from_date = DateConverter.getJulianDate(from);
+		double to_date = DateConverter.getJulianDate(to);
+		Set<String> tag_set = new HashSet<String>();
+		DBCollection collection;
+		DBCursor cursor;
+		DBObject query;
+		DBObject fields;
+		BasicDBList query_list;
+		DBObject temp;
+		MongoBase mongo = null; 
+		collection_name = collection_names.get(product_name.toLowerCase().trim()); 
+
+		query_list = new BasicDBList();
+		query_list.add(new BasicDBObject("Type", "tag"));
+		query_list.add(new BasicDBObject("Type", "image"));
+		query_list.add(new BasicDBObject("Type", "video"));
+
+		query = new BasicDBObject("Channel","Instagram").append("$or", query_list).
+				append("Timestamp", new BasicDBObject("$gte",from_date).append("$lte", to_date)); 
+
+		fields = new BasicDBObject("ImageLink",1).append("LikeCount", 1);
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.setCollection(collection_name);
+			collection = mongo.getCollection(); 
+			cursor = collection.find(query,fields); 
+			cursor = cursor.sort(new BasicDBObject("LikeCount",-1)).limit(n); 
+
+			while (cursor.hasNext()) { 
+
+				temp = cursor.next();
+				tag_set.add((String) temp.get("ImageLink"));
+			} 
+
+		} catch (Exception e) { 
+			e.printStackTrace();
+		} finally { 
+			mongo.closeConnection();
+		}
+
 		return tag_set;
 	} 
 	
