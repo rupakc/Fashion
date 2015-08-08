@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
+import org.joda.time.Months;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
 
@@ -23,6 +24,8 @@ import com.mongodb.DBCollection;
  * @author Rupak Chakraborty
  * @for Kutty 
  * @since 5 August, 2015
+ * 
+ * TODO- Add Last N Years, Hours and Weeks
  */
 
 public class MetaAnalytics {
@@ -52,84 +55,84 @@ public class MetaAnalytics {
 			e.printStackTrace();
 		}
 	}  
-	
+
 	/** 
 	 * 
 	 * @return
 	 */ 
-	
+
 	public static String getChannelName() { 
-		
+
 		return channel_name;
 	}
-	
+
 	/** 
 	 * 
 	 * @param channel_name
 	 */ 
-	
+
 	public static void setChannelName(String channel_name) { 
-		
+
 		MetaAnalytics.channel_name = channel_name;
 	}
-	
+
 	/** 
 	 * 
 	 * @return
 	 */ 
-	
+
 	public static String getProductName() { 
-		
+
 		return product_name;
 	}
-	
+
 	/** 
 	 * 
 	 * @param product_name
 	 */ 
-	
+
 	public static void setProductName(String product_name) { 
-		
+
 		MetaAnalytics.product_name = product_name;
 	}
-	
+
 	/** 
 	 * 
 	 * @return
 	 */ 
-	
+
 	public static Date getStartDate() { 
-		
+
 		return start_date;
 	}
-	
+
 	/** 
 	 * 
 	 * @param start_date
 	 */ 
-	
+
 	public static void setStartDate(Date start_date) { 
-		
+
 		MetaAnalytics.start_date = start_date;
 	}
-	
+
 	/** 
 	 * 
 	 * @return
 	 */ 
-	
+
 	public Date getEndDate() { 
-		
+
 		return end_date;
 	}
-	
+
 	/** 
 	 * 
 	 * @param end_date
 	 */ 
-	
+
 	public void setEndDate(Date end_date) { 
-		
+
 		this.end_date = end_date;
 	}
 
@@ -168,7 +171,7 @@ public class MetaAnalytics {
 		br.close();
 		fr.close();
 	}   
-	
+
 	/** 
 	 * 
 	 * @param product
@@ -177,7 +180,7 @@ public class MetaAnalytics {
 	 * @param to
 	 * @return
 	 */ 
-	
+
 	public static int getProductChannelPostCount(String product,String channel,Date from,Date to) { 
 
 		MongoBase mongo = null;
@@ -236,13 +239,13 @@ public class MetaAnalytics {
 
 		return size;
 	}
-	
+
 	/** 
 	 * 
 	 * @param product
 	 * @return
 	 */ 
-	
+
 	public static int getCollectionSize(String product) { 
 
 		int size;
@@ -274,7 +277,7 @@ public class MetaAnalytics {
 
 		return size;
 	} 
-	
+
 	/** 
 	 * 
 	 * @param product
@@ -282,7 +285,7 @@ public class MetaAnalytics {
 	 * @param to
 	 * @return
 	 */ 
-	
+
 	public static int getCollectionSize(String product,Date from,Date to) { 
 
 		int size;
@@ -347,7 +350,7 @@ public class MetaAnalytics {
 
 		return (size + size_reddit + size_instagram);
 	} 
-	
+
 	/** 
 	 * 
 	 * @param product
@@ -355,7 +358,7 @@ public class MetaAnalytics {
 	 * @param to
 	 * @return
 	 */ 
-	
+
 	public static Map<String,Integer> getAllChannelCount(String product,Date from,Date to) { 
 
 		String collection_name = "";
@@ -382,20 +385,20 @@ public class MetaAnalytics {
 			for (String channel : channel_list) { 
 
 				if (!(channel.equalsIgnoreCase("Reddit") || channel.equalsIgnoreCase("Instagram"))) { 
-					
+
 					query = new BasicDBObject("Channel",channel).
 							append("TimeStamp", new BasicDBObject("$gte",from).append("$lte",to)); 
-					
+
 				} else if (channel.equalsIgnoreCase("Reddit")) { 
-					
+
 					query = new BasicDBObject("Channel",channel).
 							append("TimeStamp", new BasicDBObject("$gte",from_date).append("$lte",to_date));
 				} else { 
-					
+
 					query = new BasicDBObject("Channel",channel).append("$or",query_list).
 							append("Timestamp", new BasicDBObject("$gte",from_date).append("$lte",to_date));
 				}
-				
+
 				size = collection.find(query).size();
 				channel_count.put(channel, size);
 			} 
@@ -411,15 +414,84 @@ public class MetaAnalytics {
 				mongo.closeConnection();
 			}
 		}
-		
+
 		return channel_count;
 	} 
 	
 	/** 
 	 * 
-	 * @param args
+	 * @param product
+	 * @param channel
+	 * @param from
+	 * @param to
+	 * @return
 	 */ 
 	
+	public static Map<String,Integer> getAllLastNMonthsProductChannel(String product,String channel,Date from,Date to) { 
+
+		Map<String,Integer> month_map = new HashMap<String,Integer>();
+		String month_name = ""; 
+
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		int months = Months.monthsBetween(from_date, to_date).getMonths();
+		int count = 0; 
+		Date now;
+		Date prev; 
+
+		for (int i = 0; i <= months; i++) {  
+
+			month_name = to_date.minusMonths(i).monthOfYear().getAsText();
+			prev = to_date.minusMonths(i).toDate();
+			now = to_date.minusMonths(i-1).toDate();
+			count = getProductChannelPostCount(product, channel,prev,now); 
+
+			month_map.put(month_name, count);
+
+		} 
+
+		return month_map;
+	} 
+	
+	/** 
+	 * 
+	 * @param product
+	 * @param from
+	 * @param to
+	 * @return
+	 */ 
+	
+	public static Map<String,Integer> getAllLastNMonthsProduct(String product,Date from,Date to) { 
+
+		Map<String,Integer> month_map = new HashMap<String,Integer>();
+		String month_name = ""; 
+
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		int months = Months.monthsBetween(from_date, to_date).getMonths();
+		int count = 0; 
+		Date now;
+		Date prev; 
+
+		for (int i = 0; i <= months; i++) {  
+
+			month_name = to_date.minusMonths(i).monthOfYear().getAsText();
+			prev = to_date.minusMonths(i).toDate();
+			now = to_date.minusMonths(i-1).toDate();
+			count = getCollectionSize(product,prev,now); 
+
+			month_map.put(month_name, count);
+
+		} 
+
+		return month_map;
+	} 
+	
+	/** 
+	 * Main function to test the functionality of the class
+	 * @param args
+	 */ 
+
 	public static void main(String args[]) { 
 
 		DateTime now = new DateTime();
@@ -428,5 +500,8 @@ public class MetaAnalytics {
 		System.out.println(getCollectionSize("Guess"));
 		System.out.println(getCollectionSize("gueSs",prev.toDate(),now.toDate()));
 		System.out.println(getAllChannelCount("Guess",prev.toDate(),now.toDate()));
+		prev = now.minusMonths(3);
+		System.out.println(getAllLastNMonthsProductChannel("Guess","Instagram",prev.toDate(),now.toDate()));
+		System.out.println(getAllLastNMonthsProduct("HandM",prev.toDate(),now.toDate()));
 	}
 }
