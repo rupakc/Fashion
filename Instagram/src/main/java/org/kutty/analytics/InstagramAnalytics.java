@@ -27,7 +27,7 @@ import com.mongodb.DBObject;
  * @for Kutty 
  * @since 18 July, 2015 
  *  
- *  TODO - Add latitude,longitude and user analytics
+ *  TODO - Add latitude,longitude and user analytics,like and comment count
  */ 
 
 public class InstagramAnalytics {
