@@ -173,12 +173,12 @@ public class MetaAnalytics {
 	}   
 
 	/** 
-	 * 
-	 * @param product
-	 * @param channel
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the number of posts received by a given product and a given channel in a defined interval
+	 * @param product String containing the product name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Integer containing the count for the given interval
 	 */ 
 
 	public static int getProductChannelPostCount(String product,String channel,Date from,Date to) { 
@@ -241,9 +241,9 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @param product
-	 * @return
+	 * Returns the size of a given collection 
+	 * @param product String containing the collection name 
+	 * @return Integer containing the size of the collection
 	 */ 
 
 	public static int getCollectionSize(String product) { 
@@ -279,11 +279,11 @@ public class MetaAnalytics {
 	} 
 
 	/** 
-	 * 
-	 * @param product
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the size of the collection in a given interval
+	 * @param product String containing the collection name
+	 * @param from Date containing the staring date
+	 * @param to Date containing the ending date
+	 * @return Integer containing the count of the collection in the given period
 	 */ 
 
 	public static int getCollectionSize(String product,Date from,Date to) { 
@@ -352,11 +352,11 @@ public class MetaAnalytics {
 	} 
 
 	/** 
-	 * 
-	 * @param product
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the size of all channels for a given product during a given time interval
+	 * @param product String containing the name of the product
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the channel name and the count
 	 */ 
 
 	public static Map<String,Integer> getAllChannelCount(String product,Date from,Date to) { 
@@ -419,12 +419,12 @@ public class MetaAnalytics {
 	} 
 	
 	/** 
-	 * 
-	 * @param product
-	 * @param channel
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the count of the posts received by a given product 
+	 * @param product String containing the product name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the month name and post count
 	 */ 
 	
 	public static Map<String,Integer> getAllLastNMonthsProductChannel(String product,String channel,Date from,Date to) { 
@@ -454,11 +454,11 @@ public class MetaAnalytics {
 	} 
 	
 	/** 
-	 * 
-	 * @param product
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the mapping between the month name and the post count for that month
+	 * @param product String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the month name and post count
 	 */ 
 	
 	public static Map<String,Integer> getAllLastNMonthsProduct(String product,Date from,Date to) { 

@@ -3,8 +3,10 @@ package org.kutty.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
@@ -26,22 +28,34 @@ import com.mongodb.DBObject;
  * @for Kutty
  * @since 5 August, 2015
  * 
- * TODO - Perform Analytics for All products and all channels
  */
 
 public class LanguageAnalytics {
 
 	public static Map<String,String> language_code_map = new HashMap<String,String>(); 
 	public static Map<String, String> collection_names = new HashMap<String,String>();;
+	public static List<String> channel_list = new ArrayList<String>(); 
 
+	/** 
+	 * Static block to initialize the language profiles and product collections
+	 */ 
+	
 	static { 
 
-		try { 
+		try {  
+			
 			loadLanguageCodes("language_map.txt",language_code_map);
 			LanguageDetector.init("profiles"); 
-
-			init("product_list.txt",collection_names);
-		} catch (IOException | LangDetectException e) {
+			init("product_list.txt",collection_names); 
+			
+			channel_list.add("Twitter");
+			channel_list.add("Facebook");
+			channel_list.add("Reddit");
+			channel_list.add("Instagram");
+			channel_list.add("Youtube"); 
+			
+		} catch (IOException | LangDetectException e) { 
+			
 			e.printStackTrace();
 		}
 	}
@@ -83,9 +97,9 @@ public class LanguageAnalytics {
 	}   
 	
 	/** 
-	 * 
-	 * @param filename
-	 * @param language
+	 * Loads the language codes and corresponding language further use
+	 * @param filename String containing the filename which contains the language profiles
+	 * @param language Map<String,String> containing the mapping between language codes and names
 	 * @throws IOException
 	 */ 
 	
@@ -118,9 +132,9 @@ public class LanguageAnalytics {
 	}
 	
 	/** 
-	 * 
-	 * @param s
-	 * @return
+	 * Given a text returns the language in which it was written
+	 * @param s String containing the text
+	 * @return String containing the language of the text
 	 */ 
 	
 	public static String getLanguage(String s) { 
@@ -141,12 +155,12 @@ public class LanguageAnalytics {
 	} 
 	
 	/** 
-	 * 
-	 * @param product
-	 * @param channel
-	 * @param from
-	 * @param to
-	 * @return
+	 * For a given product and channel returns a mapping of the languages and their counts
+	 * @param product String containing the product 
+	 * @param channel String containing the channel of the given product
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the language and its count
 	 */ 
 	
 	public static Map<String,Integer> getLanguageProductChannel(String product,String channel,Date from,Date to) {
@@ -247,18 +261,61 @@ public class LanguageAnalytics {
 	} 
 	
 	/** 
-	 * 
+	 * For a given product returns the language profiles for all channels
+	 * @param product String containing the product whose channels have to be mapped
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Map<String,Integer>> containing the mapping between the product and language profile
+	 */ 
+	
+	public static Map<String,Map<String,Integer>> getAllChannels(String product,Date from,Date to) { 
+		
+		Map<String,Map<String,Integer>> all_channel_map = new HashMap<String,Map<String,Integer>>();
+		Map<String,Integer> channel_map; 
+		
+		for (String channel : channel_list) { 
+			
+			channel_map = getLanguageProductChannel(product, channel, from, to);
+			all_channel_map.put(channel, channel_map);
+		}
+		
+		return all_channel_map;
+	}
+	
+	/** 
+	 * Returns the language profile for all products of a given channel
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Map<String,Integer>> containing the mapping between the product and its language profile
+	 */ 
+	
+	public static Map<String,Map<String,Integer>> getAllProducts(String channel,Date from,Date to) { 
+		
+		Map<String,Map<String,Integer>> all_product_map = new HashMap<String,Map<String,Integer>>();
+		Map<String,Integer> product_map; 
+		
+		for (String product : collection_names.keySet()) { 
+			
+			product_map = getLanguageProductChannel(product, channel, from, to);
+			all_product_map.put(product, product_map);
+		}
+		
+		return all_product_map;
+	}
+	
+	/** 
+	 * Main functionality to test the functionality of the class
 	 * @param args
 	 */ 
 	
-	public static void main(String args[]) { 
+	public static void main(String args[]) {  
+		
 		try {
-
-			System.out.println(language_code_map.size());
-			System.out.println(getLanguage("Hello My friend we meet again"));
+			
 			DateTime now = new DateTime();
 			DateTime prev = now.minusYears(3);
-			System.out.println(getLanguageProductChannel("gueSS", "Twitter",prev.toDate(),now.toDate()));
+			System.out.println(getAllProducts("Instagram",prev.toDate(),now.toDate()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
