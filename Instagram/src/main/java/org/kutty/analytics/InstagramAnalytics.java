@@ -27,7 +27,7 @@ import com.mongodb.DBObject;
  * @for Kutty 
  * @since 18 July, 2015 
  *  
- *  TODO - Add latitude,longitude and user analytics,like and comment count
+ *  TODO - Add user analytics,like and comment count
  */ 
 
 public class InstagramAnalytics {
@@ -35,11 +35,11 @@ public class InstagramAnalytics {
 	public static String product_name;
 	public static String collection_name = "Fashion";
 	public static Map<String,String> collection_names = new HashMap<String,String>();
-	
+
 	/** 
 	 * Static block to initialize the product list and collection name
 	 */ 
-	
+
 	static { 
 
 		try {
@@ -85,7 +85,7 @@ public class InstagramAnalytics {
 		br.close();
 		fr.close();
 	}  
-	
+
 	/** 
 	 * Returns a set of most recent tag captions for a given product and a given time interval 
 	 * @param product_name String containing the product name which is to be searched
@@ -250,7 +250,7 @@ public class InstagramAnalytics {
 
 		return tag_set;
 	} 
-	
+
 	/** 
 	 * Returns a set of caption text corresponding to most commented tags
 	 * @param product_name String containing the product name
@@ -259,7 +259,7 @@ public class InstagramAnalytics {
 	 * @param n Integer containing the number of top comments
 	 * @return Set<String> containing the caption text of the top commented posts
 	 */ 
-	
+
 	public static Set<String> getMostPopularTagLinks(String product_name,Date from,Date to,int n) { 
 
 		double from_date = DateConverter.getJulianDate(from);
@@ -307,7 +307,7 @@ public class InstagramAnalytics {
 
 		return tag_set;
 	}  
-	
+
 	/** 
 	 * Returns a set of most popular image links
 	 * @param product_name String containing the product name
@@ -316,7 +316,7 @@ public class InstagramAnalytics {
 	 * @param n Integer containing number of top links to display
 	 * @return Set<String> containing the most poplular image links
 	 */ 
-	
+
 	public static Set<ArrayList<String>> getMostPopularTags(String product_name,Date from,Date to,int n) {
 
 		double from_date = DateConverter.getJulianDate(from);
@@ -341,39 +341,115 @@ public class InstagramAnalytics {
 				append("Timestamp", new BasicDBObject("$gte",from_date).append("$lte", to_date)); 
 
 		fields = new BasicDBObject("TagSet",1).append("LikeCount",1);
-		
+
 		try { 
-			
+
 			mongo = new MongoBase();
 			mongo.setCollection(collection_name); 
 			collection = mongo.getCollection(); 
 			cursor = collection.find(query, fields); 
-			
+
 			while(cursor.hasNext()) { 
-				
+
 				tag_list = (BasicDBList) cursor.next().get("TagSet");
 				temp_tag = ListConverter.getArrayListString(tag_list);
 				tag_set.add(temp_tag);
 			}
-			
+
 		} catch (Exception e) { 
 			e.printStackTrace();
 		} finally { 
 			mongo.closeConnection();
 		}
-		
+
 		return tag_set;
 	} 
-	
+
+	/** 
+	 * Returns a Map of country and its associated count 
+	 * @param product_name String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the corresponding country and its count
+	 */ 
+
+	public static Map<String,Integer> getCountryMap(String product_name,Date from,Date to) { 
+
+		double from_date = DateConverter.getJulianDate(from);
+		double to_date = DateConverter.getJulianDate(to);
+		Map<String,Integer> country_map = new HashMap<String,Integer>();
+		DBCollection collection;
+		DBCursor cursor;
+		DBObject query;
+		DBObject fields;
+		BasicDBList query_list;
+		DBObject temp;
+		MongoBase mongo = null; 
+		String country = "";
+		int country_count = 0; 
+
+		collection_name = collection_names.get(product_name.toLowerCase().trim()); 
+
+		query_list = new BasicDBList();
+		query_list.add(new BasicDBObject("Type", "tag"));
+		query_list.add(new BasicDBObject("Type", "image"));
+		query_list.add(new BasicDBObject("Type", "video"));
+
+		query = new BasicDBObject("Channel","Instagram").append("$or", query_list).
+				append("Timestamp", new BasicDBObject("$gte",from_date).append("$lte", to_date)); 
+
+		fields = new BasicDBObject("Country",1);
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.setCollection(collection_name);
+			collection = mongo.getCollection(); 
+			cursor = collection.find(query,fields);
+
+			while (cursor.hasNext()) { 
+
+				temp = cursor.next();
+				country = (String) temp.get("Country");
+
+				if (!country.isEmpty()) { 
+
+					if (country_map.containsKey(country)) { 
+
+						country_count = country_map.get(country);
+						country_map.put(country, country_count+1); 
+
+					} else { 
+
+						country_map.put(country, 1);
+					}
+				}
+			} 
+
+		} catch (Exception e) {  
+
+			e.printStackTrace(); 
+
+		} finally { 
+
+			if (mongo != null) { 
+
+				mongo.closeConnection();
+			}
+		}
+
+		return country_map;
+	} 
+
 	/** 
 	 * Returns a set of most popular image links
 	 * @param product_name String containing the product name
 	 * @param from Date containing the starting date
 	 * @param to Date containing the ending date
 	 * @param n Integer containing number of top links to display
-	 * @return Set<String> containing the most poplular image links
+	 * @return Set<String> containing the most popular image links
 	 */ 
-	
+
 	public static Set<String> getMostPopularImageLinks(String product_name,Date from,Date to,int n) { 
 
 		double from_date = DateConverter.getJulianDate(from);
@@ -421,10 +497,117 @@ public class InstagramAnalytics {
 		return tag_set;
 	} 
 	
+	/** 
+	 * Returns the most recent N comments on a particular tag
+	 * @param product String containing the product name
+	 * @param tagId String containing the tagId
+	 * @param n Integer containing the count of comments to be fetched
+	 * @return Set<String> containing the comments
+	 */ 
+	
+	public static Set<String> getCommentSetForTag(String product,String tagId,int n) { 
+
+		Set<String> comment_set = new HashSet<String>();
+		DBCollection collection;
+		DBCursor cursor;
+		DBObject query;
+		DBObject fields;
+		DBObject temp;
+		DBObject sort_by;
+		MongoBase mongo = null; 
+		collection_name = collection_names.get(product.toLowerCase().trim()); 
+
+		query = new BasicDBObject("Channel","Instagram").append("TagId",tagId).append("Type","comment");
+		fields = new BasicDBObject("Message",1).append("Timestamp",1);
+		sort_by = new BasicDBObject("Timestamp",-1);
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.setCollection(collection_name);
+			collection = mongo.getCollection(); 
+			cursor = collection.find(query, fields);
+			cursor = cursor.sort(sort_by).limit(n); 
+
+			while (cursor.hasNext()) { 
+
+				temp = cursor.next();
+				comment_set.add((String) temp.get("Message"));
+			} 
+
+		} catch (Exception e) {  
+
+			e.printStackTrace(); 
+
+		} finally { 
+
+			if (mongo != null) {  
+
+				mongo.closeConnection();
+			}
+		}
+
+		return comment_set;
+	}
+	
+	/** 
+	 * Given a product name and a tagId returns the set of comments associated with it
+	 * @param product String containing the product name
+	 * @param tagId String containing the tagId
+	 * @return Set<String> containing the set of comments for the given tagId
+	 */ 
+	
+	public static Set<String> getCommentSetForTag(String product,String tagId) { 
+
+		Set<String> comment_set = new HashSet<String>();
+		DBCollection collection;
+		DBCursor cursor;
+		DBObject query;
+		DBObject fields;
+		DBObject temp;
+		MongoBase mongo = null; 
+		collection_name = collection_names.get(product.toLowerCase().trim()); 
+
+		query = new BasicDBObject("Channel","Instagram").append("TagId",tagId).append("Type","comment");
+		fields = new BasicDBObject("Message",1).append("Timestamp",1);
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.setCollection(collection_name);
+			collection = mongo.getCollection(); 
+			cursor = collection.find(query, fields); 
+
+			while (cursor.hasNext()) { 
+
+				temp = cursor.next();
+				comment_set.add((String) temp.get("Message"));
+			} 
+
+		} catch (Exception e) {  
+
+			e.printStackTrace(); 
+
+		} finally { 
+
+			if (mongo != null) {  
+
+				mongo.closeConnection();
+			}
+		}
+
+		return comment_set;
+	} 
+	
+	/** 
+	 * Main function to test the functionality of the class
+	 * @param args
+	 */ 
+	
 	public static void main(String args[]) { 
 
 		DateTime now = new DateTime();
 		DateTime prev = now.minusYears(2);
-		System.out.println(getMostPopularTags("Giveaway",prev.toDate(),now.toDate(), 17));
+		System.out.println(getCommentSetForTag("Giveaway","1038132898951639635_1975622603",5));
 	}
 }
