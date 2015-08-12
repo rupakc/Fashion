@@ -554,7 +554,7 @@ public class InstagramAnalytics {
 	 * Given a product name and a tagId returns the set of likes associated with it
 	 * @param product String containing the product name
 	 * @param tagId String containing the tagId
-	 * @return Set<String> containing the username of likes for the given tagId
+	 * @return Set<String> containing the usernames of likes for the given tagId
 	 */ 
 	
 	public static Set<String> getLikeSetForTag(String product,String tagId) { 
@@ -649,6 +649,60 @@ public class InstagramAnalytics {
 	} 
 	
 	/** 
+	 * Given a product name and TagId returns a set of comments during a specified time interval 
+	 * @param product String containing the product name
+	 * @param tagId String containing the tagId
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Set<String> containing the Set of tags for the given products
+	 */ 
+	
+	public static Set<String> getCommentSetForTag(String product,String tagId,Date from,Date to) { 
+
+		Set<String> comment_set = new HashSet<String>();
+		DBCollection collection;
+		DBCursor cursor;
+		DBObject query;
+		DBObject fields;
+		DBObject temp;
+		MongoBase mongo = null; 
+		collection_name = collection_names.get(product.toLowerCase().trim()); 
+		double from_date = DateConverter.getJulianDate(from);
+		double to_date = DateConverter.getJulianDate(to); 
+		
+		query = new BasicDBObject("Channel","Instagram").append("TagId",tagId).append("Type","comment").
+				append("Timestamp", new BasicDBObject("$gte",from_date).append("$lte", to_date));
+		fields = new BasicDBObject("Message",1).append("Timestamp",1);
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.setCollection(collection_name);
+			collection = mongo.getCollection(); 
+			cursor = collection.find(query, fields); 
+
+			while (cursor.hasNext()) { 
+
+				temp = cursor.next();
+				comment_set.add((String) temp.get("Message"));
+			} 
+
+		} catch (Exception e) {  
+
+			e.printStackTrace(); 
+
+		} finally { 
+
+			if (mongo != null) {  
+
+				mongo.closeConnection();
+			}
+		}
+
+		return comment_set;
+	}  
+	
+	/** 
 	 * Main function to test the functionality of the class
 	 * @param args
 	 */ 
@@ -657,6 +711,6 @@ public class InstagramAnalytics {
 
 		DateTime now = new DateTime();
 		DateTime prev = now.minusYears(2);
-		System.out.println(getCommentSetForTag("Giveaway","1038132898951639635_1975622603",5));
+		System.out.println(getCommentSetForTag("Giveaway","1038132898951639635_1975622603",prev.toDate(),now.toDate()));
 	}
 }
