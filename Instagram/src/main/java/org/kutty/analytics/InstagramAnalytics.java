@@ -27,7 +27,7 @@ import com.mongodb.DBObject;
  * @for Kutty 
  * @since 18 July, 2015 
  *  
- *  TODO - Add user analytics,like and comment count
+ *  TODO - Add user analytics,like and comment count (between dates)
  */ 
 
 public class InstagramAnalytics {
@@ -549,6 +549,55 @@ public class InstagramAnalytics {
 
 		return comment_set;
 	}
+	
+	/** 
+	 * Given a product name and a tagId returns the set of likes associated with it
+	 * @param product String containing the product name
+	 * @param tagId String containing the tagId
+	 * @return Set<String> containing the username of likes for the given tagId
+	 */ 
+	
+	public static Set<String> getLikeSetForTag(String product,String tagId) { 
+
+		Set<String> like_set = new HashSet<String>();
+		DBCollection collection;
+		DBCursor cursor;
+		DBObject query;
+		DBObject fields;
+		DBObject temp;
+		MongoBase mongo = null; 
+		collection_name = collection_names.get(product.toLowerCase().trim()); 
+
+		query = new BasicDBObject("Channel","Instagram").append("TagId",tagId).append("Type","like");
+		fields = new BasicDBObject("UsernameLike",1).append("Timestamp",1);
+
+		try { 
+
+			mongo = new MongoBase();
+			mongo.setCollection(collection_name);
+			collection = mongo.getCollection(); 
+			cursor = collection.find(query, fields); 
+
+			while (cursor.hasNext()) { 
+
+				temp = cursor.next();
+				like_set.add((String) temp.get("UsernameLike"));
+			} 
+
+		} catch (Exception e) {  
+
+			e.printStackTrace(); 
+
+		} finally { 
+
+			if (mongo != null) {  
+
+				mongo.closeConnection();
+			}
+		}
+
+		return like_set;
+	} 
 	
 	/** 
 	 * Given a product name and a tagId returns the set of comments associated with it
