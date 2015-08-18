@@ -33,7 +33,7 @@ import com.mongodb.DBObject;
 public class InstagramAnalytics {
 
 	public static String product_name;
-	public static String collection_name = "Fashion";
+	public static String collection_name;
 	public static Map<String,String> collection_names = new HashMap<String,String>();
 
 	/** 
@@ -703,6 +703,80 @@ public class InstagramAnalytics {
 	}  
 	
 	/** 
+	 * Returns the Mapping between the country and its respective count
+	 * @param product String containing the product name for which this has to be calculated
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the country name and its count
+	 */ 
+	
+	public static Map<String,Integer> getCountryBase(String product,Date from,Date to) {  
+		
+		double from_date = DateConverter.getJulianDate(from);
+		double to_date = DateConverter.getJulianDate(to);
+		Map<String,Integer> country_map = new HashMap<String,Integer>(); 
+		
+		DBCollection collection;
+		DBCursor cursor;
+		DBObject query;
+		DBObject fields;
+		BasicDBList query_list;
+		DBObject temp;
+		MongoBase mongo = null; 
+		String country = "";
+		int count; 
+		collection_name = collection_names.get(product_name.toLowerCase().trim()); 
+
+		query_list = new BasicDBList();
+		query_list.add(new BasicDBObject("Type", "tag"));
+		query_list.add(new BasicDBObject("Type", "image"));
+		query_list.add(new BasicDBObject("Type", "video"));
+
+		query = new BasicDBObject("Channel","Instagram").append("$or", query_list).
+				append("Timestamp", new BasicDBObject("$gte",from_date).append("$lte", to_date)); 
+
+		fields = new BasicDBObject("Country",1).append("CaptionText",1);
+
+		try {  
+			
+			mongo = new MongoBase();
+			mongo.setCollection(collection_name);
+			collection = mongo.getCollection(); 
+			cursor = collection.find(query,fields); 
+			
+			while(cursor.hasNext()) { 
+				
+				temp = cursor.next();
+				country = (String) temp.get("Country");
+				
+				if(country != null && !country.isEmpty()) { 
+					
+					if (country_map.containsKey(country)) { 
+						
+						count = country_map.get(country);
+						country_map.put(country,count+1); 
+						
+					} else { 
+						
+						country_map.put(country, 1);
+					}
+				}
+			} 
+			
+		} catch (Exception e) { 
+			
+			e.printStackTrace(); 
+			
+		} finally { 
+			if (mongo != null) { 
+				mongo.closeConnection();
+			}
+		}
+		
+		return country_map;
+	}
+	
+	/** 
 	 * Main function to test the functionality of the class
 	 * @param args
 	 */ 
@@ -712,5 +786,6 @@ public class InstagramAnalytics {
 		DateTime now = new DateTime();
 		DateTime prev = now.minusYears(2);
 		System.out.println(getCommentSetForTag("Giveaway","1038132898951639635_1975622603",prev.toDate(),now.toDate()));
+		System.out.println(getCountryMap("Giveaway",prev.toDate(),now.toDate()));
 	}
 }
