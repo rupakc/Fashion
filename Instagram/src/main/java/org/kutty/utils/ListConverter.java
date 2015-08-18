@@ -151,4 +151,23 @@ public class ListConverter {
 
 		return csv;
 	}
+	
+	/** 
+	 * Given a CSV of tags converts it into a set
+	 * @param tagset String containing the tagset
+	 * @return Set<String> containing the tagset
+	 */
+	
+	public static Set<String> getTagSet(String tagset) { 
+		
+		Set<String> tags = new HashSet<String>();
+		String tag_array [] = tagset.split(",");
+		
+		for (int i = 0; i < tag_array.length; i++) { 
+			
+			tags.add(tag_array[i]);
+		}
+		
+		return tags;
+	}
 }

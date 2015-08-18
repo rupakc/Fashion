@@ -44,7 +44,7 @@ public class CommitToFile {
 	
 	public CommitToFile() throws IOException, LangDetectException { 
 
-		//populateDB("product_list.txt","channel_list.txt");
+		populateDB("collection_names.txt","channel_list.txt");
 		LanguageDetector.init("profiles");
 	}
 	
@@ -52,8 +52,19 @@ public class CommitToFile {
 	 * TBD
 	 */ 
 	
-	public void populateDB() { 
-
+	public void populateTrainDB() { 
+		
+		for(String channel : channel_names.values()) { 
+			
+			for(String collection : collection_names.values()) { 
+				
+				try {
+					writeToFile(collection,channel);
+				} catch (IOException | LangDetectException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	} 
 	
 	/** 
@@ -117,19 +128,11 @@ public class CommitToFile {
 		MongoBase mongo = new MongoBase(); 
 		FileWriter fw;
 		BufferedWriter bw; 
-
-		collection_name = collection_name.toLowerCase();
-		collection_name = collection_name.trim();
-		channel_name = channel_name.toLowerCase();
-		channel_name = channel_name.trim();
-
-		collection_name = collection_names.get(collection_name);
-		channel_name = channel_names.get(channel_name);
-
+		
 		mongo.setCollection(collection_name);
 		DBCollection collection;
 		DBObject query;
-
+		int count = 0;
 		collection = mongo.getCollection();
 		query = new BasicDBObject("Channel",channel_name);
 
@@ -163,10 +166,14 @@ public class CommitToFile {
 
 				if (!checkInFile(s,file_name) && LanguageDetector.detect(s).equalsIgnoreCase("en")) { 
 
-					s = "<eop>" + s + "</eop>";
+					//s = "<eop>" + s + "</eop>";
 					bw.write(s);
 					System.out.println(s);
 					bw.newLine();
+					count++;
+					if (count > 700) { 
+						break;
+					}
 				}
 			}
 		}
@@ -184,7 +191,7 @@ public class CommitToFile {
 	 * @throws LangDetectException
 	 */ 
 	
-	public void writeInstagramCaptionTextToFile(String filename,String collection_name) throws IOException, LangDetectException {
+	public static void writeInstagramCaptionTextToFile(String filename,String collection_name) throws IOException, LangDetectException {
 
 		MongoBase mongo = new MongoBase();
 		mongo.setCollection(collection_name);
@@ -195,7 +202,6 @@ public class CommitToFile {
 		DBCollection collection;
 		BasicDBList tagList;
 		BasicDBObject temp;
-		String text = ""; 
 		String longitude = "";
 		String latitude = ""; 
 		String tagset = "";
@@ -213,35 +219,28 @@ public class CommitToFile {
 
 		fw = new FileWriter(filename,true);
 		bw = new BufferedWriter(fw);
-
+		int count = 0;
 		query = new BasicDBObject("Channel","Instagram");
 		fields = new BasicDBObject("CaptionText",1).append("TagSet",1).
 					 append("Latitude",1).append("Longitude", 1); 
 		
 		collection = mongo.getCollection();
-
-		cursor = collection.find(query, fields);
-
-		while(cursor.hasNext()) { 
-			
-			temp = (BasicDBObject) cursor.next(); 
-			
-			text = (String) temp.get("CaptionText"); 
+		
+		List<String> caption_list = collection.distinct("CaptionText"); 
+		
+		for(String text:caption_list) { 
 			
 			if (LanguageDetector.detect(text).equalsIgnoreCase("en")) {  
 				
-				tagList = (BasicDBList) temp.get("TagSet"); 
-				longitude = String.valueOf(temp.get("Longitude"));
-				latitude = String.valueOf(temp.get("Latitude")); 
+				query.put("CaptionText",text);
+				tagList = (BasicDBList) collection.findOne(query,fields).get("TagSet");
 				text = Clean.removeNewLines(text); 
 				tagset = ListConverter.getCSVSet(tagList); 
 				
 				text = getXMLTaggedString(text,"CaptionText");
-				longitude = getXMLTaggedString(longitude, "Longitude");
-				latitude = getXMLTaggedString(latitude, "Latitude");
 				tagset = getXMLTaggedString(tagset, "TagSet");
 				
-				full_tag = tagset + "\n" + text + "\n" + latitude + "\n" + longitude;
+				full_tag = tagset + "\n" + text + "\n" + getXMLTaggedString("","SentimentLabel");
 				full_tag = getXMLTaggedString(full_tag, "Tag");
 				full_tag = full_tag + "\n";  
 				
@@ -249,11 +248,17 @@ public class CommitToFile {
 				
 				bw.write(full_tag);
 				bw.newLine();
+				count++; 
+				System.out.println("Count is : " + count);
+				if (count > 700) { 
+					break;
+				}
 			}	
 		}
 
 		bw.close();
-		fw.close();
+		fw.close(); 
+		
 		mongo.closeConnection();
 	} 
 	
@@ -264,7 +269,7 @@ public class CommitToFile {
 	 * @return String containing the tagged text
 	 */ 
 	
-	public String getXMLTaggedString(String text,String tag_name) { 
+	public static String getXMLTaggedString(String text,String tag_name) { 
 		
 		String opening_tag = "";
 		String closing_tag = "";
@@ -319,4 +324,13 @@ public class CommitToFile {
 
 		return exists;
 	} 
+	
+	public static void main(String args[]) { 
+		
+		try {
+			new CommitToFile().populateTrainDB();
+		} catch (IOException | LangDetectException e) {
+			e.printStackTrace();
+		}
+	}
 }

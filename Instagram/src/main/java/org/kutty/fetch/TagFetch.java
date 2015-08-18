@@ -336,7 +336,7 @@ public class TagFetch extends Thread{
 		for (int i = 0; i < data_array.size(); i++) { 
 
 			temp = (JSONObject) data_array.get(i);
-			media_count = (Long) temp.get("media_count");
+			media_count = (long)(double) temp.get("media_count");
 			name = (String) temp.get("name");
 
 			tag_map.put(name, media_count);
