@@ -67,7 +67,7 @@ public class FeatureUtil {
 			e.printStackTrace();
 		}
 	} 
-	
+	//TODO - Add label counts
 	/** 
 	 * Loads the class label maps for a given filename
 	 * @param filename String containing the filename
@@ -327,6 +327,8 @@ public class FeatureUtil {
 				post.setContent(caption);
 				post.setGiveawayLabel(class_label);
 				post.setTagset(tagset);
+				
+				post_list.add(post);
 			}
 
 			end_tag = content.indexOf('>',end_tag+1);
@@ -376,6 +378,8 @@ public class FeatureUtil {
 				post.setSentimentLabel(class_label);
 				post.setSpamLabel(spam_label);
 				post.setTagset(tagset);
+				
+				post_list.add(post);
 			}
 
 			end_tag = content.indexOf('>',end_tag+1);
@@ -476,8 +480,9 @@ public class FeatureUtil {
 	public static void main(String args[]) { 
 
 		List<Post> post_list = new ArrayList<Post>();
-		System.out.println(getTagContent("<Tag> sfsjsdfj <></Tag>","Tag"));
-		populateInstagramGiveawayData("Giveaway.txt", post_list);
+		populateInstagramGiveawayData("insta_test.txt", post_list);
+		System.out.println(post_list);
+		System.out.println(LabelCountUtil.getGiveawayLabelCount(post_list));
 		//populateOtherChannelData("test.txt", post_list);
 	}
 }

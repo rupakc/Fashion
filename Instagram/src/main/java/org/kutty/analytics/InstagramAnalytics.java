@@ -14,6 +14,7 @@ import org.joda.time.DateTime;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
 import org.kutty.utils.ListConverter;
+import org.kutty.utils.PrintUtil;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
@@ -786,6 +787,6 @@ public class InstagramAnalytics {
 		DateTime now = new DateTime();
 		DateTime prev = now.minusYears(2);
 		System.out.println(getCommentSetForTag("Giveaway","1038132898951639635_1975622603",prev.toDate(),now.toDate()));
-		System.out.println(getCountryMap("Giveaway",prev.toDate(),now.toDate()));
+		PrintUtil.printMap(getCountryMap("Giveaway",prev.toDate(),now.toDate()));
 	}
 }
