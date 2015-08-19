@@ -27,6 +27,10 @@ public class FeatureUtil {
 	public static Map<String,String> spam_map = new HashMap<String,String>();
 	public static Map<String,String> giveaway_map = new HashMap<String,String>();
 	public static Map<String,String> sentiment_map = new HashMap<String,String>(); 
+	public static Map<String,Integer> spam_count_map = new HashMap<String,Integer>();
+	public static Map<String,Integer> sentiment_count_map = new HashMap<String,Integer>();
+	public static Map<String,Integer> giveaway_count_map = new HashMap<String,Integer>(); 
+	
 	public final static String stopword_filename = "stopwords.txt"; 
 	public final static String spam_filename = "spam_label.txt";
 	public final static String giveaway_filename = "giveaway_label.txt";
@@ -42,6 +46,9 @@ public class FeatureUtil {
 		loadLabelMaps(giveaway_filename, giveaway_map);
 		loadLabelMaps(sentiment_filename, sentiment_map);
 		loadLabelMaps(spam_filename, spam_map);
+		initLabelCountMap(giveaway_map, giveaway_count_map);
+		initLabelCountMap(sentiment_map, sentiment_count_map);
+		initLabelCountMap(spam_map,spam_count_map);
 	} 
 
 	/** 
@@ -66,8 +73,21 @@ public class FeatureUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	} 
-	//TODO - Add label counts
+	}  
+	
+	/** 
+	 * Initializes the label count map with zero values
+	 * @param label_map Map<T1,T2> containing the class labels
+	 * @param label_count_map Map<T2,Integer> containing the count of each label
+	 */ 
+	
+	public static <T1,T2> void initLabelCountMap(Map<T1,T2> label_map,Map<T2,Integer> label_count_map) {
+		
+		for (T2 temp : label_map.values()) { 
+			label_count_map.put(temp,0);
+		}
+	}
+	
 	/** 
 	 * Loads the class label maps for a given filename
 	 * @param filename String containing the filename
@@ -480,9 +500,10 @@ public class FeatureUtil {
 	public static void main(String args[]) { 
 
 		List<Post> post_list = new ArrayList<Post>();
-		populateInstagramGiveawayData("insta_test.txt", post_list);
+		populateInstagramGiveawayData("test.txt", post_list);
 		System.out.println(post_list);
-		System.out.println(LabelCountUtil.getGiveawayLabelCount(post_list));
+		giveaway_count_map.putAll(LabelCountUtil.getGiveawayLabelCount(post_list));
+		System.out.println(giveaway_count_map);
 		//populateOtherChannelData("test.txt", post_list);
 	}
 }
