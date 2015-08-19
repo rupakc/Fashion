@@ -67,7 +67,14 @@ public class FeatureUtil {
 			e.printStackTrace();
 		}
 	} 
-
+	
+	/** 
+	 * Loads the class label maps for a given filename
+	 * @param filename String containing the filename
+	 * @param label_map Map<T1,T2> containing the mapping between the class label and class code
+	 */ 
+	
+	@SuppressWarnings("unchecked")
 	public static <T1, T2> void loadLabelMaps(String filename,Map<T1,T2> label_map) { 
 
 		BufferedReader br;
@@ -76,29 +83,29 @@ public class FeatureUtil {
 		int index; 
 		T1 alias;
 		T2 label; 
-		
+
 		try { 
-			
+
 			fr = new FileReader(filename);
 			br = new BufferedReader(fr);
 
 			while((temp = br.readLine()) != null) { 
-				
+
 				index = -1;
 				index = temp.indexOf('=');
-				
+
 				if (index != -1) { 
-					
+
 					alias = (T1) temp.substring(0,index).trim();
 					label = (T2) temp.substring(index+1).trim();
-					
+
 					label_map.put(alias, label);
 				}
 			}
 		} catch (Exception e) { 
 			e.printStackTrace();
 		}
-		
+
 	} 
 
 	/** 
@@ -219,6 +226,12 @@ public class FeatureUtil {
 		return n_gram_string;
 	}
 
+	/** 
+	 * Given the data containing the Instagram posts returns a string of the data
+	 * @param filename String containing the filename
+	 * @return String containing the entire data of the file
+	 */ 
+
 	public static String loadInstagramData(String filename) { 
 
 		BufferedReader br;
@@ -249,8 +262,47 @@ public class FeatureUtil {
 		return data;
 	}
 
-	public static void populateInstagramData(String filename,List<Post> post_list) { 
-		
+	/** 
+	 * Given a tag name returns the content of the tag
+	 * @param s String containing the text
+	 * @param tagname String containing the tagname
+	 * @return String containing the content of the tag
+	 */ 
+
+	public static String getTagContent(String s,String tagname) { 
+
+		String start_tag = "<" + tagname + ">";
+		String end_tag = "</" + tagname + ">";
+		String tag_content = ""; 
+
+		int start_index = -1;
+		int end_index = -1;
+
+		start_index = s.indexOf(start_tag);
+		end_index = s.indexOf(end_tag); 
+
+		if (start_index != -1 && end_index != -1) { 
+
+			start_index = s.indexOf('>',start_index+1);
+			end_index = s.indexOf('<', end_index-1);
+
+			if (start_index != -1 && end_index != -1) { 
+
+				tag_content = s.substring(start_index+1, end_index);
+			}
+		}
+
+		return tag_content;
+	} 
+
+	/** 
+	 * Given the Instagram data file loads it in a list of posts
+	 * @param filename String containing the filename
+	 * @param post_list List<Post> containing the list of posts
+	 */ 
+
+	public static void populateInstagramGiveawayData(String filename,List<Post> post_list) { 
+
 		int start_tag = -1;
 		int end_tag = -1;
 		String content = loadInstagramData(filename);
@@ -258,40 +310,174 @@ public class FeatureUtil {
 		String tagset = ""; 
 		String class_label = ""; 
 		end_tag = content.indexOf("</Tag>"); 
-		
+		Post post; 
+
 		while(end_tag != -1) { 
-			
+
 			start_tag = content.indexOf("<Tag>");
-			
+
 			if (start_tag != -1) { 
+
+				tagset = getTagContent(content, "TagSet");
+				caption = getTagContent(content, "CaptionText");
+				class_label = getTagContent(content, "ClassLabel"); 
+				class_label = giveaway_map.get(class_label); 
 				
-				start_tag = content.indexOf("<TagSet>",start_tag+1);
-				start_tag = content.indexOf(">",start_tag+1);
-				end_tag = content.indexOf("</TagSet>", start_tag+1);
-				
-				tagset = content.substring(start_tag+1, end_tag).trim();
-				
-				System.out.println(tagset);
-				
+				post = new Post();
+				post.setContent(caption);
+				post.setGiveawayLabel(class_label);
+				post.setTagset(tagset);
 			}
-		}
-		
-	} 
 
-	public static void populateOtherChannelData(String filename,List<Post> post_list) { 
+			end_tag = content.indexOf('>',end_tag+1);
 
+			if (end_tag != -1) { 
+				content = content.substring(end_tag+1);
+			}
+
+			end_tag = content.indexOf("</Tag>");
+		}	
 	} 
 	
+	/** 
+	 * Loads Instagram data from external file and populates the List of posts
+	 * @param filename String containing the filename which has data
+	 * @param post_list List<Post> containing the list of posts
+	 */ 
+	
+	public static void populateInstagramSentimentData(String filename,List<Post> post_list) { 
+
+		int start_tag = -1;
+		int end_tag = -1;
+		String content = loadInstagramData(filename);
+		String caption = "";
+		String tagset = ""; 
+		String class_label = ""; 
+		end_tag = content.indexOf("</Tag>");
+		String [] labels;
+		String spam_label = "";
+		Post post; 
+		
+		while(end_tag != -1) { 
+
+			start_tag = content.indexOf("<Tag>");
+
+			if (start_tag != -1) { 
+
+				tagset = getTagContent(content, "TagSet");
+				caption = getTagContent(content, "CaptionText");
+				class_label = getTagContent(content, "SentimentLabel"); 
+				labels = class_label.split(",");
+				spam_label = spam_map.get(labels[0].trim());
+				class_label = sentiment_map.get(labels[1].trim()); 
+				
+				post = new Post();
+				post.setContent(caption);
+				post.setSentimentLabel(class_label);
+				post.setSpamLabel(spam_label);
+				post.setTagset(tagset);
+			}
+
+			end_tag = content.indexOf('>',end_tag+1);
+
+			if (end_tag != -1) { 
+				content = content.substring(end_tag+1);
+			}
+
+			end_tag = content.indexOf("</Tag>");
+		}	
+	} 
+	
+	/** 
+	 * Given a sentence for other channels returns the class label set
+	 * @param sentence String containing the sentence from which the data is retrieved
+	 * @return String containing the tag labels
+	 */ 
+	
+	public static String getTagLabelOtherChannel(String sentence) { 
+
+		int start_index = -1;
+		int end_index = -1; 
+
+		String taglabels = "";
+
+		end_index = sentence.indexOf('>');
+		start_index = sentence.indexOf('<'); 
+
+		if (start_index != -1 && end_index != -1) { 
+
+			taglabels = sentence.substring(start_index+1, end_index);
+		}
+
+		return taglabels;
+	} 
+	
+	/** 
+	 * Given a string returns the sentence/content
+	 * @param sentence String containing the sentence
+	 * @return String which contains only the content
+	 */ 
+	
+	public static String getSentence(String sentence) { 
+		
+		int index = -1;
+		String content = "";
+		index = sentence.indexOf('>'); 
+		
+		if (index != -1) { 
+			
+			content = sentence.substring(index+1);
+		}
+		
+		return content.trim();
+	} 
+	
+	/** 
+	 * Populates the post list with data from channels other than Instagram
+	 * @param filename String containing the filename from which the data has to be read
+	 * @param post_list List<Post> containing the information about the posts
+	 */ 
+	
+	public static void populateOtherChannelData(String filename,List<Post> post_list) { 
+
+		BufferedReader br;
+		FileReader fr;
+		String temp = ""; 
+		String [] array;
+		Post post; 
+		
+		try { 
+			
+			fr = new FileReader(filename);
+			br = new BufferedReader(fr); 
+			
+			while((temp = br.readLine()) != null) { 
+				
+				String taglabels = getTagLabelOtherChannel(temp);
+				array = taglabels.trim().split(",");
+				String spam_label = spam_map.get(array[0].trim());
+				String sentiment_label = sentiment_map.get(array[1].trim());
+				String content = getSentence(temp); 
+				
+				post = new Post();
+				post.setContent(content);
+				post.setSpamLabel(spam_label);
+				post.setSentimentLabel(sentiment_label);
+	
+				post_list.add(post);
+			} 
+			
+		} catch (Exception e) { 
+			
+			e.printStackTrace();
+		}
+	} 
+
 	public static void main(String args[]) { 
 
-		System.out.println(getStem("buying"));
-		System.out.println(removeStopWords("Go to the river"));
-		System.out.println(getNGram("Go to the river by the sea", 2));
-		//System.out.println(loadInstagramData("Giveaway.txt"));
-		System.out.println(sentiment_map);
-		System.out.println(spam_map);
-		System.out.println(giveaway_map);
 		List<Post> post_list = new ArrayList<Post>();
-		populateInstagramData("Giveaway.txt", post_list);
+		System.out.println(getTagContent("<Tag> sfsjsdfj <></Tag>","Tag"));
+		populateInstagramGiveawayData("Giveaway.txt", post_list);
+		//populateOtherChannelData("test.txt", post_list);
 	}
 }

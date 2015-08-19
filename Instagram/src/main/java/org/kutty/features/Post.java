@@ -114,5 +114,20 @@ public class Post {
 	public void setGiveawayLabel(String giveawayLabel) { 
 		
 		this.giveawayLabel = giveawayLabel;
-	}	
+	}
+	
+	/** 
+	 * Prints the attributes of the post object to the console 
+	 */
+	
+	public void printPost() { 
+		
+		System.out.println("--------------------------------------------------------");
+		System.out.println("Content : " + this.content);
+		System.out.println("Giveaway : " + this.giveawayLabel);
+		System.out.println("Sentiment Label : " + this.sentimentLabel);
+		System.out.println("Spam Label : " + this.spamLabel);
+		System.out.println("Tag Set : " + this.tagset);
+		System.out.println("---------------------------------------------------------");
+	}
 }

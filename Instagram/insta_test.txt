@@ -1,0 +1,23 @@
+<Tag>
+<TagSet>
+shop,unique,colorstaticboutique,colorful,jewelry,igstyle,onlineshop,oneofakind,dresses,gowns,prints,flowers,custom,igers,ootn,dressshopping,customdresses,colors,ootd,sale,igfashion,specialorder,onlineboutique,dress,couture,shopping,floral,fabulous,
+</TagSet>
+<CaptionText>
+Welcome to #ColorstaticBoutique! Follow for #unique fashion. Online store launching soon! Free giveaways every month...follow and stay tuned to find out how!  #customdresses, #dresses, #shop, #dress #jewelry #colorful #prints #colors #gowns #couture #oneofakind #fabulous #dressshopping #sale #floral #flowers #specialorder #custom #igfashion #igstyle #igers #ootd #ootn #shopping #onlineshop #onlineboutique
+</CaptionText>
+<ClassLabel>
+1
+</ClassLabel>
+</Tag>
+
+<Tag>
+<TagSet>
+shop,unique,colorstaticboutique,colorful,jewelry,igstyle,onlineshop,oneofakind,dresses,gowns,prints,flowers,custom,igers,ootn,fashionaddict,dressshopping,customdresses,colors,ootd,sale,models,igfashion,specialorder,onlineboutique,dress,couture,shopping,fabulous,floral,
+</TagSet>
+<CaptionText>
+Welcome to #ColorstaticBoutique! Follow for #unique fashion. Online store launching soon! Free giveaways every month...follow and stay tuned to find out how!  #customdresses, #dresses, #shop, #dress #jewelry #colorful #prints #colors #gowns #couture #oneofakind #fabulous #dressshopping #sale #floral #flowers #specialorder #custom #igfashion #igstyle #igers #ootd #ootn #shopping #onlineshop #onlineboutique #fashionaddict #models
+</CaptionText>
+<ClassLabel>
+1
+</ClassLabel>
+</Tag>
