@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.joda.time.DateTime;
 import org.joda.time.Months;
+import org.joda.time.Years;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
 
@@ -25,7 +26,7 @@ import com.mongodb.DBCollection;
  * @for Kutty 
  * @since 5 August, 2015
  * 
- * TODO- Add Last N Years, Hours and Weeks
+ * TODO- Add Last N Hours and Weeks
  */
 
 public class MetaAnalytics {
@@ -57,8 +58,8 @@ public class MetaAnalytics {
 	}  
 
 	/** 
-	 * 
-	 * @return
+	 * Returns the channel name
+	 * @return String containing the channel name
 	 */ 
 
 	public static String getChannelName() { 
@@ -67,8 +68,8 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @param channel_name
+	 * Sets the channel name for the analytics
+	 * @param channel_name String containing the channel_name
 	 */ 
 
 	public static void setChannelName(String channel_name) { 
@@ -77,8 +78,8 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @return
+	 * Returns the product name for a given feature
+	 * @return String containing the product name
 	 */ 
 
 	public static String getProductName() { 
@@ -87,8 +88,8 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @param product_name
+	 * Sets the product name 
+	 * @param product_name String containing the product name
 	 */ 
 
 	public static void setProductName(String product_name) { 
@@ -97,8 +98,8 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @return
+	 * Returns the start date for a given period
+	 * @return Date containing the date object
 	 */ 
 
 	public static Date getStartDate() { 
@@ -107,8 +108,8 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @param start_date
+	 * Sets the starting date for the analytics
+	 * @param start_date Date containing the starting date
 	 */ 
 
 	public static void setStartDate(Date start_date) { 
@@ -117,8 +118,8 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @return
+	 * Returns the ending date for the analytics
+	 * @return Date object containing the ending date
 	 */ 
 
 	public Date getEndDate() { 
@@ -127,8 +128,8 @@ public class MetaAnalytics {
 	}
 
 	/** 
-	 * 
-	 * @param end_date
+	 * Sets the ending date 
+	 * @param end_date Date containing the ending date
 	 */ 
 
 	public void setEndDate(Date end_date) { 
@@ -419,6 +420,41 @@ public class MetaAnalytics {
 	} 
 	
 	/** 
+	 * Returns the count of the posts received by a given product per year 
+	 * @param product String containing the product name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the month name and post count
+	 */ 
+	
+	public static Map<String,Integer> getAllLastNYearsProductChannel(String product,String channel,Date from,Date to) { 
+
+		Map<String,Integer> year_map = new HashMap<String,Integer>();
+		String year_name = ""; 
+
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		int years = Years.yearsBetween(from_date, to_date).getYears();
+		int count = 0; 
+		Date now;
+		Date prev; 
+		
+		for (int i = 0; i <= years; i++) {  
+
+			year_name = to_date.minusYears(i).year().getAsText();
+			prev = to_date.minusYears(i).toDate();
+			now = to_date.minusYears(i-1).toDate();
+			count = getProductChannelPostCount(product, channel,prev,now); 
+			
+			year_map.put(year_name, count);
+
+		} 
+
+		return year_map;
+	} 
+	
+	/** 
 	 * Returns the count of the posts received by a given product 
 	 * @param product String containing the product name
 	 * @param channel String containing the channel name
@@ -452,7 +488,7 @@ public class MetaAnalytics {
 
 		return month_map;
 	} 
-	
+
 	/** 
 	 * Returns the mapping between the month name and the post count for that month
 	 * @param product String containing the product name
@@ -488,13 +524,47 @@ public class MetaAnalytics {
 	} 
 	
 	/** 
+	 * Returns the mapping between the year name and the post count for that year
+	 * @param product String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map<String,Integer> containing the mapping between the year name and post count
+	 */ 
+	
+	public static Map<String,Integer> getAllLastNYearsProduct(String product,Date from,Date to) { 
+
+		Map<String,Integer> year_map = new HashMap<String,Integer>();
+		String year_name = ""; 
+
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		int years = Years.yearsBetween(from_date, to_date).getYears();
+		int count = 0; 
+		Date now;
+		Date prev; 
+
+		for (int i = 0; i <= years; i++) {  
+
+			year_name = to_date.minusYears(i).year().getAsText();
+			prev = to_date.minusYears(i).toDate();
+			now = to_date.minusYears(i-1).toDate();
+			count = getCollectionSize(product,prev,now); 
+
+			year_map.put(year_name, count);
+
+		} 
+
+		return year_map;
+	} 
+
+	/** 
 	 * Main function to test the functionality of the class
 	 * @param args
 	 */ 
 
 	public static void main(String args[]) { 
 
-		DateTime now = new DateTime();
+		DateTime now = new DateTime("2015-08-15");
 		DateTime prev = now.minusYears(3);
 		System.out.println(getProductChannelPostCount("gueSS", "Instagram",prev.toDate(),now.toDate()));
 		System.out.println(getCollectionSize("Guess"));
@@ -503,5 +573,8 @@ public class MetaAnalytics {
 		prev = now.minusMonths(3);
 		System.out.println(getAllLastNMonthsProductChannel("Guess","Instagram",prev.toDate(),now.toDate()));
 		System.out.println(getAllLastNMonthsProduct("HandM",prev.toDate(),now.toDate()));
+		prev = now.minusYears(3);
+		System.out.println(getAllLastNYearsProductChannel("Guess", "Twitter", prev.toDate(),now.toDate()));
+		
 	}
 }
