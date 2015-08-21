@@ -72,9 +72,28 @@ public class Clean {
 
 	public static String removePunctuationAndJunk(String s) {
 
-		CharSequence target[] = {"!!","w/","!","!!!","w/","RT","@","#","/",":)",":(",":D","^_^","^","...",".","&","\\",":","?","<",">","$","%","*","`","~","-","_","+","=","{","}","[","]","|","\"",",",";",")","(","r/","/u/","*","-"};
+		CharSequence target[] = {"!!","?","w/","!","!!!","w/","RT","@","#","/",":)",":(",":D","^_^","^","...",".","&","\\",":","?","<",">","$","%","*","`","~","-","_","+","=","{","}","[","]","|","\"",",",";",")","(","r/","/u/","*","-"};
 		CharSequence replacement = "";
 
+		for (int i = 0; i < target.length; i++) { 
+
+			s = s.replace(target[i], replacement);
+		}
+
+		return s;
+	}
+	
+	/** 
+	 * Removes any numerical digits from the given string
+	 * @param s String from which the digits have to be removed
+	 * @return String without the occurence of such characters
+	 */ 
+	
+	public static String removeDigits(String s) { 
+		
+		CharSequence target[] = {"0","1","2","3","4","5","6","7","8","9"};
+		CharSequence replacement = "";
+		
 		for (int i = 0; i < target.length; i++) { 
 
 			s = s.replace(target[i], replacement);

@@ -27,9 +27,9 @@ public class FeatureUtil {
 	public static Map<String,String> spam_map = new HashMap<String,String>();
 	public static Map<String,String> giveaway_map = new HashMap<String,String>();
 	public static Map<String,String> sentiment_map = new HashMap<String,String>(); 
-	public static Map<String,Integer> spam_count_map = new HashMap<String,Integer>();
-	public static Map<String,Integer> sentiment_count_map = new HashMap<String,Integer>();
-	public static Map<String,Integer> giveaway_count_map = new HashMap<String,Integer>(); 
+	public Map<String,Integer> spam_count_map = new HashMap<String,Integer>();
+	public Map<String,Integer> sentiment_count_map = new HashMap<String,Integer>();
+	public Map<String,Integer> giveaway_count_map = new HashMap<String,Integer>(); 
 	
 	public final static String stopword_filename = "stopwords.txt"; 
 	public final static String spam_filename = "spam_label.txt";
@@ -46,11 +46,15 @@ public class FeatureUtil {
 		loadLabelMaps(giveaway_filename, giveaway_map);
 		loadLabelMaps(sentiment_filename, sentiment_map);
 		loadLabelMaps(spam_filename, spam_map);
+	} 
+	
+	public FeatureUtil() { 
+		
 		initLabelCountMap(giveaway_map, giveaway_count_map);
 		initLabelCountMap(sentiment_map, sentiment_count_map);
 		initLabelCountMap(spam_map,spam_count_map);
 	} 
-
+	
 	/** 
 	 * Loads the stopword list in memory from a file
 	 * @param filename String containing the stopwords list
@@ -74,6 +78,24 @@ public class FeatureUtil {
 			e.printStackTrace();
 		}
 	}  
+	
+	/** 
+	 * Sanitizes a given string i.e. removes all the punctuation and other noise from it
+	 * @param s String which is to be cleansed
+	 * @return String which is hopefully sanitized
+	 */ 
+	
+	public static String cleanString(String s) { 
+		
+		String clean = "";
+		
+		clean = Clean.cleanHTML(s);
+		clean = Clean.removeURL(s);
+		clean = Clean.removePunctuationAndJunk(s);
+		clean = Clean.removeDigits(clean);
+		
+		return clean;
+	} 
 	
 	/** 
 	 * Initializes the label count map with zero values
@@ -301,12 +323,12 @@ public class FeatureUtil {
 		start_index = s.indexOf(start_tag);
 		end_index = s.indexOf(end_tag); 
 
-		if (start_index != -1 && end_index != -1) { 
+		if (start_index != -1 && end_index != -1 && start_index < s.length()-1) { 
 
 			start_index = s.indexOf('>',start_index+1);
 			end_index = s.indexOf('<', end_index-1);
 
-			if (start_index != -1 && end_index != -1) { 
+			if (start_index != -1 && end_index != -1 && start_index < s.length()-1) { 
 
 				tag_content = s.substring(start_index+1, end_index);
 			}
@@ -347,7 +369,7 @@ public class FeatureUtil {
 				post.setContent(caption);
 				post.setGiveawayLabel(class_label);
 				post.setTagset(tagset);
-				
+				post.printPost();
 				post_list.add(post);
 			}
 
@@ -500,10 +522,10 @@ public class FeatureUtil {
 	public static void main(String args[]) { 
 
 		List<Post> post_list = new ArrayList<Post>();
-		populateInstagramGiveawayData("test.txt", post_list);
-		System.out.println(post_list);
-		giveaway_count_map.putAll(LabelCountUtil.getGiveawayLabelCount(post_list));
-		System.out.println(giveaway_count_map);
+		populateInstagramGiveawayData("Giveaway.txt", post_list);
+		//System.out.println(post_list);
+		//giveaway_count_map.putAll(LabelCountUtil.getGiveawayLabelCount(post_list));
+		//System.out.println(giveaway_count_map);
 		//populateOtherChannelData("test.txt", post_list);
 	}
 }
