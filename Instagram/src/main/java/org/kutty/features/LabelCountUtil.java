@@ -14,7 +14,13 @@ import java.util.Map;
  */ 
 
 public class LabelCountUtil {
-
+	
+	/** 
+	 * Returns a map of Spam Label count for a given post list
+	 * @param post_list List<Post> containing the post list
+	 * @return Map<String,Integer> containing the spam label (i.e. Ham/Spam) and its count
+	 */ 
+	
 	public static Map<String,Integer> getSpamLabelCount(List<Post> post_list) { 
 
 		int count = 0;
@@ -41,7 +47,13 @@ public class LabelCountUtil {
 
 		return spam_label_map;
 	}
-
+	
+	/** 
+	 * Returns a map of sentiment label count for a given post list
+	 * @param post_list List<Post> containing the list of posts
+	 * @return Map<String,Integer> containing the mapping between the sentiment label and its count
+	 */ 
+	
 	public static Map<String,Integer> getSentimentLabelCount(List<Post> post_list) { 
 
 		int count = 0;
@@ -68,7 +80,13 @@ public class LabelCountUtil {
 
 		return sentiment_label_map;
 	} 
-
+	
+	/** 
+	 * For a given post list extracts the giveaway labels (i.e. real or fake)
+	 * @param post_list List<Post> containing the list of posts
+	 * @return Map<String,Integer> containing the mapping between giveawway label and its count
+	 */ 
+	
 	public static Map<String,Integer> getGiveawayLabelCount(List<Post> post_list) { 
 
 		int count = 0;

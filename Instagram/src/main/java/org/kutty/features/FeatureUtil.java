@@ -369,7 +369,6 @@ public class FeatureUtil {
 				post.setContent(caption);
 				post.setGiveawayLabel(class_label);
 				post.setTagset(tagset);
-				post.printPost();
 				post_list.add(post);
 			}
 
@@ -426,7 +425,8 @@ public class FeatureUtil {
 
 			end_tag = content.indexOf('>',end_tag+1);
 
-			if (end_tag != -1) { 
+			if (end_tag != -1) {  
+				
 				content = content.substring(end_tag+1);
 			}
 
