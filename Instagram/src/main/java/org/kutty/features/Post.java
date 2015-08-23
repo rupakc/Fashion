@@ -17,6 +17,19 @@ public class Post {
 	private String giveawayLabel;
 	
 	/** 
+	 * Overloaded public constructor to initialize the post object with default values 
+	 */ 
+	
+	public Post() { 
+		
+		content = "";
+		tagset = "";
+		sentimentLabel = "";
+		spamLabel = "";
+		giveawayLabel = "";
+	} 
+	
+	/** 
 	 * Returns the content of a given a post 
 	 * @return String containing the content
 	 */ 

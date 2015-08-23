@@ -522,7 +522,7 @@ public class FeatureUtil {
 	public static void main(String args[]) { 
 
 		List<Post> post_list = new ArrayList<Post>();
-		populateInstagramGiveawayData("Giveaway.txt", post_list);
+		populateInstagramGiveawayData("giveaway/split_5.txt", post_list);
 		//System.out.println(post_list);
 		//giveaway_count_map.putAll(LabelCountUtil.getGiveawayLabelCount(post_list));
 		//System.out.println(giveaway_count_map);

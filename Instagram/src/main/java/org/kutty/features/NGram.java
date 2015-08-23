@@ -18,11 +18,11 @@ import java.util.Map;
 public class NGram {
 	
 	/** 
-	 * 
-	 * @param filename
-	 * @param n
-	 * @param channel
-	 * @param type
+	 * Defines the pipeline for extraction of NGram features from the given dataset
+	 * @param filename String containing the filename containing the data
+	 * @param n Integer containing the value of N in Ngram
+	 * @param channel String containing the channel name
+	 * @param type String containing the type of data i.e. Sentiment or Giveaway
 	 */ 
 	
 	public static void NGramExtractionPipeline(String filename,int n,String channel,String type) { 
@@ -65,9 +65,7 @@ public class NGram {
 			p.setContent(content);
 			getNGramCount(p,post_list,ngram_count,"giveaway");	
 			System.out.println(ngram_count);
-		}
-		
-		
+		}	
 	}
 
 	/** 
@@ -123,12 +121,12 @@ public class NGram {
 	}
 	
 	/** 
-	 * 
-	 * @param ngram
-	 * @param post_list
-	 * @param ngram_label
-	 * @param type
-	 * @return
+	 * Given an NGram counts its occurrence in dataset
+	 * @param ngram String containing the ngram which is to be counted
+	 * @param post_list List<Post> containing the entire post list
+	 * @param ngram_label String containing the NGram label count
+	 * @param type String containing the type of analysis to be made
+	 * @return Integer containing count of the NGram in a given post list
 	 */ 
 	
 	public static int getNGramCountUtil(String ngram,List<Post> post_list, String ngram_label,String type) { 
@@ -173,10 +171,10 @@ public class NGram {
 	}
 	
 	/** 
-	 * Given an NGram and 
-	 * @param ngram
-	 * @param sentence
-	 * @return
+	 * Given an NGram and a sentence returns the count of the ngram in the sentence
+	 * @param ngram String containing the ngram
+	 * @param sentence String containing the sentence
+	 * @return Integer containing the count of the NGram
 	 */ 
 	
 	public static int getSubStringCount(String ngram,String sentence) {  
