@@ -16,14 +16,35 @@ import java.util.Map;
  * @for Kutty
  * @since 19 August, 2015
  * 
- * TODO - Add Support For TagSet and Test For Null Pointer Exceptions
- * TODO - Check for Spam Support as well And Make things clear for Bigram and Trigrams
+ * TODO - Add Support For TagSet
  */ 
 
 public class NGram {
 
-	Map<String,Integer> label_count_map;
-	Map<String,Integer> spam_count_map; 
+	public Map<String,Integer> label_count_map;
+	public Map<String,Integer> spam_count_map;
+	public Map<String,Double> real_giveaway_count_map;
+	public Map<String,Double> fake_giveaway_count_map;
+	public Map<String,Double> positive_count_map;
+	public Map<String,Double> negative_count_map;
+	public Map<String,Double> neutral_count_map;
+	public Map<String,Double> spam_map;
+	public Map<String,Double> ham_map;
+
+	/** 
+	 * public constructor to initialize the different count maps
+	 */ 
+
+	public NGram() { 
+
+		real_giveaway_count_map = new HashMap<String,Double>();
+		fake_giveaway_count_map = new HashMap<String,Double>();
+		positive_count_map = new HashMap<String,Double>();
+		negative_count_map = new HashMap<String,Double>();
+		neutral_count_map = new HashMap<String,Double>();
+		spam_map = new HashMap<String,Double>();
+		ham_map = new HashMap<String,Double>();
+	} 
 
 	/** 
 	 * Defines the pipeline for extraction of NGram features from the given dataset
@@ -36,7 +57,6 @@ public class NGram {
 	public void NGramExtractionPipeline(String filename,int n,String channel,String type) { 
 
 		List<Post> post_list = new ArrayList<Post>();
-		Map<String,Double> ngram_count = new HashMap<String,Double>();
 		FeatureUtil feat = new FeatureUtil();  
 
 		if (channel.equalsIgnoreCase("Instagram") && type.equalsIgnoreCase("giveaway")) { 
@@ -69,12 +89,101 @@ public class NGram {
 			content = FeatureUtil.getStemPerWord(content);
 			content = FeatureUtil.getNGram(content, n);
 			p.setContent(content);
-			getNGramCount(p,post_list,ngram_count,"giveaway");	
-			System.out.println(ngram_count.size());
+			getNGramCountMapSelector(p,post_list,"giveaway");	
 		}
-		
-		System.out.println(ngram_count);
-		writeGramToFile("giveaway/test.txt", ngram_count);
+
+		writeGramToFileSelector(type);
+	}
+
+	//TODO - Add file selector to write to the correct file
+	
+	/** 
+	 * 
+	 * @param type
+	 */ 
+	
+	public void writeGramToFileSelector(String type) { 
+
+		if (type.equalsIgnoreCase("giveaway")) { 
+
+			writeGramToFile("giveaway/real_1.txt", real_giveaway_count_map);
+			writeGramToFile("giveaway/fake_1.txt", fake_giveaway_count_map);
+		}
+
+		if (type.equalsIgnoreCase("sentiment")) { 
+
+			writeGramToFile("",positive_count_map);
+			writeGramToFile("",negative_count_map);
+			writeGramToFile("",neutral_count_map);
+		}
+
+		if (type.equalsIgnoreCase("spam")) { 
+
+			writeGramToFile("", spam_map);
+			writeGramToFile("", ham_map);
+		}
+	} 
+	
+	/** 
+	 * 
+	 * @param p
+	 * @param post_list
+	 * @param type
+	 */ 
+	
+	public void getNGramCountMapSelector(Post p,List<Post> post_list,String type) {
+
+		String ngram_label = "";
+
+		if (type.equalsIgnoreCase("giveaway")) { 
+
+			ngram_label = p.getGiveawayLabel();
+
+			if (ngram_label != null && ngram_label.equalsIgnoreCase("real")) { 
+
+				getNGramCount(p, post_list, real_giveaway_count_map, type);
+			}
+
+			if (ngram_label != null && ngram_label.equalsIgnoreCase("fake")) { 
+
+				getNGramCount(p, post_list, fake_giveaway_count_map, type);
+			}
+		}
+
+		if (type.equalsIgnoreCase("sentiment")) { 
+
+			ngram_label = p.getSentimentLabel();
+
+			if (ngram_label != null && ngram_label.equalsIgnoreCase("positive")) { 
+
+				getNGramCount(p, post_list, positive_count_map, type);
+			}
+
+			if (ngram_label != null && ngram_label.equalsIgnoreCase("negative")) {
+
+				getNGramCount(p, post_list, negative_count_map, type);
+			}
+
+			if (ngram_label != null && ngram_label.equalsIgnoreCase("neutral")) { 
+
+				getNGramCount(p, post_list, neutral_count_map, type);
+			}
+		}
+
+		if (type.equalsIgnoreCase("spam")) { 
+
+			ngram_label = p.getSpamLabel();
+
+			if (ngram_label != null && ngram_label.equalsIgnoreCase("spam")) { 
+
+				getNGramCount(p, post_list, spam_map, type);
+			}
+
+			if (ngram_label != null && ngram_label.equalsIgnoreCase("ham")) { 
+
+				getNGramCount(p, post_list, ham_map, type);
+			}
+		}
 	}
 
 	/** 
@@ -207,6 +316,12 @@ public class NGram {
 		return count;
 	}
 
+	/** 
+	 * Given a map of NGram probabilities writes them to a file
+	 * @param filename String containing the filename
+	 * @param ngram_map_count Map<String,Double> containing ngram probabilities
+	 */ 
+
 	public void writeGramToFile(String filename,Map<String,Double> ngram_map_count) { 
 
 		BufferedWriter bw;
@@ -269,6 +384,9 @@ public class NGram {
 
 	public static void main(String args[]) {  
 
-		new NGram().NGramExtractionPipeline("giveaway/split_5.txt",1,"Instagram","giveaway");
+		for (int i = 1; i <= 3; i++) { 
+			
+			new NGram().NGramExtractionPipeline("giveaway/split_1.txt",i,"Instagram","giveaway");
+		}
 	}
 }
