@@ -131,6 +131,7 @@ public class NGram {
 	public static String getTagCleanGram(String tagset,int n) { 
 		
 		tagset = tagset.replace(","," ");
+		tagset = tagset.toLowerCase().trim();
 		tagset = FeatureUtil.cleanString(tagset);
 		tagset = FeatureUtil.removeStopWords(tagset);
 		tagset = FeatureUtil.getStemPerWord(tagset);
