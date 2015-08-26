@@ -12,7 +12,6 @@ import org.kutty.features.FeatureUtil;
  * @author Rupak Chakraborty
  * @for Kutty 
  * @since 25 August,2015
- * TODO - Fix the issue of map duplicates
  * 
  */ 
 
@@ -22,16 +21,37 @@ public class NaiveBayesGiveaway {
 	public Map <String, Double> fake_map;
 	public Map <String, Double> real_tag_map;
 	public Map <String, Double> fake_tag_map; 
-	public String filename; 
+	public String REAL_FILENAME = "giveaway/real_";
+	public String FAKE_FILENAME = "giveaway/fake_";
+	public String REAL_TAG_FILENAME = "giveaway/tag_real_";
+	public String FAKE_TAG_FILENAME = "giveaway/tag_fake_";
+	public int MODEL_NUMBER = 1;
 	
-	public NaiveBayesGiveaway(String filename) { 
+	/** 
+	 * 
+	 * @param model_number
+	 */ 
+	
+	public NaiveBayesGiveaway(int model_number) { 
 		
-		real_map = new HashMap <String, Double>();
-		fake_map = new HashMap <String, Double>();
-		real_tag_map = new HashMap <String, Double>();
-		fake_tag_map = new HashMap <String, Double>();
-		this.filename = filename;
+		REAL_FILENAME = REAL_FILENAME + model_number + ".txt";
+		FAKE_FILENAME = FAKE_FILENAME + model_number + ".txt";
+		REAL_TAG_FILENAME = REAL_TAG_FILENAME +  model_number + ".txt";
+		FAKE_TAG_FILENAME = FAKE_TAG_FILENAME + model_number + ".txt";
+		this.MODEL_NUMBER = model_number;
+		
+		real_map = LoadModel.getTrainedModel(REAL_FILENAME);
+		fake_map = LoadModel.getTrainedModel(FAKE_FILENAME);
+		real_tag_map = LoadModel.getTrainedModel(REAL_TAG_FILENAME);
+		fake_tag_map = LoadModel.getTrainedModel(FAKE_TAG_FILENAME);
 	}
+	
+	/** 
+	 * 
+	 * @param captionText
+	 * @param tagset
+	 * @return
+	 */ 
 	
 	public String classifyGiveaway(String captionText,String tagset) { 
 		
@@ -41,14 +61,7 @@ public class NaiveBayesGiveaway {
 		double [] tag_probability = new double[2]; 
 		Map <String, Double> ngram_probabilty = new HashMap <String, Double>(); 
 		Entry<String, Double> max_entry; 
-		
-		//TODO - File Loading Module 
-		
-		real_map = LoadModel.getTrainedModel("");
-		fake_map = LoadModel.getTrainedModel("");
-		real_tag_map = LoadModel.getTrainedModel("");
-		fake_tag_map = LoadModel.getTrainedModel("");
-		
+			
 		processTagSet = FeatureUtil.getNGram(processTagSet, 1);
 		tag_probability[0] = getProbability(processTagSet, real_tag_map);
 		tag_probability[1] = getProbability(processTagSet, fake_tag_map);
@@ -58,11 +71,10 @@ public class NaiveBayesGiveaway {
 			processCaption = FeatureUtil.getNGram(processCaption, i);
 			caption_probability[0] = getProbability(processCaption, real_map)*tag_probability[0];
 			caption_probability[1] = getProbability(processCaption, fake_map)*tag_probability[1];
-			ngram_probabilty.putAll(getClassLabelAndConfidence(caption_probability));		
+			ngram_probabilty.putAll(getClassLabelAndConfidence(caption_probability,i));
 		} 
 		
 		max_entry = getMaxEntry(ngram_probabilty); 
-		
 		return max_entry.getKey();
 	} 
 	
@@ -87,7 +99,14 @@ public class NaiveBayesGiveaway {
 		return maxentry;
 	}
 	
-	public static Map<String, Double> getClassLabelAndConfidence(double a[]) { 
+	/** 
+	 * 
+	 * @param a
+	 * @param ngram_model
+	 * @return
+	 */ 
+	
+	public Map<String, Double> getClassLabelAndConfidence(double a[],int ngram_model) { 
 		
 		double max = Double.MIN_VALUE; 
 		int index = 0; 
@@ -104,11 +123,11 @@ public class NaiveBayesGiveaway {
 		
 		if (index == 0) { 
 			
-			max_pair.put("real", max); 
+			max_pair.put("real_" + ngram_model + "_" + this.MODEL_NUMBER, max); 
 			
 		} else { 
 			
-			max_pair.put("fake", max);
+			max_pair.put("fake_" + ngram_model + "_" + this.MODEL_NUMBER, max);
 		}
 		
 		return max_pair;
@@ -147,6 +166,13 @@ public class NaiveBayesGiveaway {
 		
 		return tagset;
 	}
+	
+	/** 
+	 * 
+	 * @param tagset
+	 * @param ngram_map
+	 * @return
+	 */ 
 	
 	public double getProbability(String tagset,Map<String,Double> ngram_map) { 
 		
@@ -194,5 +220,19 @@ public class NaiveBayesGiveaway {
 		temp = "(" + ngram + ")";
 
 		return temp;
+	}
+	
+	/** 
+	 * 
+	 * @param args
+	 */ 
+	
+	public static void main(String args[]) { 
+		
+		String captionText = ". Assalamualaikum semua.. ??????. . Alhamdulillah Lagi customer yang membeli iPhone dengan admin di kedai . ????????????. . Admin bukan Hanye menjual Iphone Sahaja tau. Semua model phone admin jual. Asus,Lenovo ,Nokia ,n etc. Yang mane nak tanye harga Boleh whatsapp admin or kita bincang di kedai admin ea. ?????????????. . TRADE IN ADMIN TERIMA !!. TRADE IN ADMIN TERIMA !!. . #buyerjusttekan yang beli dengan Harga #gempakdohhsale . ??????. . Anda bila lagi?? Heeeee . original iphone. -ready stock. -seal box. -prefer cod. -postage available. . Price list :. iPhone 4 16gb - rm 630 32gb - rm 660  iPhone 4s 16gb - rm 740 32gb - rm 780 64gb - rm 800  iPhone 5 16gb - rm 1070 32gb - rm 1100 64gb - rm 1150  iPhone 5s ( space grey ) 16gb - rm 1450 32gb - rm 1500 64gb - rm 1550  iPhone 5s ( silver ) 16gb - rm 1550 32gb - rm 1600 64gb - rm 1650  iPhone 5s ( gold ) 16gb - rm 1650 32gb - rm 1700 64gb - rm 1750  iPhone 6 16gb - rm 2450 64gb - rm 2650 128gb - rm 2750  iPhone 6 plus  16gb - rm 2950 64gb - rm 3150 128gb - rm 3450 . 017-7515417. Taufik  #iPhone #iphonemurah #iphonemurahmalaysia #iphoneoriginal #iphoneoriginalmalaysia #iphonesale #saleiphone #sale #repost #contest #freegift #giweaway #repostmalaysia #giveawaymalaysia #luckydraw #batupahat #johor #cod";
+		String tagSet = "gift,giveawaymalaysia,pandorainspired,igshop,giveaway,katespademalaysia,norhanisabdaziz1stgiveaway,bazaarpaknil,hermesmalaysia,tagandwin,raya2015,giveawaycontest,readystock,igshopmalaysia,giveawaytime,repost";
+		
+		NaiveBayesGiveaway nb = new NaiveBayesGiveaway(5);
+		System.out.println(nb.classifyGiveaway(captionText, tagSet));
 	}
 }
