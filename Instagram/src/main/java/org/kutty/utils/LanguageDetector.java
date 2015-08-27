@@ -24,19 +24,23 @@ public final class LanguageDetector {
 	/** Initialize the profile directory of the messages */ 
 
 	public static boolean isInitialized = false;  
-	
+
 	/** 
 	 * Function to initialize the Language Detection profile directory
 	 * @param profileDirectory String containing the name of the profileDirectory
 	 * @throws LangDetectException
 	 */ 
-	
-	synchronized public static void init(String profileDirectory) throws LangDetectException { 
+
+	synchronized public static void init(String profileDirectory) { 
 
 		if (!isInitialized) { 
-			
-			DetectorFactory.loadProfile(profileDirectory);
-			isInitialized = true;
+
+			try {
+				DetectorFactory.loadProfile(profileDirectory);
+				isInitialized = true;
+			} catch (LangDetectException lde) {
+				lde.printStackTrace();
+			}
 		} 
 	} 
 
@@ -47,28 +51,24 @@ public final class LanguageDetector {
 	 * @throws LangDetectException
 	 */
 
-	public static String detect(String text) throws LangDetectException { 
+	public static String detect(String text) { 
 
 		if (text == null) {  
 
 			return "";
 		} 
-
-		Detector detector = DetectorFactory.create();
-		detector.append(text); 
 		String s = ""; 
-
-		try { 
+		try {
+			Detector detector = DetectorFactory.create();
+			detector.append(text); 
 			s = detector.detect(); 
-
-		} catch (Exception e) { 
-
-			return "";
-		}
-
+		} catch (LangDetectException lde) {
+			lde.printStackTrace();
+		} 
+		
 		return s;
 	}  
-	
+
 	/** 
 	 * Utility function to get the probabilities of the languages likely
 	 * @param text String containing the text which is to be detected

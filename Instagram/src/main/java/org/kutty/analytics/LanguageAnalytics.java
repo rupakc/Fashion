@@ -55,7 +55,7 @@ public class LanguageAnalytics {
 			channel_list.add("Instagram");
 			channel_list.add("Youtube"); 
 			
-		} catch (IOException | LangDetectException e) { 
+		} catch (IOException e) { 
 			
 			e.printStackTrace();
 		}
@@ -141,17 +141,9 @@ public class LanguageAnalytics {
 	public static String getLanguage(String s) { 
 
 		String name = ""; 
-
-		try { 
-
-			String code = LanguageDetector.detect(s);
-			name = language_code_map.get(code); 
-
-		} catch (LangDetectException e) { 
-
-			e.printStackTrace();
-		} 
-
+		String code = LanguageDetector.detect(s);
+		name = language_code_map.get(code); 
+		
 		return name;
 	} 
 	
