@@ -7,6 +7,7 @@ import java.util.Set;
 import org.kutty.dbo.Comment;
 import org.kutty.dbo.CountryBase;
 import org.kutty.dbo.GeoData;
+import org.kutty.dbo.Giveaway;
 import org.kutty.dbo.InstaComment;
 import org.kutty.dbo.InstaLike;
 import org.kutty.dbo.InstaLocation;
@@ -892,7 +893,62 @@ public class MongoBase {
 			insertDocument((BasicDBObject) country_doc);
 		}
 	}
-
+	
+	/** 
+	 * Adaptor function to convert a giveaway object to a BasicDBObject
+	 * @param give Giveaway object to be converted into a BasicDBObject
+	 * @return BasicDBObject containing the Giveaway object
+	 */ 
+	
+	public BasicDBObject getGiveawayAdaptor(Giveaway give) { 
+		
+		BasicDBObject giveaway_doc = new BasicDBObject("Channel",give.getChannel()).
+									append("CaptionText", give.getCaptionText()).
+									append("TagSet", give.getTagSet()).
+									append("TimeStamp", give.getTimeStamp()).
+									append("ClassLabel", give.getClassLabel()).
+									append("UserName", give.getUserName());
+		
+		return giveaway_doc;
+	}
+	
+	/** 
+	 * Checks whether a given Giveaway object exists in the database or not
+	 * @param give Giveaway object whose existence has to be checked
+	 * @return true if the object exists false otherwise
+	 */ 
+	
+	public boolean checkExistsGiveaway(Giveaway give) { 
+		
+		DBCursor cursor;
+		DBObject query;
+		
+		query = new BasicDBObject("Channel",give.getChannel()).append("TimeStamp",give.getTimeStamp()).
+				append("UserName", give.getUserName());
+		
+		cursor = collection.find(query);
+		
+		if (cursor.hasNext()) {  
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/** 
+	 * Inserts a given Giveaway object in the database if it doesn't already exist
+	 * @param give Giveaway object which is to be inserted
+	 */ 
+	
+	public void putInDB(Giveaway give) { 
+		
+		if (!checkExistsGiveaway(give)) { 
+			
+			BasicDBObject giveaway_doc = getGiveawayAdaptor(give);
+			insertDocument(giveaway_doc);
+		}
+	}
 	
 	/** 
 	 * Closes an open connection to the mongodb server

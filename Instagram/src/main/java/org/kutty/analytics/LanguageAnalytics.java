@@ -13,6 +13,7 @@ import org.joda.time.DateTime;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
 import org.kutty.utils.LanguageDetector;
+import org.kutty.utils.PrintUtil;
 
 import com.cybozu.labs.langdetect.LangDetectException;
 import com.mongodb.BasicDBList;
@@ -315,7 +316,7 @@ public class LanguageAnalytics {
 			
 			DateTime now = new DateTime();
 			DateTime prev = now.minusYears(3);
-			System.out.println(getAllProducts("Instagram",prev.toDate(),now.toDate()));
+			PrintUtil.printMap(getLanguageProductChannel("giveaway","Instagram",prev.toDate(),now.toDate()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

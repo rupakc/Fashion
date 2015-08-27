@@ -15,6 +15,7 @@ public class Giveaway {
 	private double timeStamp;
 	private String classLabel;
 	private String channel; 
+	private String userName; 
 	
 	public Giveaway() { 
 		
@@ -22,6 +23,7 @@ public class Giveaway {
 		tagSet = "";
 		timeStamp = 0.0;
 		classLabel = "";
+		userName = "";
 		channel = "Instagram";
 	}
 	
@@ -123,5 +125,25 @@ public class Giveaway {
 	public void setChannel(String channel) { 
 		
 		this.channel = channel;
+	}
+	
+	/** 
+	 * 
+	 * @return
+	 */ 
+	
+	public String getUserName() { 
+		
+		return userName;
+	}
+	
+	/** 
+	 * 
+	 * @param userName
+	 */ 
+	
+	public void setUserName(String userName) { 
+		
+		this.userName = userName;
 	}
 }
