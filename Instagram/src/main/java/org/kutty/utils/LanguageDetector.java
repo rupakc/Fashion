@@ -65,7 +65,7 @@ public final class LanguageDetector {
 		} catch (LangDetectException lde) {
 			lde.printStackTrace();
 		} 
-		
+
 		return s;
 	}  
 
@@ -82,6 +82,27 @@ public final class LanguageDetector {
 		detector.append(text); 
 
 		return detector.getProbabilities();
+	} 
+	
+	/** 
+	 * Detects if a given text is in English or not  
+	 * @param s String containing the text 
+	 * @return true if the string is in English false otherwise
+	 */ 
+	
+	public static boolean isEnglish(String s) { 
+
+		try { 
+
+			if (detect(s).equalsIgnoreCase("en")) { 	
+				return true;
+			} 
+
+		} catch (Exception e) { 
+			e.printStackTrace();
+		}
+
+		return false;
 	} 
 } 
 
