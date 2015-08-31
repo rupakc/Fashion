@@ -2,6 +2,9 @@ a
 u 
 r 
 re
+rt
+rt@
+@
 about
 above
 across

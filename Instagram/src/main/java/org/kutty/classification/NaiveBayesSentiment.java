@@ -35,7 +35,6 @@ public class NaiveBayesSentiment {
 	 * public constructor to initialize the model number and the channel name
 	 * @param model_number Integer containing the model number
 	 * @param channel_name String containing the channel name
-	 * 
 	 */ 
 
 	public NaiveBayesSentiment(int model_number,String channel_name) { 
@@ -70,7 +69,6 @@ public class NaiveBayesSentiment {
 	 * @param captionText String containing the captionText
 	 * @param tagset String containing the tagSet
 	 * @return String containing the sentiment label (i.e. positive, negative or neutral)
-	 * 
 	 */ 
 
 	public String classifySentimentInstagram(String captionText,String tagset) { 
