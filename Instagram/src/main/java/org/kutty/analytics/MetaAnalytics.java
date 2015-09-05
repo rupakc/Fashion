@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
+import org.joda.time.Hours;
 import org.joda.time.Months;
+import org.joda.time.Weeks;
 import org.joda.time.Years;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
@@ -26,7 +28,6 @@ import com.mongodb.DBCollection;
  * @for Kutty 
  * @since 5 August, 2015
  * 
- * TODO- Add Last N Hours and Weeks
  */
 
 public class MetaAnalytics {
@@ -464,7 +465,81 @@ public class MetaAnalytics {
 
 		return month_map;
 	} 
-
+	
+	/** 
+	 * For a given product and a channel finds the count of posts received on a weekly basis
+	 * @param product String containing the product
+	 * @param channel String containing the channel
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map <String,Integer> containing the week number and the count of post
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNWeeksProductChannel(String product,String channel,Date from,Date to) { 
+		
+		Map<String,Integer> week_map = new HashMap<String,Integer>();
+		String week_number = "";
+		int max_week_number;
+		int weeks = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		weeks = Weeks.weeksBetween(from_date, to_date).getWeeks();
+		max_week_number = to_date.minusWeeks(-1).getWeekOfWeekyear();
+		max_week_number = max_week_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= weeks; i++) {
+			
+			week_number = String.valueOf((max_week_number) - (to_date.minusWeeks(i-1).getWeekOfWeekyear()));
+			now = to_date.minusWeeks(i-1).toDate();
+			prev = to_date.minusWeeks(i).toDate();
+			count = getProductChannelPostCount(product, channel, prev, now);
+			
+			week_map.put(week_number, count);
+		}
+		
+		return week_map;
+	} 
+	
+	/** 
+	 * 
+	 * @param product String containing the product name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date object
+	 * @param to Date containing the ending date object
+	 * @return Map <String, Integer> containing the mapping between the hour and the post count
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNHoursProductChannel(String product,String channel,Date from,Date to) { 
+		
+		Map<String,Integer> hour_map = new HashMap<String,Integer>();
+		String hour_number = "";
+		int max_hour_number;
+		int hours = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		hours = Hours.hoursBetween(from_date, to_date).getHours();
+		max_hour_number = to_date.minusHours(-1).getHourOfDay();
+		max_hour_number = max_hour_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= hours; i++) {
+			
+			hour_number = String.valueOf((max_hour_number) - (to_date.minusHours(i-1).getHourOfDay()));
+			now = to_date.minusHours(i-1).toDate();
+			prev = to_date.minusHours(i).toDate();
+			count = getProductChannelPostCount(product, channel, prev, now);
+			
+			hour_map.put(hour_number, count);
+		}
+		
+		return hour_map;
+	}
+	
 	/** 
 	 * Returns the mapping between the month name and the post count for that month
 	 * @param product String containing the product name
@@ -499,6 +574,78 @@ public class MetaAnalytics {
 		return month_map;
 	} 
 	
+	/** 
+	 * Returns the posts received by a given channel during a given interval on a weekly basis
+	 * @param product String containing the product name
+	 * @param from Date containing the from date
+	 * @param to Date containing the to date
+	 * @return Map <String,Integer> containing the mapping of last N weeks data
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNWeeksProduct(String product,Date from,Date to) { 
+		
+		Map<String,Integer> week_map = new HashMap<String,Integer>();
+		String week_number = "";
+		int max_week_number;
+		int weeks = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		weeks = Weeks.weeksBetween(from_date, to_date).getWeeks();
+		max_week_number = to_date.minusWeeks(-1).getWeekOfWeekyear();
+		max_week_number = max_week_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= weeks; i++) {
+			
+			week_number = String.valueOf((max_week_number) - (to_date.minusWeeks(i-1).getWeekOfWeekyear()));
+			now = to_date.minusWeeks(i-1).toDate();
+			prev = to_date.minusWeeks(i).toDate();
+			count = getCollectionSize(product, prev,now);
+			
+			week_map.put(week_number, count);
+		}
+		
+		return week_map;
+	}
+	
+	/** 
+	 * Returns the count of posts received by a given product on an hourly basis
+	 * @param product String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Map <String, Integer> containing the hour map and the count
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNHoursProduct(String product,Date from,Date to) { 
+		
+		Map<String,Integer> hour_map = new HashMap<String,Integer>();
+		String hour_number = "";
+		int max_hour_number;
+		int hours = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		hours = Hours.hoursBetween(from_date, to_date).getHours();
+		max_hour_number = to_date.minusHours(-1).getHourOfDay();
+		max_hour_number = max_hour_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= hours; i++) {
+			
+			hour_number = String.valueOf((max_hour_number) - (to_date.minusHours(i-1).getHourOfDay()));
+			now = to_date.minusHours(i-1).toDate();
+			prev = to_date.minusHours(i).toDate();
+			count = getCollectionSize(product, prev, now);
+			
+			hour_map.put(hour_number, count);
+		}
+		
+		return hour_map;
+	}
+
 	/** 
 	 * Returns the mapping between the year name and the post count for that year
 	 * @param product String containing the product name
@@ -540,17 +687,22 @@ public class MetaAnalytics {
 
 	public static void main(String args[]) { 
 
-		DateTime now = new DateTime("2015-08-15");
+		DateTime now = new DateTime();
 		DateTime prev = now.minusYears(3);
+		
 		System.out.println(getProductChannelPostCount("gueSS", "Instagram",prev.toDate(),now.toDate()));
 		System.out.println(getCollectionSize("Guess"));
 		System.out.println(getCollectionSize("gueSs",prev.toDate(),now.toDate()));
 		System.out.println(getAllChannelCount("Guess",prev.toDate(),now.toDate()));
 		prev = now.minusMonths(3);
 		System.out.println(getAllLastNMonthsProductChannel("Guess","Instagram",prev.toDate(),now.toDate()));
-		System.out.println(getAllLastNMonthsProduct("HandM",prev.toDate(),now.toDate()));
-		prev = now.minusYears(3);
-		System.out.println(getAllLastNYearsProductChannel("Guess", "Twitter", prev.toDate(),now.toDate()));
+		System.out.println(getAllLastNMonthsProduct("HandM",prev.toDate(),now.toDate())); 
 		
+		prev = now.minusWeeks(3);
+		System.out.println(getAllLastNWeeksProductChannel("Guess", "Instagram", prev.toDate(),now.toDate()));
+		System.out.println(getAllLastNWeeksProduct("Guess",prev.toDate(),now.toDate()));
+		prev = now.minusHours(3);
+		System.out.println(getAllLastNHoursProductChannel("Guess", "Instagram", prev.toDate(),now.toDate()));
+		System.out.println(getAllLastNHoursProduct("Guess", prev.toDate(),now.toDate()));
 	}
 }
