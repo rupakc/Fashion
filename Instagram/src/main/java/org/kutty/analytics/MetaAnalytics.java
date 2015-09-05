@@ -11,7 +11,9 @@ import java.util.Map;
 
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
+import org.joda.time.Minutes;
 import org.joda.time.Months;
+import org.joda.time.Seconds;
 import org.joda.time.Weeks;
 import org.joda.time.Years;
 import org.kutty.db.MongoBase;
@@ -504,7 +506,7 @@ public class MetaAnalytics {
 	} 
 	
 	/** 
-	 * 
+	 * Returns the count of posts received per hour for a given product and channel
 	 * @param product String containing the product name
 	 * @param channel String containing the channel name
 	 * @param from Date containing the starting date object
@@ -538,6 +540,80 @@ public class MetaAnalytics {
 		}
 		
 		return hour_map;
+	}
+	
+	/** 
+	 * Returns the count of posts received per minute for a given product and channel
+	 * @param product String containing the product name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date object
+	 * @param to Date containing the ending date object
+	 * @return Map <String, Integer> containing the mapping between the minute and the post count
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNMinutesProductChannel(String product,String channel,Date from,Date to) { 
+		
+		Map<String,Integer> minute_map = new HashMap<String,Integer>();
+		String minute_number = "";
+		int max_minute_number;
+		int minutes = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		minutes = Minutes.minutesBetween(from_date, to_date).getMinutes();
+		max_minute_number = to_date.minusMinutes(-1).getMinuteOfDay();
+		max_minute_number = max_minute_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= minutes; i++) {
+			
+			minute_number = String.valueOf((max_minute_number) - (to_date.minusMinutes(i-1).getMinuteOfDay()));
+			now = to_date.minusMinutes(i-1).toDate();
+			prev = to_date.minusMinutes(i).toDate();
+			count = getProductChannelPostCount(product, channel, prev, now);
+			
+			minute_map.put(minute_number, count);
+		}
+		
+		return minute_map;
+	}
+	
+	/** 
+	 * Returns the count of posts received per second for a given product and channel
+	 * @param product String containing the product name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date object
+	 * @param to Date containing the ending date object
+	 * @return Map <String, Integer> containing the mapping between the second and the post count
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNSecondsProductChannel(String product,String channel,Date from,Date to) { 
+		
+		Map<String,Integer> second_map = new HashMap<String,Integer>();
+		String second_number = "";
+		int max_second_number;
+		int seconds = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		seconds = Seconds.secondsBetween(from_date, to_date).getSeconds();
+		max_second_number = to_date.minusSeconds(-1).getSecondOfDay();
+		max_second_number = max_second_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= seconds; i++) {
+			
+			second_number = String.valueOf((max_second_number) - (to_date.minusSeconds(i-1).getSecondOfDay()));
+			now = to_date.minusSeconds(i-1).toDate();
+			prev = to_date.minusSeconds(i).toDate();
+			count = getProductChannelPostCount(product, channel, prev, now);
+			
+			second_map.put(second_number, count);
+		}
+		
+		return second_map;
 	}
 	
 	/** 
@@ -645,7 +721,44 @@ public class MetaAnalytics {
 		
 		return hour_map;
 	}
-
+	
+	/** 
+	 * Returns the count of posts received per second for a given product and channel
+	 * @param product String containing the product name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date object
+	 * @param to Date containing the ending date object
+	 * @return Map <String, Integer> containing the mapping between the second and the post count
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNSecondsProduct(String product,Date from,Date to) { 
+		
+		Map<String,Integer> second_map = new HashMap<String,Integer>();
+		String second_number = "";
+		int max_second_number;
+		int seconds = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		seconds = Seconds.secondsBetween(from_date, to_date).getSeconds();
+		max_second_number = to_date.minusSeconds(-1).getSecondOfDay();
+		max_second_number = max_second_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= seconds; i++) {
+			
+			second_number = String.valueOf((max_second_number) - (to_date.minusSeconds(i-1).getSecondOfDay()));
+			now = to_date.minusSeconds(i-1).toDate();
+			prev = to_date.minusSeconds(i).toDate();
+			count = getCollectionSize(product, prev, now);
+			
+			second_map.put(second_number, count);
+		}
+		
+		return second_map;
+	}
+	
 	/** 
 	 * Returns the mapping between the year name and the post count for that year
 	 * @param product String containing the product name
@@ -679,7 +792,43 @@ public class MetaAnalytics {
 
 		return year_map;
 	} 
-
+	
+	/** 
+	 * Returns the count of posts received per minute for a given product
+	 * @param product String containing the product name
+	 * @param from Date containing the starting date object
+	 * @param to Date containing the ending date object
+	 * @return Map <String, Integer> containing the mapping between the minute and the post count
+	 */ 
+	
+	public static Map <String, Integer> getAllLastNMinutesProduct(String product,Date from,Date to) { 
+		
+		Map<String,Integer> minute_map = new HashMap<String,Integer>();
+		String minute_number = "";
+		int max_minute_number;
+		int minutes = 0;
+		int count = 0;
+		DateTime from_date = new DateTime(from);
+		DateTime to_date = new DateTime(to);
+		minutes = Minutes.minutesBetween(from_date, to_date).getMinutes();
+		max_minute_number = to_date.minusMinutes(-1).getMinuteOfDay();
+		max_minute_number = max_minute_number + 1; 
+		Date prev;
+		Date now; 
+		
+		for (int i = 0; i <= minutes; i++) {
+			
+			minute_number = String.valueOf((max_minute_number) - (to_date.minusMinutes(i-1).getMinuteOfDay()));
+			now = to_date.minusMinutes(i-1).toDate();
+			prev = to_date.minusMinutes(i).toDate();
+			count = getCollectionSize(product, prev, now);
+			
+			minute_map.put(minute_number, count);
+		}
+		
+		return minute_map;
+	}
+	
 	/** 
 	 * Main function to test the functionality of the class
 	 * @param args
