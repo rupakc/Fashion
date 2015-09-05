@@ -89,14 +89,7 @@ public class GiveawayDetection {
 		} catch (Exception e) {  
 
 			e.printStackTrace(); 
-
-		} finally { 
-
-			if (mongo != null) { 
-
-				mongo.closeConnection();
-			}
-		}
+		} 
 	} 
 
 	/** 
@@ -160,14 +153,8 @@ public class GiveawayDetection {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) { 
-
-				mongo.closeConnection();
-			}
-		}
-
+		} 
+		
 		return data_set;
 	}
 

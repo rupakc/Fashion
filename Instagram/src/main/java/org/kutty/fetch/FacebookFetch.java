@@ -207,14 +207,8 @@ public class FacebookFetch extends Thread {
 
 				e.printStackTrace(); 
 
-			} finally { 
-
-				if (mongo != null) {
-					
-					mongo.closeConnection();
-				}
-			}
-
+			} 
+			
 		} catch (FacebookException e) { 
 
 			e.printStackTrace(); 

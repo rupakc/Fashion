@@ -6,7 +6,7 @@ tasguessmurah,guessbag,tasguess,guess,guessori,tasguessori,guesswallet,guessmura
 Guess idr 850,000  Wanna????? Please contact : Wa : 081218820662 Line : marlianafauziah  Thankyou  #guess #guessbag #guessori #guessmurah #guesswallet #tasguess #tasguessori #tasguessmurah
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -18,7 +18,7 @@ to,just,have,white,you,im,pretty,though,selfie,not,blouse,choker,guess,on,even,m
 Haven't posted a picture of me in a while at least I think .. ?? #smiling#even#though#im#not#guess#you#just#have#to#move#on#white#blouse#selfie#choker#pretty
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -30,7 +30,7 @@ love,newwatch,fashionista,style,guess,watch,white,summertreat,
 Friday treat... just because! #white #guess #watch #summertreat #style #love #newwatch #fashionista
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -42,7 +42,7 @@ chanel,fashion,pandora,longhair,beauty,sunglasses,bracelet,picoftheday,red,style
 Hello guys! These days I was checking the list of my followers. I had to delete many of them (sorry). I don't accept the fake-profiles, the private profiles, the "make-free-followers "profiles etc. My page is about #style #fashion #beauty #longhair and the things I like and I want to share with the world.  I don't accept as followers the people who like guns or who follow an indecent and doubtful profiles. Now I'll check each account to join me. Thank you for understanding! ? ??????? ??????! ? ??? ??? ? ????????? ?????? ????? ??????????? ?, ? ?????????, ?????? ?? ??? ??? ???????? ???????. ? ?? ???????? ???????? ????????, ? ????? ???????? ???????? ??? ?????????? ? ??????????, ????????? ???????? ? ??. ??? ????????? - ? ?????, ????, ???????, ??????? ??????? ? ? ??? ?????, ??????? ??? ????????, ? ???????? ? ?????? ?? ?????????? ? ?????. ? ?? ???????? ?????, ??????? ???????? ??????, ??? ???, ??? ???????? ?? ????????? ???????????? ? ???????????? ?????????. ?????? ? ???? ????????????? ?????? ?? ???????????????? ?? ??? ????????. ????????? ?? ?????????!??? #chanel #red #verylonghair #tiffany #sunglasses #pandora #bracelet #picoftheday #guess #amazinghair #lhdc
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -54,7 +54,7 @@ guess,salsajeans,glam,newhouse,
 ? | #newhouse #guess #salsajeans #glam
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -66,7 +66,7 @@ look,cool,sguardo,jeans,like4like,venerdì,eyes,starts,instapic,chic,style,hause,
 #instapic#afterday#evening#hause#chic#cool#jeans#demin#guess#shopping#cosebelle#weekend#starts#venerdì#sicily#instaphoto#like4like#look#style#summer#smile#eyes#sguardo
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -78,7 +78,7 @@ loveposing,guess,citywalk,
 #guess #citywalk #loveposing
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -90,7 +90,7 @@ guess,wife?,me,beauty,
 #me #wife? #beauty #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -102,7 +102,7 @@ familytime,elizabethbag,zara,familytrip,thesarinosfamilytrip,rayben,indonesiantr
 #ThePinkTraveler di muka Goa Jatinom, Jawa Tengah. #TheSarinosFamilyTrip #5 ??? __  Meski sedang #traveling, seorang #traveler tetap harus care dengan penampilannya, tak lupa tetap mengutamakan kesehatan & keselamatan dirinya.  Bag ? by #dowa Watch ? by #guess Sunglasses ? by #rayben Necklace ? by #elizabethbag Top ? by #zara Pants ? by #hnm  #fashionblogger #travelfashion #travelercantik __ ? #MyEntireLifeSummerInIndonesia ?? IG @rirryhapsari ? #TraveRy #latepost #familytime #familytrip #TheSarinos  #cave #klaten #centraljava #indonesia #indonesiantraveler
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -114,7 +114,7 @@ inlove,fashion,followme,blond,cocacola,liubov,instacute,love,kiss,vilnius,life,i
 #Vilnius #Lithuania #love #life #inlove #instacool #instapic #instacute #instagood #guess #smile #liubov#blond #cocacola#kiss#happy #follow #followme #fashion #crazy
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -126,7 +126,7 @@ tasguessmurah,guessbag,tasguess,guess,guessori,tasguessori,guesswallet,guessmura
 Guess idr 810.000  Wanna????? Please contact : Wa : 081218820662 Line : marlianafauziah  Thankyou  #guess #guessbag #guessori #guessmurah #guesswallet #tasguess #tasguessori #tasguessmurah
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -138,7 +138,7 @@ guess,bestfriends,nino,montebello,trip,bestninoever,godfather,clowns,godson,
 My little man took off with #nino and he was surprised when he told him where they are going. Can you guess where? #bestninoever #bestfriends #clowns #guess #montebello #godson #godfather #trip
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -150,7 +150,7 @@ instalike,fashion,white,longhair,czechgirl,instasquare,vsco,guessbag,czechrepubl
 ?auky m?auky ? #me #brunette #czechgirl #longhair #smile #czechrepublic #black #white #iphone6plus #guess #guessbag #trip #style #fashion #vsco #vscocam #instalike #instagood #instasquare
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -162,7 +162,7 @@ guess,
 #Guess what im wearing ??
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -174,7 +174,7 @@ larkandjuniper,jewelrydesigner,comingsoon,new,etsy,guess,etsylove,etsyshop,youre
 Can you guess what these are going to be? I'll show you on Monday! Have a great weekend! #new #comingsoon #jewelrydesigner #larkandjuniper #etsy #etsyshop #etsylove #instagood #guess #youregonnawantone
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -186,7 +186,7 @@ love,ladies,summersale,guess,lafashion,getyours,sale,
 SUMMER SALE!!!? Items from $10-$30 and #Guess 50% OFF! items going quickly. Get yours! @turquoiseboutiques #Summersale #sale #love #ladies #getyours #lafashion
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -198,7 +198,7 @@ classy,elegance,guess,upa2015,day,sunglasses,master,graduation,
 Style is a way to say who you are without having to speak #classy#elegance#graduation#master#day#upa2015#sunglasses#guess#
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -210,7 +210,7 @@ freepostage,sayajualhandbag,originalbags,onlinehandbag,brandedbag,guesshandbag,b
 CHARLES & KEITH Bow Sling Bag  Material: 100% Authentics  Dimensions: 22 x 18 x 8 cm  Price: RM 100 inc postage  Whatsapp: 011-17575795 for enquiry  #brandedbag #brandedhandbag #onlinehandbag #authenticbags #freepostage #bazaarpaknil #original #originalbags #charlesnkeith #charlesnkeithbag #baggiewiggie #onlineshopping #authenticbags #sayajualhandbag #onlineseller #freepostage #cantik #bazaarpaknil #original #originalbags #ck #calvinklein #guesshandbag #guessmalaysia #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -222,7 +222,7 @@ freepostage,sayajualhandbag,originalbags,onlinehandbag,brandedbag,guesshandbag,b
 CHARLES & KEITH SQUARE SLING BAG  Material: 100% Authentics  Dimensions: 20.5 x 17 x 6 cm  Price: RM 100 inc postage  Whatsapp: 011-17575795 for enquiry  #brandedbag #brandedhandbag #onlinehandbag #authenticbags #freepostage #bazaarpaknil #original #originalbags #charlesnkeith #charlesnkeithbag #baggiewiggie #onlineshopping #authenticbags #sayajualhandbag #onlineseller #freepostage #cantik #bazaarpaknil #original #originalbags #ck #calvinklein #guesshandbag #guessmalaysia #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -234,7 +234,7 @@ aimwatchlovers,brandedwatch,guess,jamcouple,jamguess,
 GUESS WATCH . . GRADE AA  WARRANTY 1 MONTH . . FREE BOX !! FREE POSTAGE !! RM70 . . ORDER 01125578110  #aimwatchlovers #guess #jamguess #brandedwatch #jamcouple
 </CaptionText>
 <SentimentLabel>
-
+1,-1
 </SentimentLabel>
 </Tag>
 
@@ -246,7 +246,7 @@ abstract,guess,
 What would this be? #guess #abstract
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -258,7 +258,7 @@ nespresso,cup,dad,coffeeart,guess,instadaily,coffee,glass,foodporn,imagination,a
 Dad's artwork~~ what is this? Use ur imagination #coffeeart #coffee #nespresso #artwork #guess #imagination #dad #glass #cup #foodporn #instadaily
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -270,7 +270,7 @@ freepostage,sayajualhandbag,originalbags,onlinehandbag,brandedbag,guesshandbag,b
 CATH KIDSTON Bagpack School kids  Material: 100% Authentics  Dimensions: 50 x 30 x 19 cm  Price: RM 120 inc postage  Whatsapp: 011-17575795 for enquiry  #brandedbag #brandedhandbag #onlinehandbag #authenticbags #freepostage #bazaarpaknil #original #originalbags #charlesnkeith #charlesnkeithbag #baggiewiggie #onlineshopping #authenticbags #sayajualhandbag #onlineseller #freepostage #cantik #bazaarpaknil #original #originalbags #ck #calvinklein #guesshandbag #guessmalaysia #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -282,7 +282,7 @@ deveraco,blousemurah,chanel,supportlokalah,bajukurung,retro,jubah,igshoponline,d
 THS  Lv 8821 Gred AA . Rm130 sm / rm140 ss . ?Whatsapp 0194469521 more handbags ? #handbagdevera  @devera_co @devera_co @devera_co #deveraco #deveraco #deveraco ? dresses | scarves | apparels | bags ? visit also @devera_tech @devera_beau . . #chanel#coach#handbag#guess #bajukurung#cottondress#dress#jubahdress#retro#softlycra#blouse #scarves #apparel #beautyproducts #jubahmurah #igshopmalaysia #igshoponline #lokalah #blousemurah #bazaaronline #jubah #jubahmurah#bajuraya#bazaarpaknil #vintage#dresslembut#support #supportlocal #supportlokalah
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -294,7 +294,7 @@ freepostage,sayajualhandbag,originalbags,onlinehandbag,brandedbag,guesshandbag,b
 CHARLES & KEITH SLING BAG  Material: 100% Authentics  Dimensions: 20 x 11.5 x 3 cm  Price: RM 130 inc postage  Whatsapp: 011-17575795 for enquiry  #brandedbag #brandedhandbag #onlinehandbag #authenticbags #freepostage #bazaarpaknil #original #originalbags #charlesnkeith #charlesnkeithbag #baggiewiggie #onlineshopping #authenticbags #sayajualhandbag #onlineseller #freepostage #cantik #bazaarpaknil #original #originalbags #ck #calvinklein #guesshandbag #guessmalaysia #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -306,7 +306,7 @@ birthday,fashion,beautiful,zante,czechgirl,party,bathroom,people,ready,selfie,mi
 @bbaruse má narozeniny.?Jdeme slavit! ??Ready for the #party ????#birthday #celebration #friday #night #friends #zante #fashion #style #bathroom #mirror #selfie #ready #czechboy #czechgirl #guess #tshirt #beautiful #people #instagood #instacool #picoftheday
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -318,7 +318,7 @@ maticevski,fashion,style,alexandermcqueen,guess,polyvore,stellamccartney,belgolu
 #Polyvore #Fashion #Style #Topshop #Maticevski #AlexanderMcQueen #STELLAMcCARTNEY #GUESS #BELGOLUX
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -330,7 +330,7 @@ deveraco,blousemurah,chanel,supportlokalah,bajukurung,retro,jubah,igshoponline,d
 THS  Guess 8028 3 in 1 Gred AA . Rm130 sm / rm140 ss . ?Whatsapp 0194469521 more handbags ? #handbagdevera  @devera_co @devera_co @devera_co #deveraco #deveraco #deveraco ? dresses | scarves | apparels | bags ? visit also @devera_tech @devera_beau . . #chanel#coach#handbag#guess #bajukurung#cottondress#dress#jubahdress#retro#softlycra#blouse #scarves #apparel #beautyproducts #jubahmurah #igshopmalaysia #igshoponline #lokalah #blousemurah #bazaaronline #jubah #jubahmurah#bajuraya#bazaarpaknil #vintage#dresslembut#support #supportlocal #supportlokalah
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -342,7 +342,7 @@ freepostage,sayajualhandbag,originalbags,onlinehandbag,brandedbag,guesshandbag,b
 CHARLES & KEITH Sewing Thread  Material: 100% Authentics  Dimensions: 23 x 17 cm  Price: RM 120 inc postage  Whatsapp: 011-17575795 for enquiry  #brandedbag #brandedhandbag #onlinehandbag #authenticbags #freepostage #bazaarpaknil #original #originalbags #charlesnkeith #charlesnkeithbag #baggiewiggie #onlineshopping #authenticbags #sayajualhandbag #onlineseller #freepostage #cantik #bazaarpaknil #original #originalbags #ck #calvinklein #guesshandbag #guessmalaysia #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -354,7 +354,7 @@ freepostage,sayajualhandbag,originalbags,onlinehandbag,brandedbag,guesshandbag,b
 CHARLES & KEITH  Size : 30 x 21 cm  Material: 100% Authentics  Dimensions: 30 x 21 cm  Price: RM 130 inc postage  Whatsapp: 011-17575795 for enquiry  #brandedbag #brandedhandbag #onlinehandbag #authenticbags #freepostage #bazaarpaknil #original #originalbags #charlesnkeith #charlesnkeithbag #baggiewiggie #onlineshopping #authenticbags #sayajualhandbag #onlineseller #freepostage #cantik #bazaarpaknil #original #originalbags #ck #calvinklein #guesshandbag #guessmalaysia #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -366,7 +366,7 @@ zara,sretsis,pumathailand,usedwatch,lacostethailand,nikethailand,issuethailand,s
 ????? 180???? size 36-37 #airjordanthailand #adidas #pumathailand #nikejordan #pantipmarket #sbn #siamnaliga #siamspeed #siambrandname #usedwatch #usedbrandname #nikethailand #usedbag #secondhandbrandname #zara #nikeshoes #sretsis #soul4street #cps  #usedbrandnamebag #secondhandbrandname #secondhand #guess #adidassupercolor #brandnamethailand #lacostethailand #adidasthailand #lecoqsportif #issuethailand #onitsukatigrthailand #conversethailand
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -378,7 +378,7 @@ zara,sretsis,pumathailand,usedwatch,lacostethailand,nikethailand,issuethailand,s
 ???????convers ?????? size 36?????180???? #airjordanthailand #adidas #pumathailand #nikejordan #pantipmarket #sbn #siamnaliga #siamspeed #siambrandname #usedwatch #usedbrandname #nikethailand #usedbag #secondhandbrandname #zara #nikeshoes #sretsis #soul4street #cps  #usedbrandnamebag #secondhandbrandname #secondhand #guess #adidassupercolor #brandnamethailand #lacostethailand #adidasthailand #lecoqsportif #issuethailand #onitsukatigrthailand #conversethailand
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -390,7 +390,7 @@ instalike,home,likers,followme,you,jakarta,charles,like4like,follow4follow,love,
 Ready to go.. I'll be missing my beloved fam soo much.. Really!!??
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -402,7 +402,7 @@ Ready to go.. I'll be missing my beloved fam soo much.. Really!!??
 ??????????????????????????????? GUESS ??????100% ??????????????????(???????????????????????) ??????550??? ????80%????????????????????????????????????????? ?????????????????????????? ????????guess??? ???????????????????????????????? kitty_kratou ???? #2nd #2hand #used #new #dress #white #maxidress #korea #sales #sale #shopping #secondhand #siambrandname #bag #jacob #charlesandkeith #charles&keith #guess #chanel #chanel bag #lady #vintage #lyn #elle #elle bag #pink #ellebag #guess #baobao
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -414,10 +414,9 @@ guess,baby,sleep,cute,
 ???????????#cute#baby#sleep#guess
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
-
 <Tag>
 <TagSet>
 louisvuitton,prada,chanel,2sisshopz,thailand,rolex,fendi,baobao,panerai,mcm,muimui,cartier,brandname,burberry,givenchy,watch,coach,siambrandname,sbn,ysl,gucci,patek,brandnew,hermes,valentino,guess,dior,hiend,celine,bkk,
@@ -426,7 +425,7 @@ louisvuitton,prada,chanel,2sisshopz,thailand,rolex,fendi,baobao,panerai,mcm,muim
 ?? ???????? ?? ???????????? ?? ?Line id. : Pimmiess . ?Brandname Hi End 1:1 ???????????????? ???????????????? / ????????? ????????????????????????????? ??Stock ??? ??? ???????????????? ??????????????????? ???? ????????????? . ??????? EMS ????????? ???????????????? Line id : Pimmiess . #2sisshopz#sbn#siambrandname#dior#cartier#gucci#coach#rolex#guess#celine#watch#brandname#givenchy#louisvuitton#mcm#valentino#prada#hiend#brandnew#fendi#hermes#chanel#bkk#thailand#ysl#burberry#baobao#dior#muimui#patek#panerai
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -438,7 +437,7 @@ preorderusa,rayban,eos,preorderusabygb,prementimes,men,onitsuka,mk,watches,newba
 ????????????????? ???????????????? ?? Line:Gustjan9 ??????????? ?????????2??????? ????????????? ?????? ????????? ?????????????????????????????????? #fossil#onitsuka#men#watches#menwatch#shoes#newbalance#mk#michaelkors#bags#handbags#giftformen#amani#guess#gucci#coach#preorder#preorderusa#prementimes#preorderusabygb#sold#review#reviewbygust#katespade#fitflop#fossil#mk#eos#cosmetic#naked#unbran#rayban
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -450,7 +449,7 @@ prada,zara,tasbranded,hermes,resellerwelcome,guess,tasoriginal,reseller,original
 Cath Kidston 380.000 (kode 1389) - OriginaL ??? Contac Us : ??bbm : 53e08134 ??line : Sunnybagstore ??Whatsapp : 089616706245 ??insta : @sunnybagstore ?ReadyStock #zara #zaraoriginal #mango #cnk #reseller #resellerwelcome #guess #prada #hermes #tasmurah #original #onlineshop #tasbranded #tasoriginal #dropship
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -462,7 +461,7 @@ helicopter,avlovers,green,mexican,airplane,fun,avporn,planespotter,where,airport
 For Those #mexican #avlovers #where is this? #guess #fun #instafun #helicopter #tree #green #chiapanecosporelmundo #avgeek #avporn #plane #airport #airplane #aircraft #planespotting #planespotter
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -474,7 +473,7 @@ citizen,edwin,boylondon,watch,adidasdigital,vintagedunhill,negotiable,gshock,bon
 Automatic Swatch AG1992 Condition 9.5/10 RM290 include postage . Grab it now! . For more details Whatsapp 011-15714802? . #camel #boylondon #watch #guess #swatch #swatchsolar #citizen #casio #threefive #adidasdigital #bonia #vintagedunhill #camelmichaeljordan #vintageswatch #casiodatabank #gshock #prayercompasswatch #guessforladies #edwin #negotiable #epygoroundstore
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -486,7 +485,7 @@ skirt,model,modeling,guess,nurashikin100,wlyg,photoshoot,
 #model #modeling #Photoshoot #nurashikin100 #wlyg #guess #skirt
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -498,7 +497,7 @@ streetbrand,fashion,siam,golfz_girly,thailand,coachthailand,paragon,??,pantip,??
 ????????????? ??Kate Spade mini Maise ? #pxru5303 sz. 5.5" x 7" x 3" ? ????????????????? ???????????? ? ??????????? ????? 6,300? (????????? 9,950?) ??????????????^^?Line: Golfz_Girly ~~~~~~~~~~~~~~~~~~~~~~~~~~ #KateSpade #Coach #pantip #Coachfactory #Coachthailand #MichaelKors #GUESS #fashion #streetbrand  #brandname #DKNY #FOSSIL #bag #handbag #watch #paragon #siam #thailand #authentic #??????100% #Golfz_Girly #GolfzShop #????????????? #?????? #?????? #?????? #????? #????? #?????? #??????????????? ?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -510,7 +509,7 @@ with,time,dolls,guess,calvinklein,hollister,money,shopping,armani,my,michaelkors
 #shopping#time#with#my#dolls#armani#michaelkors#guess#hollister#calvinklein#spending#money ?
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -522,7 +521,7 @@ acapulco,relax,followme,likeit,funny,mayanpalace,fun,sunglasses,photo,happinnes,
 #viaje #Acapulco #likeit #mayanpalace #hotel #sunglasses #guess #smile #pool #funny #fun #happinnes #happy #relax #swimwears #photo #selfie #me #followme
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -534,7 +533,7 @@ invention,red,challenge,redandred,common,guess,hsph2grpy,unusual,invention_chall
 What's this? Red and more red for today! We need this. . . #invention_challenge #redandred #red #guess #invention #challenge #common #closeup #unusual @invention_squad #hsph2grpy
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -546,7 +545,7 @@ spoiled,purse,happy,guess,yay,
 came home to a new guess purse at 2am after work?? can you say spoiled? love my relatives. #yay #purse #guess #happy #spoiled
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -558,7 +557,7 @@ prada,zara,tasbranded,hermes,resellerwelcome,guess,tasoriginal,reseller,original
 Cath Kidston 350.000 (kode 1410) - OriginaL ??? Contac Us : ??bbm : 53e08134 ??line : Sunnybagstore ??Whatsapp : 089616706245 ??insta : @sunnybagstore ?ReadyStock #zara #zaraoriginal #mango #cnk #reseller #resellerwelcome #guess #prada #hermes #tasmurah #original #onlineshop #tasbranded #tasoriginal #dropship
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -570,7 +569,7 @@ prada,zara,tasbranded,hermes,resellerwelcome,guess,tasoriginal,reseller,original
 Cath Kidston 350.000 ( kode 1409 ) - OriginaL ??? Contac Us : ??bbm : 53e08134 ??line : Sunnybagstore ??Whatsapp : 089616706245 ??insta : @sunnybagstore ?ReadyStock #zara #zaraoriginal #mango #cnk #reseller #resellerwelcome #guess #prada #hermes #tasmurah #original #onlineshop #tasbranded #tasoriginal #dropship
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -582,7 +581,7 @@ prada,zara,tasbranded,hermes,resellerwelcome,guess,tasoriginal,reseller,original
 Cath Kidston 350.000 (kode 1407) - OriginaL ??? Contac Us : ??bbm : 53e08134 ??line : Sunnybagstore ??Whatsapp : 089616706245 ??insta : @sunnybagstore ?ReadyStock #zara #zaraoriginal #mango #cnk #reseller #resellerwelcome #guess #prada #hermes #tasmurah #original #onlineshop #tasbranded #tasoriginal #dropship
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -594,7 +593,7 @@ prada,zara,tasbranded,hermes,resellerwelcome,guess,tasoriginal,reseller,original
 Cath Kidston 350.000 - OriginaL ??? Contac Us : ??bbm : 53e08134 ??line : Sunnybagstore ??Whatsapp : 089616706245 ??insta : @sunnybagstore ?ReadyStock #zara #zaraoriginal #mango #cnk #reseller #resellerwelcome #guess #prada #hermes #tasmurah #original #onlineshop #tasbranded #tasoriginal #dropship
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -606,7 +605,7 @@ prada,zara,tasbranded,hermes,resellerwelcome,guess,tasoriginal,reseller,original
 Cath Kidston 350.000 (kode 1405) - OriginaL ??? Contac Us : ??bbm : 53e08134 ??line : Sunnybagstore ??Whatsapp : 089616706245 ??insta : @sunnybagstore ?ReadyStock #zara #zaraoriginal #mango #cnk #reseller #resellerwelcome #guess #prada #hermes #tasmurah #original #onlineshop #tasbranded #tasoriginal #dropship
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -618,7 +617,7 @@ jualan,instagram,zara,trustseller,branded,bestseller,urbanandco,dompet,hushpuppi
 URBAN & Co ORI !! (GANTI Uang 100x lipat jika terbukti tidak Ori !!) CODE : Harriet COLOR : White, Brown, Black Ready size 36,37,38,39,40 (SIZE NORMAL) PRICE : 295.000  #jualanku#jualan#daganganku#dagangan#sepatu#sandal#tas#jam#dompet#charleskeith#cnk#cnksale#charlesandkeith#vincci#vnc#vncori#guess#zara#pedro#urbanandco#hushpuppies#branded#original#trustseller#bestseller#instagram#facebook#febeminnieshopku#testi#testimoni
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -630,7 +629,7 @@ guess,flex,
 Our night secret: #Guess #FleX @guess
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -642,7 +641,7 @@ prada,zara,chanel,outlet,get_outlet_bag,squaready,siamshopping,weloveshopping,fe
 Charle&keith boxy crossbody bag ?????????????????? ????????? ??????? safiano ??????????? logo ????? ??????????????????????????? ?????????????? 3 ????  ???????? 3 ?? ??/???/??? Size : 20.5x20x8 cm. ?????sale ????? 1,590? ???????? !!! >> ???????? EMS ??? ??? ?? ????????????? ????????????? ?? >> ????????? ?% ??? outlet >> ?????????????? ?????? ? ??? EMS ??? ????????? ?????Contact me ????? ? Line : ggift_gubbgubb ????????????? ????????????? ? IG : get_outlet_bag ??????????????? inbox. ???? ???line ????. ???? #??????? #zara #mango #dior #prada #chanel #hermes #coach #topshop #fendi #brandname #forever21 #CathKidston #katespade #fossil #gucci #Givenchy #guess #g2000 #LYN #bag #outlet #get_outlet_bag #getoutletbag  #sale_here #siambrandname #siamshopping #weloveshopping #squaready #preorder
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -654,7 +653,7 @@ hushpuppies,menslife,guess,mansworld,friendship,menstagram,mansquote,ootdmen,fat
 Have Nice Lunch ... #menstagram #ootdmen #friendship #fatheranddaughter #parenting #menslife #mansquote #mansworld #guess #hushpuppies
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -666,7 +665,7 @@ july26,leowomen,bff,mac,instaparty,rf,party,leos,obsessed,stayblessed,kazo,leoga
 Things last night!! ??? #party #birthdaygirl #leowomen #leos #stripes #guess #corona #fnf #obsessed #rf #igers #ig #instaparty #rainforest #aintnobodyfknwithmyclique #mac #bff #soulsisters #kazo #stayblessed #july26 #jasonstatham #fanwomen #leogang #leofellow #partnersincrime # leoswag #leoseason ??
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -678,7 +677,7 @@ love,shoeaddiction,montreal,guess,highheels,bae,shopping,friend,
 throwback avec la bae ? @julietran1999 #bae #highheels #guess #love #shopping #friend #montreal #shoeaddiction
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -690,7 +689,7 @@ coach_on,coachoutlet,??,thaisale,club_coach,siambrandnames,guess,followme,saisee
 ????????? 1750.- ????????????????? ? ? #coachoutlet # ?????#siambrandnames #coach_on #tote # fossil #guess #wristlet #thaisale #???????? #followme #saiseeplerng #siamsquare #CLUB_COACH #thaisale
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -702,7 +701,7 @@ mylook,lookbook,fashion,fashionista,arcadia,outfit,fashiongram,outfitoftheday,wh
 Oceanic animal Romper: #Philippines Purse: #arcadia  Shoes: #Guess #DSWShoes  #ootd #style #outfitoftheday #lookoftheday #TagsForLikes #fashion #fashiongram #lookbook #whatiworetoday #ootdshare #outfit #clothes #mylook #fashionista #todayimwearing #instastyle @TagsForLikes #instafashion #fashionpost #todaysoutfit  #fashiondiaries #blue #white
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -714,7 +713,7 @@ shoes,muscleandbeauty,afterwork,white,nextlevelshit,1stphorm,trendy,igdaily,mabo
 Wore these lovelies after work tonight. ? I love them but trying to keep the clean is hard ? #shoes #guess #white #afterwork #clean #1stphorm #1stphormlife #phamily #muscleandbeauty #mabon #nextlevelshit #instagood #instashoes #canadian #phormbilt #igdaily #summertime #trendy #classy #style
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -726,7 +725,7 @@ prada,zara,chanel,outlet,get_outlet_bag,squaready,siamshopping,weloveshopping,fe
 Forever 21 Cluth Bag ???????????????????? ????????? ????????? support ???????????????? ??????? ???????????????  Size : W x L x H = 21cm x 7.5cm x 19cm ?????????? : 55 cm ?????sale ????? 990? ???????? !!! >> ???????? EMS ??? ??? ?? ????????????? ????????????? ?? >> ????????? ?% ??? outlet >> ?????????????? ?????? ? ??? EMS ??? ????????? ?????Contact me ????? ? Line : ggift_gubbgubb ????????????? ????????????? ? IG : get_outlet_bag ??????????????? inbox. ???? ???line ????. ???? #??????? #zara #mango #dior #prada #chanel #hermes #coach #topshop #fendi #brandname #forever21 #CathKidston #katespade #fossil #gucci #Givenchy #guess #g2000 #LYN #bag #outlet #get_outlet_bag #getoutletbag  #sale_here #siambrandname #siamshopping #weloveshopping #squaready #preorder  #squaready
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -738,7 +737,7 @@ project,xposeplus,iphone6plus,ips,guess,capdase,star,xoxo,charity,iphone6,ipanda
 The next #iPANDAS #charity #project.  It is #Capdase #iPhone6 & #iphone6plus #XOXO #XposePlus soft jacket & leather pouch.  #guess who is the collaborating #star this time? #ips
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -750,7 +749,7 @@ bershka,skirt,shop,miniskirt,tops,highwaisted,store,cottonon,f21,clothes,terrano
 Preloved Guess Maong Miniskirt! Only used once! Very nice condition  Fits: s-m  My Price: 349 (negiotable) Original Price: 1,250  Everything here is Cheap!! Preloved and Brand New Items!!! For orders: ?? meet ups: Sm Southmall,  Starmall Las Piñas, Vito Cruz (DLSU) ? MOP: pls comment if interested
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -762,7 +761,7 @@ charlesandkeith,shop,charleskeith,handbag,zara,brandname,outlet,bag,mango,preord
 CHARLES&KEITH QUILTED PANEL HANDBAG ???????????????????????????????????????????????? ????????????????????????????? ?????????????? ?????????????? ??????????????? ?????????????????????????????? 125cm.  Size L31xW14xH24cm.  Color : ?? / ?????? **???????Tag?????????Ck** ??????? ? ???? 1,400 ? ((shop 3,350 ?))? ? F R E E  E M S ? ? ?????????????????? ? ?? ?????? ???????????????????? ? Line : thanuchployy  #charlesandkeith #charleskeith #h&m #hm #zara #mango #forever21 #clutch #mini #bag #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #promote #guess #shop #women  #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #mng
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -774,7 +773,7 @@ instalike,glow,love,instafashionista,instashop,friends,fresh,happy,instadaily,lu
 #love #picoftheday #summer #selfie #tbt #follow #instadaily #friends #me #happy #instagood #tagsforlikes #fun #smile #like4like #instabuy #instastyle #instafashionista #instalike #luxuryshopping #glow #brandedmurah #insta #pimp #instashop #fashionclimaxx #fresh #guess #nike #design
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -786,7 +785,7 @@ guess,
 An interesting thing in this pic! Any #guess!!!! ?
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -798,7 +797,7 @@ goodthing,tinky,wakinguptothisface,guess,priceless,jumpstart,i,
 #goodthing #wakinguptothisface #priceless #i #guess #tinky ? ...#jumpstart
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -810,7 +809,7 @@ newwavesound,myom,awnw,musicvideo,ajslip,atlclimo,russp,hm,tentwentysix,hypnauti
 Its go time. #musicvideo #AWNW #AllWalkNoWheels #Ajslip #feat #Hypnautic #prod #RussP #GUESS #PopularDemand #HM #RapGameBully #Newwavesound #ATLClimo #tentwentysix #MYOM
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -822,7 +821,7 @@ secondauthentic,cnkindo,guessbag,guessmerci,tasbranded,tasguess,goshaddict,guess
 Fast Sale.. #guessmerci original counter.. For serious buyer only.. #guess #guessbag #guessori #tasguess #tasbranded #goshaddict #cnkindo #prelovedindo #secondauthentic #secondbag
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -834,7 +833,7 @@ charlesandkeith,shop,charleskeith,handbag,zara,brandname,outlet,bag,mango,preord
 Zara ??????????????????????????????????????????????????????? ???????????????????? ?????????????????? ??????? ??????????????? ????????????????????????????????????? ???? 7x24x17 cm.  ?????????? ???/????? ???????????? ?? ???? 900 ? ?? FREE  EMS ?? ????????????????? ?? ? ?????? ???????????????????? ? Line : toletto_dom  #charlesandkeith #charleskeith #h&m #hm #zara #mango #forever21 #clutch #mini #bag #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #promote #guess #shop #women  #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #mng
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -846,7 +845,7 @@ model,fashion,outfit,guessassociate,beauty,cute,pretty,photooftheday,eyes,love,g
 ?Happy Sunday? Your personal stylist for #GUESS I love my LEIGH LACE MAXI DRESS. You can wear to a wedding, A show that's playing in Vegas this dress I can say you can wear to mostly any occasion. #guessassociate #loveguess #fashion #style #stylish #love #me #cute #photooftheday #hair #beauty #beautiful #instagood #pretty #swag #pink #girl #girls #eyes #design #model #dress #shoes #heels #styles #outfit  #shopping #glam
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -858,7 +857,7 @@ girlsrule,brandrep,startemyoung,daughter,conversations,mum,who,cheeky,welovemick
 My #daughter "hey #mum #guess who I am?" #who "I am #batman ? ? #conversations with a 3 year old #toddler ? #startemyoung #gigglemepink #gold #headband #marvel #goldheadband #playtime #coffeedate #facial #brandrep #cheeky #girlsrule #naturalhair #curls #Tongan #australia
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -870,7 +869,7 @@ distressed,look,rippedjeans,fashion,whitejeans,pointytoe,guessheels,wearing,outf
 Good morning from la France! ? There's a new outfit on my blog (? link in bio)! How awesome are these white ripped jeans? ?
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -882,7 +881,7 @@ branded,second,tassecond,prelovedbag,charlesnkeith,tasbekas,jualkatespade,katesp
 Kate spade like new cedar maissie 2,3 juta katespadepreloved #prelovedkatespade #kspreloved #prelovedks #tasbekas #tasoriginal #tassecondbranded #tasoriginalbranded #second #original #katespadeready #katespadeauthentic #katespadeindo#katespadestevie#tas#tasbekas#preownedbag#prelovedbag#likenew#original#branded#authentic#guess#charlesnkeith#tasbekas#jualkatespade#jualkatespadebekas#jualkatespadepreloved#jualkatespadesecond#tassecond#prelovedindo#prelovedbonia#bonia
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -894,7 +893,7 @@ setting,free,byee,guess,myself,fuckrelationships,
 #guess #setting #myself #free #fuckrelationships #byee
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -906,7 +905,7 @@ love,scooby,isback,f4f,cartoon,guess,peace,90,lumia,avenger,who,followback,
 #guess #who #isback #Scooby #f4f #followback #Lumia #avenger #love #peace  #90's #cartoon
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -918,7 +917,7 @@ charlesandkeith,shop,charleskeith,handbag,zara,brandname,outlet,bag,mango,preord
 Mango bag ????????????????????????? ?????????????/?????????????????????  ??  ???(????) , ???????( ???) size 24x15 cm. ???????????? ?? ???? 500 ? ?? FREE  EMS ?? ????????????????? ?? ? ?????? ???????????????????? ? Line : toletto_dom  #charlesandkeith #charleskeith #h&m #hm #zara #mango #forever21 #clutch #mini #bag #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #promote #guess #shop #women  #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #mng
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -930,7 +929,7 @@ fashion,burberrywatch,???,pantip,casio,??,???,brandname,casioedifice,burberry,wa
 Marc Jacobs ------------------------------------------------- (?????????????????)  ???? 5,900 ??? ???100% ?????????????set ------------------------------------------------- ???????????????????????????????? Line : pop.krt  Line : pairwalai http://www.p-watchoriginal.com ?????????????????? 100% ???????????????????????????? ?????????????????????????????? 100% #?????? #???????????? #??? #????? #?????? #fashion #??????? #??? #sale #watch  #brandname #hiendwatch #shopping #michaelkors #michaelkorswatch #armani #siambrandname #pantip #coach #coachwatch #burberry #burberrywatch #guess #guesswatch #pantipmarket #shoppingonline #casio #casioedifice
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -942,7 +941,7 @@ bajucowok,sweater,leatherjacket,kemeja,celanamurah,kemajapost,bajupria,fashionpr
 >>>order<<< CP : Nicholas Devin BBM : 573B330D LINE : nicholassantos No Telp : 08980553828  Spectre Backpack for Man Only 150.000 Material : Denim + Leather  #kemeja #kemejakeren #kemejamurah #kemajapost #jualkemeja #kemejadistro #kemejagaul #longsleeve #shortsleeve #celana  #celanamurah #young #ootdindo #kemejamen #kemejacowo #fashionpria #kemejaimport #bajucowok #fredperry #topman #polo #guess #bajumurah #bajupria #brotherbroos  #Tshirt #pullnbear #sweater #hoodie  #leatherjacket
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -954,7 +953,7 @@ thecityoforlando,floridamall,supreme,social,guess,workflow,supernova,
 Let's be social #social #supernova #supreme #workflow #guess #floridamall #thecityoforlando
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -966,7 +965,7 @@ sexy,sexsells,flamboyantmodels,highfashion,paulmarciano,guess,italianvouge,mensf
 Wasn't having it today so my sister dragged me out and snapped some photos of me @samnic013 #italianvouge #sexsells #flamboyantmodels #malemodels #guess #mensfashion #beauty #highfashion #sexy #90s #paulmarciano #pinup
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -978,7 +977,7 @@ charlesandkeith,shop,charleskeith,handbag,zara,brandname,outlet,bag,mango,preord
 Charles & Keith ?????????????????????????? ???????????????????????????? ?????????????????????????????????????????? ??????????? ?????????? ????????????????????? ???? ??? 24 *???19cm *????? 9cm  ?????? 95 cm. ???????????? / ??? ???????????? ?? ???? 1,350 ? ?? FREE  EMS ?? ????????????????? ?? ? ?????? ???????????????????? ? Line : toletto_dom  #charlesandkeith #charleskeith #h&m #hm #zara #mango #forever21 #clutch #mini #bag #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #promote #guess #shop #women  #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #mng
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -990,7 +989,7 @@ theflash,guess,
 #TheFlash #Guess........respect is earned
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -1002,7 +1001,7 @@ cityoforlando,floridamall,guess,irony,workflow,
 Treat the world like a starving gorilla let loose on a banana buffet ??#workflow #irony #guess #floridamall #cityoforlando
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -1014,7 +1013,7 @@ ride,hearts,freedom,tillthe,chicksthatride,sunglasses,arai,748,faster,sexy,sky,s
 I hear the birds in the summer breeze I am always alone in the night I've been trying hard not to get into trouble, but I've got this war in my head So I just ride, I ride. I'm so tired of feeling like I'm fucking crazy Tired of driving till I see stars in my eyes...so i ride. #ride#faster#faster#faster #bh #tillthe#thrillofspeed#overcomes#thefearofdeath #ducati #lansdelrey #freedom #gypsy #748 #hearts #ducatiofinstagram #sky#stars#arai #sexy #guess #helmets #sundayfunday #chicksthatride #sunglasses
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -1026,7 +1025,7 @@ car,queer,instagram,nice,guys,love,sexy,life,abs,instagay,american,man,top,lol,f
 Send again: with a monster,lol.#lol#love#monster#man#nike#nice#damn#shy#sexy#see#queer#gay#guys#guess#ing#omg#life#american#abs#world#imagine#Instagay#Instagram#fb#fade#summer#hot#top#car
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -1038,7 +1037,7 @@ charlesandkeith,shop,charleskeith,handbag,zara,brandname,outlet,bag,mango,preord
 ?????????????? BUMP OF CHICKEN TOUR WILLPOLIS ???? 53 * 24 * 25 cm ??????? 410g ??????????????????????????????????????????????????????? ???????????? ?? ???? 850 ? ?? FREE  EMS ?? ????????????????? ?? ? ?????? ???????????????????? ? Line : toletto_dom  #charlesandkeith #charleskeith #h&m #hm #zara #mango #forever21 #clutch #mini #bag #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #promote #guess #shop #women  #wallet #shop #shopping #katespade #outlet #preorder #sale #guess #handbag #brandname #mng
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -1050,7 +1049,7 @@ eider,???,cityhunter,innisfree,minoz,bof,kimtan,koreandrama,vitaminho,leeminho,s
 Good Afternoon^^ . . . . Love his nose??? . . . #LeeMinHo #??? #LMH #Kpopshoutout #SongForYou #REMINHOGlobalTour #Eider #Faith #Guess #GangnamBlues #hot #innisfree #korea #kdrama #korean #KingMinho #KoreanDrama #Leeminhot #Minho #minoz #minshin  #REMINHO #ROMANSON #Semir #Seoul #TheHeirs #vitaminho#cityhunter#BOF#kimtan
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -1062,7 +1061,7 @@ versace,louisvuitton,prada,harrywinston,fashion,chanel,tiffanys,outfit,jewelry,j
 Chanel pearl sunglasses #eliesaab#ralphlauren#tiffanys#prada#shoes#dior#fashion#guess#gucci#hermes#hautecouture#harrywinston#handbags#jewelry#jimmychoo#luxury#louboutin#louisvuitton#michaelkors#marcjacobs#burberry#bvlgari#versace#valentino#vogue#chanel#cartier#couture#outfit#nails
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -1074,7 +1073,7 @@ beateat,watch,guess,
 it's time :) #BeatEat #watch #guess
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -1086,7 +1085,7 @@ guess,town,
 #Guess who's in #town ?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -1098,7 +1097,7 @@ charlesandkeith,charlesnkeithoriginal,guess,charlesnkeithmurah,charlesnkeithseco
 New! Charles&keith ori cuma lepas plastik nya No deffect 450rb free ong #tascharlesnkeith #charlesandkeith #planetsurfsecond #cnk #spyderbilt #guess #charlesnkeithsecond #charlesnkeithmurah #charlesnkeithoriginal
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 

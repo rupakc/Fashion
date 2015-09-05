@@ -180,7 +180,6 @@ public class CommitToFile {
 
 		bw.close();
 		fw.close();
-		mongo.closeConnection();
 	} 
 	
 	/** 
@@ -257,9 +256,7 @@ public class CommitToFile {
 		}
 
 		bw.close();
-		fw.close(); 
-		
-		mongo.closeConnection();
+		fw.close(); 		
 	} 
 	
 	/** 

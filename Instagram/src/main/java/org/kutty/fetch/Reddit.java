@@ -267,12 +267,7 @@ public class Reddit extends Thread {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {
-				mongo.closeConnection();
-			}
-		}
+		} 
 	}
 
 	/** 
@@ -288,20 +283,16 @@ public class Reddit extends Thread {
 		results.addAll(getSubmission(prompt,"RISING")); 
 		//printResults(results);
 		MongoBase mongo = null; 
-		
+
 		try { 
-			
+
 			mongo = new MongoBase();
 			mongo.putInDB(results,collection_name); 
-			
+
 		} catch (Exception e) { 
-			
+
 			e.printStackTrace();
-		} finally {
-			if (mongo != null) {
-				mongo.closeConnection();
-			}
-		}
+		} 
 	}
 
 	/** 

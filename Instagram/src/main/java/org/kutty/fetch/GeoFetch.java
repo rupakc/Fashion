@@ -234,11 +234,6 @@ public class GeoFetch {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		finally {
-			if (mongo != null) {
-				mongo.closeConnection();
-			}
-		}
 	}
 
 	/** 

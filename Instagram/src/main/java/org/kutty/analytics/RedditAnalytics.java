@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.joda.time.DateTime;
 import org.kutty.clean.Clean;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
@@ -133,7 +132,6 @@ public class RedditAnalytics {
 		}
 
 		cursor.close();
-		mongo.closeConnection(); 
 
 		return hm;
 	}
@@ -170,7 +168,6 @@ public class RedditAnalytics {
 		}
 
 		cursor.close();
-		mongo.closeConnection(); 
 
 		return hm;
 	} 
@@ -206,7 +203,6 @@ public class RedditAnalytics {
 		}
 
 		cursor.close();
-		mongo.closeConnection();
 
 		return hm;
 	} 
@@ -243,7 +239,6 @@ public class RedditAnalytics {
 		}
 
 		cursor.close();
-		mongo.closeConnection();
 
 		return hm;
 	}  
@@ -284,7 +279,6 @@ public class RedditAnalytics {
 		}
 		
 		cursor.close();
-		mongo.closeConnection(); 
 		
 		return message;
 	} 
@@ -331,7 +325,6 @@ public class RedditAnalytics {
 		}
 		
 		cursor.close();
-		mongo.closeConnection(); 
 		
 		return message_set;
 	} 
@@ -378,7 +371,6 @@ public class RedditAnalytics {
 		}
 		
 		cursor.close();
-		mongo.closeConnection(); 
 		
 		return message_set;
 	} 
@@ -414,8 +406,6 @@ public class RedditAnalytics {
 			System.out.println("-----------------------------------------");
 		}
 		
-		mongo.closeConnection(); 
-
 		return hm;
 	} 
 
@@ -460,9 +450,7 @@ public class RedditAnalytics {
 
 			count++;
 		}
-
-		mongo.closeConnection(); 
-
+		
 		return hm;
 	}
 }

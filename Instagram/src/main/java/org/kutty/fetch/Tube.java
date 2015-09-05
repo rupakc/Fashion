@@ -469,8 +469,6 @@ public class Tube extends Thread {
 
 			mongo.putInDB(comment);
 		}
-
-		mongo.closeConnection();
 	}
 
 	/** 

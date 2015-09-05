@@ -15,7 +15,6 @@ import org.kutty.utils.DateConverter;
 import org.kutty.utils.LanguageDetector;
 import org.kutty.utils.PrintUtil;
 
-import com.cybozu.labs.langdetect.LangDetectException;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
@@ -242,12 +241,6 @@ public class LanguageAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
 		} 
 
 		return language_count_map;

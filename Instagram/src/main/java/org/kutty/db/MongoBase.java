@@ -55,7 +55,7 @@ public class MongoBase {
 
 	public MongoBase() throws  UnknownHostException { 
 
-		mongoclient = new MongoClient("localhost",27017);
+		mongoclient = MongoClientFactory.getMongoClient();
 		db = mongoclient.getDB("Central");
 		mongoclient.setWriteConcern(WriteConcern.ACKNOWLEDGED);
 	}
@@ -948,15 +948,6 @@ public class MongoBase {
 			BasicDBObject giveaway_doc = getGiveawayAdaptor(give);
 			insertDocument(giveaway_doc);
 		}
-	}
-	
-	/** 
-	 * Closes an open connection to the mongodb server
-	 */ 
-	
-	public void closeConnection() { 
-		
-		mongoclient.close();
 	}
 }
 

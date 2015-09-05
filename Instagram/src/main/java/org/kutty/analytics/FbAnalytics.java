@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.joda.time.DateTime;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
 import org.kutty.utils.LanguageDetector;
@@ -127,7 +126,6 @@ public class FbAnalytics {
 		}
 
 		System.out.println("Total Posts : " + cursor.size());
-		mongo.closeConnection();
 	} 
 
 	/** 
@@ -167,8 +165,6 @@ public class FbAnalytics {
 			}
 
 		}
-
-		mongo.closeConnection(); 
 
 		return messages;
 	} 
@@ -212,7 +208,6 @@ public class FbAnalytics {
 
 		}
 
-		mongo.closeConnection();
 		return messages;
 	} 
 
@@ -301,8 +296,6 @@ public class FbAnalytics {
 			top_message = (String) cursor.next().get("Message");
 		}
 
-		mongo.closeConnection(); 
-
 		return top_message;
 	} 
 
@@ -343,8 +336,6 @@ public class FbAnalytics {
 			message_set.add(top_message);
 		}
 
-		mongo.closeConnection(); 
-
 		return message_set;
 	} 
 	
@@ -382,8 +373,6 @@ public class FbAnalytics {
 			top_message = (String) cursor.next().get("Message");
 			message_set.add(top_message);
 		}
-
-		mongo.closeConnection(); 
 
 		return message_set;
 	} 
@@ -431,8 +420,6 @@ public class FbAnalytics {
 			count++;
 		}
 
-		mongo.closeConnection(); 
-
 		return top_messages;
 	}
 
@@ -468,8 +455,6 @@ public class FbAnalytics {
 				}
 			}
 		}
-
-		mongo.closeConnection(); 
 
 		return tm;
 	}
@@ -518,9 +503,7 @@ public class FbAnalytics {
 
 			count++;
 		}
-
-		mongo.closeConnection(); 
-
+		
 		return author_map;
 	}
 }

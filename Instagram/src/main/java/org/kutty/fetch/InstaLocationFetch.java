@@ -395,13 +395,7 @@ public class InstaLocationFetch extends Thread {
 
 			e.printStackTrace(); 
 
-		} finally {  
-
-			if (mongo != null) { 
-
-				mongo.closeConnection();
-			}
-		}
+		} 
 	} 
 
 	/** 

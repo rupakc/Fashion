@@ -88,14 +88,8 @@ public class GiveawayAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
 		} 
-
+		
 		return count;
 	}
 	
@@ -143,14 +137,8 @@ public class GiveawayAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
 		} 
-
+		
 		return caption_set;
 	}
 	
@@ -198,12 +186,6 @@ public class GiveawayAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
 		} 
 
 		return caption_map;
@@ -243,14 +225,8 @@ public class GiveawayAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
 		} 
-
+		
 		return count;
 	}
 }

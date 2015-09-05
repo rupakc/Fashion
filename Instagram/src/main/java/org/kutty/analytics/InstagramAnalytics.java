@@ -132,10 +132,8 @@ public class InstagramAnalytics {
 			} 
 		} catch (Exception e) { 
 			e.printStackTrace();
-		} finally { 
-			mongo.closeConnection();
-		}
-
+		} 
+		
 		return tag_set;
 	}
 
@@ -189,9 +187,7 @@ public class InstagramAnalytics {
 
 		} catch (Exception e) { 
 			e.printStackTrace();
-		} finally { 
-			mongo.closeConnection();
-		}
+		} 
 
 		return tag_set;
 	}
@@ -245,10 +241,8 @@ public class InstagramAnalytics {
 
 		} catch (Exception e) { 
 			e.printStackTrace();
-		} finally { 
-			mongo.closeConnection();
-		}
-
+		} 
+		
 		return tag_set;
 	} 
 
@@ -302,10 +296,8 @@ public class InstagramAnalytics {
 
 		} catch (Exception e) { 
 			e.printStackTrace();
-		} finally { 
-			mongo.closeConnection();
-		}
-
+		} 
+		
 		return tag_set;
 	}  
 
@@ -359,10 +351,8 @@ public class InstagramAnalytics {
 
 		} catch (Exception e) { 
 			e.printStackTrace();
-		} finally { 
-			mongo.closeConnection();
-		}
-
+		} 
+		
 		return tag_set;
 	} 
 
@@ -431,14 +421,8 @@ public class InstagramAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) { 
-
-				mongo.closeConnection();
-			}
-		}
-
+		} 
+		
 		return country_map;
 	} 
 
@@ -491,10 +475,8 @@ public class InstagramAnalytics {
 
 		} catch (Exception e) { 
 			e.printStackTrace();
-		} finally { 
-			mongo.closeConnection();
-		}
-
+		} 
+		
 		return tag_set;
 	} 
 	
@@ -540,14 +522,8 @@ public class InstagramAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
-		}
-
+		} 
+		
 		return comment_set;
 	}
 	
@@ -589,14 +565,8 @@ public class InstagramAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
-		}
-
+		} 
+		
 		return like_set;
 	} 
 	
@@ -638,14 +608,8 @@ public class InstagramAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
-		}
-
+		} 
+		
 		return comment_set;
 	} 
 	
@@ -692,14 +656,8 @@ public class InstagramAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
-		}
-
+		} 
+		
 		return comment_set;
 	}  
 	
@@ -768,11 +726,7 @@ public class InstagramAnalytics {
 			
 			e.printStackTrace(); 
 			
-		} finally { 
-			if (mongo != null) { 
-				mongo.closeConnection();
-			}
-		}
+		} 
 		
 		return country_map;
 	}

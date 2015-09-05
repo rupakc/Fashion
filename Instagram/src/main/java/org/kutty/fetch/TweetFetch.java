@@ -145,14 +145,6 @@ public class TweetFetch extends Thread {
 				e.printStackTrace();
 			}
 
-			finally {  
-				
-				if (mongo != null) { 
-					
-					mongo.closeConnection();
-				}
-			}
-
 		} catch (TwitterException | UnknownHostException e) {
 
 			e.printStackTrace();
@@ -287,7 +279,7 @@ public class TweetFetch extends Thread {
 		c = 0; 
 
 		for (Status tweet : tweets) { 
-
+			
 			System.out.println("------------------------------------------------------");
 			System.out.println("Username : " + tweet.getUser().getName());
 			System.out.println("Message : " + tweet.getText());

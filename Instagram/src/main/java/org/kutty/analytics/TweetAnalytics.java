@@ -14,7 +14,6 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.joda.time.DateTime;
 import org.kutty.db.MongoBase;
 import org.kutty.dbo.CountryBase;
 import org.kutty.utils.DateConverter;
@@ -130,8 +129,6 @@ public class TweetAnalytics {
 			message = (String) cursor.next().get("Message");
 		} 
 
-		mongo.closeConnection(); 
-
 		return message;
 	} 
 
@@ -173,7 +170,6 @@ public class TweetAnalytics {
 			message_set.add(message);
 		}
 
-		mongo.closeConnection();
 		return message_set;
 	}  
 
@@ -213,7 +209,6 @@ public class TweetAnalytics {
 			message_set.add(message);
 		}
 
-		mongo.closeConnection();
 		return message_set;
 	}
 
@@ -291,8 +286,6 @@ public class TweetAnalytics {
 			}
 		}
 
-		mongo.closeConnection(); 
-
 		return top_devices;
 	} 
 
@@ -368,8 +361,6 @@ public class TweetAnalytics {
 			}
 		} 
 
-		mongo.closeConnection(); 
-
 		return top_devices;
 	} 
 	
@@ -435,8 +426,6 @@ public class TweetAnalytics {
 
 			e.printStackTrace();
 		} 
-
-		mongo.closeConnection();  
 
 		Set<String> key_list = tm.keySet();
 
@@ -534,8 +523,6 @@ public class TweetAnalytics {
 			}
 		}
 
-		mongo.closeConnection(); 
-
 		return top_devices;
 	}
 
@@ -607,7 +594,6 @@ public class TweetAnalytics {
 			System.out.println(m.getKey() + " : " + m.getValue());
 		}
 
-		mongo.closeConnection();
 		return tm;
 	} 
 
@@ -649,8 +635,6 @@ public class TweetAnalytics {
 				tm.put(username, s);
 			}
 		}  
-
-		mongo.closeConnection(); 
 
 		return tm;
 	}
@@ -699,8 +683,6 @@ public class TweetAnalytics {
 				}
 			}
 		}
-
-		mongo.closeConnection();
 	}
 	
 	/** 
@@ -801,8 +783,6 @@ public class TweetAnalytics {
 			tweet_set.add(cursor.next());
 		}
 
-		mongo.closeConnection();
-
 		return tweet_set;
 	}
 
@@ -844,7 +824,6 @@ public class TweetAnalytics {
 			System.out.println(m.getKey() + " : " + m.getValue());
 		}
 
-		mongo.closeConnection();
 		return tm;
 	}
 
@@ -881,7 +860,6 @@ public class TweetAnalytics {
 			System.out.println(doc);
 		}
 
-		mongo.closeConnection();
 		return tm;
 	}
 
@@ -914,7 +892,6 @@ public class TweetAnalytics {
 			c++;
 		}
 
-		mongo.closeConnection();
 		return message_map;
 	}
 
@@ -951,7 +928,6 @@ public class TweetAnalytics {
 
 		System.out.println("---------------------------------------------------------------------------");
 
-		mongo.closeConnection();
 		return hm;
 	}
 
@@ -988,7 +964,6 @@ public class TweetAnalytics {
 
 		System.out.println("------------------------------------------------------------");
 
-		mongo.closeConnection();
 		return unique_tweets;
 	}
 
@@ -1038,7 +1013,5 @@ public class TweetAnalytics {
 
 		System.out.println("Total Tweets of " + product_name + " : " + cursor.size());
 		System.out.println("------------------------------------------------------------");
-
-		mongo.closeConnection();
 	}
 }

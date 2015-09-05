@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.joda.time.DateTime;
 import org.kutty.clean.Clean;
 import org.kutty.db.MongoBase;
 
@@ -103,9 +102,7 @@ public class TubeAnalytics {
 			
 			comment_set.add(message);
 		}
-		
-		mongo.closeConnection(); 
-		
+				
 		return comment_set;
 	} 
 	
@@ -147,9 +144,7 @@ public class TubeAnalytics {
 			message = (String) temp_doc.get("Message");
 			comment_set.add(message);
 		}
-		
-		mongo.closeConnection();  
-		
+				
 		return comment_set;
 	}
 	

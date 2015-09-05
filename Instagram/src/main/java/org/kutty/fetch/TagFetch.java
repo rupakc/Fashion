@@ -42,7 +42,7 @@ public class TagFetch extends Thread{
 	public Map<String,String> collection_map = new HashMap<String,String>();
 	public String product_filename = "product_list.txt";
 	public int pagination_limit = 10; 
-	
+
 	/** 
 	 * public constructor to initialize the tag name
 	 * @param access_token String containing the tag name
@@ -642,12 +642,6 @@ public class TagFetch extends Thread{
 			e.printStackTrace();
 		}
 
-		finally { 
-
-			if (mongo != null) { 
-				mongo.closeConnection();
-			}
-		}
 	}
 
 	/** 
@@ -671,13 +665,6 @@ public class TagFetch extends Thread{
 
 			e.printStackTrace();
 		} 
-
-		finally { 
-
-			if (mongo != null) { 
-				mongo.closeConnection();
-			}
-		}
 	}
 
 	/** 
@@ -701,13 +688,6 @@ public class TagFetch extends Thread{
 
 			e.printStackTrace();
 		} 
-
-		finally {  
-			
-			if (mongo != null) { 
-				mongo.closeConnection();
-			}
-		}
 	} 
 
 	/** 

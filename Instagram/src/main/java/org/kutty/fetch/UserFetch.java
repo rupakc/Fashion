@@ -162,10 +162,8 @@ public class UserFetch {
 
 		} catch (Exception e) { 
 
-			mongo.closeConnection();
+			e.printStackTrace();
 		} 
-
-		mongo.closeConnection();
 	} 
 
 	/** 

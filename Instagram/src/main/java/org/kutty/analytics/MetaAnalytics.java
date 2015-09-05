@@ -230,13 +230,7 @@ public class MetaAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
-		}
+		} 
 
 		return size;
 	}
@@ -268,13 +262,7 @@ public class MetaAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) {  
-
-				mongo.closeConnection();
-			}
-		}
+		} 
 
 		return size;
 	} 
@@ -341,14 +329,8 @@ public class MetaAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally { 
-
-			if (mongo != null) { 
-
-				mongo.closeConnection();
-			}
-		}
-
+		} 
+		
 		return (size + size_reddit + size_instagram);
 	} 
 
@@ -408,13 +390,7 @@ public class MetaAnalytics {
 
 			e.printStackTrace(); 
 
-		} finally {  
-
-			if (mongo != null) { 
-
-				mongo.closeConnection();
-			}
-		}
+		} 
 
 		return channel_count;
 	} 
