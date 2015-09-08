@@ -8,6 +8,7 @@ import org.kutty.dbo.Comment;
 import org.kutty.dbo.CountryBase;
 import org.kutty.dbo.GeoData;
 import org.kutty.dbo.Giveaway;
+import org.kutty.dbo.Influence;
 import org.kutty.dbo.InstaComment;
 import org.kutty.dbo.InstaLike;
 import org.kutty.dbo.InstaLocation;
@@ -690,16 +691,11 @@ public class MongoBase {
 			
 		} else { 
 			
-			update = new BasicDBObject("$set", new BasicDBObject("Username",user.getUsername()).
-						append("$set", new BasicDBObject("Bio", user.getBio())).
-						append("$set", new BasicDBObject("Website", user.getWebsite())).
-						append("$set", new BasicDBObject("ProfilePicture", user.getProfilePicture())).
-						append("$set", new BasicDBObject("Fullname", user.getFullName())).
-						append("$set", new BasicDBObject("MediaCount", user.getMediaCount())).
+			/*update = new BasicDBObject("$set", new BasicDBObject("MediaCount", user.getMediaCount()).
 						append("$set", new BasicDBObject("FollowedByCount", user.getFollowedByCount())).
 						append("$set", new BasicDBObject("FollowsCount", user.getFollowsCount())));
 			
-			collection.update(query, update);
+			collection.update(query, update); */
 		}
 	} 
 	
@@ -948,6 +944,28 @@ public class MongoBase {
 			BasicDBObject giveaway_doc = getGiveawayAdaptor(give);
 			insertDocument(giveaway_doc);
 		}
+	}
+	
+	/** 
+	 * Adaptor function to convert the influence object into a BasicDBObject
+	 * @param influence Influence object which is to be converted
+	 * @return BasicDBObject containing the Influence object
+	 */ 
+	
+	public BasicDBObject getInfluenceAdaptor(Influence influence) { 
+		
+		BasicDBObject influence_doc = new BasicDBObject("Channel",influence.getChannel()).
+									  append("UserId", influence.getUserId()).
+									  append("UserName", influence.getUserName()).
+									  append("FollowerFactor",influence.getFollowerFactor()).
+									  append("LikeFactor", influence.getLikeFactor()).
+									  append("CommentFactor", influence.getCommentFactor()).
+									  append("FollowerWeight", influence.getFollowerWeight()).
+									  append("LikeWeight", influence.getLikeWeight()).
+									  append("CommentWeight", influence.getCommentWeight()).
+									  append("Index", influence.getIndex());
+		
+		return influence_doc;
 	}
 }
 
