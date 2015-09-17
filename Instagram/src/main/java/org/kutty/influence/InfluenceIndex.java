@@ -12,7 +12,7 @@ import org.kutty.fetch.UserFetch;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
-import com.mongodb.DBObject; 
+import com.mongodb.DBObject;
 
 /** 
  * Calculates the Influence Index for a given Index currently supports Instagram
@@ -21,6 +21,7 @@ import com.mongodb.DBObject;
  * @for Kutty
  * @since 8 September, 2015
  * 
+ * TODO - Add the like,comment and follower weights
  */ 
 
 public class InfluenceIndex {
@@ -184,6 +185,34 @@ public class InfluenceIndex {
 		
 		return ((total_like_count*1.0)/(post_size+1));
 
+	}
+	
+	/** 
+	 * Given a userId returns the influence index of the user
+	 * @param userId String containing the userId
+	 * @return Double containing the influence index
+	 */
+	
+	public static double getInfluenceIndex(String userId) { 
+		
+		double influenceIndex = 0.0;
+		double followerFactor;
+		double commentFactor;
+		double likeFactor;
+		double followerWeight;
+		double commentWeight;
+		double likeWeight; 
+		
+		followerFactor = getFollowerFactor(userId);
+		commentFactor = getCommentFactor(userId);
+		likeFactor = getLikeFactor(userId);
+		followerWeight = 1.0;
+		commentWeight = 1.0; //TODO - Replace the weights here with the functions
+		likeWeight = 1.0;
+		
+		influenceIndex = followerWeight*followerFactor + commentWeight*commentFactor + likeWeight*likeFactor;
+		
+		return influenceIndex;
 	}
 	
 	/** 
