@@ -13,7 +13,7 @@ import java.util.Map;
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 19 August, 2015
- * 
+ * TODO - Add filenames for each map
  */ 
 
 public class NGram {
@@ -90,7 +90,7 @@ public class NGram {
 			spam_count_map = feat.spam_count_map;
 		} 
 
-		label_count_map.putAll(LabelCountUtil.getGiveawayLabelCount(post_list)); 
+		label_count_map.putAll(LabelCountUtil.getSentimentLabelCount(post_list)); 
 
 		for (Post p : post_list) { 
 
@@ -103,7 +103,7 @@ public class NGram {
 			p.setContent(content);
 			getNGramCountMapSelector(p,post_list,type); 
 			
-			if (!ngramTagWrite) { 
+			if (!ngramTagWrite && channel.equalsIgnoreCase("Instagram")) { 
 				
 				String tagset = p.getTagset();
 				tagset = getTagCleanGram(tagset, 1);
@@ -114,7 +114,7 @@ public class NGram {
 
 		writeGramToFileSelector(type); 
 		
-		if (!ngramTagWrite) { 
+		if (!ngramTagWrite && channel.equalsIgnoreCase("Instagram")) { 
 			
 			writeTagGramToFileSelector(type);
 			ngramTagWrite = true;
@@ -352,9 +352,9 @@ public class NGram {
 
 		if (type.equalsIgnoreCase("sentiment")) { 
 
-			writeGramToFile("",positive_count_map);
-			writeGramToFile("",negative_count_map);
-			writeGramToFile("",neutral_count_map);
+			writeGramToFile("twitter/positive_5.txt",positive_count_map);
+			writeGramToFile("twitter/negative_5.txt",negative_count_map);
+			writeGramToFile("twitter/neutral_5.txt",neutral_count_map);
 		}
 
 		if (type.equalsIgnoreCase("spam")) { 
@@ -430,7 +430,7 @@ public class NGram {
 	 * Returns the count of NGrams for a given NGram and a classification type
 	 * @param p Post containing the post object along with the content and other things
 	 * @param post_list List<Post> containing the posts for a given training set
-	 * @param type Type of classification which needs to be done these include (Giveaway,Sentiment Analyis etc)
+	 * @param type Type of classification which needs to be done these include (Giveaway,Sentiment Analysis etc)
 	 * @return Integer containing the count of integers
 	 */ 
 
@@ -465,7 +465,7 @@ public class NGram {
 			sentence = sentence.substring(index+1);
 			index = sentence.indexOf('|');
 			if (index != -1 && !ngram_map.containsKey(ngram)) {
-				count = getNGramCountUtil(ngram, post_list, ngram_label, "giveaway");
+				count = getNGramCountUtil(ngram, post_list, ngram_label,type);
 				ngram_map.put(ngram,count); 
 			}
 		}
@@ -626,7 +626,7 @@ public class NGram {
 
 		for (int i = 1; i <= 3; i++) { 
 			
-			//new NGram().NGramExtractionPipeline("giveaway/split_5.txt",i,"Instagram","giveaway");
+			new NGram().NGramExtractionPipeline("twitter/split_5.txt",i,"twitter","sentiment");
 		} 
 	}
 }

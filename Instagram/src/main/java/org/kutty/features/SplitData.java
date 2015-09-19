@@ -163,7 +163,7 @@ public class SplitData {
 
 	public static void main(String args[]) throws IOException { 
 
-		SplitData splitdata = new SplitData("trainset/allsets.txt",5);
-		splitdata.createSplits("committee/split");
+		SplitData splitdata = new SplitData("Twitter.txt",5);
+		splitdata.createSplits("twitter/split");
 	}
 }

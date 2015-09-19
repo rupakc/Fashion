@@ -12,6 +12,7 @@ import org.kutty.dbo.Influence;
 import org.kutty.dbo.InstaComment;
 import org.kutty.dbo.InstaLike;
 import org.kutty.dbo.InstaLocation;
+import org.kutty.dbo.Sentiment;
 import org.kutty.dbo.Tag;
 import org.kutty.dbo.User;
 
@@ -541,11 +542,11 @@ public class MongoBase {
 
 	public void putInDB(Tag instagram,String tag_searched) { 
 
-		BasicDBObject insta_doc = getInstagramAdaptor(instagram,tag_searched);
+		BasicDBObject instaDoc = getInstagramAdaptor(instagram,tag_searched);
 
-		if (!checkInstagram(insta_doc)) { 
+		if (!checkInstagram(instaDoc)) { 
 
-			insertDocument(insta_doc);
+			insertDocument(instaDoc);
 		}
 	}
 
@@ -558,7 +559,7 @@ public class MongoBase {
 
 	public BasicDBObject getInstaCommentAdaptor(InstaComment comment,String tag_searched) { 
 
-		BasicDBObject comment_doc = new BasicDBObject("Channel","Instagram").
+		BasicDBObject commentDoc = new BasicDBObject("Channel","Instagram").
 				append("Message", comment.getText()).
 				append("Author",comment.getAuthor()).
 				append("UsernameTag",comment.getUsernameTag()).
@@ -568,7 +569,7 @@ public class MongoBase {
 				append("Query",tag_searched).
 				append("Type", "comment");
 
-		return comment_doc;
+		return commentDoc;
 	}
 
 	/** 
@@ -579,7 +580,7 @@ public class MongoBase {
 
 	public BasicDBObject getInstagramUserAdaptor(User user) { 
 
-		BasicDBObject user_doc = new BasicDBObject("Channel","Instagram").
+		BasicDBObject userDoc = new BasicDBObject("Channel","Instagram").
 				append("UserId", user.getId()).
 				append("Username", user.getUsername()).
 				append("Bio", user.getBio()).
@@ -591,7 +592,7 @@ public class MongoBase {
 				append("FollowsCount", user.getFollowsCount()).
 				append("Type", "user");
 
-		return user_doc;
+		return userDoc;
 	} 
 
 	/** 
@@ -603,7 +604,7 @@ public class MongoBase {
 
 	public BasicDBObject getInstaLikeAdaptor(InstaLike like,String tag_searched) { 
 
-		BasicDBObject like_doc = new BasicDBObject("Channel","Instagram").
+		BasicDBObject likeDoc = new BasicDBObject("Channel","Instagram").
 				append("Author", like.getAuthor()).
 				append("UsernameLike", like.getUsernameLike()).
 				append("UsernameTag",like.getUserTag()).
@@ -613,7 +614,7 @@ public class MongoBase {
 				append("Query", tag_searched).
 				append("Type", "like");
 
-		return like_doc;
+		return likeDoc;
 	}
 
 	/** 
@@ -624,7 +625,7 @@ public class MongoBase {
 
 	public void putInDB(InstaComment comment,String tag_searched) { 
 
-		BasicDBObject comment_doc = getInstaCommentAdaptor(comment,tag_searched);
+		BasicDBObject commentDoc = getInstaCommentAdaptor(comment,tag_searched);
 		DBObject query; 
 		DBCursor cursor; 
 
@@ -638,7 +639,7 @@ public class MongoBase {
 
 		if (!cursor.hasNext()) { 
 
-			insertDocument(comment_doc);
+			insertDocument(commentDoc);
 		}
 	}
 
@@ -650,7 +651,7 @@ public class MongoBase {
 
 	public void putInDB(InstaLike like,String tag_searched) { 
 
-		BasicDBObject like_doc = getInstaLikeAdaptor(like,tag_searched);
+		BasicDBObject likeDoc = getInstaLikeAdaptor(like,tag_searched);
 		DBObject query;
 		DBCursor  cursor;
 
@@ -663,7 +664,7 @@ public class MongoBase {
 
 		if (!cursor.hasNext()) { 
 
-			insertDocument(like_doc);
+			insertDocument(likeDoc);
 		}
 	} 
 
@@ -674,7 +675,7 @@ public class MongoBase {
 
 	public void putInDB(User user) { 
 
-		BasicDBObject user_doc = getInstagramUserAdaptor(user);
+		BasicDBObject userDoc = getInstagramUserAdaptor(user);
 		BasicDBObject query;
 		BasicDBObject update; 
 		DBCursor cursor;  
@@ -687,7 +688,7 @@ public class MongoBase {
 
 		if (!cursor.hasNext()) { 
 
-			insertDocument(user_doc); 
+			insertDocument(userDoc); 
 
 		} else { 
 
@@ -716,8 +717,8 @@ public class MongoBase {
 
 		if (!cursor.hasNext()) {  
 
-			BasicDBObject location_doc = getInstaLocationAdaptor(location);
-			insertDocument(location_doc);
+			BasicDBObject locationDoc = getInstaLocationAdaptor(location);
+			insertDocument(locationDoc);
 		}
 	}
 
@@ -729,7 +730,7 @@ public class MongoBase {
 
 	public DBObject getCommentAdaptor(Comment comment) { 
 
-		DBObject comment_doc = new BasicDBObject("ReplyCount",comment.getReplyCount()).
+		DBObject commentDoc = new BasicDBObject("ReplyCount",comment.getReplyCount()).
 				append("ChannelId", comment.getChannelId()).
 				append("VideoId", comment.getVideoId()).
 				append("CommentId", comment.getCommentId()).
@@ -741,7 +742,7 @@ public class MongoBase {
 				append("ViewerRating",comment.getViewerRating()).
 				append("Channel", "Youtube");
 
-		return comment_doc;
+		return commentDoc;
 	}
 
 	/** 
@@ -753,8 +754,8 @@ public class MongoBase {
 
 		if (!checkExists(comment)) { 
 
-			DBObject comment_doc = getCommentAdaptor(comment);
-			insertDocument((BasicDBObject) comment_doc);
+			DBObject commentDoc = getCommentAdaptor(comment);
+			insertDocument((BasicDBObject) commentDoc);
 		}
 	}
 
@@ -791,7 +792,7 @@ public class MongoBase {
 
 	public BasicDBObject getGeoDataAdaptor(GeoData geodata) { 
 
-		BasicDBObject geo_doc = new BasicDBObject("CountryName",geodata.getCountryName()).
+		BasicDBObject geoDoc = new BasicDBObject("CountryName",geodata.getCountryName()).
 				append("CountryCode", geodata.getCountryCode()).
 				append("PlaceId", geodata.getPlaceId()).
 				append("StreetNumber", geodata.getStreetNumber()).
@@ -808,7 +809,7 @@ public class MongoBase {
 				append("ViewportSouthWestLatitude", geodata.getViewportSouthwestLatitude()).
 				append("ViewportSouthWestLongitude", geodata.getViewportSouthwestLongitude());
 
-		return geo_doc;
+		return geoDoc;
 	}
 
 	/** 
@@ -826,8 +827,8 @@ public class MongoBase {
 
 		if(!cursor.hasNext()) { 
 
-			BasicDBObject geo_doc = getGeoDataAdaptor(geodata);
-			insertDocument(geo_doc);
+			BasicDBObject geoDoc = getGeoDataAdaptor(geodata);
+			insertDocument(geoDoc);
 		}
 	}
 
@@ -839,14 +840,14 @@ public class MongoBase {
 
 	public DBObject getCountryBaseAdaptor(CountryBase country) { 
 
-		DBObject country_doc = new BasicDBObject("Channel",country.getChannel()).
+		DBObject countryDoc = new BasicDBObject("Channel",country.getChannel()).
 				append("Username", country.getUsername()).
 				append("Country", country.getCountry()).
 				append("Code", country.getCode()).
 				append("TimeStamp", country.getTimestamp()).
 				append("Product", country.getProduct());
 
-		return country_doc;
+		return countryDoc;
 	}
 
 	/** 
@@ -882,11 +883,11 @@ public class MongoBase {
 
 	public void putInDB(CountryBase country) { 
 
-		DBObject country_doc =  getCountryBaseAdaptor(country);
+		DBObject countryDoc =  getCountryBaseAdaptor(country);
 
-		if (!checkExists(country_doc)) { 
+		if (!checkExists(countryDoc)) { 
 
-			insertDocument((BasicDBObject) country_doc);
+			insertDocument((BasicDBObject) countryDoc);
 		}
 	}
 
@@ -898,14 +899,14 @@ public class MongoBase {
 
 	public BasicDBObject getGiveawayAdaptor(Giveaway give) { 
 
-		BasicDBObject giveaway_doc = new BasicDBObject("Channel",give.getChannel()).
+		BasicDBObject giveawayDoc = new BasicDBObject("Channel",give.getChannel()).
 				append("CaptionText", give.getCaptionText()).
 				append("TagSet", give.getTagSet()).
 				append("TimeStamp", give.getTimeStamp()).
 				append("ClassLabel", give.getClassLabel()).
 				append("UserName", give.getUserName());
 
-		return giveaway_doc;
+		return giveawayDoc;
 	}
 
 	/** 
@@ -941,8 +942,8 @@ public class MongoBase {
 
 		if (!checkExistsGiveaway(give)) { 
 
-			BasicDBObject giveaway_doc = getGiveawayAdaptor(give);
-			insertDocument(giveaway_doc);
+			BasicDBObject giveawayDoc = getGiveawayAdaptor(give);
+			insertDocument(giveawayDoc);
 		}
 	}
 
@@ -954,7 +955,7 @@ public class MongoBase {
 
 	public BasicDBObject getInfluenceAdaptor(Influence influence) { 
 
-		BasicDBObject influence_doc = new BasicDBObject("Channel",influence.getChannel()).
+		BasicDBObject influenceDoc = new BasicDBObject("Channel",influence.getChannel()).
 				append("UserId", influence.getUserId()).
 				append("UserName", influence.getUserName()).
 				append("FollowerFactor",influence.getFollowerFactor()).
@@ -965,7 +966,7 @@ public class MongoBase {
 				append("CommentWeight", influence.getCommentWeight()).
 				append("Index", influence.getIndex());
 
-		return influence_doc;
+		return influenceDoc;
 	} 
 	
 	/** 
@@ -999,8 +1000,8 @@ public class MongoBase {
 
 		if (!checkExists(influence)) { 
 
-			BasicDBObject influence_doc = getInfluenceAdaptor(influence);
-			insertDocument(influence_doc); 
+			BasicDBObject influenceDoc = getInfluenceAdaptor(influence);
+			insertDocument(influenceDoc); 
 
 		} else { 
 
@@ -1017,6 +1018,29 @@ public class MongoBase {
 
 			updateDocument(query, update);
 		}
+	}
+	
+	/** 
+	 * 
+	 * @param sentiment
+	 * @return
+	 */ 
+	
+	public BasicDBObject getSentimentAdaptor(Sentiment sentiment) { 
+		
+		BasicDBObject sentimentDoc = new BasicDBObject("Channel",sentiment.getChannel()).
+									 append("Author",sentiment.getAuthor()).
+									 append("Message",sentiment.getContent()).
+									 append("TimeStamp", sentiment.getTimestamp()).
+									 append("Product",sentiment.getProduct()).
+									 append("SentimentLabel",sentiment.getSentimentLabel()).
+									 append("SentimentScore",sentiment.getSentimentScore()).
+									 append("SentimentDistribution",sentiment.getSentimentDistribution()).
+									 append("ModelNumber",sentiment.getModelNumber()).
+									 append("NgramNumber",sentiment.getNgramNumber()).
+									 append("OtherDate",sentiment.getOtherDate());
+		
+		return sentimentDoc;
 	}
 }
 

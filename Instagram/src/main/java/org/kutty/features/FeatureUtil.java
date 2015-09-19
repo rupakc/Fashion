@@ -30,7 +30,7 @@ public class FeatureUtil {
 	public Map<String,Integer> spam_count_map = new HashMap<String,Integer>();
 	public Map<String,Integer> sentiment_count_map = new HashMap<String,Integer>();
 	public Map<String,Integer> giveaway_count_map = new HashMap<String,Integer>(); 
-	
+
 	public final static String stopword_filename = "stopwords.txt"; 
 	public final static String spam_filename = "spam_label.txt";
 	public final static String giveaway_filename = "giveaway_label.txt";
@@ -47,14 +47,14 @@ public class FeatureUtil {
 		loadLabelMaps(sentiment_filename, sentiment_map);
 		loadLabelMaps(spam_filename, spam_map);
 	} 
-	
+
 	public FeatureUtil() { 
-		
+
 		initLabelCountMap(giveaway_map, giveaway_count_map);
 		initLabelCountMap(sentiment_map, sentiment_count_map);
 		initLabelCountMap(spam_map,spam_count_map);
 	} 
-	
+
 	/** 
 	 * Loads the stopword list in memory from a file
 	 * @param filename String containing the stopwords list
@@ -78,44 +78,44 @@ public class FeatureUtil {
 			e.printStackTrace();
 		}
 	}  
-	
+
 	/** 
 	 * Sanitizes a given string i.e. removes all the punctuation and other noise from it
 	 * @param s String which is to be cleansed
 	 * @return String which is hopefully sanitized
 	 */ 
-	
+
 	public static String cleanString(String s) { 
-		
+
 		String clean = "";
-		
+
 		clean = Clean.cleanHTML(s);
 		clean = Clean.removeURL(s);
 		clean = Clean.removePunctuationAndJunk(s);
 		clean = Clean.removeDigits(clean);
-		
+
 		return clean;
 	} 
-	
+
 	/** 
 	 * Initializes the label count map with zero values
 	 * @param label_map Map<T1,T2> containing the class labels
 	 * @param label_count_map Map<T2,Integer> containing the count of each label
 	 */ 
-	
+
 	public static <T1,T2> void initLabelCountMap(Map<T1,T2> label_map,Map<T2,Integer> label_count_map) {
-		
+
 		for (T2 temp : label_map.values()) { 
 			label_count_map.put(temp,0);
 		}
 	}
-	
+
 	/** 
 	 * Loads the class label maps for a given filename
 	 * @param filename String containing the filename
 	 * @param label_map Map<T1,T2> containing the mapping between the class label and class code
 	 */ 
-	
+
 	@SuppressWarnings("unchecked")
 	public static <T1, T2> void loadLabelMaps(String filename,Map<T1,T2> label_map) { 
 
@@ -364,7 +364,7 @@ public class FeatureUtil {
 				caption = getTagContent(content, "CaptionText");
 				class_label = getTagContent(content, "ClassLabel"); 
 				class_label = giveaway_map.get(class_label); 
-				
+
 				post = new Post();
 				post.setContent(caption);
 				post.setGiveawayLabel(class_label);
@@ -381,13 +381,13 @@ public class FeatureUtil {
 			end_tag = content.indexOf("</Tag>");
 		}	
 	} 
-	
+
 	/** 
 	 * Loads Instagram data from external file and populates the List of posts
 	 * @param filename String containing the filename which has data
 	 * @param post_list List<Post> containing the list of posts
 	 */ 
-	
+
 	public static void populateInstagramSentimentData(String filename,List<Post> post_list) { 
 
 		int start_tag = -1;
@@ -400,7 +400,7 @@ public class FeatureUtil {
 		String [] labels;
 		String spam_label = "";
 		Post post; 
-		
+
 		while(end_tag != -1) { 
 
 			start_tag = content.indexOf("<Tag>");
@@ -413,33 +413,33 @@ public class FeatureUtil {
 				labels = class_label.split(",");
 				spam_label = spam_map.get(labels[0].trim());
 				class_label = sentiment_map.get(labels[1].trim()); 
-				
+
 				post = new Post();
 				post.setContent(caption);
 				post.setSentimentLabel(class_label);
 				post.setSpamLabel(spam_label);
 				post.setTagset(tagset);
-				
+
 				post_list.add(post);
 			}
 
 			end_tag = content.indexOf('>',end_tag+1);
 
 			if (end_tag != -1) {  
-				
+
 				content = content.substring(end_tag+1);
 			}
 
 			end_tag = content.indexOf("</Tag>");
 		}	
 	} 
-	
+
 	/** 
 	 * Given a sentence for other channels returns the class label set
 	 * @param sentence String containing the sentence from which the data is retrieved
 	 * @return String containing the tag labels
 	 */ 
-	
+
 	public static String getTagLabelOtherChannel(String sentence) { 
 
 		int start_index = -1;
@@ -457,33 +457,33 @@ public class FeatureUtil {
 
 		return taglabels;
 	} 
-	
+
 	/** 
 	 * Given a string returns the sentence/content
 	 * @param sentence String containing the sentence
 	 * @return String which contains only the content
 	 */ 
-	
+
 	public static String getSentence(String sentence) { 
-		
+
 		int index = -1;
 		String content = "";
 		index = sentence.indexOf('>'); 
-		
+
 		if (index != -1) { 
-			
+
 			content = sentence.substring(index+1);
 		}
-		
+
 		return content.trim();
 	} 
-	
+
 	/** 
 	 * Populates the post list with data from channels other than Instagram
 	 * @param filename String containing the filename from which the data has to be read
 	 * @param post_list List<Post> containing the information about the posts
 	 */ 
-	
+
 	public static void populateOtherChannelData(String filename,List<Post> post_list) { 
 
 		BufferedReader br;
@@ -491,12 +491,12 @@ public class FeatureUtil {
 		String temp = ""; 
 		String [] array;
 		Post post; 
-		
+
 		try { 
-			
+
 			fr = new FileReader(filename);
 			br = new BufferedReader(fr); 
-			
+
 			while((temp = br.readLine()) != null) { 
 				
 				String taglabels = getTagLabelOtherChannel(temp);
@@ -504,17 +504,18 @@ public class FeatureUtil {
 				String spam_label = spam_map.get(array[0].trim());
 				String sentiment_label = sentiment_map.get(array[1].trim());
 				String content = getSentence(temp); 
-				
+
 				post = new Post();
 				post.setContent(content);
 				post.setSpamLabel(spam_label);
 				post.setSentimentLabel(sentiment_label);
-	
+
 				post_list.add(post);
+
 			} 
-			
+
 		} catch (Exception e) { 
-			
+
 			e.printStackTrace();
 		}
 	} 
@@ -522,10 +523,10 @@ public class FeatureUtil {
 	public static void main(String args[]) { 
 
 		List<Post> post_list = new ArrayList<Post>();
-		populateInstagramGiveawayData("giveaway/split_5.txt", post_list);
+		//populateInstagramGiveawayData("giveaway/split_5.txt", post_list);
 		//System.out.println(post_list);
 		//giveaway_count_map.putAll(LabelCountUtil.getGiveawayLabelCount(post_list));
 		//System.out.println(giveaway_count_map);
-		//populateOtherChannelData("test.txt", post_list);
+		populateOtherChannelData("twitter/split_5.txt", post_list);
 	}
 }
