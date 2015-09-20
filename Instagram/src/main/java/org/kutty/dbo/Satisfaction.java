@@ -9,6 +9,8 @@ public class Satisfaction {
 	private double frequencyFactor;
 	private double reliabilityFactor;
 	private double importanceFactor;
+	private double frequencyWeight;
+	private double reliabilityWeight;
 	private Date timestamp;
 	private String content;
 	private double satisfactionScore;
@@ -191,5 +193,45 @@ public class Satisfaction {
 	public void setOtherDate(double otherDate) { 
 		
 		this.otherDate = otherDate;
+	}
+
+	/** 
+	 * 
+	 * @return the frequencyWeight
+	 */ 
+	
+	public double getFrequencyWeight() { 
+		
+		return frequencyWeight;
+	}
+
+	/** 
+	 * 
+	 * @param frequencyWeight the frequencyWeight to set
+	 */ 
+	
+	public void setFrequencyWeight(double frequencyWeight) { 
+		
+		this.frequencyWeight = frequencyWeight;
+	}
+
+	/** 
+	 * 
+	 * @return the reliabilityWeight
+	 */ 
+	
+	public double getReliabilityWeight() { 
+		
+		return reliabilityWeight;
+	}
+
+	/** 
+	 * 
+	 * @param reliabilityWeight the reliabilityWeight to set
+	 */ 
+	
+	public void setReliabilityWeight(double reliabilityWeight) { 
+		
+		this.reliabilityWeight = reliabilityWeight;
 	}
 }

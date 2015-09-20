@@ -190,6 +190,7 @@ public class CommitToFile {
 	 * @throws LangDetectException
 	 */ 
 	
+	@SuppressWarnings("unused")
 	public static void writeInstagramCaptionTextToFile(String filename,String collection_name) throws IOException, LangDetectException {
 
 		MongoBase mongo = new MongoBase();
@@ -225,6 +226,7 @@ public class CommitToFile {
 		
 		collection = mongo.getCollection();
 		
+		@SuppressWarnings("unchecked")
 		List<String> caption_list = collection.distinct("CaptionText"); 
 		
 		for(String text:caption_list) { 
