@@ -89,8 +89,19 @@ public class NGram {
 			label_count_map = feat.sentiment_count_map;
 			spam_count_map = feat.spam_count_map;
 		} 
-
-		label_count_map.putAll(LabelCountUtil.getSentimentLabelCount(post_list)); 
+		
+		if (type.equalsIgnoreCase("spam")) { 
+			
+			spam_count_map.putAll(LabelCountUtil.getSpamLabelCount(post_list)); 
+			
+		} else if (type.equalsIgnoreCase("sentiment")) { 
+			
+			label_count_map.putAll(LabelCountUtil.getSentimentLabelCount(post_list));  
+			
+		} else { 
+			
+			label_count_map.putAll(LabelCountUtil.getGiveawayLabelCount(post_list)); 
+		}
 
 		for (Post p : post_list) { 
 
@@ -359,8 +370,8 @@ public class NGram {
 
 		if (type.equalsIgnoreCase("spam")) { 
 
-			writeGramToFile("", spam_map);
-			writeGramToFile("", ham_map);
+			writeGramToFile("twitter/spam_1.txt", spam_map);
+			writeGramToFile("twitter/ham_1.txt", ham_map);
 		}
 	} 
 	
@@ -528,7 +539,7 @@ public class NGram {
 			spam_label = "";
 			post_label = "";
 		}
-
+		
 		return ((count+1)/(label_count+1));
 	}
 
@@ -626,7 +637,7 @@ public class NGram {
 
 		for (int i = 1; i <= 3; i++) { 
 			
-			new NGram().NGramExtractionPipeline("twitter/split_5.txt",i,"twitter","sentiment");
+			new NGram().NGramExtractionPipeline("twitter/split_1.txt",i,"twitter","spam");
 		} 
 	}
 }

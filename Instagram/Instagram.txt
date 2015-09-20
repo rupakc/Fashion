@@ -1109,7 +1109,7 @@ timepiece,sexy,guess,calvinklein,beez,
 Lovin my bday gift #Guess watch! #calvinklein #sexy #Beez #timepiece
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -1121,7 +1121,7 @@ progress,guess,purpose,people,who,
 Greet the day with gratitude and with a sens of humor #who told you your skin color is white??..#guess we must all be blind? Hein! #people #purpose #progress it 's a late post caption pic happy forth. @youngwriter's  crafts, arts mix media
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -1133,7 +1133,7 @@ g2000,g,??,gcwatches,jockey,johnhenry,leecooper,restoria,tanita,chelsea,hushpupp
 SALEBration #??????  ????????????? ??????????????????????????????????! ????????????????????????? ???????? 80% ???? 40 ????????? ???????????? ?????????????? ??????????????? ?????????????? ????? 8 ??? ? ?????? - 2 ?.?. 58 ? ???????? Impact, Muang Thong Thani, ???????? ????? 8 (????????? HomeWorks EXPO)  ??????????????????????? :  #G2000 / #LauraMercier / @Casio / #G-Shock / @BabyG / #Guess / #ManchesterUnited / 4x4MAN / #S’Fare / #JohnHenry / #UrbanStudio / @Lee / @Wrangler / #Jockey / #HushPuppies / LeeKids / #Puppet / #Maidenform / Payot / H2O+ / #VSSassoon / #BaByliss / Samsonite / #KAWAI / #Lasenza / #Cushe / #Jurlique / #Restoria / #GcWatches / #Tanita / Dyson / Benetton / Eastpak / #LeeCooper / #DanielHechter / PJKids / #FCBarcelona ??? #Chelsea *??????????????????????????? ?????
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -1145,7 +1145,7 @@ water,nature,guess,followme,
 #Nature #guess  #water #followme
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -1157,7 +1157,7 @@ citizen,edwin,boylondon,watch,adidasdigital,vintagedunhill,negotiable,gshock,bon
 PROMOSI!!! Swatch AG2000 Condition 7/10 RM50 include postage . Grab it now! . For more details Whatsapp 011-15714802? . #camel #boylondon #watch #guess #swatch #swatchsolar #citizen #casio #threefive #adidasdigital #bonia #vintagedunhill #camelmichaeljordan #vintageswatch #casiodatabank #gshock #prayercompasswatch #guessforladies #edwin #negotiable #epygoroundstore
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -1169,7 +1169,7 @@ walletck,hmorifs,dompetguess,zara,tashm,tasguessori,dompetck,ckorifs,zaraorifs,h
 WRISLET MANGO IDR 155,000
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -1181,7 +1181,7 @@ fossilmurah,vincciasli,zara,urbannco,vincciindo,urbanncooriginal,fossiloriginal,
 READY STOCK!! VINCCI ALL SIZE 7 ONLY IDR 200RIBU!! GRAB IT FAST DEAR? #vincci #vnc #vincciasli #vincciindo #vinccioriginal #ck #cnk #charlesandkeith #charleskeith #charlesnkeith #charlesandkeithoriginal #charlesnkeithoriginal #charlesandkeithmurah #fossil #fossiloriginal #fossilmurah #mango #mng #mangooriginal #mangomurah #zara #zaraoriginal #urbannco #urbanncomurah #urbanncooriginal #guess #guessoriginal #guessindo #guessmurah #trustedseller  For order contact bio yah? Happy shopping?
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 

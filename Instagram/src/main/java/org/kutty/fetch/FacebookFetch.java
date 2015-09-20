@@ -505,7 +505,7 @@ public class FacebookFetch extends Thread {
 
 	public static void main(String args[])throws LangDetectException, FacebookException, IOException {
 
-		FacebookFetch fb = new FacebookFetch("Forever21");
+		FacebookFetch fb = new FacebookFetch("Mango");
 		fb.start();
 		//fb.facebookPipelineForFashionTrends("facebook_fashion_list.txt","Fashion");
 	}

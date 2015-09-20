@@ -2,20 +2,27 @@ package org.kutty.dbo;
 
 import java.util.Date;
 
-public class Sentiment {
+/** 
+ * Defines a spam object for insertion in the database
+ * @author Rupak Chakraborty
+ * @for Kutty
+ * @since 20 September, 2015
+ */
+
+public class Spam {
 	
 	private String product;
 	private String author;
 	private Date timestamp;
 	private String channel;
-	private String sentimentLabel;
+	private String spamLabel;
 	private String content;
-	private Double sentimentScore;
+	private Double spamScore;
 	private Double otherDate; 
 	
-	public Sentiment() { 
+	public Spam() { 
 		
-		sentimentScore = 0.0;
+		spamScore = 0.0;
 	}
 	
 	/**
@@ -102,9 +109,9 @@ public class Sentiment {
 	 * @return
 	 */ 
 	
-	public String getSentimentLabel() { 
+	public String getSpamLabel() { 
 		
-		return sentimentLabel;
+		return spamLabel;
 	}
 	
 	/** 
@@ -112,9 +119,9 @@ public class Sentiment {
 	 * @param sentimentLabel
 	 */ 
 	
-	public void setSentimentLabel(String sentimentLabel) {  
+	public void setSpamLabel(String sentimentLabel) {  
 		
-		this.sentimentLabel = sentimentLabel;
+		this.spamLabel = sentimentLabel;
 	}
 	
 	/** 
@@ -142,9 +149,9 @@ public class Sentiment {
 	 * @return
 	 */ 
 	
-	public Double getSentimentScore() { 
+	public Double getSpamScore() { 
 		
-		return sentimentScore;
+		return spamScore;
 	}
 	
 	/** 
@@ -152,9 +159,9 @@ public class Sentiment {
 	 * @param sentimentScore
 	 */ 
 	
-	public void setSentimentScore(Double sentimentScore) { 
+	public void setSpamScore(Double sentimentScore) { 
 		
-		this.sentimentScore = sentimentScore;
+		this.spamScore = sentimentScore;
 	}
 	
 	/** 

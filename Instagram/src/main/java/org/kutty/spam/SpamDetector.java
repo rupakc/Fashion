@@ -1,4 +1,4 @@
-package org.kutty.sentiment;
+package org.kutty.spam;
 
 import java.net.UnknownHostException;
 import java.util.Date;
@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.joda.time.DateTime;
-import org.kutty.classification.EnsembleMachineSentiment;
+import org.kutty.classification.EnsembleMachineSpam;
 import org.kutty.db.MongoBase;
-import org.kutty.dbo.Sentiment;
+import org.kutty.dbo.Spam;
 import org.kutty.utils.DateConverter;
 import org.kutty.utils.ListConverter;
 
@@ -19,31 +19,31 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /** 
- * Detects the sentiment of a given post (i.e. Positive, Negative, Neutral)
+ * Detects the spamicity of a given post (i.e. Spam or Ham)
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 20 September, 2015
- *
+ * 
  */
 
-public class SentimentDetector {
+public class SpamDetector {
 
 	public static String [] channelNames = {"Twitter","Facebook","Instagram","Youtube"};
 	public static String [] brandNames = {"Forever21","FreePeople","Guess","HandM","Levis","Mango",
 		"RagandBone","SevenForAllMankind","TrueReligion"}; 
-	
+
 	/** 
-	 * Defines the pipeline for sentiment detection for all posts of a given channel and product
+	 * Defines a spam detection pipeline for a given brand and a given channel
 	 * @param brandName String containing the brand name
 	 * @param channel String containing the channel name
 	 * @param from Date containing the starting date
 	 * @param to Date containing the ending date
 	 */ 
-	
-	public void sentimentPipeline(String brandName,String channel,Date from, Date to) { 
 
-		Set<DBObject> dataSet = getSentimentSet(brandName, channel, from, to);
-		Sentiment sentiment;
+	public void spamPipeline(String brandName,String channel,Date from, Date to) { 
+
+		Set<DBObject> dataSet = getSpamSet(brandName, channel, from, to);
+		Spam spam;
 		String text;
 		String tagSet = null;
 		String label; 
@@ -51,9 +51,9 @@ public class SentimentDetector {
 
 		for (DBObject temp : dataSet) { 
 
-			sentiment = new Sentiment();
-			sentiment.setChannel(channel);
-			sentiment.setProduct(brandName); 
+			spam = new Spam();
+			spam.setChannel(channel);
+			spam.setProduct(brandName); 
 
 			if (!channel.equalsIgnoreCase("Instagram")) {
 
@@ -67,105 +67,105 @@ public class SentimentDetector {
 
 			if (channel.equalsIgnoreCase("Instagram") || channel.equalsIgnoreCase("Youtube")) { 
 
-				sentiment.setAuthor((String) temp.get("Author"));
+				spam.setAuthor((String) temp.get("Author"));
 
 			} else { 
 
-				sentiment.setAuthor((String) temp.get("UserName"));
+				spam.setAuthor((String) temp.get("UserName"));
 			}
 
 			if (!channel.equalsIgnoreCase("Instagram")) { 
 
-				sentiment.setTimestamp((Date) temp.get("TimeStamp")); 
+				spam.setTimestamp((Date) temp.get("TimeStamp")); 
 
 			} else { 
 
-				sentiment.setOtherDate((Double) temp.get("Timestamp"));
+				spam.setOtherDate((Double) temp.get("Timestamp"));
 			}
 
 			if (!channel.equalsIgnoreCase("Instagram")) { 
 
-				label = getSentimentLabelOtherChannels(text, channel);
+				label = getSpamLabelOtherChannels(text, channel);
 
 			} else { 
 
-				label = getSentimentLabelInstagram(text,tagSet);
+				label = getSpamLabelInstagram(text,tagSet);
 			}
 
-			sentiment.setSentimentLabel(label);
-			sentiment.setContent(text);
-			System.out.println(label);
+			spam.setSpamLabel(label);
+			spam.setContent(text);
+			System.out.println(label + " : " + text);
 			try {
-				
+
 				mongo = new MongoBase();
 				mongo.setDB("Analytics");
 				mongo.setCollection(brandName);
-				mongo.putInDB(sentiment); 
-				
+				mongo.putInDB(spam); 
+
 			} catch(Exception e) { 
-				
+
 				e.printStackTrace();
 			}
 		}
 	}
-	
+
 	/** 
-	 * Carries out sentiment analysis for all channels of a given brand
+	 * Carries out spam analysis for all channels of a given brand
 	 * @param brandName String containing the brandName
 	 * @param from Date containing the starting date
 	 * @param to Date containing the ending date
 	 */ 
-	
-	public void sentimentForAllChannels(String brandName,Date from,Date to) { 
-		
+
+	public void spamForAllChannels(String brandName,Date from,Date to) { 
+
 		for (String channelName : channelNames) { 
-			
-			sentimentPipeline(brandName, channelName, from, to);
+
+			spamPipeline(brandName, channelName, from, to);
 		}
 	}
-	
+
 	/** 
-	 * Carries out sentiment analysis for all products of a given channel
+	 * Carries out spam analysis for all products of a given channel
 	 * @param channel String containing the channel name
 	 * @param from Date containing the starting date
 	 * @param to Date containing the ending date
 	 */ 
-	
-	public void sentimentForAllProducts(String channel,Date from,Date to) { 
-		
+
+	public void spamForAllProducts(String channel,Date from,Date to) { 
+
 		for (String brandName : brandNames) { 
-			
-			sentimentPipeline(brandName, channel, from, to);
+
+			spamPipeline(brandName, channel, from, to);
 		}
 	}
-	
+
 	/** 
-	 * Carries out sentiment analysis for all products and channels
+	 * Carries out spam detection for all products and channels
 	 * @param from Date containing the starting date
 	 * @param to Date containing the ending date
 	 */ 
-	
-	public void sentimentForAll(Date from,Date to) { 
-		
+
+	public void spamForAll(Date from,Date to) { 
+
 		for (String brandName : brandNames) { 
-			
+
 			for (String channel : channelNames) { 
-				
-				sentimentPipeline(brandName, channel, from, to);
+
+				spamPipeline(brandName, channel, from, to);
 			}
 		}
 	}
-	
+
 	/** 
-	 * Returns the sentiment objects from the database
+	 * Returns DBObjects to be classified as spam/ham
 	 * @param collectionName String containing the collection name
 	 * @param channel String containing the channel name
 	 * @param from Date containing the starting date
 	 * @param to Date containing the ending date
-	 * @return Set<DBObject> containing the set of database objects
+	 * @return Set<DBObject> containing the set of objects retrieved from database
 	 */ 
-	
-	public Set<DBObject> getSentimentSet(String collectionName,String channel,Date from,Date to) {
+
+	public Set<DBObject> getSpamSet(String collectionName,String channel,Date from,Date to) {
 
 		Set<DBObject> dataSet = new HashSet<DBObject>();
 
@@ -193,7 +193,7 @@ public class SentimentDetector {
 				query = new BasicDBObject("Channel","Instagram").append("$or", queryList).
 						append("Timestamp", new BasicDBObject("$gte",fromDate).append("$lte", toDate));
 			} else { 
-				
+
 				query = new BasicDBObject("Channel",channel).
 						append("TimeStamp", new BasicDBObject("$gte",from).append("$lte",to));
 			}
@@ -207,44 +207,44 @@ public class SentimentDetector {
 			}
 
 		} catch (UnknownHostException e) { 
-			
+
 			e.printStackTrace();
 		}
 
 		return dataSet;
 	}
-	
+
 	/** 
-	 * Returns the sentiment label for a given text and channel
+	 * Detects the spamicity of a given post for all other channels
 	 * @param text String containing the text which is to be classified
 	 * @param channelName String containing the channel name
-	 * @return String containing the sentiment label (i.e. positive, negative, neutral)
+	 * @return String containing the spam label
 	 */ 
-	
-	public String getSentimentLabelOtherChannels(String text,String channelName) { 
 
-		EnsembleMachineSentiment ems = new EnsembleMachineSentiment();
+	public String getSpamLabelOtherChannels(String text,String channelName) { 
+
+		EnsembleMachineSpam ems = new EnsembleMachineSpam();
 		return ems.organizeAndActEnsemble(text, channelName, 5);
 	}
-	
-	/** 
-	 * Returns the sentiment label for a Instagram post
-	 * @param captionText String containing the captionText
-	 * @param tagSet String containing the tagSet
-	 * @return String containing the sentiment label (i.e. positive,negative,neutral)
-	 */ 
-	
-	public String getSentimentLabelInstagram(String captionText,String tagSet) { 
 
-		EnsembleMachineSentiment ems = new EnsembleMachineSentiment();
+	/** 
+	 * Returns the spam label for Instagram
+	 * @param captionText String containing the caption text
+	 * @param tagSet String containing the tagset
+	 * @return String containing the spam label (i.e spam or ham)
+	 */ 
+
+	public String getSpamLabelInstagram(String captionText,String tagSet) { 
+
+		EnsembleMachineSpam ems = new EnsembleMachineSpam();
 		return ems.organizeAndActEnsemble(captionText, tagSet,"Instagram",5);
 	}
-	
+
 	public static void main(String args[]) { 
 
-		SentimentDetector sd = new SentimentDetector();
+		SpamDetector sd = new SpamDetector();
 		DateTime to = new DateTime();
 		DateTime from = to.minusYears(2);
-		sd.sentimentPipeline("Forever21","Twitter", from.toDate(), to.toDate());
+		sd.spamPipeline("Forever21","Twitter", from.toDate(), to.toDate());
 	}
 }

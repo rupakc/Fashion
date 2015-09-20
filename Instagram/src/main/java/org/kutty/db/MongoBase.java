@@ -13,6 +13,7 @@ import org.kutty.dbo.InstaComment;
 import org.kutty.dbo.InstaLike;
 import org.kutty.dbo.InstaLocation;
 import org.kutty.dbo.Sentiment;
+import org.kutty.dbo.Spam;
 import org.kutty.dbo.Tag;
 import org.kutty.dbo.User;
 
@@ -968,13 +969,13 @@ public class MongoBase {
 
 		return influenceDoc;
 	} 
-	
+
 	/** 
 	 * Checks if a given influence object exists in the database or not
 	 * @param influence Influence object containing the influence index
 	 * @return true if the given influence object exists false otherwise
 	 */ 
-	
+
 	public boolean checkExists(Influence influence) { 
 
 		BasicDBObject query = new BasicDBObject("Channel",influence.getChannel()).
@@ -990,12 +991,12 @@ public class MongoBase {
 
 		return false;
 	}
-	
+
 	/** 
 	 * Inserts a given influence object in the database
 	 * @param influence Influence object which is to be inserted
 	 */
-	
+
 	public void putInDB(Influence influence) { 
 
 		if (!checkExists(influence)) { 
@@ -1019,28 +1020,133 @@ public class MongoBase {
 			updateDocument(query, update);
 		}
 	}
-	
+
 	/** 
-	 * 
-	 * @param sentiment
-	 * @return
+	 * Given a sentiment object converts it into a BasicDBObject
+	 * @param sentiment Sentiment object
+	 * @return BasicDBObject containing the representation of the sentiment object
 	 */ 
-	
+
 	public BasicDBObject getSentimentAdaptor(Sentiment sentiment) { 
-		
+
 		BasicDBObject sentimentDoc = new BasicDBObject("Channel",sentiment.getChannel()).
-									 append("Author",sentiment.getAuthor()).
-									 append("Message",sentiment.getContent()).
-									 append("TimeStamp", sentiment.getTimestamp()).
-									 append("Product",sentiment.getProduct()).
-									 append("SentimentLabel",sentiment.getSentimentLabel()).
-									 append("SentimentScore",sentiment.getSentimentScore()).
-									 append("SentimentDistribution",sentiment.getSentimentDistribution()).
-									 append("ModelNumber",sentiment.getModelNumber()).
-									 append("NgramNumber",sentiment.getNgramNumber()).
-									 append("OtherDate",sentiment.getOtherDate());
-		
+				append("Author",sentiment.getAuthor()).
+				append("Message",sentiment.getContent()).
+				append("TimeStamp", sentiment.getTimestamp()).
+				append("Product",sentiment.getProduct()).
+				append("SentimentLabel",sentiment.getSentimentLabel()).
+				append("SentimentScore",sentiment.getSentimentScore()).
+				append("OtherDate",sentiment.getOtherDate());
+
 		return sentimentDoc;
+	}
+
+	/** 
+	 * Checks whether a given sentiment object exists in the database or not
+	 * @param sentiment Sentiment object which is to be checked
+	 * @return true if the object exists, false otherwise
+	 */ 
+
+	public boolean checkExists(Sentiment sentiment) { 
+
+		DBObject query; 
+
+		if (sentiment.getChannel().equalsIgnoreCase("Instagram")) { 
+
+			query = new BasicDBObject("Channel",sentiment.getChannel()).
+					append("Author",sentiment.getAuthor()).
+					append("TimeStamp",sentiment.getTimestamp());
+		} else { 
+
+			query = new BasicDBObject("Channel",sentiment.getChannel()).
+					append("Author",sentiment.getAuthor()).
+					append("OtherDate",sentiment.getOtherDate());
+		}
+
+		if (collection.find(query).hasNext()) { 
+
+			return true;
+		}
+
+		return false;
+	}
+
+	/** 
+	 * Inserts a given spam object in the database
+	 * @param sentiment Sentiment object which is to be inserted in the database
+	 */ 
+
+	public void putInDB(Sentiment sentiment) { 
+
+		if (!checkExists(sentiment)) { 
+
+			insertDocument(getSentimentAdaptor(sentiment));
+		}
+	}
+
+	/** 
+	 * Adaptor function for converting a spam object into a BasicDBObject
+	 * @param spam Spam object containing the BasicDBObject
+	 * @return BasicDBObject containing the representation of the Spam object 
+	 */ 
+
+	public BasicDBObject getSpamAdaptor(Spam spam) { 
+
+		BasicDBObject spamDoc = new BasicDBObject("Channel",spam.getChannel()).
+				append("Author",spam.getAuthor()).
+				append("Message",spam.getContent()).
+				append("TimeStamp", spam.getTimestamp()).
+				append("Product",spam.getProduct()).
+				append("SpamLabel",spam.getSpamLabel()).
+				append("SpamScore",spam.getSpamScore()).
+				append("OtherDate",spam.getOtherDate());
+
+		return spamDoc;
+	}
+
+	/** 
+	 * Checks if a given spam object exists in the database or not
+	 * @param spam Spam object which is to be inserted
+	 * @return true if the object exists false otherwise
+	 */ 
+
+	public boolean checkExists(Spam spam) { 
+
+		DBObject query; 
+
+		if (spam.getChannel().equalsIgnoreCase("Instagram")) { 
+
+			query = new BasicDBObject("Channel",spam.getChannel()).
+					append("Author",spam.getAuthor()).
+					append("TimeStamp",spam.getTimestamp()).
+					append("SpamLabel",spam.getSpamLabel());
+		} else { 
+
+			query = new BasicDBObject("Channel",spam.getChannel()).
+					append("Author",spam.getAuthor()).
+					append("OtherDate",spam.getOtherDate()).
+					append("SpamLabel",spam.getSpamLabel());
+		}
+
+		if (collection.find(query).hasNext()) { 
+
+			return true;
+		}
+
+		return false;
+	}
+
+	/** 
+	 * Inserts a given spam object in the database if it doesn't already exist
+	 * @param spam Spam object which is to be inserted
+	 */
+
+	public void putInDB(Spam spam) { 
+
+		if (!checkExists(spam)) { 
+
+			insertDocument(getSpamAdaptor(spam));
+		}
 	}
 }
 

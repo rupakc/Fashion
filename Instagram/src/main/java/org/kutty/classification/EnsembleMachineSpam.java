@@ -17,7 +17,7 @@ public class EnsembleMachineSpam {
 	 * @param captionText String containing the captionText
 	 * @param tagSet String containing the Tagset
 	 * @param n Integer containing the number of models to be loaded (max 5 now)
-	 * @return String containing the class label (i.e. real or fake)
+	 * @return String containing the class label (i.e. spam or ham)
 	 */ 
 	
 	public String organizeAndActEnsemble(String captionText,String tagSet,String channel_name,int n) { 
@@ -43,7 +43,7 @@ public class EnsembleMachineSpam {
 	 * Aggregates different models to get a ensemble average of the result
 	 * @param text String containing the text
 	 * @param n Integer containing the number of models to be loaded (max 5 now)
-	 * @return String containing the class label (i.e. real or fake)
+	 * @return String containing the class label (i.e. spam or ham)
 	 */ 
 	
 	public String organizeAndActEnsemble(String text,String channel_name,int n) { 

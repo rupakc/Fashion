@@ -281,9 +281,8 @@ public class NaiveBayesSentiment {
 
 	public static void main(String args[]) { 
 
-		String captionText = ". Assalamualaikum semua.. ??????. . Alhamdulillah Lagi customer yang membeli iPhone dengan admin di kedai . ????????????. . Admin bukan Hanye menjual Iphone Sahaja tau. Semua model phone admin jual. Asus,Lenovo ,Nokia ,n etc. Yang mane nak tanye harga Boleh whatsapp admin or kita bincang di kedai admin ea. ?????????????. . TRADE IN ADMIN TERIMA !!. TRADE IN ADMIN TERIMA !!. . #buyerjusttekan yang beli dengan Harga #gempakdohhsale . ??????. . Anda bila lagi?? Heeeee . original iphone. -ready stock. -seal box. -prefer cod. -postage available. . Price list :. iPhone 4 16gb - rm 630 32gb - rm 660  iPhone 4s 16gb - rm 740 32gb - rm 780 64gb - rm 800  iPhone 5 16gb - rm 1070 32gb - rm 1100 64gb - rm 1150  iPhone 5s ( space grey ) 16gb - rm 1450 32gb - rm 1500 64gb - rm 1550  iPhone 5s ( silver ) 16gb - rm 1550 32gb - rm 1600 64gb - rm 1650  iPhone 5s ( gold ) 16gb - rm 1650 32gb - rm 1700 64gb - rm 1750  iPhone 6 16gb - rm 2450 64gb - rm 2650 128gb - rm 2750  iPhone 6 plus  16gb - rm 2950 64gb - rm 3150 128gb - rm 3450 . 017-7515417. Taufik  #iPhone #iphonemurah #iphonemurahmalaysia #iphoneoriginal #iphoneoriginalmalaysia #iphonesale #saleiphone #sale #repost #contest #freegift #giweaway #repostmalaysia #giveawaymalaysia #luckydraw #batupahat #johor #cod";
-		String tagSet = "gift,giveawaymalaysia,pandorainspired,igshop,giveaway,katespademalaysia,norhanisabdaziz1stgiveaway,bazaarpaknil,hermesmalaysia,tagandwin,raya2015,giveawaycontest,readystock,igshopmalaysia,giveawaytime,repost";
-
+		String text = "#Burberry & #TrueReligion What A Wonderful Combination!!! #JustAnotherDay #WaddupTwitter";
+		System.out.println(new NaiveBayesSentiment(3,"twitter").classifySentimentOtherChannels(text));
 
 	}
 

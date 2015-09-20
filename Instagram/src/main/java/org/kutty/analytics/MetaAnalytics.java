@@ -844,7 +844,8 @@ public class MetaAnalytics {
 		System.out.println(getCollectionSize("gueSs",prev.toDate(),now.toDate()));
 		System.out.println(getAllChannelCount("Guess",prev.toDate(),now.toDate()));
 		prev = now.minusMonths(3);
-		System.out.println(getAllLastNMonthsProductChannel("Guess","Instagram",prev.toDate(),now.toDate()));
+		System.out.println("Forever21");
+		System.out.println(getAllLastNMonthsProductChannel("Forever21","Twitter",prev.toDate(),now.toDate()));
 		System.out.println(getAllLastNMonthsProduct("HandM",prev.toDate(),now.toDate())); 
 		
 		prev = now.minusWeeks(3);

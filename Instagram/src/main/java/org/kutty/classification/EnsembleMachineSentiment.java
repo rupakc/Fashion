@@ -122,5 +122,12 @@ public class EnsembleMachineSentiment {
 		}
 		
 		return clean;
-	} 
+	}
+	
+	public static void main(String args[]) { 
+		
+		String text = "#Burberry & #TrueReligion What A Wonderful Combination!!! #JustAnotherDay #WaddupTwitter";
+		EnsembleMachineSentiment ems = new EnsembleMachineSentiment();
+		System.out.println(ems.organizeAndActEnsemble(text, "twitter", 5));
+	}
 }
