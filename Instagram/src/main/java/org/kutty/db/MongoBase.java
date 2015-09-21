@@ -12,6 +12,7 @@ import org.kutty.dbo.Influence;
 import org.kutty.dbo.InstaComment;
 import org.kutty.dbo.InstaLike;
 import org.kutty.dbo.InstaLocation;
+import org.kutty.dbo.Satisfaction;
 import org.kutty.dbo.Sentiment;
 import org.kutty.dbo.Spam;
 import org.kutty.dbo.Tag;
@@ -1146,6 +1147,77 @@ public class MongoBase {
 		if (!checkExists(spam)) { 
 
 			insertDocument(getSpamAdaptor(spam));
+		}
+	}
+	
+	/** 
+	 * Adaptor function to convert a satisfaction object into a BasicDBObject
+	 * @param satisfaction Satisfaction object which is to be converted
+	 * @return BasicDBObject containing the representation of the Satisfaction object
+	 */
+	
+	public BasicDBObject getSatisfactionAdaptor(Satisfaction satisfaction) { 
+
+		BasicDBObject satDoc = new BasicDBObject("Channel",satisfaction.getChannelName()).
+				append("Product",satisfaction.getBrandName()).
+				append("Message", satisfaction.getContent()).
+				append("FrequencyFactor", satisfaction.getFrequencyFactor()).
+				append("FrequencyWeight", satisfaction.getFrequencyWeight()).
+				append("ImportanceFactor", satisfaction.getImportanceFactor()).
+				append("ReliabilityFactor", satisfaction.getReliabilityFactor()).
+				append("ReliabilityWeight", satisfaction.getReliabilityWeight()).
+				append("SatisfactionScore", satisfaction.getSatisfactionScore()).
+				append("SentimentScore", satisfaction.getSentimentScore()).
+				append("TimeStamp", satisfaction.getTimestamp()).
+				append("OtherDate", satisfaction.getOtherDate());
+
+		return satDoc;
+	}
+	
+	/** 
+	 * Checks whether a given satisfaction object exists in the database or not
+	 * @param satisfaction Satisfaction object which is to be checked
+	 * @return true if the object exists false otherwise
+	 */
+	
+	public boolean checkExists(Satisfaction satisfaction) { 
+
+		DBObject query; 
+		DBCursor cursor; 
+		
+		if (!satisfaction.getChannelName().equalsIgnoreCase("Instagram")) { 
+
+			query = new BasicDBObject("Channel",satisfaction.getChannelName()).
+					append("Product", satisfaction.getBrandName()).
+					append("TimeStamp", satisfaction.getTimestamp());
+
+		} else { 
+
+			query = new BasicDBObject("Channel",satisfaction.getChannelName()).
+					append("Product", satisfaction.getBrandName()).
+					append("OtherDate", satisfaction.getOtherDate());
+		}
+		
+		cursor = collection.find(query);
+		
+		if (cursor.hasNext()) { 
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/** 
+	 * Inserts a satisfaction object in the database if it already doesnot exist
+	 * @param satisfaction Satisfaction object
+	 */
+	
+	public void putInDB(Satisfaction satisfaction) { 
+		
+		if (!checkExists(satisfaction)) { 
+			
+			insertDocument(getSatisfactionAdaptor(satisfaction));
 		}
 	}
 }

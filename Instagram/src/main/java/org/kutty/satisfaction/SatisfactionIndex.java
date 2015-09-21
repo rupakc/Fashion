@@ -24,14 +24,14 @@ import com.mongodb.DBObject;
 public class SatisfactionIndex {
 	
 	/** 
-	 * 
-	 * @param channel
-	 * @param brand
-	 * @param type
-	 * @param label
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the label count for a given product and channel in a given interval
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param type String containing the type (i.e. "sentiment" or "spam")
+	 * @param label String containing the label
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Integer containing the count
 	 */ 
 	
 	public static int getLabelCount(String channel,String brand,String type,String label,Date from,Date to) { 
@@ -99,12 +99,12 @@ public class SatisfactionIndex {
 	}
 	
 	/** 
-	 * 
-	 * @param channel
-	 * @param brand
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the count of post for a given channel and a given brand
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Integer containing the count of posts
 	 */ 
 	
 	public static int getPostCount(String channel,String brand,Date from, Date to) { 
@@ -148,12 +148,12 @@ public class SatisfactionIndex {
 	}
 	
 	/** 
-	 * 
-	 * @param channel
-	 * @param brand
-	 * @param from
-	 * @param to
-	 * @return
+	 * Calculates the reliability factor for a given channel and a given brand
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Double containing the value of the factor
 	 */ 
 	
 	public static double getReliabilityFactor(String channel,String brand,Date from,Date to) { 
