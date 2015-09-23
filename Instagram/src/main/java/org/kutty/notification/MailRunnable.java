@@ -10,24 +10,12 @@ import org.apache.commons.mail.SimpleEmail;
 
 /** 
  * Sends Notification emails to the concerned authority based on the importance of the messages
- * @author Ported from RoadMap project by Rupak Chakraborty
- * @for Adobe Systems, India
- * @since 27 April, 2015
+ * @author Rupak Chakraborty
+ * @for Kutty
+ * @since 23 September, 2015
  * 
  */ 
 
-/*
- * Email email = new SimpleEmail();
-email.setHostName("smtp.googlemail.com");
-email.setSmtpPort(465);
-email.setAuthenticator(new DefaultAuthenticator("username", "password"));
-email.setSSLOnConnect(true);
-email.setFrom("user@gmail.com");
-email.setSubject("TestMail");
-email.setMsg("This is a test mail ... :-)");
-email.addTo("foo@bar.com");
-email.send();
- */
 public class MailRunnable implements Runnable {
 
 	private static final String SENDER_EMAIL = "rupak97.4@gmail.com";
