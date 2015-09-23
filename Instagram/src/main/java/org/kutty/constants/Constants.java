@@ -23,4 +23,7 @@ public class Constants {
 	public static final String SPAM_TYPE = "spam";
 	public static final String SPAM_LABEL = "spam";
 	public static final String HAM_LABEL = "ham";
+	public static final String ANALYTICS_DB = "Analytics";
+	public static final String SATISFACTION_COLLECTION = "Satisfaction";
+	
 }

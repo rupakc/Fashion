@@ -52,7 +52,7 @@ public class Clean {
 	public static String cleanHTML(String s) {
 
 		CharSequence target [] = {"&nbsp","&lt","&gt","&amp",";","<strong>","<em>","[1]","</strong>","</em>","<div>","</div>","<b>","</b>","[2]","[3]","...","[img]","[/img]","<u>","</u>","<p>","</p>","\n","\\t","<span>",
-				"</span>","[Moved]","<br/>","<a>","</a>","&quot","<br>","<br />","Â","<a rel=\"nofollow\" class=\"ot-hashtag\"","&#39","<a","â€™"}; 
+				"</span>","[Moved]","<br/>","<a>","</a>","&quot","<br>","<br />","Â","<a rel=\"nofollow\" class=\"ot-hashtag\"","&#39","<a","â€™","&#39;"}; 
 		
 		CharSequence replacement = "";
 
@@ -72,7 +72,9 @@ public class Clean {
 
 	public static String removePunctuationAndJunk(String s) {
 
-		CharSequence target[] = {"!!","?","w/","!","!!!","w/","'","RT","@","#","/",":)",":(",":D","^_^","^","...",".","&","\\",":","?","<",">","$","%","*","`","~","-","_","+","=","{","}","[","]","|","\"",",",";",")","(","r/","/u/","*","-"};
+		CharSequence target[] = {"!!","?","w/","!","!!!","w/","'","RT","@","#","/",":)",
+				":(",":D","^_^","^","...",".","&","\\",":","?","<",">","$","%","*","`","~","-","_",
+				"+","=","{","}","[","]","|","\"",",",";",")","(","r/","/u/","*","-"};
 		CharSequence replacement = "";
 
 		for (int i = 0; i < target.length; i++) { 
