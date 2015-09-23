@@ -1,4 +1,4 @@
-package org.kutty.analytics;
+package org.kutty.giveaway;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.kutty.analytics.InstagramAnalytics;
+import org.kutty.analytics.LanguageAnalytics;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.DateConverter;
 
