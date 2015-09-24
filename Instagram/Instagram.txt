@@ -2705,7 +2705,7 @@ bagshop,charleskeith,chanel,bag,givenchy,mango,shopbag,charles,chanelthailand,ch
 CHARLES&KEITH ??? 100% ?????? outlet ??????????????? palmmyoil3220 ???? 1,450 B.??? Ems ????????????????????? ???????????? ???????????? ??????????????????? ????????????????????? ???????????? ?????????14 ???35 ???23 ???  ?????? 120 ??? ??????????  ?? : ??? ??? ??? #chanel #chanelbag #bagchanel #chanelthai #chanelthailand #bag #mango #mangobag #bagmango #bagshop #shopbag #forever21 #buckledcrossbodybag #victoriasecret #charles&keith #charleskeith #wallet #perforated #givenchy #givenchyparfums #guess #guessbag #bagguess #guessmini
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -2717,7 +2717,7 @@ fashion,style,6,firstdayofschooloutfit,guess,finalfantasygirl,melissa,polyvore,s
 #6 #polyvore #finalfantasygirl #Firstdayofschooloutfit #Polyvore #Fashion #Style #Oasis #Melissa #Swarovski #GUESS
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -2729,7 +2729,7 @@ dompetguess,kacamatahitam,dompetck,dompet,flatshoesvincci,kacamatavincci,charles
 #vincci #guess #mango #fossil #charlesandkeith #ck #jamtanganvincci #jamtangan #flatshoesvincci #flatshoes #tasfossil #tasguess #tasck #dompetguess #dompetfossil #kacamatavincci #dompetck #dompet #kacamatahitam #highheelsmurah #highheelsvincci #highheels #dompetck #tas #wedges #sandalvincci #tasmango #urban #urban&co *Sorry ya! No keep or No booking *Order by WA or BBM *Trf = Proses  Vincci Idr 140.000 Col. Coral Ready sz. 36, 37, 38, 39, 40
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -2741,7 +2741,7 @@ guess,her???,
 #Guess for #her???
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2753,7 +2753,7 @@ dompetguess,kacamatahitam,dompetck,dompet,flatshoesvincci,kacamatavincci,charles
 #vincci #guess #mango #fossil #charlesandkeith #ck #jamtanganvincci #jamtangan #flatshoesvincci #flatshoes #tasfossil #tasguess #tasck #dompetguess #dompetfossil #kacamatavincci #dompetck #dompet #kacamatahitam #highheelsmurah #highheelsvincci #highheels #dompetck #tas #wedges #sandalvincci #tasmango #urban #urban&co *Sorry ya! No keep or No booking *Order by WA or BBM *Trf = Proses  Vincci Idr 140.000 Col. Maroon Ready sz. 35, 36, 40
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -2765,7 +2765,7 @@ soldier,puertorico,binie,justmemyselfandi,usarmy,guess,glases,tanskin,
 #justmemyselfandi #binie #glases #guess #puertorico #usarmy #soldier #tanskin
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2777,7 +2777,7 @@ fashion,lorac,pinupstyle2,eleganttouch,lolacruz,annemichelle,polyvore,maybelline
 #polyvore #penocean #pinupstyle2 #Polyvore #Fashion #Style #GUESS #MissSelfridge #Forever21 #HelmutLang #AGoldE #LolaCruz #Vans #DolceVita #Converse #AnneMichelle #Boohoo #NARSCosmetics #LORAC #Maybelline #ElegantTouch
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -2789,7 +2789,7 @@ cat,unique,toronto,5secondsofsummer,instamoment,workhard,real,bath,happythanksgi
 LOOK @GET.FOLLOWERS.N0W8653  #babysitting #cat #workhard #studying #dancer #bestfriend #real #happythanksgiving #kicks #primas #hohoho #toronto #instamoment #oldpic #world #teamfslcback #swagger #bath #babyboy #guess #celine #snowday #sketch #finland #5secondsofsummer #yum #unique
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2801,7 +2801,7 @@ music,face,recording,taylorswift,rhianna,songs,celebrities,singer,songwriters,co
 Can you guess which celebrities match these gorgeous lips? Hint... Hint...they are all recording artists!  #guess #lips #gorgeous #celebrities #music #musicindustry #singer #songwriters #female #recording #artists #beauty #celebritybeauty #radio #songs #powerful #women #face #rhianna #love #taylorswift #covergirl #fergie #strong
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2813,7 +2813,7 @@ face,followshoutoutlikecomment,nofilter,makeup,followme,outfit,selfietime,recent
 #selfie #selfienation #selfies #comment #followshoutoutlikecomment #TFLers #me #love #pretty #handsome #instagood #instaselfie #selfietime #face #michaelkors #nofilter #hair #makeup #portrait #igers #fun #followme #instalove #smile #igdaily #eyes #guess #recentforrecent #outfit #makeup
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2825,7 +2825,7 @@ workthings,fashion,guessjeans,loveguess,selfiequeen,outfitoftheday,shorthair,sel
 Guess kinda day lol.. Here all weekend long ladies and gents so feel free to come shop lol #guess #guessshoes #selfie #selfiequeen #fashion #style #outfitoftheday #tattoos #loveguess #workthings #fit #guessjeans #shorthair
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -2837,7 +2837,7 @@ shop,blueeyes,clothes,instasize,pandora,czechgirl,hodnaholka??,dkny,hilfiger,ret
 #InstaSize #retrica #czechgirl #olomouc #likesforlikes #woman #guess #blackhair #inkedgirl #blueeyes #dkny #pandora #smile #hilfiger #style #clothes #shop #armani #iphone6 #hodnaholka??
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2849,7 +2849,7 @@ mama,cake,birthday,zara,trousers,zain,turtlecake,love,zahar,massimodutti,baba,tu
 ?? ??? ????? ???? ??? ????????? Happy birthday to zain #Zahar_zain #zahar #dress #RalphLauren #zain #dress #tommyhilfiger #baba #trousers #MassimoDutti #RalphLauren #mama #top #zara #trousers #Guess #scarf #armanicollezioni #cake #turtlecake #turtlecakes #love #birthday #zayoon
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2861,7 +2861,7 @@ jinho,choiyoung,koreaminoz,kdrama,eider,gujunpyo,lmh,minmin,personaltaste,korean
 ??………. Lovely for ever ……… ?? . . ????? . . ?leeminho.e? . . @actorleeminho ? . . #leeminho #lmh#leeyunsung #kdaramas #korea#kdrama #koreanactors #koreaminoz #supportleeminho #summerlove #cityhunter #choiyoung #guess#personaltaste #jinho #gangnamblues #gujunpyo #Eider #theheirs #kimtan #minho#minmin#minshinfans#huntington #tani
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2873,7 +2873,7 @@ beachwear,spariamocelaunafoto,summer2k15,sea,beach,seaside,sunglasses,squaredroi
 #squaredroid #summer #summer2015 #summertime #summer2k15 #sunshine #sun #sunglasses #guess #beachwear #beach #beachlife #seaside #sea #spariamocelaunafoto
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -2885,7 +2885,7 @@ approved,besttimeever,guess,ck,fossil,calvinklein,tommyhilfiger,dayoff,shopping,
 #usa #besttimeever #dayoff #shopping #ck #Calvinklein #guess #nike #tommyhilfiger #fossil #vsetci su moji novy #bestfriend #milujem ten adrenalín ked slidnem kartu v obchode a napíše #approved ?????????????????????
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -2897,7 +2897,7 @@ jinho,choiyoung,koreaminoz,kdrama,eider,gujunpyo,lmh,minmin,personaltaste,korean
 ??………. L?M?H ……… ?? . . ????? . . ?leeminho.e? . . @actorleeminho ? . . #leeminho #lmh#leeyunsung #kdaramas #korea#kdrama #koreanactors #koreaminoz #supportleeminho #summerlove #cityhunter #choiyoung #guess#personaltaste #jinho #gangnamblues #gujunpyo #Eider #theheirs #kimtan #minho#minmin#minshinfans#huntington #tani
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2909,7 +2909,7 @@ npc,finest,legends,queen,king,bevsgym,ifbb,rxmuscle,guess,eastcoastmecca,bodybui
 #TBT CAN YOU #GUESS?? #King and #Queen #bodybuilding at its #finest! #LEGENDS #NPC #IFBB #bevsgym #eastcoastmecca #generationiron #rxmuscle #gotmuscle?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2921,7 +2921,7 @@ gtasanandreas,gtav,gta5,l4l,gtanation,gtarides,gtacontest,gtaxbox,gtagamers,gtaw
 Today's contest of guess the wrecked car, Comment to win . . . Winner gets his GTA car featured on my page . Good luck . .  #guess #guessthecar #gtacontest #gtav #gtawrecks #gtarides #gtawasted #gtagamers #gtanation #gta5 #l4l #gtasanandreas #gtaxbox f4f
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2933,7 +2933,7 @@ combatboots,artcologne,derlaser,preview,skater,guess,surfskatefestival,cgn,barbo
 Chillin' while my photographer @cheisterkamp shoots the artist  #derlaser #preview #surfskatefestival @surfskatefestival #skater #surf #artcologne #cgn @fritzkola @spookmagazine_de #potd #ootd #barbour #guess #combatboots
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2945,7 +2945,7 @@ bosna,clock,silver,you,te,sestrice,24,since,potd,like4like,my,michaelkors,sister
 I ?? U Lela ? #real #friendship #love #you #my #sister #silver #tesanj #clock #potd #like4like #follow #michaelkors #guess #details #bosna #balkan #friendship #since #over #24 #years #volim #te #sestrice #forever ??
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2957,7 +2957,7 @@ poppunk,guess,latina,manga,anime,
 I ate great food that day and my purse gives me life { #guess #latina #manga #poppunk #anime }
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2969,7 +2969,7 @@ catwalkjunkie,fashion,for,cruyff,today,todayjeanswear,collection,gstar,drinks,sl
 TODAY SLIEDRECHT GEOPEND TOT 21:00...! SEE YOU @todayjeanswear  #newarrivals #guess  #today #started #sliedrecht #todayjeanswear #new #cruyff #gstar #elvine #kultivate #catwalkjunkie #meltinpot #loftymanner  #collection #fashion #drinks #for #free #followus
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -2981,7 +2981,7 @@ glasses,frenchconnection,innocent,random,lashes,eyes,smokey,selfie,plat,pinklips
 #random #selfie #required #brunette #glasses #frenchconnection #glasses #guess #guessscarf #plattedhair #plat #smile #innocent #darkeyes #smokey #eyes #lashes #pinklips #brows
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -2993,7 +2993,7 @@ shoutout,home,for,bored,its,iphonesia,hashtagfun,of,mad,immabored,instavattu,ins
 #selfie #bored #shoutout #home #meh #immabored #iphonesia #iluviphone #im #out #of #hastags #so #I #guess #its #bye #for #now #hashtagfun #insta #instafun #hashtagvattu #instavattu #I #am #mad #peace
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3005,7 +3005,7 @@ love,guess,
 ???? #guess #love
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3017,7 +3017,7 @@ cat,likeforlikes,madrid,valentine,island,blackandwhite,dj,stancenation,webstagra
 LOOK @GET.FOLLOWERS.N0W8653  #smart #cat #pizza #delicious #webstagram #bestfriend #madrid #stay #daily #day2 #island #mcm #stancenation #snuggles #likeforlikes #fivesecondsofsummer #valentine #sport #dj #guess #bomb #be #muscle #myself #tweetgram #blackandwhite #memorialday
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3029,7 +3029,7 @@ is,model,it,album,pop,pixels,like4like,globetrotter,holiday,what,guess,painting,
 #guess #what #painting #it #is #DenHaag #holiday #like4like #globetrotter #model #jrharlekin #pixels #pop #album ?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3041,7 +3041,7 @@ guessbag,handbag,guess,igdaily,
 Found my birthday present completely in love ????? #guess #guessbag #handbag #igdaily
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3053,7 +3053,7 @@ famous,watercolor,person,buy,followme,watercolorpaint,digital,drawing,draw,black
 Can anyone guess who I'm drawing next ? #draw #drawing #digital #procreate #person #famous #celebrity #black #white #blackandwhite #fun #cool #art #artist #artsy #guess #buy #followme #follow #me #juststarting #watercolor #watercolorpaint #watercolorpencils #paintpallet #paintsamplers #paintbrushes #fun #omg  #like
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3065,7 +3065,7 @@ delish,guess,
 #guess.  an' i'll buy u 1.  PS it's #delish
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3077,7 +3077,7 @@ zara,d,fashion,2hand,cottonon,secretkorea,matilda,coach,use,lynaround,siambrandn
 ??????? sz. S ???????? line gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3089,7 +3089,7 @@ tascnkready,tasguessmurah,taszaramurah,zara,tasbranded,tasmangoready,tasreadysto
 Alhamdulillah Addictive Bag is trusted ??? Thank you, my sweethearted customer ? #mango #zara #guess #forever21 #charlesandkeith #charlesandkeithindo #tasguessmurah #tasmangomurah #tasmurah #tasbranded #tasreadystock #dompetmangomurah #tasmangomurah #jualtas #tasori #katespade #tascharlesandkeith #taszaramurah #tasmango #taszara #readystockindo #medan #taszaraasli #tasmangoasli #taszaraready #suppliertas #suppliertasbranded #tasmangoready #tascnkready #tasready
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3101,7 +3101,7 @@ cool,yolo,remember,plur,edm,dcshoes,mexicocity,mexicanravers,followme,beautiful,
 #edm #ravers #yolo #plur #selfie #serius #sweet #funntimes #gorgeous #flyattendant #love #cool #nice #mexicanravers #mexicocity #dcshoes #guess #remember #beautiful #princess #tbt #followme #instafamous #cdmx #trendy
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3113,7 +3113,7 @@ shoes,love,guess,guessshoes,
 Love at first sight ??? #guessshoes #guess #shoes #love
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3125,7 +3125,7 @@ fashion,almostfriday,pinkeverything,feelingcrazy,allstars,selfie,conversecrystal
 ? #fashion#blondegirl#conversecrystal#converse#allstars#selfie#pinkeverything#guess#feelingcrazy#instadaily#instaphoto#almostfriday#dnesnosim
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3137,7 +3137,7 @@ coachthailand,outletusa,cute,weloveshopping,pantip,coachshop,coachfactory,preord
 ???????????????????? <<?????????? ??~2 wks?????????? >> ??????? ?% ?????????? ???????????????? 1,000?-3,000? ????????????????????? ?????2??? ? ????????????????? - ???????? Add Line id ?? 0851492249  ???????? http://line.me/ti/p/TkSHFN3vC0  #coach #coachfactory #coachshop #coachthailand #coachonline #katespade #kipling #dkny #mk #michaelkors #marcbymarcjacobs #fossil #guess #emporioarmani #pantip #pantown #weloveshopping #outletusa #bags #preorder #???????? #??? #????? #beautiful #cute #preorder #preorderbag #sbn #siambrandname #clearance #weloveshopping
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3149,7 +3149,7 @@ london,guess,chilternfirehouse,diner,topshop,
 London outfit vibes. #diner #london #guess #topshop  #chilternfirehouse
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3161,7 +3161,7 @@ zara,outlet,thailand,bestseller,nofiter,wallet,fredferry,girl,snidal,calvinklein
 ABG: ZARA Color : ?????? Size : 16 x 9 x 15 cm Price: 1250.- #mango #zara #charlesandkeith #handm #katespade #calvinklein #snidal #givenchy #guess #forever21 #girl #handbag #fredferry #ck #sale #bag #wallet #brandname #thailand #lady #bestseller #outlet #cathkidston #nofiter #newarrival #cross #hotitem #victoriassecret #marcjacobs #DKNY
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3173,7 +3173,7 @@ minecraft,mcminer,snapshot,chill,ax,miner,new,mc,yt,helmetfilms42,guess,youtube,
 YOUTUBE ANNOUNCEMENT: New Minecraft video coming to you next week! Try and guess what it is on... :D #youtube #video #Minecraft #miner #mine #axe #ax #ask #guess #yt #mc #mcminer #new #chill #week #channel #helmetfilms42 #snapshot #buildbattle
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3185,7 +3185,7 @@ swiss,classy,guess,bag,watches,shirt,
 Bad bitches is the only thing that I like #guess #bag #shirt #classy #watches #swiss @watchanish
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3197,7 +3197,7 @@ butik,old,implus_daily,gluta,trendy,fashionblogger,jual,vacances,on,dots,rip,lou
 VISIT @GET.FOLLOWERS.N0W2532  #bffs #dots #sdv #rip #old #louis #vacances #gluta #connorfranta #pleasecomment #depression #rio #eyeliner #on #springbreak #disney #past #yoga #implus_daily #guess #catchingfire #trendy #100happydays #butik #jual #fashionblogger #jordan
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3209,7 +3209,7 @@ yolo,edm,purse,state,nice,holidays,rock,selfiesunday,behappy,chen,metal,boring,i
 LOOK @GET_FOLLOWERS_5122  #behappy #yolo #hoodie #state #organic #sfs #beautiful #craftbeer #selfiesunday #chen #heaven #boring #metal #nice #rock #purse #rainbow #shooting #instatext #guess #kris #holidays #edm #too #genius #hater #lovepuppies
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3221,7 +3221,7 @@ fashion,cat,footfetish,brasil,city,chanelboy,thanks,friends,sand,books,support,f
 VISIT @GET.FOLLOWERS.N0W9441  #support #cat #city #blue #picoftheday #lego #snapchatme #footfetish #friends #coke #record #thanks #doglover #river #leopard #fashion #nike #edit #sand #guess #sleepover #brasil #muscle #fitspo #chanelboy #books #fmsphotoaday
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3233,7 +3233,7 @@ fashion,give,papamty?inky,everyday,jimmychoo,express,same,richband,girl,details,
 ?'Say It With Fashion'? (probably ... relationshit) #me #girl #guess #woman #same #relationshit #everywhere #everyday #give #and #get #summer #fashion #clothes #blue #jeans #express #yourself #art #jimmychoo #see #details #necklace #instafashion #picoftheday #slovakwomen #richband #papamty?inky #dajsiajty
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3245,7 +3245,7 @@ shoes,shoelover,dsw,guess,gbyguess,summer,
 I think I may have found a winner in my hunt for black sandal wedges.  Let's see if I can last an hour in them for the final test.  #shoelover #dsw #gbyguess #guess #shoes #summer
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3257,7 +3257,7 @@ selfie,hyvänainen,cozy,remonttirinkku,mirrorpic,iphone5s,guess,pink,finnishgirl,
 ? #finnishgirl #mirrorpic #cozy #guess #pink #remonttirinkku #iphone5s #igerstampere #selfie #hyvänainen
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3269,7 +3269,7 @@ gift,aunatural,outlet,nofilter,from,my,sunglasses,newyork,tuliainen,selfie,thank
 #me #selfie #aunatural #nomakeup #nofilter #my #newsunglasses #sunglasses #guess #tuliainen #gift #from #newyork #outlet #thanks to my family ?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3281,7 +3281,7 @@ smoothcriminal,gitar,guess,michaeljackson,guitar,annieareyouok,
 So..are you ok? #smoothcriminal #annieareyouok #michaeljackson #gitar #guitar #guess
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3293,7 +3293,7 @@ iphonesia,vacay,instadog,kiss,pitbullsofinstagram,are,baju,pets,train,grateful,b
 LOOK @GET_FOLLOWERS_5112  #bitchesbelike #shirt #are #baju #pets #solecollector #instaartist #larryisreal #ahs #kiss #heaven #pet #ootd #swedish #iphonesia #surf #swagger #instababy #train #guess #bunny #instadog #lashes #vacay #tumblrpost #pitbullsofinstagram #grateful
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3305,7 +3305,7 @@ like4likes,saldi,instamood,maxisconti,lovesummer,moschino,sale,contecollezioni,s
 Uomo Beachwear 2015  #contecollezioni Tutti  20 euro!!!!!!!! #sale #saldi #summer2015 #maxisconti #grandifirme #ck #guess #justcavalli #moschino #followUs #likeforlike #followUs #like4likes #instamood #instagood #lovesummer #happycolour
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3317,7 +3317,7 @@ dvf,???????,karllagerfeld,saratov,?????????????,????,beautyshop64,marcjacobs,???
 ???? ?????? #marcjacobs#original#nocopy#saratov#style#apparelandmore#beautyshop64#???????#???????#??????#????#?????????#????#?????#?????????????#guess#dvf#dkny#ralphlauren#converse#calvinklein#michaelkors#kenzo#karllagerfeld#newbalance
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -3329,7 +3329,7 @@ muchlove,guess,tired,jeans,rhysch,newtrainers,tanktop,airmax,gap,nike,
 The result of more clothes shopping!! #tired #guess #Nike #GAP #airmax #newtrainers #tanktop #muchlove #jeans #rhysch
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -3341,7 +3341,7 @@ to,maccosmetics,home,makeup,wethair,good,i,beverlyhillsanastasiabrows,guess,eyel
 Rocking wet hair... #wethair #makeup #maccosmetics #contouring #beverlyhillsanastasiabrows #eyelineronpoint #hot #day #good #to #be #home #I #guess
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3353,7 +3353,7 @@ is,white,holidays,my,and,swiss,new,yeah,happy,guess,coming,tattoo,black,
 #happy #new #tattoo #is #coming #holidays #swiss #yeah #black #and #white #guess #my #new #tattoo #?? ??
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -3365,7 +3365,7 @@ karllagerfeld,jimmychoo,????,??????,kenzo,apparelandmore,style,calvinklein,conve
 ???? ?????? ????? #jimmychoo #original#nocopy#saratov#apparelandmore#beautyshop64#style#???????#???????#??????#????#?????????#?????????????#????#?????#guess#dkny#dvf#converse#kenzo#karllagerfeld#ralphlauren#calvinklein#michaelkors#marcjacobs#newbalance
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 

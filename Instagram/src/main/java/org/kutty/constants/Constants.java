@@ -25,5 +25,6 @@ public class Constants {
 	public static final String HAM_LABEL = "ham";
 	public static final String ANALYTICS_DB = "Analytics";
 	public static final String SATISFACTION_COLLECTION = "Satisfaction";
+	public static final String INFLUENCE_COLLECTION = "Influence";
 	
 }
