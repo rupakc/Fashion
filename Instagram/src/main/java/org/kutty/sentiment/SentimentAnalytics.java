@@ -1,6 +1,8 @@
 package org.kutty.sentiment;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.kutty.constants.Constants;
 import org.kutty.db.MongoBase;
@@ -8,6 +10,7 @@ import org.kutty.utils.DateConverter;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /** 
@@ -166,5 +169,59 @@ public class SentimentAnalytics {
 		}
 
 		return count;
+	}
+	
+	/** 
+	 * Returns all the posts made by a given author for a given brand and channel during a given period 
+	 * @param author String containing the author name
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param sentimentLabel String containing the sentiment label
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Set<String> containing the set of messages
+	 */
+	
+	public static Set<String> getAuthorMap(String author,String channel,String brand,String sentimentLabel,Date from,Date to) { 
+		
+		MongoBase mongo;
+		Set<String> authorSet = new HashSet<String>();
+		DBObject query;
+		DBCursor cursor; 
+		DBCollection collection; 
+		
+		try { 
+			
+			mongo = new MongoBase();
+			mongo.setDB(Constants.ANALYTICS_DB);
+			mongo.setCollection(brand); 
+			
+			if (!channel.equalsIgnoreCase("Instagram")) { 
+
+				query = new BasicDBObject("Channel",channel).append("Product",brand).
+						append("SentimentLabel",sentimentLabel).append("Author",author).
+						append("TimeStamp", new BasicDBObject("$gte",from).append("$lte",to));
+			} else { 
+
+				double fromDate = DateConverter.getJulianDate(from);
+				double toDate = DateConverter.getJulianDate(to);
+
+				query = new BasicDBObject("Channel",channel).append("Product",brand).
+						append("SentimentLabel",sentimentLabel).append("Author",author).
+						append("OtherDate", new BasicDBObject("$gte",fromDate).append("$lte",toDate));
+			} 
+			
+			collection = mongo.getCollection();
+			cursor = collection.find(query);
+			
+			while(cursor.hasNext()) { 
+				
+				authorSet.add((String) cursor.next().get("Message"));
+			}
+		} catch (Exception e) { 
+			e.printStackTrace();
+		}
+		
+		return authorSet;
 	}
 }

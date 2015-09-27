@@ -21,24 +21,24 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
-/** 
+/**
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 20 July, 2015
- * 
+ *
  * Base class for performing basic analytics on the facebook posts stored in MongoDB, the basic analytics include things like
  * Sorting content by date
  * Getting the top posts
- * Printing the content to Screen 
- * 
- */ 
+ * Printing the content to Screen
+ *
+ */
 
 public class FbAnalytics {
 
-	HashMap<String,String> product_names = new HashMap<String,String>(); 
-	String product_name;   
+	HashMap<String,String> product_names = new HashMap<String,String>();
+	String product_name;
 
-	/** 
+	/**
 	 * Public constructor which initializes the product name
 	 * @param product_name String specifying the product for which the posts have to be retrieved
 	 * @throws LangDetectException
@@ -54,52 +54,52 @@ public class FbAnalytics {
 		this.product_name = product_names.get(this.product_name);
 	}
 
-	public FbAnalytics() { 
-		
+	public FbAnalytics() {
+
 	}
 
-	/** 
+	/**
 	 * Initializes a HashMap containing the specific product name and collection name
 	 * @param filename String specifying the file from which the product and its collection names are retrieved
 	 * @throws IOException
 	 */
 
 	public void init(String filename) throws IOException
-	{ 
+	{
 		BufferedReader br;
 		FileReader fr;
 		String alias;
 		String collection_name;
-		String s = ""; 
-		int index; 
+		String s = "";
+		int index;
 
 		fr = new FileReader(filename);
 		br = new BufferedReader(fr);
 
-		while((s = br.readLine()) != null) { 
+		while((s = br.readLine()) != null) {
 
 			index = s.indexOf('=');
 
-			if(index != -1) { 
+			if(index != -1) {
 
 				alias = s.substring(0,index);
 				collection_name = s.substring(index+1,s.length());
 				alias = alias.trim();
 				collection_name = collection_name.trim();
-				product_names.put(alias, collection_name); 
+				product_names.put(alias, collection_name);
 			}
 		}
 
 		br.close();
 		fr.close();
-	}  
+	}
 
-	/** 
+	/**
 	 * Prints the posts to screen
 	 * @throws UnknownHostException
-	 */ 
+	 */
 
-	public void printPosts() throws UnknownHostException { 
+	public void printPosts() throws UnknownHostException {
 
 		MongoBase mongo = new MongoBase();
 		mongo.setCollection(product_name);
@@ -107,13 +107,13 @@ public class FbAnalytics {
 
 		BasicDBObject query = new BasicDBObject("Channel","Facebook");
 		DBCursor cursor = collection.find(query);
-		BasicDBObject facebook_post; 
+		BasicDBObject facebook_post;
 
-		while(cursor.hasNext()) { 
+		while(cursor.hasNext()) {
 
 			facebook_post = (BasicDBObject) cursor.next();
 
-			System.out.println("----------------------------------------------------"); 
+			System.out.println("----------------------------------------------------");
 
 			System.out.println("UserName : " + facebook_post.get("UserName"));
 			System.out.println("Message : " + facebook_post.get("Message"));
@@ -126,16 +126,16 @@ public class FbAnalytics {
 		}
 
 		System.out.println("Total Posts : " + cursor.size());
-	} 
+	}
 
-	/** 
+	/**
 	 * Returns the messages which are in English only
 	 * @return ArrayList<String> of messages
 	 * @throws UnknownHostException
 	 * @throws LangDetectException
-	 */ 
+	 */
 
-	public ArrayList<String> getMessages() throws UnknownHostException, LangDetectException { 
+	public ArrayList<String> getMessages() throws UnknownHostException, LangDetectException {
 
 		ArrayList<String> messages = new ArrayList<String>();
 		MongoBase mongo = new MongoBase();
@@ -148,9 +148,9 @@ public class FbAnalytics {
 
 		DBCursor cursor = collection.find(query, fields);
 		Object generic_message;
-		String message = ""; 
+		String message = "";
 
-		while(cursor.hasNext()) { 
+		while(cursor.hasNext()) {
 
 			facebook_post = (BasicDBObject) cursor.next();
 
@@ -167,17 +167,17 @@ public class FbAnalytics {
 		}
 
 		return messages;
-	} 
+	}
 
-	/** 
+	/**
 	 * Returns messages contained in a particular language only
 	 * @param language String specifying the language whose posts have to be retrieved
 	 * @return ArrayList<String> of the messages
 	 * @throws UnknownHostException
 	 * @throws LangDetectException
-	 */ 
+	 */
 
-	public ArrayList<String> getMessages(String language) throws UnknownHostException, LangDetectException { 
+	public ArrayList<String> getMessages(String language) throws UnknownHostException, LangDetectException {
 
 		ArrayList<String> messages = new ArrayList<String>();
 		MongoBase mongo = new MongoBase();
@@ -190,9 +190,9 @@ public class FbAnalytics {
 
 		DBCursor cursor = collection.find(query, fields);
 		Object generic_message;
-		String message = ""; 
+		String message = "";
 
-		while(cursor.hasNext()) { 
+		while(cursor.hasNext()) {
 
 			facebook_post = (BasicDBObject) cursor.next();
 
@@ -209,22 +209,22 @@ public class FbAnalytics {
 		}
 
 		return messages;
-	} 
+	}
 
-	/** 
+	/**
 	 * Prints the top posts on the screen the top posts are defined by the criteria that they have more shares,likes than others
 	 * @throws LangDetectException
 	 * @throws UnknownHostException
-	 */ 
+	 */
 
 	public void getTopPosts() throws LangDetectException, UnknownHostException {
 
 		Object generic_likes;
 		Object generic_shares;
-		Object generic_comments; 
-		Object generic_message; 
+		Object generic_comments;
+		Object generic_message;
 
-		ArrayList<String> top_posts = new ArrayList<String>(); 
+		ArrayList<String> top_posts = new ArrayList<String>();
 		String message = "";
 
 		MongoBase mongo = new MongoBase();
@@ -232,9 +232,9 @@ public class FbAnalytics {
 		DBCollection collection = mongo.getCollection();
 
 		DBCursor cursor = collection.find(new BasicDBObject("Channel","Facebook"));
-		BasicDBObject facebook_post; 
+		BasicDBObject facebook_post;
 
-		System.out.println("--------------Posts With Likes/Shares/Comments-------------------"); 
+		System.out.println("--------------Posts With Likes/Shares/Comments-------------------");
 
 		while(cursor.hasNext()) {
 
@@ -243,15 +243,15 @@ public class FbAnalytics {
 			generic_likes = facebook_post.get("Likes");
 			generic_shares = facebook_post.get("Shares");
 			generic_comments = facebook_post.get("Comments");
-			generic_message = facebook_post.get("Message"); 
+			generic_message = facebook_post.get("Message");
 
-			if (generic_likes != null || generic_shares != null || generic_comments != null) { 
+			if (generic_likes != null || generic_shares != null || generic_comments != null) {
 
-				if (generic_message != null) { 
+				if (generic_message != null) {
 
 					message = (String)(generic_message);
 
-					if (LanguageDetector.detect(message).equalsIgnoreCase("en")) { 
+					if (LanguageDetector.detect(message).equalsIgnoreCase("en")) {
 
 						top_posts.add(message);
 						System.out.println(message);
@@ -263,15 +263,15 @@ public class FbAnalytics {
 		System.out.println("-----------------------------------------------------------------");
 	}
 
-	/** 
+	/**
 	 * Returns the top post on facebook for a given time period
 	 * @param from String in standard format representing the starting date
 	 * @param to String in standard format representing the ending date
 	 * @return The post with the maximum number of shares
 	 * @throws UnknownHostException
-	 */ 
+	 */
 
-	public String getTopPosts(String from, String to)throws UnknownHostException { 
+	public String getTopPosts(String from, String to)throws UnknownHostException {
 
 		Date from_date = DateConverter.getJavaDate(from);
 		Date to_date = DateConverter.getJavaDate(to);
@@ -291,24 +291,24 @@ public class FbAnalytics {
 		cursor = collection.find(query);
 		cursor = cursor.sort(sort);
 
-		if (cursor.hasNext()) { 
+		if (cursor.hasNext()) {
 
 			top_message = (String) cursor.next().get("Message");
 		}
 
 		return top_message;
-	} 
+	}
 
-	/** 
+	/**
 	 * Extracts the ton N posts from Facebook for a given time period
 	 * @param from String representing the starting date
 	 * @param to String representing the ending date
 	 * @param n Integer limiting the number of posts
 	 * @return Set<String> containing the top N posts
 	 * @throws UnknownHostException
-	 */ 
+	 */
 
-	public Set<String> getTopPosts(String from, String to,int n)throws UnknownHostException { 
+	public Set<String> getTopPosts(String from, String to,int n)throws UnknownHostException {
 
 		Date from_date = DateConverter.getJavaDate(from);
 		Date to_date = DateConverter.getJavaDate(to);
@@ -321,7 +321,7 @@ public class FbAnalytics {
 		DBObject sort;
 
 		String top_message = "";
-		Set<String> message_set = new HashSet<String>(); 
+		Set<String> message_set = new HashSet<String>();
 
 		collection = mongo.getCollection();
 		query = new BasicDBObject("Channel","Facebook").append("Shares", new BasicDBObject("$gt",0)).append("TimeStamp", new BasicDBObject("$gte",from_date).append("$lte",to_date));
@@ -330,25 +330,25 @@ public class FbAnalytics {
 		cursor = collection.find(query);
 		cursor = cursor.sort(sort);
 
-		while (cursor.hasNext() && message_set.size() <= n) { 
+		while (cursor.hasNext() && message_set.size() <= n) {
 
 			top_message = (String) cursor.next().get("Message");
 			message_set.add(top_message);
 		}
 
 		return message_set;
-	} 
-	
-	/** 
-	 * Returns a Set<String> containing the posts in a given time interval 
+	}
+
+	/**
+	 * Returns a Set<String> containing the posts in a given time interval
 	 * @param from java.util.Date object representing the starting point in time
 	 * @param to java.util.Date object representing the ending point in time
 	 * @param n Integer representing the number of posts to be fetched
 	 * @return Set<String> containing the posts
 	 * @throws UnknownHostException
-	 */ 
-	
-	public Set<String> getTopPosts(Date from, Date to,int n)throws UnknownHostException { 
+	 */
+
+	public Set<String> getTopPosts(Date from, Date to,int n)throws UnknownHostException {
 
 		MongoBase mongo = new MongoBase();
 
@@ -359,7 +359,7 @@ public class FbAnalytics {
 		DBObject sort;
 
 		String top_message = "";
-		Set<String> message_set = new HashSet<String>(); 
+		Set<String> message_set = new HashSet<String>();
 
 		collection = mongo.getCollection();
 		query = new BasicDBObject("Channel","Facebook").append("Shares", new BasicDBObject("$gt",0)).append("TimeStamp", new BasicDBObject("$gte",from).append("$lte",to));
@@ -368,23 +368,23 @@ public class FbAnalytics {
 		cursor = collection.find(query);
 		cursor = cursor.sort(sort);
 
-		while (cursor.hasNext() && message_set.size() <= n) { 
+		while (cursor.hasNext() && message_set.size() <= n) {
 
 			top_message = (String) cursor.next().get("Message");
 			message_set.add(top_message);
 		}
 
 		return message_set;
-	} 
+	}
 
-	/** 
+	/**
 	 * Returns the top N posts on Facebook
 	 * @param n Integer specifying the top N number of posts to be retrieved
 	 * @return Set<String> containing the top messages
 	 * @throws UnknownHostException
-	 */ 
+	 */
 
-	public Set<String> getTopPosts(int n)throws UnknownHostException { 
+	public Set<String> getTopPosts(int n)throws UnknownHostException {
 
 		MongoBase mongo = new MongoBase();
 
@@ -394,7 +394,7 @@ public class FbAnalytics {
 		DBObject query;
 		DBObject sort;
 		DBObject doc;
-		int count; 
+		int count;
 
 		Set<String> top_messages = new HashSet<String>();
 		collection = mongo.getCollection();
@@ -404,15 +404,15 @@ public class FbAnalytics {
 		cursor = collection.find(query);
 		cursor = cursor.sort(sort);
 
-		while(cursor.hasNext()) { 
+		while(cursor.hasNext()) {
 
 			doc = cursor.next();
 
-			if (count < n) { 
+			if (count < n) {
 
-				top_messages.add((String) doc.get("Message")); 
+				top_messages.add((String) doc.get("Message"));
 
-			} else { 
+			} else {
 
 				break;
 			}
@@ -423,14 +423,14 @@ public class FbAnalytics {
 		return top_messages;
 	}
 
-	/** 
+	/**
 	 * Returns an association between the Date and its corressponding message
 	 * @return TreeMap<Date,String> containing the Date and its associated post
 	 * @throws UnknownHostException
 	 * @throws LangDetectException
-	 */ 
+	 */
 
-	public TreeMap<Date,String> getPostsByDate() throws UnknownHostException, LangDetectException { 
+	public TreeMap<Date,String> getPostsByDate() throws UnknownHostException, LangDetectException {
 
 		TreeMap<Date,String> tm = new TreeMap<Date,String>();
 		MongoBase mongo = new MongoBase();
@@ -443,13 +443,13 @@ public class FbAnalytics {
 
 		DBCursor cursor = collection.find(query, fields);
 
-		while(cursor.hasNext()) { 
+		while(cursor.hasNext()) {
 
 			facebook_post = (BasicDBObject) cursor.next();
 
 			if( (facebook_post.get("Message")) != null && (facebook_post.get("TimeStamp")) != null) {
 
-				if (LanguageDetector.detect(facebook_post.getString("Message")).equalsIgnoreCase("en")) { 
+				if (LanguageDetector.detect(facebook_post.getString("Message")).equalsIgnoreCase("en")) {
 
 					tm.put(facebook_post.getDate("TimeStamp"), facebook_post.getString("Message"));
 				}
@@ -459,25 +459,25 @@ public class FbAnalytics {
 		return tm;
 	}
 
-	/** 
+	/**
 	 * Returns a HashMap containing the author and message for top posts
 	 * @param n Integer specifying the number of posts to be retrieved
 	 * @return HashMap<String,String> containing the author and the associated post
 	 * @throws UnknownHostException
-	 */ 
+	 */
 
-	public HashMap<String,String> getTopAuthorPosts(int n) throws UnknownHostException { 
+	public HashMap<String,String> getTopAuthorPosts(int n) throws UnknownHostException {
 
 		MongoBase mongo = new MongoBase();
 		mongo.setCollection(product_name);
 		HashMap<String,String> author_map;
-		int count; 
+		int count;
 
 		DBCollection collection;
 		DBCursor cursor;
 		DBObject query;
 		DBObject sort;
-		DBObject doc; 
+		DBObject doc;
 
 		author_map = new HashMap<String,String>();
 		count = 0;
@@ -488,22 +488,22 @@ public class FbAnalytics {
 		cursor = collection.find(query);
 		cursor = cursor.sort(sort);
 
-		while(cursor.hasNext()) { 
+		while(cursor.hasNext()) {
 
 			doc = cursor.next();
 
-			if (count < n) { 
+			if (count < n) {
 
-				author_map.put((String)doc.get("Author"), (String) doc.get("Message")); 
+				author_map.put((String)doc.get("Author"), (String) doc.get("Message"));
 
-			} else { 
+			} else {
 
 				break;
 			}
 
 			count++;
 		}
-		
+
 		return author_map;
 	}
 }

@@ -1,10 +1,10 @@
 package org.kutty.constants;
 
 /**
+ * Defines a set of constants which are consistently used in different packages
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 20 September, 2015
- * 
  */
 
 public class Constants {
