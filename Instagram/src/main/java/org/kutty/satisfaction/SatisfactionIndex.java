@@ -1,10 +1,13 @@
 package org.kutty.satisfaction;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.joda.time.DateTime;
 import org.kutty.constants.Constants;
 import org.kutty.db.MongoBase;
+import org.kutty.dbo.Satisfaction;
 import org.kutty.utils.DateConverter;
 
 import com.mongodb.BasicDBObject;
@@ -21,6 +24,11 @@ import com.mongodb.DBObject;
  */ 
 
 public class SatisfactionIndex {
+
+	private static double frequencyFactor;
+	private static double frequencyWeight;
+	private static double reliabilityFactor;
+	private static double reliabilityWeight; 
 
 	/** 
 	 * Returns the label count for a given product and channel in a given interval
@@ -202,17 +210,17 @@ public class SatisfactionIndex {
 
 		return frequencyFactor;
 	} 
-	
+
 	/** 
-	 * 
-	 * @param channel
-	 * @param brand
-	 * @param fieldName
-	 * @param from
-	 * @param to
-	 * @return
+	 * Gets the cumulative value for a given channel and brand for a field name
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param fieldName String containing the field name whose cumulative value is to be calculated
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Double value containing the cumulative score
 	 */ 
-	
+
 	public static double getCumulativeValue(String channel,String brand,String fieldName,Date from,Date to) { 
 
 		MongoBase mongo;
@@ -257,18 +265,18 @@ public class SatisfactionIndex {
 
 		return sum;
 	}
-	
+
 	/** 
-	 * 
-	 * @param channel
-	 * @param brand
-	 * @param fieldName
-	 * @param fieldValue
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the ratio of two cumulative values
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param fieldName String containing the field name
+	 * @param fieldValue Object containing the field value
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Double value containing the ratio
 	 */ 
-	
+
 	public static double getCumulativeRatio(String channel,String brand,String fieldName,Object fieldValue,Date from,Date to) { 
 
 		MongoBase mongo;
@@ -283,9 +291,9 @@ public class SatisfactionIndex {
 			mongo = new MongoBase();
 			mongo.setDB(Constants.ANALYTICS_DB);
 			mongo.setCollection(Constants.SATISFACTION_COLLECTION); 
-			
+
 			if (!channel.equalsIgnoreCase("Instagram")) { 
-				
+
 				queryLessThanMean = new BasicDBObject("Channel",channel).append("Product",brand).
 						append("TimeStamp", new BasicDBObject("$gte",from).append("$lte",to)).
 						append(fieldName,new BasicDBObject("$gt",fieldValue));
@@ -294,10 +302,10 @@ public class SatisfactionIndex {
 						append("TimeStamp", new BasicDBObject("$gte",from).append("$lte",to)).
 						append(fieldName,new BasicDBObject("$lt",fieldValue));
 			} else { 
-				
+
 				double fromDate = DateConverter.getJulianDate(from);
 				double toDate = DateConverter.getJulianDate(to); 
-				
+
 				queryLessThanMean = new BasicDBObject("Channel",channel).append("Product",brand).
 						append("OtherDate", new BasicDBObject("$gte",fromDate).append("$lte",toDate)).
 						append(fieldName,new BasicDBObject("$gt",fieldValue));
@@ -306,59 +314,59 @@ public class SatisfactionIndex {
 						append("OtherDate", new BasicDBObject("$gte",fromDate).append("$lte",toDate)).
 						append(fieldName,new BasicDBObject("$lt",fieldValue));
 			}
-			
+
 			collection = mongo.getCollection();
 			countLessThanMean = collection.find(queryLessThanMean).size();
 			countGreaterThanMean = collection.find(queryGreaterThanMean).size();	
 
 		} catch(Exception e) { 
-			
+
 			e.printStackTrace();
 		}
-		
+
 		return (countLessThanMean/(countGreaterThanMean+1));
 	} 
-	
+
 	/** 
-	 * 
-	 * @param channel
-	 * @param brand
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the reliability weight for a given channel and brand during a specified period
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Double containing the reliability weight
 	 */ 
-	
+
 	public static double getReliabilityWeight(String channel,String brand,Date from,Date to) { 
-		
+
 		double meanReliablity = 0;
 		double reliabilityRatio = 0;
 		meanReliablity = getCumulativeValue(channel, brand,"ReliabilityFactor",from,to);
 		meanReliablity = meanReliablity/Constants.MEAN_DAYS;
 		reliabilityRatio = getCumulativeRatio(channel, brand,"ReliabilityFactor",meanReliablity,from, to);
-		
+
 		return reliabilityRatio;
 	}
-	
+
 	/** 
-	 * 
-	 * @param channel
-	 * @param brand
-	 * @param from
-	 * @param to
-	 * @return
+	 * Returns the frequency weight for a given channel and given brand in a given interval
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return Double containing the frequency weight
 	 */ 
-	
+
 	public static double getFrequencyWeight(String channel,String brand,Date from,Date to) { 
-		
+
 		double meanFrequency = 0;
 		double frequencyRatio = 0;
 		meanFrequency = getCumulativeValue(channel, brand,"FrequencyFactor",from,to);
 		meanFrequency = meanFrequency/Constants.MEAN_DAYS;
 		frequencyRatio = getCumulativeRatio(channel, brand,"FrequencyFactor",meanFrequency,from, to);
-		
+
 		return frequencyRatio;
 	}
-	
+
 	/** 
 	 * Given a channel and a brand returns the satisfaction index associated with it 
 	 * @param channel String containing the channel name
@@ -367,12 +375,7 @@ public class SatisfactionIndex {
 	 */ 
 
 	public static double getSatisfactionIndex(String channel,String brand) { 
-//TODO - Add the pipeline here
-		double frequencyFactor;
-		double reliabilityFactor;
-		double reliabilityWeight;
-		double frequencyWeight; 
-		
+
 		DateTime to = new DateTime();
 		DateTime from = to.minusDays(Constants.DAYS);
 		reliabilityFactor = getReliabilityFactor(channel, brand, from.toDate(), to.toDate());
@@ -380,7 +383,141 @@ public class SatisfactionIndex {
 		from = to.minusDays(Constants.MEAN_DAYS);  
 		reliabilityWeight = getReliabilityWeight(channel, brand, from.toDate(), to.toDate());
 		frequencyWeight = getFrequencyWeight(channel, brand, from.toDate(), to.toDate()); 
-		
+
 		return (reliabilityWeight*reliabilityFactor + frequencyWeight*frequencyFactor);
 	}
+	
+	/** 
+	 *  Returns the set of DBObjects containing the sentiment data
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 * @return Set<DBObject> containing the sentiment objects
+	 */
+	
+	public static Set<DBObject> getSentimentData(String channel,String brand) { 
+
+		MongoBase mongo;
+		DBCollection collection;
+		DBObject temp;
+		DBObject query;
+		DBCursor cursor;
+		Set<DBObject> sentiSet = new HashSet<DBObject>();
+		try {
+			mongo = new MongoBase();
+			mongo.setDB(Constants.ANALYTICS_DB);
+			mongo.setCollection(brand);
+			query = new BasicDBObject("Channel",channel).append("Product",brand);
+			collection = mongo.getCollection();
+			cursor = collection.find(query);
+			while(cursor.hasNext()) { 
+				temp = cursor.next();
+				sentiSet.add(temp);
+			}
+		} catch(Exception e) { 
+			e.printStackTrace();
+		}
+
+		return sentiSet;
+	}
+	
+	/** 
+	 * Defines the satisfaction pipeline for a given channel and a brand
+	 * @param channel String containing the channel name
+	 * @param brand String containing the brand name
+	 */
+	
+	public static void satisfactionPipeline(String channel,String brand) { 
+
+		MongoBase mongo;
+		Set<DBObject> sentiData = new HashSet<DBObject>();
+		Satisfaction satIndex;
+		double neutral;
+		DateTime from;
+		DateTime to = new DateTime();
+		from = to.minusDays(Constants.DAYS);
+		String sentimentLabel = ""; 
+		neutral = getLabelCount(channel, brand, Constants.SENTIMENT_TYPE,Constants.NEUTRAL_LABEL, from.toDate(), to.toDate());
+		double satScore; 
+
+		try {
+			
+			mongo = new MongoBase();
+			mongo.setDB(Constants.ANALYTICS_DB);
+			mongo.setCollection(Constants.SATISFACTION_COLLECTION);
+			sentiData = getSentimentData(channel, brand); 
+
+			for(DBObject temp : sentiData) { 
+
+				satIndex = new Satisfaction();
+				satIndex.setBrandName(brand);
+				satIndex.setChannelName(channel);
+				satIndex.setContent((String) temp.get("Message"));
+				satIndex.setSentimentScore((double) temp.get("SentimentScore")); 
+				sentimentLabel = (String) temp.get("SentimentLabel");
+				satScore = getSatisfactionIndex(channel, brand)*Math.exp((double) temp.get("SentimentScore")); 
+				satScore = scale(satScore); 
+				
+				if (!channel.equalsIgnoreCase("Instagram")) {  
+					
+					satIndex.setTimestamp((Date) temp.get("TimeStamp")); 
+					
+				} else {  
+					
+					satIndex.setOtherDate((double) temp.get("OtherDate")); 
+					
+				} 
+				if (sentimentLabel.equalsIgnoreCase(Constants.POSITIVE_LABEL)) { 
+					
+					satIndex.setSatisfactionScore(satScore);
+				} 
+				else if (sentimentLabel.equalsIgnoreCase(Constants.NEGATIVE_LABEL)) { 
+					
+					satIndex.setSatisfactionScore(-1.0*satScore);
+				}
+				else if (sentimentLabel.equalsIgnoreCase(Constants.NEUTRAL_LABEL)) {  
+					
+					satIndex.setSatisfactionScore(2.0*(satScore/(neutral+1)));
+				} 
+				
+				satIndex.setFrequencyFactor(frequencyFactor);
+				satIndex.setFrequencyWeight(frequencyWeight);
+				satIndex.setReliabilityFactor(reliabilityFactor);
+				satIndex.setReliabilityWeight(reliabilityWeight);
+				
+				mongo.putInDB(satIndex);
+			} 
+			
+		} catch(Exception e) {  
+			
+			e.printStackTrace();
+		}
+	}
+	
+	/** 
+	 * Scales satisfaction score in a range of 0 - 100
+	 * @param satisfactionScore Satisfaction Score which is to be scaled
+	 * @return scaled value of Satisfaction Score
+	 */ 
+	
+	public static double scale(double satisfactionScore) { 
+		
+		double oldMax = Constants.OLD_MAX;
+		double oldMin = Constants.OLD_MIN;
+		double newMax = Constants.NEW_MAX;
+		double newMin = Constants.NEW_MIN; 
+		
+		if (satisfactionScore > oldMax) {  
+			
+			satisfactionScore = oldMax-2;
+		} 
+		
+		if (satisfactionScore < oldMin) { 
+			
+			satisfactionScore = oldMin;
+		}
+		
+		double scaledValue = (newMax - newMin)/(oldMax-oldMin)*(satisfactionScore - oldMin) + newMin;
+		
+		return scaledValue;
+	} 
 }
