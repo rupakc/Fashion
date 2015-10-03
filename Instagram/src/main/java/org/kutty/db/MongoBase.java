@@ -16,6 +16,7 @@ import org.kutty.dbo.Satisfaction;
 import org.kutty.dbo.Sentiment;
 import org.kutty.dbo.Spam;
 import org.kutty.dbo.Tag;
+import org.kutty.dbo.TweetUser;
 import org.kutty.dbo.User;
 
 import twitter4j.GeoLocation;
@@ -1220,5 +1221,66 @@ public class MongoBase {
 			insertDocument(getSatisfactionAdaptor(satisfaction));
 		}
 	}
+	
+	/** 
+	 * Adaptor function to convert a twitter user into a BasicDBObject
+	 * @param tweetUser TweetUser which is to be inserted in the database
+	 * @return BasicDBObject containing the representation of the tweetuser
+	 */ 
+	
+	public BasicDBObject getTweetUserAdaptor(TweetUser tweetUser) {
+
+		BasicDBObject tweetUserDoc; 
+		
+		tweetUserDoc = new BasicDBObject("ActiveSince",tweetUser.getActiveSince()).
+				append("Description",tweetUser.getDescription()).
+				append("FollowerCount", tweetUser.getFollowerCount()).
+				append("FavoriteCount", tweetUser.getFavoriteCount()).
+				append("FriendCount", tweetUser.getFriendCount()).
+				append("StatusCount", tweetUser.getStatusCount()).
+				append("Url", tweetUser.getUrl()).
+				append("UserId", tweetUser.getUserId()).
+				append("UserLang", tweetUser.getUserLang()).
+				append("UserScreenName", tweetUser.getUserScreenName()).
+				append("FollowerList", tweetUser.getFollowerList()).
+				append("FriendList", tweetUser.getFriendList()).
+				append("Channel", "Twitter"); 
+		
+		return tweetUserDoc;
+	}
+	
+	/** 
+	 * Inserts a tweet user in the database if it already doesn't exist
+	 * @param tweetUser TweetUser which is to be inserted
+	 */ 
+	
+	public void putInDB(TweetUser tweetUser) { 
+		
+		DBObject query;
+		DBObject update;
+		DBCursor cursor; 
+		
+		query = new BasicDBObject("ActiveSince",tweetUser.getActiveSince()).
+				append("UserId", tweetUser.getUserId()); 
+		
+		update = new BasicDBObject("$set",new BasicDBObject("FollowerCount",tweetUser.getFollowerCount()).
+				append("FavoriteCount", tweetUser.getFavoriteCount()).
+				append("FriendCount", tweetUser.getFriendCount()).
+				append("StatusCount", tweetUser.getStatusCount()).
+				append("FollowerList", tweetUser.getFollowerList()).
+				append("FriendList", tweetUser.getFriendList()));
+		
+		cursor = collection.find(query);
+		
+		if(!cursor.hasNext()) {  
+			
+			insertDocument(getTweetUserAdaptor(tweetUser)); 
+			
+		} else { 
+			
+			updateDocument(query, update);
+		}
+	}
+
 }
 

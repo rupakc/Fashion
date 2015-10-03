@@ -494,6 +494,51 @@ public class SatisfactionIndex {
 	}
 	
 	/** 
+	 * 
+	 * @param product
+	 * @param from
+	 * @param to
+	 */
+	
+	public static void satisfactionAllChannels(String product,Date from,Date to) { 
+		
+		for (String channel : Constants.channelNames) { 
+			satisfactionPipeline(channel, product);
+		}
+	}
+	
+	/** 
+	 * 
+	 * @param channel
+	 * @param from
+	 * @param to
+	 */
+	
+	public static void satisfactionAllProducts(String channel,Date from,Date to) { 
+		
+		for (String brand : Constants.brandNames) { 
+			satisfactionPipeline(channel, brand);
+		}
+	}
+	
+	/** 
+	 * 
+	 * @param from
+	 * @param to
+	 */ 
+	
+	public static void satisfactionAllProductsAndChannels(Date from,Date to) { 
+		
+		for (String brand : Constants.brandNames) { 
+			
+			for (String channel : Constants.channelNames) { 
+				
+				satisfactionPipeline(channel, brand);
+			}
+		}
+	}
+	
+	/** 
 	 * Scales satisfaction score in a range of 0 - 100
 	 * @param satisfactionScore Satisfaction Score which is to be scaled
 	 * @return scaled value of Satisfaction Score
