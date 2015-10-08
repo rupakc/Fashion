@@ -363,15 +363,15 @@ public class NGram {
 
 		if (type.equalsIgnoreCase("sentiment")) { 
 
-			writeGramToFile("twitter/positive_5.txt",positive_count_map);
-			writeGramToFile("twitter/negative_5.txt",negative_count_map);
-			writeGramToFile("twitter/neutral_5.txt",neutral_count_map);
+			writeGramToFile("facebook/positive_1.txt",positive_count_map);
+			writeGramToFile("facebook/negative_1.txt",negative_count_map);
+			writeGramToFile("facebook/neutral_1.txt",neutral_count_map);
 		}
 
 		if (type.equalsIgnoreCase("spam")) { 
 
-			writeGramToFile("twitter/spam_1.txt", spam_map);
-			writeGramToFile("twitter/ham_1.txt", ham_map);
+			writeGramToFile("facebook/spam_1.txt", spam_map);
+			writeGramToFile("facebook/ham_1.txt", ham_map);
 		}
 	} 
 	
@@ -637,7 +637,7 @@ public class NGram {
 
 		for (int i = 1; i <= 3; i++) { 
 			
-			new NGram().NGramExtractionPipeline("twitter/split_1.txt",i,"twitter","spam");
+			new NGram().NGramExtractionPipeline("facebook/split_1.txt",i,"facebook","sentiment");
 		} 
 	}
 }

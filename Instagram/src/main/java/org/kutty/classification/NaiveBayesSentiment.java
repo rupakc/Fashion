@@ -282,7 +282,7 @@ public class NaiveBayesSentiment {
 	public static void main(String args[]) { 
 
 		String text = "#Burberry & #TrueReligion What A Wonderful Combination!!! #JustAnotherDay #WaddupTwitter";
-		System.out.println(new NaiveBayesSentiment(3,"twitter").classifySentimentOtherChannels(text));
+		System.out.println(new NaiveBayesSentiment(3,"facebook").classifySentimentOtherChannels(text));
 
 	}
 

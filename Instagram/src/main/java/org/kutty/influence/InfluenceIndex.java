@@ -15,7 +15,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /** 
- * Calculates the Influence Index for a given Index currently supports Instagram
+ * Calculates the Influence Index for a given user currently supports Instagram
  * 
  * @author Rupak Chakraborty
  * @for Kutty

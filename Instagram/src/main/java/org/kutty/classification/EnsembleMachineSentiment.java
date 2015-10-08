@@ -126,8 +126,8 @@ public class EnsembleMachineSentiment {
 	
 	public static void main(String args[]) { 
 		
-		String text = "#Burberry & #TrueReligion What A Wonderful Combination!!! #JustAnotherDay #WaddupTwitter";
+		String text = "RT";
 		EnsembleMachineSentiment ems = new EnsembleMachineSentiment();
-		System.out.println(ems.organizeAndActEnsemble(text, "twitter", 5));
+		System.out.println(ems.organizeAndActEnsemble(text, "facebook", 5));
 	}
 }
