@@ -226,7 +226,15 @@ public class Prior {
 		fw.close();
 
 	}
-
+	
+	/** 
+	 * Returns a Map containing the sentiment label prior distribution 
+	 * @param filename String containing the filename
+	 * @param modelNumber Integer containing the model number
+	 * @return Map<String,Double> containing the mapping between sentiment label and its prior probability
+	 * @throws IOException
+	 */
+	
 	public static Map<String,Double> getSentimentLabelPriors(String filename,int modelNumber) throws IOException { 
 
 		BufferedReader br;
@@ -268,10 +276,10 @@ public class Prior {
 	}
 	
 	/** 
-	 * 
-	 * @param filename
-	 * @param modelNumber
-	 * @return
+	 * Returns a Map containing the spam label prior distribution 
+	 * @param filename String containing the filename
+	 * @param modelNumber Integer containing the model number
+	 * @return Map<String,Double> containing the mapping between spam label and its prior probability
 	 * @throws IOException
 	 */
 	
@@ -315,10 +323,10 @@ public class Prior {
 	}
 	
 	/** 
-	 * 
-	 * @param filename
-	 * @param modelNumber
-	 * @return
+	 * Returns a Map containing the giveaway label prior distribution 
+	 * @param filename String containing the filename
+	 * @param modelNumber Integer containing the model number
+	 * @return Map<String,Double> containing the mapping between giveaway label and its prior probability
 	 * @throws IOException
 	 */
 	
@@ -360,16 +368,103 @@ public class Prior {
 
 		return giveawayLabelMap;
 	}
+	
+	/** 
+	 * Defines the pipeline for sentiment prior calculation
+	 * @param channel String containing the channel name
+	 * @param modelNumber Integer containing the model number
+	 * @param fileToWrite String containing the file to which the data is to be written
+	 */
+	
+	public static void sentimentPriorPipeline(String channel,int modelNumber,String fileToWrite) { 
+		
+		Map<String,Integer> labelCountMap = generateLabelSentimentCountMap(channel, modelNumber);
+		Map<String,Double> sentimentPriorMap = getPriorMap(labelCountMap);
+		try {
+			writeSentimentPriorsToFile(fileToWrite, sentimentPriorMap, modelNumber);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/** 
+	 * Writes the prior probabilities for all models to a given file
+	 * @param channel String containing the channel name
+	 * @param fileToWrite String containing the file to which data is written
+	 * @param maxModelNumber Integer containing the maximum model number
+	 */
 
+	public static void sentimentPriorAllModels(String channel,int maxModelNum,String fileToWrite) { 
+		
+		for (int i = 1; i <= maxModelNum; i++) { 
+			sentimentPriorPipeline(channel,i,fileToWrite);
+		}
+	}
+	
+	/** 
+	 * Defines the pipeline for spam prior calculation
+	 * @param channel String containing the channel name
+	 * @param modelNumber Integer containing the model number
+	 * @param fileToWrite String containing the file to which the data is to be written
+	 */
+	
+	public static void spamPriorPipeline(String channel,int modelNumber,String fileToWrite) { 
+		
+		Map<String,Integer> labelCountMap = generateLabelSpamCountMap(channel, modelNumber);
+		Map<String,Double> spamPriorMap = getPriorMap(labelCountMap);
+		try {
+			writeSpamPriorsToFile(fileToWrite, spamPriorMap, modelNumber);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/** 
+	 * Writes the prior probabilities for all models to a given file
+	 * @param channel String containing the channel name
+	 * @param fileToWrite String containing the file to which data is written
+	 * @param maxModelNumber Integer containing the maximum model number
+	 */
+
+	public static void spamPriorAllModels(String channel,int maxModelNumber,String fileToWrite) { 
+		
+		for (int i = 1; i <= maxModelNumber; i++) { 
+			spamPriorPipeline(channel,i,fileToWrite);
+		}
+	} 
+	
+	/** 
+	 * Defines the prior pipeline for a given model
+	 * @param fileToWrite String containing the file which the probabilities are written
+	 * @param modelNumber Integer containing the model number
+	 */
+	
+	public static void giveawayPriorPipeline(String fileToWrite,int modelNumber) { 
+		
+		Map<String,Integer> labelCountMap = generateLabelGiveawayCountMap(modelNumber);
+		Map<String,Double> giveawayPriorMap = getPriorMap(labelCountMap);
+		try {
+			writeGiveawayPriorsToFile(fileToWrite, giveawayPriorMap, modelNumber);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/** 
+	 * Writes the prior probabilities for all models to a given file
+	 * @param fileToWrite String containing the file to which data is written
+	 * @param maxModelNumber Integer containing the maximum model number
+	 */
+	
+	public static void giveawayPriorAllModels(String fileToWrite,int maxModelNumber) { 
+		
+		for(int i = 1; i <= maxModelNumber; i++) { 
+			giveawayPriorPipeline(fileToWrite,i);
+		}
+	}
+	
 	public static void main(String args[]) throws IOException { 
 
-		Map<String, Integer> labelCountMap = new HashMap<String,Integer>();
-		labelCountMap.put("positive", 100);
-		labelCountMap.put("negative",500);
-		labelCountMap.put("neutral", 400);
-		writeSentimentPriorsToFile("twitter/prior.txt",getPriorMap(labelCountMap),0);
-		writeSpamPriorsToFile("twitter/prior.txt",getPriorMap(generateLabelSpamCountMap("twitter",5)),5);
-		System.out.println(getPriorMap(generateLabelGiveawayCountMap(3)));
-
+		sentimentPriorAllModels("twitter", 5, "twitter/prior.txt");
 	}
 }
