@@ -5,3 +5,4 @@ script:
  - cd Instagram
  - mvn install -DskipTests=true
  - mvn test
+ - mvn clean install
