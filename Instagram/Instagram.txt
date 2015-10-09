@@ -6103,7 +6103,7 @@ ccoo,zara,landmee,cps,sretsis,somethingboudoir,lynbag,lynaround,madeoffrabic,sia
 #lynaround #lynbag #lyn #chaps #ccoo #jaspal #topshop #???? #????? #????? #sretsis #lynaroundworld #hm #disaya #kloset #milin #guess #cps #somethingboudoir #landmee #sbn #siambrandname #madeoffrabic #mariadaimond #zara
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -6115,7 +6115,7 @@ jacket,girl,guess,outfit,jeans,tommyhilfiger,
 #girl #outfit #tommyhilfiger #jeans #guess #jacket
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -6127,7 +6127,7 @@ little,fin,travel,lyrics,yine,jaspal,beer,iphoneonly,familia,money,stance,sand,o
 VISIT @GET.FOLLOWERS.N0W9441  #beer #money #1d #yine #oman #horizon #beautiful #travel #para #sparkly #1 #sneakerhead #familia #little #madonna #iphoneonly #stance #murmer #sand #guess #fin #lyrics #jaspal #two #team #yum #pitchperfect
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6139,7 +6139,7 @@ patterns,guess,art,collage,
 What exactly are you looking at? Take a guess. #collage #patterns #guess #art
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6151,7 +6151,7 @@ guess,tangeroutlets,gr,michalekors,mygirls,
 Safe to say we survived our soft open! ??? #MyGirls #michalekors #Guess #tangeroutlets #Gr ??
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6163,7 +6163,7 @@ song,guess,the,gts,
 Guess the song!! #guess #the #song #gts
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6175,7 +6175,7 @@ fossilmurah,vincciasli,zara,urbannco,vincciindo,urbanncooriginal,fossiloriginal,
 Vnc size 36-40 idr 280rb  #vincci #vnc #vincciasli #vincciindo #vinccioriginal #ck #cnk #charlesandkeith #charleskeith #charlesnkeith #charlesandkeithoriginal #charlesnkeithoriginal #charlesandkeithmurah #fossil #fossiloriginal #fossilmurah #mango #mng #mangooriginal #mangomurah #zara #zaraoriginal #urbannco #urbanncomurah #urbanncooriginal #guess #guessoriginal #guessindo #guessmurah #trustedseller  For order contact bio yah? Happy shopping?
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -6187,7 +6187,7 @@ fasion,promotion,babyg,ga120,ga100,casio,michealkors,gshockjapan,bga,bg,gshockth
 ? www.winniebois.com  ?????? ?????? #CASIO G-Shock ???? GA-100CM-8 ?????? ????????? 1 ?? ? ???? 4500 ??? ? ????????? 3250 ??? ???? ???? ?????? ? ??????????????????? 100 ??????????? ? ??????????????????????? ? Line : winniebois ? WhatsApp : 0869595590 ?Tel : 086-959-5590 (AIS) 9 ??????? - 6 ??????????? ? www.winniebois.com ? IG : winniebois ? E-mail : winniebois@gmail.com ? G-shock ????????? click >> http://www.winniebois.com/store/product/G_SHOCK-1714729-th.html  #casio #gshock #babyg #sale #watch #authentic #diesel #dkny #luminox #adidas #fossil #michealKors #armani #guess #seiko #gshockthailand #gshockjapan #gshocklimited #ga100 #ga110 #ga120 #ba110 #bga #bg #g #edifice #promotion #fasion #winniebois.
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6199,7 +6199,7 @@ fashion,model,charlestonsc,ocean,beach,love,charleston,southcarolina,nature,flor
 #love #charleston #guess #me #smile #vogue #nikonphotography #photographer #photoshoot #portrait #photoshoot #southcarolina #model #beach #love #best #fashion #igers #black #nikon #photoshoot  #florida #smile #like4like #nature #dark  #charleston #vscocam #ocean  #charlestonsc #model #sunset #newyork
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -6211,7 +6211,7 @@ ew,songwriter,cat,cupcake,healthyliving,notreally,murmer,valentine,herbalife,pro
 LOOK @GET_FOLLOWERS_5114  #ew #cat #marvelcomics #word #professional #trip #happyholidays #larryisreal #healthyliving #notreally #berlin #hype #countdown #sicily #bomdia #herbalife #valentine #murmer #costume #guess #cupcake #military #songwriter #clean #tamojunto #sehun #all_sunsets
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6223,7 +6223,7 @@ shoes,skull,style,family,guess,retro,chill,hat,
 Style of the day ? love my new stuff from my babe ? thank u love ??? love it !  #Skull #Guess #Hat #Shoes #Style #Retro #Chill #Family
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -6235,7 +6235,7 @@ truth,guess,game,lie,
 Try and guess which one isn't true. 30 minutes I'll post the answer. And guess away #truth #lie #game #guess
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6247,7 +6247,7 @@ jualan,olshopindo,jualvincci,sepatuvincci,phiphihouse,tascharlesnkeith,sepatucha
 BUY NOW OR CRY LATER !^^ ORDER ONLY VIA : * BBM : 765931D6 * LINE : phihoz * WA / SMS : 0896.5232.7163  GRAB IT FAST DEAR! FIRST PAY FIRST GET! ?????????????????? #Jualan #Guess #jualvincci #JualDompet #JualTas #JualGuess #jualcharlesnkeith #charlesandkeith #tasguess #vinccisale #jualdompetguess #tascharlesnkeith #cnksale #GuessOri #GuessSale #trustedseller #vncsale #tasvincci #trustedonlineshop #olshopsurabaya #olshopjakarta #olshopindo #belanjaonline #jualanonline #sepatupedro #sepatuvincci #phiphihouse #sepatucharlesnkeithmurah #sepatucharlesandkeith
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6259,7 +6259,7 @@ sister,loveulots??,guess,14,hbd,
 HAPPY BIRTHDAY to my Lil sis???#hbd#sister#14#guess#loveulots??
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6271,7 +6271,7 @@ coachsales,fossilwatch,watchshop,coach,watch,coachsale,brandnamebag,coachthailan
 ??????????????????????? GUESS ????? ???36??. *3,800 ? Line: zweety00  #michaelkorswatch #michaelkors #coach #coachthailand #watchshop #watch #brandnamelover #brandnamebag #brand #pantownmarket #pantipmarket #preorderusa #coachbag  #coachsales #coachsale #coachwatches  #coachwatch #fossilwatch  #fossil #guess #guesswatch #diesel #armani
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -6283,7 +6283,7 @@ olshopindo,chanel,lacoste,jualankakak,olshop,distributorparfum,parfumasli,parfum
 ??? Our customer send us the photo of our Victoria's Secret Bombshell Perfume when it arrived ?
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -6295,7 +6295,7 @@ fit,guess,fittingroom,skinny,
 Let's play in the fitting room ? #Guess#FittingRoom#Skinny#Fit
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6307,7 +6307,7 @@ sort,sharpie,doodles,creativity,of,cover,page,designs,gonna,music,maybe,bed,wip,
 #wip #doodles #sharpie #designs #hennadesigns #sort #of #maybe #gonna #try #and #cover #the #whole #page #i #guess #milkychance #music #late #night #creativity #go #bed #bekah
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6319,7 +6319,7 @@ watch,guess,branddoesmatter,
 #guess #watch #branddoesmatter
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -6331,7 +6331,7 @@ mama,phone,cozy,movies,happyday,shot,beer,healthychoices,chicago,cutie,steak,mak
 LOOK @GET.FOLLOWERS.NOW8245  #beer #steak #hoodie #pleaselike #go #healthychoices #michaelclifford #shot #cutie #smoke #smiles #idiots #ootd #aliceinwonderland #chicago #makeupaddict #happyday #instapretty #marvel #guess #movies #brother #mama #miss #phone #cozy #realtalk
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6343,7 +6343,7 @@ weekendfun,gurgaondiaries,indianboy,desiboy,tagstagram,tee,mensfashion,selfietim
 #friday #weekend #weekenders #weekendfun #gurgaon #gurgaondiaries #autorides #gas #tee #guess #mensstyle #mensfashion #fashionformen #fashionablepeople #desiboy #Indianboy #cuteindianboy #selfie #selfiegram #selfietime #selfienation #tagstagram #likergram #picoftheday
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6355,7 +6355,7 @@ hearts,walking,implus_daily,happyday,by,sleeping,mtl,brasil,hm,island,massage,su
 LOOK @GET.FOLLOWERS.N0W2532  #su #mtl #sleeping #textme #spamforspam #instalove #hm #massage #cloudy #accessories #island #there #dior #adelaide #animals #vain #happyday #by #implus_daily #guess #walking #brasil #cloud #hearts #follow #bed #tagsta
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6367,7 +6367,7 @@ bershka,zara,bagaddictsph,lacoste,brandedph,baguioonlineshop,hm,baguiocitybased,
 • White Origami shorts Brand new. S - M 200  #baguiobased #baguioonlineshop #baguiolegitseller #baguioolshop #baguioseller #baguiomeetups #baguiocity #baguiocitybased #shoesonlineph #clothesonlineph #legitsellerph #igsellerph #brandedph #f21 #forever21 #HM #zara #bershka #pumps #stilettos #lacoste #mossimoph #guess #bagaddictsph #jacketsph #shoesph #pulloverph #shortsph #TheKandiShoppeBaguio
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -6379,7 +6379,7 @@ olshopindo,chanel,lacoste,jualankakak,olshop,distributorparfum,parfumasli,parfum
 ????? Thankyou @williamkamarullah for choosing our Dior Jadore!  We'll wait you for the next order ? . - Fragranza Amore -
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -6391,7 +6391,7 @@ olshopindo,chanel,lacoste,jualankakak,olshop,distributorparfum,parfumasli,parfum
 ????? Here's Our Perfume Collection List ?For more details and price list? ?Comment below the photo and write your email  Happy Shopping? -Fragranza Amore-
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -6403,7 +6403,7 @@ bershka,zara,bagaddictsph,lacoste,brandedph,baguioonlineshop,hm,baguiocitybased,
 • High-waist Medium / 26-29 180  #baguiobased #baguioonlineshop #baguiolegitseller #baguioolshop #baguioseller #baguiomeetups #baguiocity #baguiocitybased #shoesonlineph #clothesonlineph #legitsellerph #igsellerph #brandedph #f21 #forever21 #HM #zara #bershka #pumps #stilettos #lacoste #mossimoph #guess #bagaddictsph #jacketsph #shoesph #pulloverph #shortsph #TheKandiShoppeBaguio
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -6415,7 +6415,7 @@ montreal,artistry,makeup,mtl,eyes,soft,sensual,smokey,makeupartist,milakunis,col
 Building my portefolio! Some of my last work ? Model: @laylaluis #mua #mtl #montreal #makeup #makeupartist #artistry #color #milakunis #sensual #guess #soft #smokey #eyes #hair
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6427,7 +6427,7 @@ saying,followplease,cali,wales,huf,boricua,munchen,england,pitbullsofinstagram,b
 LOOK @GET_FOLLOWERS_5113  #beer #insta #fireworks #word #webstagram #followplease #saying #nowplaying #wales #gymrat #heaven #boring #dior #huf #cali #munchen #rainbow #instapretty #design #guess #waiting #england #desert #miss #iklan #pitbullsofinstagram #boricua
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -6436,10 +6436,10 @@ LOOK @GET_FOLLOWERS_5113  #beer #insta #fireworks #word #webstagram #followpleas
 bershka,zara,bagaddictsph,lacoste,brandedph,baguioonlineshop,hm,baguiocitybased,mossimoph,igsellerph,pumps,thekandishoppebaguio,legitsellerph,clothesonlineph,f21,baguiomeetups,baguiocity,stilettos,baguioseller,baguiobased,pulloverph,shortsph,baguioolshop,baguiolegitseller,shoesph,guess,shoesonlineph,jacketsph,forever21,
 </TagSet>
 <CaptionText>
-• Semi-highwaist Medium / 27-29 150  #baguiobased #baguioonlineshop #baguiolegitseller #baguioolshop #baguioseller #baguiomeetups #baguiocity #baguiocitybased #shoesonlineph #clothesonlineph #legitsellerph #igsellerph #brandedph #f21 #forever21 #HM #zara #bershka #pumps #stilettos #lacoste #mossimoph #guess #bagaddictsph #jacketsph #shoesph #pulloverph #shortsph #TheKandiShoppeBaguio
+Semi-highwaist Medium / 27-29 150  #baguiobased #baguioonlineshop #baguiolegitseller #baguioolshop #baguioseller #baguiomeetups #baguiocity #baguiocitybased #shoesonlineph #clothesonlineph #legitsellerph #igsellerph #brandedph #f21 #forever21 #HM #zara #bershka #pumps #stilettos #lacoste #mossimoph #guess #bagaddictsph #jacketsph #shoesph #pulloverph #shortsph #TheKandiShoppeBaguio
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -6451,7 +6451,7 @@ cool,gets,winner,game,fun,the,character,point,stuff,guess,celebration,yaay,anime
 GUESS THE ANIME CHARACTER GAME RULES - - - - OKAY SO let's play a game! I'm sure you guys have seen this before. I'm gonna do a game where I pixelate a picture of an anime character. To get a point you have to be the first to comment the name of the character. You can get two points by commenting the name of the character and the anime he/she/it is from. I'll start the game in 20 mins and post a new round every 7 mins. The winner gets a shoutout and something of their choice (nothing that costs money sorry >.<) Anyone can join and good luck!!! - - - - - Tags: #anime #game #fun #celebration #guess #the #character #guess #the #anime #point #winner #gets #cool #stuff #yaay
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
