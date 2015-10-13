@@ -17,6 +17,7 @@ import org.kutty.dbo.Sentiment;
 import org.kutty.dbo.Spam;
 import org.kutty.dbo.Tag;
 import org.kutty.dbo.TweetUser;
+import org.kutty.dbo.Update;
 import org.kutty.dbo.User;
 
 import twitter4j.GeoLocation;
@@ -1281,6 +1282,22 @@ public class MongoBase {
 			updateDocument(query, update);
 		}
 	}
-
+	
+	/** 
+	 * Given an update object converts it into an Update object for easy insertion
+	 * @param update Update object which is to be inserted
+	 * @return BasicDBObject containing the representation of the  update object
+	 */
+	
+	public BasicDBObject getUpdateAdaptor(Update update) { 
+		
+		BasicDBObject updateDoc;
+		updateDoc = new BasicDBObject("Model",update.getModelNum()).
+					append("Ngram", update.getNgramNum()).
+					append("Probability", update.getProbPercent()).
+					append("Label",update.getClassLabel());
+		
+		return updateDoc;
+	}
 }
 

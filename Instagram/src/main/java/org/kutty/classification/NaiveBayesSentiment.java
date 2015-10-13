@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.kutty.features.FeatureUtil;
+import org.kutty.utils.ClassificationUtils;
 
 /** 
  * Defines the pipeline for sentiment analysis of posts from all channels
@@ -30,6 +31,9 @@ public class NaiveBayesSentiment {
 	public String NEUTRAL_TAG_FILENAME = "/tag_neutral_";
 	public String CHANNEL_NAME = "twitter";
 	public int MODEL_NUMBER = 1;
+	public int NGRAM_NUMBER;
+	public String CLASS_LABEL;
+	public double CLASS_PROB;
 
 	/** 
 	 * public constructor to initialize the model number and the channel name
@@ -91,10 +95,15 @@ public class NaiveBayesSentiment {
 			caption_probability[0] = getProbability(processCaption, positive_map)*tag_probability[0];
 			caption_probability[1] = getProbability(processCaption, negative_map)*tag_probability[1];
 			caption_probability[2] = getProbability(processCaption, neutral_map)*tag_probability[2];
+			ClassificationUtils.convertToPercentage(caption_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(caption_probability,i));
 		} 
 
-		max_entry = getMaxEntry(ngram_probabilty); 
+		max_entry = getMaxEntry(ngram_probabilty);
+		CLASS_LABEL = max_entry.getKey();
+		CLASS_PROB = max_entry.getValue();
+		NGRAM_NUMBER = ClassificationUtils.getNGramNumber(max_entry); 
+		
 		return max_entry.getKey();
 	} 
 	
@@ -118,10 +127,15 @@ public class NaiveBayesSentiment {
 			content_probability[0] = getProbability(processText, positive_map);
 			content_probability[1] = getProbability(processText, negative_map);
 			content_probability[2] = getProbability(processText, neutral_map);
+			ClassificationUtils.convertToPercentage(content_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(content_probability,i));
 		} 
 
-		max_entry = getMaxEntry(ngram_probabilty); 
+		max_entry = getMaxEntry(ngram_probabilty);
+		CLASS_LABEL = max_entry.getKey();
+		CLASS_PROB = max_entry.getValue();
+		NGRAM_NUMBER = ClassificationUtils.getNGramNumber(max_entry); 
+		
 		return max_entry.getKey();
 	} 
 

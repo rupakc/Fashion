@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.kutty.features.FeatureUtil;
+import org.kutty.utils.ClassificationUtils;
 
 /** 
  * Naive Bayes Classifier for Instagram Giveaway detection 
@@ -26,6 +27,9 @@ public class NaiveBayesGiveaway {
 	public String REAL_TAG_FILENAME = "giveaway/tag_real_";
 	public String FAKE_TAG_FILENAME = "giveaway/tag_fake_";
 	public int MODEL_NUMBER = 1;
+	public int NGRAM_NUMBER;
+	public String CLASS_LABEL;
+	public Double CLASS_PROB;
 	
 	/** 
 	 * public constructor to initialize the model number for loading giveaways
@@ -71,10 +75,14 @@ public class NaiveBayesGiveaway {
 			processCaption = FeatureUtil.getNGram(processCaption, i);
 			caption_probability[0] = getProbability(processCaption, real_map)*tag_probability[0];
 			caption_probability[1] = getProbability(processCaption, fake_map)*tag_probability[1];
+			ClassificationUtils.convertToPercentage(caption_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(caption_probability,i));
 		} 
 		
 		max_entry = getMaxEntry(ngram_probabilty); 
+		NGRAM_NUMBER = ClassificationUtils.getNGramNumber(max_entry);
+		CLASS_LABEL = max_entry.getKey();
+		CLASS_PROB = max_entry.getValue();
 		return max_entry.getKey();
 	} 
 	
@@ -98,7 +106,7 @@ public class NaiveBayesGiveaway {
 
 		return maxentry;
 	}
-	
+		
 	/** 
 	 * Returns a map of the most probable class label
 	 * @param a Double array containing the probabilities

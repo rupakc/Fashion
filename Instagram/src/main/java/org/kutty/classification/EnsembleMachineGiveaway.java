@@ -1,7 +1,11 @@
 package org.kutty.classification;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import org.kutty.dbo.Update;
 
 /** 
  * Carries out Ensemble Learning for a given classifier 
@@ -12,6 +16,9 @@ import java.util.List;
  */
 
 public class EnsembleMachineGiveaway {
+	
+	public Set<Update> ALL_UPDATES;
+	public Set<Update> CORRECT_UPDATES; 
 	
 	/** 
 	 * Aggregates different models to get a ensemble average of the result
@@ -36,14 +43,56 @@ public class EnsembleMachineGiveaway {
 		}
 		
 		result = getMaxLabel(result_list);
-		
+		ALL_UPDATES = getUpdateObjects(ensemble);
+		CORRECT_UPDATES = getCorrectUpdate(ALL_UPDATES, result);
 		return result;
-	} 
+	}
 	
 	/** 
-	 * Given the output of different classifiers finds the most frequently occuring class
+	 * For each ensemble model converts it into an update object
+	 * @param ensemble Array containing the ensemble objects
+	 * @return Set<Update> containing the set of ensemble models
+	 */
+	public Set<Update> getUpdateObjects(NaiveBayesGiveaway ensemble[]) { 
+		
+		Update update;
+		Set<Update> updateSet = new HashSet<Update>();
+		
+		for (int i = 0; i < ensemble.length; i++) { 
+			
+			update = new Update();
+			update.setClassLabel(sanitizeString(ensemble[i].CLASS_LABEL));
+			update.setModelNum(ensemble[i].MODEL_NUMBER);
+			update.setNgramNum(ensemble[i].NGRAM_NUMBER);
+			update.setProbPercent(ensemble[i].CLASS_PROB);
+			updateSet.add(update);
+		}
+		
+		return updateSet;
+	}
+	
+	/** 
+	 * Returns the set of update objects matching the correct class label
+	 * @param updateSet Set<Update> containing all the update object
+	 * @param result String containing the correct class label
+	 * @return Set<Update> containing only the update objects with the correct class label
+	 */
+	public Set<Update> getCorrectUpdate(Set<Update> updateSet, String result) { 
+		
+		Set<Update> reducedSet = new HashSet<Update>();
+		for (Update temp : updateSet) { 
+			if (temp.getClassLabel().equalsIgnoreCase(result)) { 
+				reducedSet.add(temp);
+			}
+		}
+		
+		return reducedSet;
+	}
+	
+	/** 
+	 * Given the output of different classifiers finds the most frequently occurring class
 	 * @param result_list List containing the results
-	 * @return Class label of the most frequently occuring class
+	 * @return Class label of the most frequently occurring class
 	 */ 
 	
 	public static <T> T getMaxLabel(List<T> result_list) { 
