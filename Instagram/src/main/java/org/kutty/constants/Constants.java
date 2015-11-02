@@ -11,7 +11,11 @@ public class Constants {
 
 	public static String [] channelNames = {"Twitter","Facebook","Instagram","Youtube"};
 	public static String [] brandNames = {"Forever21","FreePeople","Guess","HandM","Levis","Mango",
-		"RagandBone","SevenForAllMankind","TrueReligion"};  
+		"RagandBone","SevenForAllMankind","TrueReligion"};
+	public static String [] MONTHS_OF_YEAR = {"january","february","march","april","may","june","july","august",
+		"september","october","november","december"};
+	public static String [] DAYS_OF_WEEK = {"monday","tuesday","wednesday","thursday","friday","saturday","sunday"};
+	public static String [] MONTH_SHORT = {"jan","feb","mar","apr","may","jun","jul","aug","sept","oct","nov","dec"};
 	
 	public static final int DAYS = 5;
 	public static final int MEAN_DAYS = 30;

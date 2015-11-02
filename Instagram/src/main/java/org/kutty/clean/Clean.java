@@ -3,6 +3,8 @@ package org.kutty.clean;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import org.kutty.constants.Constants;
+
 /** 
  * @author Rupak Chakraborty
  * @for Kutty
@@ -18,7 +20,6 @@ public class Clean {
 	/**
 	 *  Extracts only the RSS content from a given string 
 	 * The RSS content fetched from ROMETools API is passed in to this function to extract the content 
-	 * 
 	 */ 
 
 	public static String extractRSSText(String s)
@@ -88,7 +89,7 @@ public class Clean {
 	/** 
 	 * Removes any numerical digits from the given string
 	 * @param s String from which the digits have to be removed
-	 * @return String without the occurence of such characters
+	 * @return String without the occurrence of such characters
 	 */ 
 	
 	public static String removeDigits(String s) { 
@@ -189,7 +190,36 @@ public class Clean {
 
 		return without_url;
 	}
-
+	
+	/** 
+	 * Removes the names of English calendar months from the text
+	 * @param s String containing the text
+	 * @return String sans the month-names
+	 */
+	public static String removeMonths(String s) { 
+		
+		for (int i = 0; i < Constants.MONTHS_OF_YEAR.length; i++) { 
+			s = s.replace(Constants.MONTHS_OF_YEAR[i],"");
+			s = s.replace(Constants.MONTH_SHORT[i],"");
+		}
+		
+		return s;
+	}
+	
+	/** 
+	 * Removes occurrences of days of week from the sentence
+	 * @param s String containing the post
+	 * @return String sans the day names
+	 */
+	public static String removeDays(String s) { 
+		
+		for (int i = 0; i < Constants.DAYS_OF_WEEK.length; i++) { 
+			s = s.replace(Constants.DAYS_OF_WEEK[i],"");
+		}
+		
+		return s;
+	}
+	
 	/** 
 	 * Removes the tags from a given string tags mean opening and closing HTM tags
 	 * @param s String containing the tags

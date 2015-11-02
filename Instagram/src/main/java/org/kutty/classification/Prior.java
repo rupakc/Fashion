@@ -21,7 +21,6 @@ import org.kutty.features.Post;
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 9 October,2015
- * TODO - Add retrieve from file functions, Define the pipeline
  */
 
 public class Prior {
