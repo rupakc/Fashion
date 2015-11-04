@@ -30,6 +30,7 @@ public class NaiveBayesSpam {
 	public int NGRAM_NUMBER;
 	public String CLASS_LABEL;
 	public double CLASS_PROB; 
+	public Double MODEL_WEIGHT;
 	
 	/** 
 	 * public constructor to initialize the model number and channel name for spam detection

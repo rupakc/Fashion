@@ -19,7 +19,7 @@ public class PerformanceMetrics {
 	private double microF1Score;
 	private double microSpecificity;
 	private double macroSpecificity;
-	private double [][] confusionMatrix;
+	private Double [][] confusionMatrix;
 	private double AUC;
 	private Map<String,Double> precisionPerClass;
 	private Map<String,Double> recallPerClass;
@@ -156,7 +156,7 @@ public class PerformanceMetrics {
 	 * 
 	 * @return the confusionMatrix
 	 */
-	public double[][] getConfusionMatrix() { 
+	public Double[][] getConfusionMatrix() { 
 		
 		return confusionMatrix;
 	}
@@ -165,7 +165,7 @@ public class PerformanceMetrics {
 	 * 
 	 * @param confusionMatrix the confusionMatrix to set
 	 */
-	public void setConfusionMatrix(double[][] confusionMatrix) { 
+	public void setConfusionMatrix(Double[][] confusionMatrix) { 
 		
 		this.confusionMatrix = confusionMatrix;
 	}

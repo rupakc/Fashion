@@ -30,6 +30,7 @@ public class NaiveBayesGiveaway {
 	public int NGRAM_NUMBER;
 	public String CLASS_LABEL;
 	public Double CLASS_PROB;
+	public Double MODEL_WEIGHT;
 	
 	/** 
 	 * public constructor to initialize the model number for loading giveaways

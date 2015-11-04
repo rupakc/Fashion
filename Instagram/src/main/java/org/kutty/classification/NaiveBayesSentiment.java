@@ -34,7 +34,8 @@ public class NaiveBayesSentiment {
 	public int NGRAM_NUMBER;
 	public String CLASS_LABEL;
 	public double CLASS_PROB;
-
+	public double MODEL_WEIGHT; 
+	
 	/** 
 	 * public constructor to initialize the model number and the channel name
 	 * @param model_number Integer containing the model number

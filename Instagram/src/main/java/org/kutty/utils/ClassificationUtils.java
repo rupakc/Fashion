@@ -1,5 +1,7 @@
 package org.kutty.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 
 /** 
@@ -71,5 +73,23 @@ public class ClassificationUtils {
 		}
 		
 		return modelNum;
+	}
+	
+	/** 
+	 * Multiplies the class label with the corresponding weight 
+	 * @param label String containing the class label
+	 * @param weight Integer containing the weight
+	 * @return List<String> containing the repeated class labels
+	 */
+	public static List<String> getAugmentedLabelList(String label,int weight) { 
+		
+		List<String> labelList = new ArrayList<String>();
+		
+		for (int i = 1; i <= weight; i++) { 
+			
+			labelList.add(label);
+		}
+		
+		return labelList;
 	}
 }

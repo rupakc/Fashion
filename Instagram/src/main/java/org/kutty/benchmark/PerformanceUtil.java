@@ -294,6 +294,11 @@ public class PerformanceUtil {
 		return microRecall;
 	}
 	
+	/** 
+	 * Returns the value of Specificity for a given list of test objects
+	 * @param resultList List<Benchmark> containing the result set
+	 * @return Double containing the value of specificity
+	 */
 	public static double getMicroSpecificity(List<Benchmark> resultList) { 
 		
 		double microSpecificity = 0.0;
@@ -316,6 +321,11 @@ public class PerformanceUtil {
 		return microSpecificity;
 	}
 	
+	/** 
+	 * Returns the value of specificity per class 
+	 * @param resultList List<Benchmark> containing the set of test objects
+	 * @return Map<String,Double> containing the class label and specificity
+	 */
 	public static Map<String,Double> getSpecificityPerClass(List<Benchmark> resultList) { 
 		
 		Map<String,Double> specificMap = new HashMap<String,Double>();
@@ -341,6 +351,11 @@ public class PerformanceUtil {
 		return specificMap;
 	}
 	
+	/** 
+	 * Returns the MacroSpecificity of a given result set
+	 * @param resultList List<Benchmark> containing the resultSet
+	 * @return Double containing the value of the specificity
+	 */
 	public static double getMacroSpecificity(List<Benchmark> resultList) { 
 		
 		double macroSpecificity = 0.0;
