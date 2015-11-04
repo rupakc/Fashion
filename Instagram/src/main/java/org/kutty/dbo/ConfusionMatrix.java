@@ -12,7 +12,7 @@ import java.util.Map;
 public class ConfusionMatrix {
 	
 	private List<String> classLabelSet;
-	private double matrix[][];
+	private Double matrix[][];
 	private Map<String,Integer> classMapping;
 	
 	/**
@@ -32,14 +32,14 @@ public class ConfusionMatrix {
 	/**
 	 * @return the matrix
 	 */
-	public double[][] getMatrix() {
+	public Double [][] getMatrix() {
 		return matrix;
 	}
 	
 	/**
 	 * @param matrix the matrix to set
 	 */
-	public void setMatrix(double[][] matrix) {
+	public void setMatrix(Double[][] matrix) {
 		this.matrix = matrix;
 	}
 
@@ -69,7 +69,7 @@ public class ConfusionMatrix {
 			System.out.print(classLabelSet.get(i) + "\t");
 		}
 		
-		System.out.println();
+		System.out.println("------(Predicted)------");
 		
 		for (int i = 0; i < matrix.length; i++) {   
 			

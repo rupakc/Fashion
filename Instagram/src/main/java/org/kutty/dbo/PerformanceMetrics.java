@@ -17,9 +17,9 @@ public class PerformanceMetrics {
 	private double macroRecall;
 	private double macroF1Score;
 	private double microF1Score;
-	private double [][] confusionMatrix;
 	private double microSpecificity;
 	private double macroSpecificity;
+	private double [][] confusionMatrix;
 	private double AUC;
 	private Map<String,Double> precisionPerClass;
 	private Map<String,Double> recallPerClass;

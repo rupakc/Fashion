@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.kutty.dbo.Benchmark;
 import org.kutty.dbo.ConfusionMatrix;
+import org.kutty.utils.MatrixUtils;
 
 /** 
  * Defines a set of utility functions for testing model performance
@@ -14,7 +15,7 @@ import org.kutty.dbo.ConfusionMatrix;
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 11 October, 2015
- * TODO - Add specificity and N-fold Cross Validation, ROC (AUC), Pipeline for all metric evaluation
+ * TODO - N-fold Cross Validation, ROC (AUC), Pipeline for all metric evaluation
  */
 
 public class PerformanceUtil {
@@ -75,7 +76,7 @@ public class PerformanceUtil {
 		
 		ConfusionMatrix confusionMatrix = getClassMappingUtil(result);
 		Map<String,Integer> classMap = confusionMatrix.getClassMapping();
-		double matrix[][] = confusionMatrix.getMatrix();
+		Double matrix[][] = confusionMatrix.getMatrix();
 		String predicted;
 		String actual;
 		
@@ -100,7 +101,7 @@ public class PerformanceUtil {
 		
 		List<String> classLabel = new ArrayList<String>();
 		Map<String,Integer> classMapping = new HashMap<String,Integer>();
-		double [][] matrix;
+		Double [][] matrix;
 		ConfusionMatrix confusionMatrix = new ConfusionMatrix();
 		
 		for (Benchmark benchmark : resultList) { 
@@ -116,7 +117,7 @@ public class PerformanceUtil {
 			classMapping.put(classLabel.get(i), i);
 		}
 		
-		matrix = new double[classLabel.size()][classLabel.size()];
+		matrix = new Double[classLabel.size()][classLabel.size()];
 		
 		confusionMatrix.setClassLabelSet(classLabel);
 		confusionMatrix.setClassMapping(classMapping);
@@ -137,7 +138,7 @@ public class PerformanceUtil {
 		double predictedPositives = 1.0;
 		
 		ConfusionMatrix confusionMatrix = getConfusionMatrix(resultList);
-		double [][] matrix = confusionMatrix.getMatrix();
+		Double [][] matrix = confusionMatrix.getMatrix();
 		
 		for (int i = 0; i < matrix.length; i++) { 
 			
@@ -183,7 +184,7 @@ public class PerformanceUtil {
 		ConfusionMatrix confusionMatrix = getConfusionMatrix(resultList);
 		Map<String,Double> precisionMap = new HashMap<String,Double>();
 		List<String> classLabels = confusionMatrix.getClassLabelSet();
-		double [][] matrix = confusionMatrix.getMatrix();
+		Double [][] matrix = confusionMatrix.getMatrix();
 		double [] precisionPerClass = new double[classLabels.size()];
 		double predictedPositive = 1.0; 
 		
@@ -218,7 +219,7 @@ public class PerformanceUtil {
 		ConfusionMatrix confusionMatrix = getConfusionMatrix(resultList);
 		Map<String,Double> recallMap = new HashMap<String,Double>();
 		List<String> classLabels = confusionMatrix.getClassLabelSet();
-		double [][] matrix = confusionMatrix.getMatrix();
+		Double [][] matrix = confusionMatrix.getMatrix();
 		double [] recallPerClass = new double[classLabels.size()];
 		double actualPositive = 1.0; 
 		
@@ -270,10 +271,10 @@ public class PerformanceUtil {
 		
 		double microRecall = 0.0;
 		double truePositives = 0.0;
-		double predictedPositives = 1.0;
+		double actualPositives = 1.0;
 		
 		ConfusionMatrix confusionMatrix = getConfusionMatrix(resultList);
-		double [][] matrix = confusionMatrix.getMatrix();
+		Double [][] matrix = confusionMatrix.getMatrix();
 		
 		for (int i = 0; i < matrix.length; i++) { 
 			
@@ -284,12 +285,72 @@ public class PerformanceUtil {
 					truePositives += matrix[i][j]; 
 				} 
 				
-				predictedPositives += matrix[i][j];
+				actualPositives += matrix[i][j];
 			}
 		}
 		
-		microRecall = truePositives/predictedPositives;
+		microRecall = truePositives/actualPositives;
 		
 		return microRecall;
+	}
+	
+	public static double getMicroSpecificity(List<Benchmark> resultList) { 
+		
+		double microSpecificity = 0.0;
+		double trueNegatives = 0.0;
+		double actualNegatives = 0.0;
+		
+		ConfusionMatrix confusionMatrix = getConfusionMatrix(resultList);
+		Double [][] matrix = confusionMatrix.getMatrix();
+		double diagonalSum = MatrixUtils.getDiagonalSum(matrix);
+		double matrixSum =  MatrixUtils.getMatrixSum(matrix);
+		
+		for (int i = 0; i < matrix.length; i++) { 
+			
+			trueNegatives = trueNegatives + (diagonalSum-matrix[i][i]);
+			actualNegatives = actualNegatives + (matrixSum - MatrixUtils.getRowSum(matrix, i+1));
+		}
+		
+		microSpecificity = trueNegatives/actualNegatives;
+		
+		return microSpecificity;
+	}
+	
+	public static Map<String,Double> getSpecificityPerClass(List<Benchmark> resultList) { 
+		
+		Map<String,Double> specificMap = new HashMap<String,Double>();
+		double trueNegative;
+		double actualNegative;
+		double specificity; 
+		
+		ConfusionMatrix confusionMatrix = getConfusionMatrix(resultList);
+		Double [][] matrix = confusionMatrix.getMatrix();
+		double diagonalSum = MatrixUtils.getDiagonalSum(matrix);
+		double matrixSum =  MatrixUtils.getMatrixSum(matrix);
+		List<String> classLabels = confusionMatrix.getClassLabelSet();
+		
+		for (int i = 0; i < classLabels.size(); i++) { 
+			
+			trueNegative = diagonalSum - matrix[i][i];
+			actualNegative = matrixSum - MatrixUtils.getRowSum(matrix, i+1);
+			specificity = trueNegative/actualNegative;
+			
+			specificMap.put(classLabels.get(i), specificity);
+		}
+		
+		return specificMap;
+	}
+	
+	public static double getMacroSpecificity(List<Benchmark> resultList) { 
+		
+		double macroSpecificity = 0.0;
+		Map<String,Double> perClassSpecific = getSpecificityPerClass(resultList);
+		
+		for (String key : perClassSpecific.keySet()) { 
+			
+			macroSpecificity = macroSpecificity + perClassSpecific.get(key);
+		}
+		
+		return (macroSpecificity/perClassSpecific.size());
 	}
 }
