@@ -1,5 +1,6 @@
 package org.kutty.constants;
 
+
 /**
  * Defines a set of constants which are consistently used in different packages
  * @author Rupak Chakraborty
@@ -33,6 +34,7 @@ public class Constants {
 	public static final String HAM_LABEL = "ham";
 	public static final String REAL_LABEL = "real";
 	public static final String FAKE_LABEL = "fake";
+	public static final String GIVEAWAY_TYPE = "giveaway";
 	public static final String ANALYTICS_DB = "Analytics";
 	public static final String SATISFACTION_COLLECTION = "Satisfaction";
 	public static final String INFLUENCE_COLLECTION = "Influence";
@@ -42,5 +44,4 @@ public class Constants {
 	public static final String FACEBOOK_FOLDER = "facebook";
 	public static final String YOUTUBE_FOLDER = "youtube";
 	public static final String INSTAGRAM_FOLDER = "instagram";
-	
 }
