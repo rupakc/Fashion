@@ -56,4 +56,31 @@ public class ConfusionMatrix {
 	public void setClassMapping(Map<String, Integer> classMapping) {
 		this.classMapping = classMapping;
 	}
+	
+	/**
+	 * Prints the confusion Matrix to the console in a pretty fashion
+	 */
+	public void prettyPrint()  {
+		
+		System.out.println("\t");
+		
+		for (int i = 0; i < classLabelSet.size(); i++) { 
+			
+			System.out.print(classLabelSet.get(i) + "\t");
+		}
+		
+		System.out.println();
+		
+		for (int i = 0; i < matrix.length; i++) {   
+			
+			System.out.print(classLabelSet.get(i) + "\t"); 
+			
+			for (int j = 0; j < matrix[i].length; j++) { 
+				
+				System.out.println(matrix[i][j] + "\t");
+			}
+			
+			System.out.println();
+		}
+	}
 }
