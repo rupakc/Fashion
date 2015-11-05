@@ -37,6 +37,42 @@ public class PerformanceUtil {
 	}
 	
 	/** 
+	 * Calculates the micro F1 score of the given result set
+	 * @param resultSet List<Benchmark> containing the result set
+	 * @return Double containing the f1 score
+	 */
+	public static double getMicroF1Score(List<Benchmark> resultSet) { 
+		
+		double f1Score = 0.0;
+		double microPrecision = 0.0;
+		double microRecall = 0.0;
+		
+		microPrecision = getMicroPrecision(resultSet);
+		microRecall = getMicroRecall(resultSet);
+		f1Score = (2*microPrecision*microRecall)/(microPrecision + microRecall);
+		
+		return f1Score;
+	}
+	
+	/** 
+	 * Calculates the macro F1 score of the given result set
+	 * @param resultSet List<Benchmark> containing the result set
+	 * @return Double containing the macro F1 score
+	 */
+	public static double getMacroF1Score(List<Benchmark> resultSet) { 
+		
+		double f1Score = 0.0;
+		double macroPrecision = 0.0;
+		double macroRecall = 0.0;
+		
+		macroPrecision = getMacroPrecision(resultSet);
+		macroRecall = getMacroRecall(resultSet);
+		f1Score = (2*macroPrecision*macroRecall)/(macroPrecision + macroRecall);
+		
+		return f1Score;
+	}
+	
+	/** 
 	 * Calculates the Area under the Curve for a binary classification problem
 	 * @param specificity Double containing the specificity
 	 * @param sensitivity Double containing the sensitivity
@@ -45,6 +81,38 @@ public class PerformanceUtil {
 	public static double getAUC(double specificity,double sensitivity) {  
 		
 		return (specificity + sensitivity)/2.0;
+	}
+	
+	/** 
+	 * Calculates the value of the micro AUC (Area Under Curve) for binary classification
+	 * @param resultSet List<Benchmark> containing the result set
+	 * @return Double containing the value of the AUC
+	 */
+	public static double getMicroAUC(List<Benchmark> resultSet) { 
+		
+		double microSpecificity;
+		double microSensitivity;
+		
+		microSpecificity = getMicroSpecificity(resultSet);
+		microSensitivity = getMicroRecall(resultSet);
+		
+		return ((microSpecificity + microSensitivity)/2.0);
+	}
+	
+	/** 
+	 * Calculates the macro AUC for binary classification
+	 * @param resultList List<Benchmark> containing the result set
+	 * @return Double containing the value of the macro AUC
+	 */
+	public static double getMacroAUC(List<Benchmark> resultList) { 
+		
+		double macroSpecificity;
+		double macroSensitivity;
+		
+		macroSpecificity = getMacroSpecificity(resultList);
+		macroSensitivity = getMacroRecall(resultList);
+		
+		return ((macroSpecificity + macroSensitivity)/2.0);
 	}
 	
 	/** 

@@ -82,4 +82,25 @@ public class MatrixUtils {
 		
 		return sum;
 	}
+	
+	/** 
+	 * Adds two given matrices (i.e. the matrices must be of the same order and compatible)
+	 * @param first First matrix to add
+	 * @param second Second matrix to be added
+	 * @return A matrix containing the sum of the two
+	 */
+	public static <T> Double [][] addMatrix(T[][] first,T[][] second) { 
+		
+		Double [][] sum = new Double[first.length][second.length];
+		
+		for (int i = 0; i < first.length; i++) { 
+			
+			for (int j = 0; j < first[i].length; j++) { 
+				
+				sum[i][j] = (Double)first[i][j] + (Double)second[i][j];
+			}
+		}
+		
+		return sum;
+	}
 }
