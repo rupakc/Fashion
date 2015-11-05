@@ -42,7 +42,34 @@ public class Performance {
 		perfMetrics.setMicroPrecision(PerformanceUtil.getMicroPrecision(resultSet));
 		perfMetrics.setMicroRecall(PerformanceUtil.getMicroRecall(resultSet));
 		perfMetrics.setMicroSpecificity(PerformanceUtil.getMicroSpecificity(resultSet));
+		perfMetrics.setMicroF1Score(PerformanceUtil.getMicroF1Score(resultSet));
 		
+		return perfMetrics;
+	}
+	
+	/** 
+	 * Returns a set of Macro performance metrics of a given result set
+	 * @param resultSet List<Benchmark> containing the result set
+	 * @return PerformanceMetrics object containing the macro metrics
+	 */
+	public static PerformanceMetrics getMacroMetrics(List<Benchmark> resultSet) { 
+		
+		PerformanceMetrics perfMetrics = new PerformanceMetrics();
+		
+		perfMetrics.setAccuracy(PerformanceUtil.getAccuracy(resultSet));
+		perfMetrics.setConfusionMatrix(PerformanceUtil.getConfusionMatrix(resultSet).getMatrix());
+		perfMetrics.setMacroPrecision(PerformanceUtil.getMacroPrecision(resultSet));
+		perfMetrics.setMacroRecall(PerformanceUtil.getMacroRecall(resultSet));
+		perfMetrics.setMacroSpecificity(PerformanceUtil.getMacroSpecificity(resultSet));
+		perfMetrics.setMacroF1Score(PerformanceUtil.getMacroF1Score(resultSet));
+		
+		return perfMetrics;
+	}
+	
+	//TODO - Add all the function calls
+	public static PerformanceMetrics getAllMetrics(List<Benchmark> resultList) { 
+		
+		PerformanceMetrics perfMetrics = new PerformanceMetrics();
 		return perfMetrics;
 	}
 }
