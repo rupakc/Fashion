@@ -66,10 +66,35 @@ public class Performance {
 		return perfMetrics;
 	}
 	
-	//TODO - Add all the function calls
+	/** 
+	 * Calculates all the performance metrics for a given result list
+	 * @param resultList List<Benchmark> containing the resultList
+	 * @return PerformanceMetrics object containing the relevant metrics
+	 */
 	public static PerformanceMetrics getAllMetrics(List<Benchmark> resultList) { 
 		
 		PerformanceMetrics perfMetrics = new PerformanceMetrics();
+		
+		perfMetrics.setAccuracy(PerformanceUtil.getAccuracy(resultList));
+		perfMetrics.setConfusionMatrix(PerformanceUtil.getConfusionMatrix(resultList).getMatrix());
+		perfMetrics.setMacroF1Score(PerformanceUtil.getMacroF1Score(resultList));
+		perfMetrics.setMacroPrecision(PerformanceUtil.getMacroPrecision(resultList));
+		perfMetrics.setMacroRecall(PerformanceUtil.getMacroRecall(resultList));
+		perfMetrics.setMacroSpecificity(PerformanceUtil.getMacroSpecificity(resultList));
+		perfMetrics.setMicroF1Score(PerformanceUtil.getMicroF1Score(resultList));
+		perfMetrics.setMicroPrecision(PerformanceUtil.getMicroPrecision(resultList));
+		perfMetrics.setMicroRecall(PerformanceUtil.getMicroRecall(resultList));
+		perfMetrics.setMicroSpecificity(PerformanceUtil.getMicroSpecificity(resultList));
+		perfMetrics.setPrecisionPerClass(PerformanceUtil.getPrecisionPerClass(resultList));
+		perfMetrics.setRecallPerClass(PerformanceUtil.getRecallPerClass(resultList));
+		perfMetrics.setSpecificityPerClass(PerformanceUtil.getSpecificityPerClass(resultList));
+		perfMetrics.setF1PerClass(PerformanceUtil.getF1ScorePerClass(resultList));
+		
+		if (perfMetrics.getPrecisionPerClass().size() == 2) { 
+			
+			perfMetrics.setAUC(PerformanceUtil.getMicroAUC(resultList));
+		}
+		
 		return perfMetrics;
 	}
 }

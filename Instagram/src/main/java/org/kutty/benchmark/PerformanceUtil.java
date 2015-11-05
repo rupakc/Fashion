@@ -15,7 +15,6 @@ import org.kutty.utils.MatrixUtils;
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 11 October, 2015
- * TODO - N-fold Cross Validation, ROC (AUC), Pipeline for all metric evaluation
  */
 
 public class PerformanceUtil {
@@ -71,6 +70,32 @@ public class PerformanceUtil {
 		
 		return f1Score;
 	}
+	
+	/** 
+	 * Calculates the f1-score per class 
+	 * @param resultList List containing the benchmark objects (test set)
+	 * @return Map<String,Double> containing the mapping between the class label and the f1-score
+	 */
+	public static Map<String,Double> getF1ScorePerClass(List<Benchmark> resultList) { 
+		
+		Map<String,Double> precisionMap = getPrecisionPerClass(resultList);
+		Map<String,Double> recallMap = getRecallPerClass(resultList);
+		Map<String,Double> f1Map = new HashMap<String,Double>();
+		double precision;
+		double recall;
+		double f1Score; 
+		
+		for (String key : precisionMap.keySet()) { 
+			
+			precision = precisionMap.get(key);
+			recall = recallMap.get(key);
+			f1Score = 2*(precision*recall)/(precision+recall);
+			
+			f1Map.put(key, f1Score);
+		}
+		
+		return f1Map;
+	} 
 	
 	/** 
 	 * Calculates the Area under the Curve for a binary classification problem
