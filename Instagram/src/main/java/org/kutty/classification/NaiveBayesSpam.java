@@ -1,5 +1,6 @@
 package org.kutty.classification;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -44,7 +45,14 @@ public class NaiveBayesSpam {
 		this.CHANNEL_NAME = channel_name.toLowerCase().trim();
 		SPAM_FILENAME = this.CHANNEL_NAME + this.SPAM_FILENAME + this.MODEL_NUMBER + ".txt";
 		HAM_FILENAME = this.CHANNEL_NAME + this.HAM_FILENAME + this.MODEL_NUMBER + ".txt"; 
+		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER,this.CHANNEL_NAME);
 		
+		try { 
+			this.MODEL_WEIGHT = modelWeight.getModelWeight();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		if (CHANNEL_NAME.equalsIgnoreCase("instagram")) { 
 			
 			SPAM_TAG_FILENAME = this.CHANNEL_NAME + this.SPAM_TAG_FILENAME + this.MODEL_NUMBER + ".txt";

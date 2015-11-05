@@ -1,9 +1,11 @@
 package org.kutty.classification;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.kutty.constants.Constants;
 import org.kutty.features.FeatureUtil;
 import org.kutty.utils.ClassificationUtils;
 
@@ -49,6 +51,14 @@ public class NaiveBayesGiveaway {
 		fake_map = LoadModel.getTrainedModel(FAKE_FILENAME);
 		real_tag_map = LoadModel.getTrainedModel(REAL_TAG_FILENAME);
 		fake_tag_map = LoadModel.getTrainedModel(FAKE_TAG_FILENAME);
+		
+		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER, Constants.GIVEAWAY_TYPE);
+		
+		try {
+			this.MODEL_WEIGHT = modelWeight.getModelWeight();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/** 

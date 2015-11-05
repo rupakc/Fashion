@@ -3,6 +3,9 @@ package org.kutty.classification;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
+
+import org.kutty.dbo.Benchmark;
 
 /** 
  * Calculates the accuracy of each model and saves it for later use
@@ -17,6 +20,11 @@ public class ModelWeight {
 	public String channelName;
 	public String modelFilePath;
 	
+	/** 
+	 * public constructor used to set the model number and channel name
+	 * @param modelNumber Integer containing the model number
+	 * @param channelName String containing the channel name
+	 */
 	public ModelWeight(int modelNumber,String channelName) {  
 		
 		this.modelNumber = modelNumber;
@@ -24,6 +32,11 @@ public class ModelWeight {
 		this.modelFilePath = this.channelName.toLowerCase().trim() + "/" + "model_weights.txt";
 	}
 	
+	/** 
+	 * Returns the weight associated with a particular model
+	 * @return Double containing the model weight
+	 * @throws IOException
+	 */
 	public Double getModelWeight()throws IOException { // Format of the file is ModelNum=Right,Wrong
 		
 		String temp = "";
@@ -55,5 +68,25 @@ public class ModelWeight {
 		fr.close();
 		
 		return weight;
+	}
+	
+	/** 
+	 * Returns the number of correct labels for a given result list
+	 * @param resultList List<Benchmark> containing the result set
+	 * @return Integer containing the number of correct labels
+	 */
+	public Integer getCorrectLabels(List<Benchmark> resultList) { 
+		
+		int correctCount = 0;
+		
+		for(Benchmark benchmark : resultList) { 
+			
+			if (benchmark.getActualLabel().equalsIgnoreCase(benchmark.getPredictedLabel())) {  
+				
+				correctCount++;
+			}
+		}
+		
+		return correctCount;
 	}
 }

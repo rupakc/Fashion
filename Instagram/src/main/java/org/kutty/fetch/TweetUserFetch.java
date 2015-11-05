@@ -36,8 +36,8 @@ public class TweetUserFetch {
 	String collectionName = Constants.USER_COLLECTION;
 	
 	/** 
-	 * 
-	 * @param collectionName
+	 * public constructor to initialize the collection for user analytics
+	 * @param collectionName String containing the collection name
 	 * @throws IOException
 	 */ 
 	
@@ -48,7 +48,7 @@ public class TweetUserFetch {
 	}
 	
 	/** 
-	 * 
+	 * public constructor to set the OAuth keys
 	 */ 
 	
 	public TweetUserFetch() { 
@@ -57,9 +57,9 @@ public class TweetUserFetch {
 	}
 	
 	/** 
-	 * 
-	 * @param user
-	 * @param tweetUser
+	 * Defines the entire pipeline for fetching user information from twitter
+	 * @param user Twitter user object whose information has to be fetched
+	 * @param tweetUser TweetUser object which is populated with the details
 	 */ 
 	
 	public void userFetchPipeline(User user,TweetUser tweetUser) {
@@ -151,9 +151,9 @@ public class TweetUserFetch {
 	}
 
 	/** 
-	 * 
-	 * @param user
-	 * @param tweetUser
+	 * Populates a tweetUser with values from the generic Tweet user
+	 * @param user User containing the twitter user
+	 * @param tweetUser TweetUser containing the twitter user
 	 * @throws TwitterException
 	 */ 
 
@@ -175,9 +175,9 @@ public class TweetUserFetch {
 	}
 
 	/** 
-	 * 
-	 * @param user
-	 * @return
+	 * Returns the list of followers of a given Twitter user
+	 * @param user Twitter user object
+	 * @return List<String> containing the user names of the current user's followers
 	 * @throws TwitterException
 	 */ 
 
@@ -198,9 +198,9 @@ public class TweetUserFetch {
 	}
 
 	/** 
-	 * 
-	 * @param user
-	 * @return
+	 * Returns the list of friends of a given Twitter user
+	 * @param user Twitter user object
+	 * @return List<String> containing the user names of the current user's friends
 	 * @throws TwitterException
 	 */ 
 
@@ -221,9 +221,9 @@ public class TweetUserFetch {
 	}
 
 	/** 
-	 * 
-	 * @param responseList
-	 * @param followerList
+	 * Adds the followers to the user list
+	 * @param responseList PageableResponseList<User> containing the user information
+	 * @param followerList List<String> containing the user follower list
 	 */ 
 
 	public void addToUserList(PagableResponseList<User>responseList,List<String>followerList) {
@@ -235,9 +235,9 @@ public class TweetUserFetch {
 	}
 
 	/** 
-	 * 
-	 * @param query
-	 * @return
+	 * Searches a given user by name
+	 * @param query String containing the user name
+	 * @return ResponseList<User> containing the user responses
 	 */ 
 
 	public ResponseList<User> searchUser(String query) {  
@@ -264,9 +264,9 @@ public class TweetUserFetch {
 	}
 
 	/** 
-	 * 
-	 * @param userScreenName
-	 * @return
+	 * Fetches the user details from the given screen name
+	 * @param userScreenName String containing the user screen name
+	 * @return User containing the user data
 	 * @throws TwitterException
 	 */
 

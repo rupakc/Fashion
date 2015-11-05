@@ -1,5 +1,6 @@
 package org.kutty.classification;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -35,7 +36,7 @@ public class NaiveBayesSentiment {
 	public String CLASS_LABEL;
 	public double CLASS_PROB;
 	public double MODEL_WEIGHT; 
-	
+
 	/** 
 	 * public constructor to initialize the model number and the channel name
 	 * @param model_number Integer containing the model number
@@ -49,9 +50,16 @@ public class NaiveBayesSentiment {
 		POSITIVE_FILENAME = this.CHANNEL_NAME + this.POSITIVE_FILENAME + this.MODEL_NUMBER + ".txt";
 		NEGATIVE_FILENAME = this.CHANNEL_NAME + this.NEGATIVE_FILENAME + this.MODEL_NUMBER + ".txt";
 		NEUTRAL_FILENAME = this.CHANNEL_NAME + this.NEUTRAL_FILENAME + this.MODEL_NUMBER + ".txt"; 
-		
+		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER,this.CHANNEL_NAME);
+
+		try { 
+			this.MODEL_WEIGHT = modelWeight.getModelWeight();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		if (CHANNEL_NAME.equalsIgnoreCase("instagram")) { 
-			
+
 			POSITIVE_TAG_FILENAME = this.CHANNEL_NAME + this.POSITIVE_TAG_FILENAME + this.MODEL_NUMBER + ".txt";
 			NEGATIVE_TAG_FILENAME = this.CHANNEL_NAME + this.NEGATIVE_TAG_FILENAME + this.MODEL_NUMBER + ".txt";
 			NEUTRAL_TAG_FILENAME = this.CHANNEL_NAME + this.NEUTRAL_TAG_FILENAME + this.MODEL_NUMBER + ".txt";
@@ -60,9 +68,9 @@ public class NaiveBayesSentiment {
 		positive_map = LoadModel.getTrainedModel(POSITIVE_FILENAME);
 		negative_map = LoadModel.getTrainedModel(NEGATIVE_FILENAME);
 		neutral_map = LoadModel.getTrainedModel(NEUTRAL_FILENAME); 
-		
+
 		if (CHANNEL_NAME.equalsIgnoreCase("instagram")) { 
-			
+
 			positive_tag_map = LoadModel.getTrainedModel(POSITIVE_TAG_FILENAME);
 			negative_tag_map = LoadModel.getTrainedModel(NEGATIVE_TAG_FILENAME);
 			neutral_tag_map = LoadModel.getTrainedModel(NEUTRAL_TAG_FILENAME);
@@ -89,7 +97,7 @@ public class NaiveBayesSentiment {
 		tag_probability[0] = getProbability(processTagSet, positive_tag_map);
 		tag_probability[1] = getProbability(processTagSet, negative_tag_map);
 		tag_probability[2] = getProbability(processTagSet, neutral_tag_map);
-		
+
 		for (int i = 1; i <= 3; i++) { 
 
 			processCaption = FeatureUtil.getNGram(processCaption, i);
@@ -104,20 +112,20 @@ public class NaiveBayesSentiment {
 		CLASS_LABEL = max_entry.getKey();
 		CLASS_PROB = max_entry.getValue();
 		NGRAM_NUMBER = ClassificationUtils.getNGramNumber(max_entry); 
-		
+
 		return max_entry.getKey();
 	} 
-	
+
 	/** 
 	 * Given contents from other channels classifies them into a particular sentiment
 	 * @param text String containing the content
 	 * @return String containing the sentiment label (i.e. positive, negative or neutral)
 	 */ 
-	
+
 	public String classifySentimentOtherChannels(String text) { 
 
 		String processText = preProcessingPipelineForContent(text);
-	
+
 		double [] content_probability = new double[3]; 
 		Map <String, Double> ngram_probabilty = new HashMap <String, Double>(); 
 		Entry<String, Double> max_entry; 
@@ -136,11 +144,11 @@ public class NaiveBayesSentiment {
 		CLASS_LABEL = max_entry.getKey();
 		CLASS_PROB = max_entry.getValue();
 		NGRAM_NUMBER = ClassificationUtils.getNGramNumber(max_entry); 
-		
+
 		return max_entry.getKey();
 	} 
 
-	
+
 	/** 
 	 * Returns the map entry which has the maximum value
 	 * @param ngram_output HashMap<String,Double> containing the value of the scores and labels for each class
@@ -191,9 +199,9 @@ public class NaiveBayesSentiment {
 		} else if (index == 1) { 
 
 			max_pair.put("negative_" + ngram_model + "_" + this.MODEL_NUMBER, max); 
-			
+
 		} else if (index == 2) { 
-			
+
 			max_pair.put("neutral_" + ngram_model + "_" + this.MODEL_NUMBER, max);
 		}
 
