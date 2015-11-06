@@ -296,7 +296,7 @@ public class NaiveBayesSentiment {
 
 		return temp;
 	}
-
+	
 	/** 
 	 * Main function to test the functionality of the given class
 	 * @param args

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.kutty.features.FeatureUtil;
+
 /** 
  * Defines a set of utility functions to aid in the classification task
  * @author Rupak Chakraborty
@@ -91,5 +93,50 @@ public class ClassificationUtils {
 		}
 		
 		return labelList;
+	}
+	
+	/** 
+	 * Given a string cleans it up for necessary pre-processing
+	 * @param content String containing the content to be pre-processed
+	 * @return String which has been sanitized
+	 */ 
+	public static String preProcessingPipelineForContent(String content) { 
+
+		content = content.toLowerCase().trim();
+		content = FeatureUtil.cleanString(content);
+		content = FeatureUtil.removeStopWords(content);
+		content = FeatureUtil.getStemPerWord(content);
+
+		return content;
+	}
+
+	/** 
+	 * Given a tagset space separates it and removes the stopwords
+	 * @param tagset String containing the tagset
+	 * @param n Integer containing the value of N for Ngram
+	 * @return String containing the cleaned and separated tagset
+	 */ 
+	public static String preProcessingPipelineForTag(String tagset) { 
+
+		tagset = tagset.replace(","," ");
+		tagset = tagset.toLowerCase();
+		tagset = FeatureUtil.cleanString(tagset);
+		tagset = FeatureUtil.removeStopWords(tagset);
+		tagset = FeatureUtil.getStemPerWord(tagset);
+
+		return tagset;
+	}
+	
+	/** 
+	 * Given an ngram encloses it with a pair of braces
+	 * @param ngram String containing the NGram
+	 * @return String with the enclosing braces
+	 */ 
+	public static String getTransformedString(String ngram) { 
+
+		String temp = ngram.trim();
+		temp = "(" + ngram + ")";
+
+		return temp;
 	}
 }
