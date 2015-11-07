@@ -6,7 +6,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.kutty.dbo.Update;
+
 import com.mongodb.BasicDBList;
+import com.mongodb.DBObject;
 
 /** 
  * Utility converters for BasicDBList,converts the BasicDBList into different data types 
@@ -23,7 +26,7 @@ public class ListConverter {
 	 * @param list BasicDBList which is to be converted into a set of strings
 	 * @return Set<String> which is representation of the BasicDBList
 	 */ 
-
+	
 	public static Set<String> getSet(BasicDBList list) { 
 
 		List<Object> temp_list = list;
@@ -62,7 +65,6 @@ public class ListConverter {
 	 * @return ArrayList<Date> which is the representation of the BasicDBList
 	 */ 
 
-
 	public static ArrayList<Date> getArrayListDate(BasicDBList list) { 
 
 		List<Object> temp_list = list;
@@ -81,7 +83,6 @@ public class ListConverter {
 	 * @param list BasicDBList which is to be converted
 	 * @return ArrayList<String> which is the representation of the BasicDBList
 	 */ 
-
 
 	public static ArrayList<String> getArrayListString(BasicDBList list) { 
 
@@ -169,5 +170,32 @@ public class ListConverter {
 		}
 		
 		return tags;
+	}
+	
+	/** 
+	 * Given a list of BasicDBObject converts it into an List<Update>
+	 * @param updateList BasicDBList containing the update objects
+	 * @return List<Update> containing the update list
+	 */
+	public static List<Update> getUpdateList(BasicDBList updateList) { 
+		
+		List<Update> updateObjectList = new ArrayList<Update>();
+		DBObject tempObject;
+		Update updateTemp;
+		
+		for (Object temp : updateList) { 
+			
+			tempObject = (DBObject) temp;
+			updateTemp = new Update();
+			
+			updateTemp.setClassLabel((String) tempObject.get("Label"));
+			updateTemp.setModelNum((int) tempObject.get("Model"));
+			updateTemp.setNgramNum((int) tempObject.get("Ngram"));
+			updateTemp.setProbPercent((double) tempObject.get("Probability"));
+			
+			updateObjectList.add(updateTemp);
+		}
+		
+		return updateObjectList;
 	}
 }

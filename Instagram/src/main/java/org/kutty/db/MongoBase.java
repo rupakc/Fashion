@@ -1,6 +1,7 @@
 package org.kutty.db;
 
 import java.net.UnknownHostException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -908,7 +909,8 @@ public class MongoBase {
 				append("TagSet", give.getTagSet()).
 				append("TimeStamp", give.getTimeStamp()).
 				append("ClassLabel", give.getClassLabel()).
-				append("UserName", give.getUserName());
+				append("UserName", give.getUserName()).
+				append("UpdateList", getUpdateAdaptorList(give.getUpdateSet()));
 
 		return giveawayDoc;
 	}
@@ -1039,7 +1041,8 @@ public class MongoBase {
 				append("Product",sentiment.getProduct()).
 				append("SentimentLabel",sentiment.getSentimentLabel()).
 				append("SentimentScore",sentiment.getSentimentScore()).
-				append("OtherDate",sentiment.getOtherDate());
+				append("OtherDate",sentiment.getOtherDate()).
+				append("UpdateList",getUpdateAdaptorList(sentiment.getUpdateModels()));
 
 		return sentimentDoc;
 	}
@@ -1102,7 +1105,8 @@ public class MongoBase {
 				append("Product",spam.getProduct()).
 				append("SpamLabel",spam.getSpamLabel()).
 				append("SpamScore",spam.getSpamScore()).
-				append("OtherDate",spam.getOtherDate());
+				append("OtherDate",spam.getOtherDate()).
+				append("UpdateList", getUpdateAdaptorList(spam.getUpdateSet()));
 
 		return spamDoc;
 	}
@@ -1298,6 +1302,23 @@ public class MongoBase {
 					append("Label",update.getClassLabel());
 		
 		return updateDoc;
+	}
+	
+	/** 
+	 * Converts a list of updates into a List of BasicDBObjects
+	 * @param updates List<Update> containing the update object
+	 * @return List<BasicDBObject> containing the update objects
+	 */
+	public Set<BasicDBObject> getUpdateAdaptorList(Set<Update> updates) { 
+		
+		Set<BasicDBObject> updateList = new HashSet<BasicDBObject>();
+		
+		for(Update update : updates) { 
+			
+			updateList.add(getUpdateAdaptor(update));
+		}
+		
+		return updateList;
 	}
 }
 

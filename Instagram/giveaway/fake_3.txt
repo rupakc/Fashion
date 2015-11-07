@@ -4911,3 +4911,12 @@
 (ye princessaaisyahdhiaranaa muahhhhhh)=0.016129032258064516
 (europefashion stylish bead)=0.016129032258064516
 (cupcakepampanga bake doubledutchcupcak)=0.016129032258064516
+(contest ni speedisticagiveaway)=0.008130081300813009
+(repost hope dpt)=0.008130081300813009
+(hope dpt uall)=0.008130081300813009
+(speedisticagiveaway speedisticagiveaway giveawaymalaysia)=0.008130081300813009
+(jomlaa join contest)=0.008130081300813009
+(join contest ni)=0.008130081300813009
+(ni speedisticagiveaway speedisticagiveaway)=0.008130081300813009
+(uall jomlaa join)=0.008130081300813009
+(dpt uall jomlaa)=0.008130081300813009

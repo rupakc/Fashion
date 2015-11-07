@@ -1,5 +1,7 @@
 package org.kutty.dbo;
 
+import java.util.Set;
+
 /** 
  * Defines a giveaway object for easy insertion in the db
  * @author Rupak Chakraborty
@@ -16,6 +18,7 @@ public class Giveaway {
 	private String classLabel;
 	private String channel; 
 	private String userName; 
+	private Set<Update> updateSet; 
 	
 	public Giveaway() { 
 		
@@ -145,5 +148,21 @@ public class Giveaway {
 	public void setUserName(String userName) { 
 		
 		this.userName = userName;
+	}
+
+	/**
+	 * @return the updateSet
+	 */
+	public Set<Update> getUpdateSet() {
+		
+		return updateSet;
+	}
+
+	/**
+	 * @param updateSet the updateSet to set
+	 */
+	public void setUpdateSet(Set<Update> updateSet) {
+		
+		this.updateSet = updateSet;
 	}
 }

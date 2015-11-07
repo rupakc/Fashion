@@ -31,6 +31,7 @@ public class SpamDetector {
 	public static String [] channelNames = {"Twitter","Facebook","Instagram","Youtube"};
 	public static String [] brandNames = {"Forever21","FreePeople","Guess","HandM","Levis","Mango",
 		"RagandBone","SevenForAllMankind","TrueReligion"}; 
+	EnsembleMachineSpam ems = new EnsembleMachineSpam();
 
 	/** 
 	 * Defines a spam detection pipeline for a given brand and a given channel
@@ -94,6 +95,7 @@ public class SpamDetector {
 
 			spam.setSpamLabel(label);
 			spam.setContent(text);
+			spam.setUpdateSet(ems.CORRECT_UPDATES);
 			System.out.println(label + " : " + text);
 			try {
 
@@ -223,7 +225,6 @@ public class SpamDetector {
 
 	public String getSpamLabelOtherChannels(String text,String channelName) { 
 
-		EnsembleMachineSpam ems = new EnsembleMachineSpam();
 		return ems.organizeAndActEnsemble(text, channelName, 5);
 	}
 
@@ -236,7 +237,6 @@ public class SpamDetector {
 
 	public String getSpamLabelInstagram(String captionText,String tagSet) { 
 
-		EnsembleMachineSpam ems = new EnsembleMachineSpam();
 		return ems.organizeAndActEnsemble(captionText, tagSet,"Instagram",5);
 	}
 
@@ -244,7 +244,7 @@ public class SpamDetector {
 
 		SpamDetector sd = new SpamDetector();
 		DateTime to = new DateTime();
-		DateTime from = to.minusYears(2);
+		DateTime from = to.minusDays(2);
 		sd.spamPipeline("Forever21","Twitter", from.toDate(), to.toDate());
 	}
 }

@@ -50,13 +50,13 @@ public class NaiveBayesSentiment {
 		POSITIVE_FILENAME = this.CHANNEL_NAME + this.POSITIVE_FILENAME + this.MODEL_NUMBER + ".txt";
 		NEGATIVE_FILENAME = this.CHANNEL_NAME + this.NEGATIVE_FILENAME + this.MODEL_NUMBER + ".txt";
 		NEUTRAL_FILENAME = this.CHANNEL_NAME + this.NEUTRAL_FILENAME + this.MODEL_NUMBER + ".txt"; 
-		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER,this.CHANNEL_NAME);
+		//ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER,this.CHANNEL_NAME);
 
-		try { 
+		/*try { 
 			this.MODEL_WEIGHT = modelWeight.getModelWeight();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 
 		if (CHANNEL_NAME.equalsIgnoreCase("instagram")) { 
 

@@ -47,11 +47,11 @@ public class NaiveBayesSpam {
 		HAM_FILENAME = this.CHANNEL_NAME + this.HAM_FILENAME + this.MODEL_NUMBER + ".txt"; 
 		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER,this.CHANNEL_NAME);
 		
-		try { 
+		/*try { 
 			this.MODEL_WEIGHT = modelWeight.getModelWeight();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} */
 
 		if (CHANNEL_NAME.equalsIgnoreCase("instagram")) { 
 			

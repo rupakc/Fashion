@@ -139,4 +139,31 @@ public class ClassificationUtils {
 
 		return temp;
 	}
+	
+	/**
+	 * Returns a List<String> containing the NGram word representation
+	 * @param ngram String containing the NGram 
+	 * @param delimiter delimiter which is used to split the sentence
+	 * @return List<String> containing the NGrams
+	 */
+	public static List<String> getTokenizedString(String ngram,String delimiter) { 
+		
+		List<String> ngramList = new ArrayList<String>();
+		int prevIndex = 0;
+		int nextIndex;
+		String subGram = ""; 
+		
+		nextIndex = ngram.indexOf(delimiter);
+		
+		while(nextIndex != -1) { 
+			
+			subGram = ngram.substring(prevIndex, nextIndex).trim();
+			ngramList.add(subGram);
+			prevIndex = nextIndex + 1;
+			nextIndex = ngram.indexOf(delimiter, prevIndex);
+			
+		}
+		
+		return ngramList;
+	}
 }

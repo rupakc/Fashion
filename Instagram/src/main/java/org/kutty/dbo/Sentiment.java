@@ -1,6 +1,7 @@
 package org.kutty.dbo;
 
 import java.util.Date;
+import java.util.Set;
 
 public class Sentiment {
 	
@@ -12,6 +13,7 @@ public class Sentiment {
 	private String content;
 	private Double sentimentScore;
 	private Double otherDate; 
+	private Set<Update> updateModels;
 	
 	public Sentiment() { 
 		
@@ -175,5 +177,19 @@ public class Sentiment {
 	public void setOtherDate(Double otherDate) { 
 		
 		this.otherDate = otherDate;
+	}
+
+	/**
+	 * @return the updateModels
+	 */
+	public Set<Update> getUpdateModels() {
+		return updateModels;
+	}
+
+	/**
+	 * @param updateModels the updateModels to set
+	 */
+	public void setUpdateModels(Set<Update> updateModels) {
+		this.updateModels = updateModels;
 	}
 }

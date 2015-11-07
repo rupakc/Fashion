@@ -42,6 +42,8 @@ public class EnsembleMachineSpam {
 		}
 		
 		result = getMaxLabel(result_list);
+		ALL_UPDATES = getUpdateObjects(ensemble);
+		CORRECT_UPDATES = getCorrectUpdate(ALL_UPDATES, result);
 		
 		return result;
 	} 

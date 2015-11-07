@@ -30,7 +30,8 @@ public class SentimentDetector {
 
 	public static String [] channelNames = {"Twitter","Facebook","Instagram","Youtube"};
 	public static String [] brandNames = {"Forever21","FreePeople","Guess","HandM","Levis","Mango",
-		"RagandBone","SevenForAllMankind","TrueReligion"}; 
+		"RagandBone","SevenForAllMankind","TrueReligion"};
+	private EnsembleMachineSentiment ems = new EnsembleMachineSentiment();
 	
 	/** 
 	 * Defines the pipeline for sentiment detection for all posts of a given channel and product
@@ -94,6 +95,7 @@ public class SentimentDetector {
 
 			sentiment.setSentimentLabel(label);
 			sentiment.setContent(text);
+			sentiment.setUpdateModels(ems.CORRECT_UPDATES);
 			System.out.println(label);
 			try {
 				
@@ -223,7 +225,6 @@ public class SentimentDetector {
 	
 	public String getSentimentLabelOtherChannels(String text,String channelName) { 
 
-		EnsembleMachineSentiment ems = new EnsembleMachineSentiment();
 		return ems.organizeAndActEnsemble(text, channelName, 5);
 	}
 	
@@ -236,7 +237,6 @@ public class SentimentDetector {
 	
 	public String getSentimentLabelInstagram(String captionText,String tagSet) { 
 
-		EnsembleMachineSentiment ems = new EnsembleMachineSentiment();
 		return ems.organizeAndActEnsemble(captionText, tagSet,"Instagram",5);
 	}
 	
@@ -244,7 +244,7 @@ public class SentimentDetector {
 
 		SentimentDetector sd = new SentimentDetector();
 		DateTime to = new DateTime();
-		DateTime from = to.minusYears(2);
-		sd.sentimentPipeline("Forever21","Twitter", from.toDate(), to.toDate());
+		DateTime from = to.minusDays(2);
+		sd.sentimentPipeline("Levis","Twitter", from.toDate(), to.toDate());
 	}
 }

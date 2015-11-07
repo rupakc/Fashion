@@ -4645,3 +4645,12 @@
 (origin peel unisex)=0.018518518518518517
 (cupcakepampanga bake doubledutchcupcak)=0.018518518518518517
 (custom feel free)=0.018518518518518517
+(contest ni speedisticagiveaway)=0.009345794392523364
+(repost hope dpt)=0.009345794392523364
+(hope dpt uall)=0.009345794392523364
+(speedisticagiveaway speedisticagiveaway giveawaymalaysia)=0.009345794392523364
+(jomlaa join contest)=0.009345794392523364
+(join contest ni)=0.009345794392523364
+(ni speedisticagiveaway speedisticagiveaway)=0.009345794392523364
+(uall jomlaa join)=0.009345794392523364
+(dpt uall jomlaa)=0.009345794392523364

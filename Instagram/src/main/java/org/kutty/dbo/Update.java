@@ -77,4 +77,14 @@ public class Update {
 		
 		this.classLabel = classLabel;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Update [ngramNum=" + ngramNum + ", modelNum=" + modelNum
+				+ ", probPercent=" + probPercent + ", classLabel=" + classLabel
+				+ "]";
+	}
 }

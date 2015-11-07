@@ -4916,3 +4916,12 @@
 (sayajualprelovedmurahmalaysia dijaminpuashati prelovedwardrob)=0.019801980198019802
 (cupcakepampanga bake doubledutchcupcak)=0.019801980198019802
 (argan oil argan)=0.019801980198019802
+(contest ni speedisticagiveaway)=0.01
+(repost hope dpt)=0.01
+(hope dpt uall)=0.01
+(speedisticagiveaway speedisticagiveaway giveawaymalaysia)=0.01
+(jomlaa join contest)=0.01
+(join contest ni)=0.01
+(ni speedisticagiveaway speedisticagiveaway)=0.01
+(uall jomlaa join)=0.01
+(dpt uall jomlaa)=0.01

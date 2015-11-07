@@ -35,6 +35,7 @@ public class Constants {
 	public static final String REAL_LABEL = "real";
 	public static final String FAKE_LABEL = "fake";
 	public static final String GIVEAWAY_TYPE = "giveaway";
+	public static final String GIVEAWAY_COLLECTION = "Giveaway";
 	public static final String ANALYTICS_DB = "Analytics";
 	public static final String SATISFACTION_COLLECTION = "Satisfaction";
 	public static final String INFLUENCE_COLLECTION = "Influence";

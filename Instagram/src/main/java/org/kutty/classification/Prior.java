@@ -82,7 +82,7 @@ public class Prior {
 	} 
 
 	/** 
-	 * Given a channel name and model number returns the label count map for sentiments
+	 * Given a channel name and model number returns the label count map for spam labels
 	 * @param channel String containing the channel name
 	 * @param modelNumber Integer containing the model number
 	 * @return Map<String,Integer> containing the mapping between the class label and its count

@@ -6889,3 +6889,26 @@
 (oldnavi shoe tom)=0.004024144869215292
 (cozygirl outfit night)=0.004024144869215292
 (new frame thank)=0.004024144869215292
+(liammyrealangel indirect ill)=0.0020161290322580645
+(guess age ?
+
+fanarmyfaceoff)=0.0020161290322580645
+(age ?
+
+fanarmyfaceoff direction)=0.0020161290322580645
+(ill guess age)=0.0020161290322580645
+(indirect ill guess)=0.0020161290322580645
+(?
+
+fanarmyfaceoff direction httptcoajxdqacf)=0.0020161290322580645
+(ktla guess convers)=0.0020161290322580645
+(? ktla guess)=0.0020161290322580645
+(channel aka ktla)=0.0020161290322580645
+(hey la watch)=0.0020161290322580645
+(jjjordynjon hey la)=0.0020161290322580645
+(screenshot ? ktla)=0.0020161290322580645
+(aka ktla send)=0.0020161290322580645
+(la watch channel)=0.0020161290322580645
+(ktla send screenshot)=0.0020161290322580645
+(send screenshot ?)=0.0020161290322580645
+(watch channel aka)=0.0020161290322580645

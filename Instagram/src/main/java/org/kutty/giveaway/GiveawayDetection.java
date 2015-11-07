@@ -27,7 +27,9 @@ import com.mongodb.DBObject;
  */ 
 
 public class GiveawayDetection {
-
+	
+	EnsembleMachineGiveaway em = new EnsembleMachineGiveaway(); 
+	
 	/** 
 	 * Defines the pipeline for processing of Instagram Giveaways
 	 * @param collection_name String containing the collection name from which the data is to be collected
@@ -63,7 +65,7 @@ public class GiveawayDetection {
 				give.setTagSet(tagSet);
 				give.setTimeStamp(timestamp);
 				give.setUserName(username);
-
+				give.setUpdateSet(em.CORRECT_UPDATES);
 				putInDB(give,"Analytics","Giveaway");
 			}
 		}
@@ -102,7 +104,6 @@ public class GiveawayDetection {
 	public String getClassLabel(String captionText,String tagSet) { 
 
 		String label = "";
-		EnsembleMachineGiveaway em = new EnsembleMachineGiveaway();
 		label = em.organizeAndActEnsemble(captionText, tagSet, 5);
 
 		return label;
@@ -162,7 +163,7 @@ public class GiveawayDetection {
 
 		GiveawayDetection gd = new GiveawayDetection();
 		DateTime to = new DateTime();
-		DateTime from = to.minusYears(5);
+		DateTime from = to.minusDays(25);
 		gd.GiveawayProcessingPipeline("Giveaway", from.toDate(), to.toDate());
 	}
 }

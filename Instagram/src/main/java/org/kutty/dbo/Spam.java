@@ -1,6 +1,7 @@
 package org.kutty.dbo;
 
 import java.util.Date;
+import java.util.Set;
 
 /** 
  * Defines a spam object for insertion in the database
@@ -18,7 +19,8 @@ public class Spam {
 	private String spamLabel;
 	private String content;
 	private Double spamScore;
-	private Double otherDate; 
+	private Double otherDate;
+	private Set<Update> updateSet;
 	
 	public Spam() { 
 		
@@ -182,5 +184,21 @@ public class Spam {
 	public void setOtherDate(Double otherDate) { 
 		
 		this.otherDate = otherDate;
+	}
+
+	/**
+	 * @return the updateSet
+	 */
+	public Set<Update> getUpdateSet() {
+		
+		return updateSet;
+	}
+
+	/**
+	 * @param updateSet the updateSet to set
+	 */
+	public void setUpdateSet(Set<Update> updateSet) {
+		
+		this.updateSet = updateSet;
 	}
 }
