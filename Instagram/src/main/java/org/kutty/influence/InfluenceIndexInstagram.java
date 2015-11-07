@@ -24,7 +24,7 @@ import com.mongodb.DBObject;
  * TODO - Add the like,comment and follower weights
  */ 
 
-public class InfluenceIndex {
+public class InfluenceIndexInstagram {
 
 	/** 
 	 * Returns the set of userIds for Instagram present in the database
@@ -48,7 +48,7 @@ public class InfluenceIndex {
 			mongo.setDB(db_name);
 			mongo.setCollection(collection_name);
 			collection = mongo.getCollection(); 
-			query = new BasicDBObject("Type","tag").append("Channel", "Instagram"); 
+			query = new BasicDBObject("Channel", "Instagram"); 
 			fields = new BasicDBObject("UserId",1);
 			cursor = collection.find(query, fields); 
 
