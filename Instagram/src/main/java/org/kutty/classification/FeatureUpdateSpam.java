@@ -23,17 +23,37 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
+/** 
+ * Updates the knowledge base of spam features for all channels (offline update)
+ * @author Rupak Chakraborty
+ * @for Kutty
+ * @since 7 November, 2015
+ */
+
 public class FeatureUpdateSpam {
 	
 	String channelName;
 	String productName; 
-
+	
+	/** 
+	 * 
+	 * @param channelName
+	 * @param productName
+	 */
 	FeatureUpdateSpam(String channelName, String productName) { 
 		
 		this.channelName = channelName.toLowerCase().trim();
 		this.productName = productName;
 	} 
 	
+	/** 
+	 * 
+	 * @param channelName
+	 * @param productName
+	 * @param from
+	 * @param to
+	 * @return
+	 */
 	public Map<String,List<Update>> getUpdateObjects(String channelName,String productName,Date from,Date to) { 
 
 		Map<String,List<Update>> updateMap = new HashMap<String,List<Update>>();
@@ -93,7 +113,11 @@ public class FeatureUpdateSpam {
 
 		return updateMap;
 	}
-
+	
+	/** 
+	 * 
+	 * @param updateMap
+	 */
 	public void calculateNGramProbability(Map<String,List<Update>> updateMap) { 
 
 		String filename = "";
@@ -144,7 +168,12 @@ public class FeatureUpdateSpam {
 	 * @param ngram_map_count Map<String,Double> containing ngram probabilities
 	 */ 
 	public void writeGramToFile(String filename,Map<String,Double> ngram_map_count) { 
-
+		
+		if (ngram_map_count.isEmpty()) { 
+			
+			return;
+		}
+		
 		BufferedWriter bw;
 		FileWriter fw;
 		double count;
@@ -172,6 +201,13 @@ public class FeatureUpdateSpam {
 		}
 	}
 	
+	/** 
+	 * 
+	 * @param channelName
+	 * @param productName
+	 * @param from
+	 * @param to
+	 */
 	public void spamUpdatePipeline(String channelName,String productName,Date from,Date to) { 
 		
 		FeatureUpdateSpam featureUpdateSpam = new FeatureUpdateSpam(channelName, productName);
@@ -186,5 +222,4 @@ public class FeatureUpdateSpam {
 		FeatureUpdateSpam fs = new FeatureUpdateSpam("Twitter", "Forever21");
 		fs.spamUpdatePipeline("Twitter","Forever21", from.toDate(), to.toDate());
 	}
-
 }

@@ -39,6 +39,7 @@ public class Constants {
 	public static final String ANALYTICS_DB = "Analytics";
 	public static final String SATISFACTION_COLLECTION = "Satisfaction";
 	public static final String INFLUENCE_COLLECTION = "Influence";
+	public static final String FASHION_COLLECTION = "Fashion";
 	public static final String USER_COLLECTION = "User";
 	public static final String GIVEAWAY_FOLDER = "giveaway";
 	public static final String TWITTER_FOLDER = "twitter";

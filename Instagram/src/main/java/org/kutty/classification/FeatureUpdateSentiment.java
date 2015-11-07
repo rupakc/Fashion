@@ -34,13 +34,26 @@ public class FeatureUpdateSentiment {
 
 	String channelName;
 	String productName; 
-
+	
+	/** 
+	 * 
+	 * @param channelName
+	 * @param productName
+	 */
 	FeatureUpdateSentiment(String channelName, String productName) { 
 		
 		this.channelName = channelName.toLowerCase().trim();
 		this.productName = productName;
 	} 
 	
+	/** 
+	 * 
+	 * @param channelName
+	 * @param productName
+	 * @param from
+	 * @param to
+	 * @return
+	 */
 	public Map<String,List<Update>> getUpdateObjects(String channelName,String productName,Date from,Date to) { 
 
 		Map<String,List<Update>> updateMap = new HashMap<String,List<Update>>();
@@ -101,7 +114,11 @@ public class FeatureUpdateSentiment {
 
 		return updateMap;
 	}
-
+	
+	/** 
+	 * 
+	 * @param updateMap
+	 */
 	public void calculateNGramProbability(Map<String,List<Update>> updateMap) { 
 
 		String filename = "";
@@ -152,7 +169,12 @@ public class FeatureUpdateSentiment {
 	 * @param ngram_map_count Map<String,Double> containing ngram probabilities
 	 */ 
 	public void writeGramToFile(String filename,Map<String,Double> ngram_map_count) { 
-
+		
+		if (ngram_map_count.isEmpty()) { 
+			
+			return;
+		}
+		
 		BufferedWriter bw;
 		FileWriter fw;
 		double count;
@@ -180,7 +202,13 @@ public class FeatureUpdateSentiment {
 		}
 	}
 	
-
+	/** 
+	 * 
+	 * @param channelName
+	 * @param productName
+	 * @param from
+	 * @param to
+	 */
 	public void sentimentUpdatePipeline(String channelName,String productName,Date from,Date to) { 
 		
 		FeatureUpdateSentiment featSenti = new FeatureUpdateSentiment(channelName, productName);

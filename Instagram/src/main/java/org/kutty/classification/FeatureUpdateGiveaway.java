@@ -24,15 +24,31 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
+/** 
+ * Carries out offline feature update of the giveaway features
+ * @author Rupak Chakraborty
+ * @for Kutty
+ * @since 7 November,2015
+ */
 public class FeatureUpdateGiveaway {
 	
 	String channelName;
-
+	
+	/** 
+	 * 
+	 */
 	FeatureUpdateGiveaway() { 
 		
 		this.channelName = "Instagram";
 	} 
 	
+	/** 
+	 * 
+	 * @param channelName
+	 * @param from
+	 * @param to
+	 * @return
+	 */
 	public Map<String,List<Update>> getUpdateObjects(String channelName,Date from,Date to) { 
 
 		Map<String,List<Update>> updateMap = new HashMap<String,List<Update>>();
@@ -92,7 +108,11 @@ public class FeatureUpdateGiveaway {
 
 		return updateMap;
 	}
-
+	
+	/** 
+	 * 
+	 * @param updateMap
+	 */
 	public void calculateNGramProbability(Map<String,List<Update>> updateMap) { 
 
 		String filename = "";
@@ -178,6 +198,12 @@ public class FeatureUpdateGiveaway {
 		}
 	}
 	
+	/** 
+	 * 
+	 * @param channelName
+	 * @param from
+	 * @param to
+	 */
 	public void giveawayUpdatePipeline(String channelName,Date from,Date to) { 
 		
 		FeatureUpdateGiveaway featureUpdateGive = new FeatureUpdateGiveaway();

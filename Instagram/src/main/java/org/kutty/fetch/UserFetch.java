@@ -11,6 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.kutty.constants.Constants;
 import org.kutty.db.MongoBase;
 import org.kutty.dbo.Tag;
 import org.kutty.dbo.User;
@@ -154,7 +155,7 @@ public class UserFetch {
 	public void insertInDB(User user) throws UnknownHostException { 
 
 		MongoBase mongo = new MongoBase();
-		mongo.setCollection("Fashion"); 
+		mongo.setCollection(Constants.USER_COLLECTION); 
 
 		try { 
 
