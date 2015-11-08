@@ -120,9 +120,9 @@ public class InfluenceIndexInstagram {
 	}
 	
 	/** 
-	 * 
-	 * @param userId
-	 * @return
+	 * Given a userId returns the follower weight
+	 * @param userId String containing the userId
+	 * @return Double containing the follower weight
 	 */
 	public static Double getFollowerWeight(String userId) { 
 
@@ -228,9 +228,9 @@ public class InfluenceIndexInstagram {
 	}
 	
 	/** 
-	 * 
-	 * @param userId
-	 * @return
+	 * Given a userId returns the corresponding user name
+	 * @param userId String containing the userId
+	 * @return String containing the user name
 	 */
 	public static String getUserName(String userId) { 
 
@@ -271,9 +271,9 @@ public class InfluenceIndexInstagram {
 	}
 	
 	/** 
-	 * 
-	 * @param userId
-	 * @return
+	 * Calculates the comment weight for a given userId
+	 * @param userId String containing the user Id
+	 * @return Double containing the value of the comment weight
 	 */
 	public static Double getCommentWeight(String userId) { 
 
@@ -384,9 +384,9 @@ public class InfluenceIndexInstagram {
 	}
 	
 	/** 
-	 * 
-	 * @param userId
-	 * @return
+	 * Given a userId calculates the like weight
+	 * @param userId String containing the userId
+	 * @return Double containing the like weight
 	 */
 	public static Double getLikeWeight(String userId) { 
 
@@ -481,9 +481,9 @@ public class InfluenceIndexInstagram {
 	}
 	
 	/** 
-	 * 
-	 * @param dbName
-	 * @param collectionName
+	 * Defines the pipeline for user influence calculation
+	 * @param dbName String containing the database name
+	 * @param collectionName String containing the collection name
 	 * @throws UnknownHostException
 	 */
 	public void influencePipeline(String dbName,String collectionName) throws UnknownHostException { 
