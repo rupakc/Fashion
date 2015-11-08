@@ -970,7 +970,8 @@ public class MongoBase {
 				append("FollowerWeight", influence.getFollowerWeight()).
 				append("LikeWeight", influence.getLikeWeight()).
 				append("CommentWeight", influence.getCommentWeight()).
-				append("Index", influence.getIndex());
+				append("Index", influence.getIndex()).
+				append("LastUpdated", influence.getLastUpdated());
 
 		return influenceDoc;
 	} 
@@ -985,7 +986,7 @@ public class MongoBase {
 
 		BasicDBObject query = new BasicDBObject("Channel",influence.getChannel()).
 				append("UserId",influence.getUserId()).
-				append("Index", influence.getIndex());
+				append("LastUpdated", influence.getLastUpdated());
 
 		DBCursor cursor = collection.find(query);
 

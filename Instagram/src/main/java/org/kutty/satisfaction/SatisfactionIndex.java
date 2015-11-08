@@ -92,7 +92,7 @@ public class SatisfactionIndex {
 			}
 
 			mongo = new MongoBase(); 
-			mongo.setDB("Analytics");
+			mongo.setDB(Constants.ANALYTICS_DB);
 			mongo.setCollection(brand);
 			collection = mongo.getCollection();
 			count = collection.find(query).size(); 
@@ -141,7 +141,7 @@ public class SatisfactionIndex {
 			}
 
 			mongo = new MongoBase(); 
-			mongo.setDB("Analytics");
+			mongo.setDB(Constants.ANALYTICS_DB);
 			mongo.setCollection(brand);
 			collection = mongo.getCollection();
 			count = collection.find(query).size(); 
@@ -494,10 +494,10 @@ public class SatisfactionIndex {
 	}
 	
 	/** 
-	 * 
-	 * @param product
-	 * @param from
-	 * @param to
+	 * Calculates the the satisfaction for all channels given a product and time interval
+	 * @param product String containing the product name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
 	 */
 	
 	public static void satisfactionAllChannels(String product,Date from,Date to) { 
@@ -508,10 +508,10 @@ public class SatisfactionIndex {
 	}
 	
 	/** 
-	 * 
-	 * @param channel
-	 * @param from
-	 * @param to
+	 * Calculates the satisfaction of all products for a given channel during a given time period
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
 	 */
 	
 	public static void satisfactionAllProducts(String channel,Date from,Date to) { 
@@ -522,9 +522,9 @@ public class SatisfactionIndex {
 	}
 	
 	/** 
-	 * 
-	 * @param from
-	 * @param to
+	 * Calculates and stores the satisfaction index of all products and channels in a given interval
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
 	 */ 
 	
 	public static void satisfactionAllProductsAndChannels(Date from,Date to) { 

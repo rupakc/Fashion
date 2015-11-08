@@ -20,10 +20,12 @@ public class Constants {
 	
 	public static final int DAYS = 5;
 	public static final int MEAN_DAYS = 30;
+	public static final int MEDIAN_DAYS = 60;
 	public static final int OLD_MIN = -10;
 	public static final int OLD_MAX = 10;
 	public static final int NEW_MIN = 0;
 	public static final int NEW_MAX = 100; 
+	public static final int LIMIT_OF_SIG = 5;
 	
 	public static final String SENTIMENT_TYPE = "sentiment";
 	public static final String POSITIVE_LABEL = "positive";

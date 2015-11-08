@@ -1,5 +1,7 @@
 package org.kutty.dbo;
 
+import java.util.Date;
+
 /**
  * Defines a Influence object for easy insertion in the database
  * @author Rupak Chakraborty
@@ -20,6 +22,7 @@ public class Influence {
 	private double commentWeight;
 	private double likeWeight;
 	private double index; 
+	private Date lastUpdated;
 	
 	/**
 	 * @return the userId
@@ -217,5 +220,21 @@ public class Influence {
 	public void setIndex(double index) { 
 		
 		this.index = index;
+	}
+
+	/**
+	 * @return the lastUpdated
+	 */
+	public Date getLastUpdated() { 
+		
+		return lastUpdated;
+	}
+
+	/**
+	 * @param lastUpdated the lastUpdated to set
+	 */
+	public void setLastUpdated(Date lastUpdated) { 
+		
+		this.lastUpdated = lastUpdated;
 	}
 }
