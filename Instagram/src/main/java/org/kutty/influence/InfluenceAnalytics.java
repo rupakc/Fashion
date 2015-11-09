@@ -12,6 +12,7 @@ import java.util.Map;
 import org.joda.time.DateTime;
 import org.kutty.constants.Constants;
 import org.kutty.db.MongoBase;
+import org.kutty.utils.MongoDBUtils;
 
 import com.mongodb.AggregationOutput;
 import com.mongodb.BasicDBObject;
@@ -135,11 +136,13 @@ public class InfluenceAnalytics {
 		return topMap;
 	}
 	
-	public static void main(String args[]) { 
+	public static void main(String args[]) throws UnknownHostException { 
 		
 		DateTime to = new DateTime(); 
 		DateTime from = to.minusDays(3); 
 		
 		System.out.println(getTopUsers(10,from.toDate(),to.toDate()));
+		
+		System.out.println(MongoDBUtils.getMaxMinValue("Analytics", "Influence", "Index", "max"));
 	}
 }
