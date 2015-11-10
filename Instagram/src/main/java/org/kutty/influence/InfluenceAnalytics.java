@@ -13,6 +13,7 @@ import org.joda.time.DateTime;
 import org.kutty.constants.Constants;
 import org.kutty.db.MongoBase;
 import org.kutty.utils.MongoDBUtils;
+import org.kutty.utils.PrintUtil;
 
 import com.mongodb.AggregationOutput;
 import com.mongodb.BasicDBObject;
@@ -22,11 +23,9 @@ import com.mongodb.DBObject;
 
 /** 
  * Carries out analytics on the influence index calculated 
- * 
  * @author Rupak Chakraborty
  * @for Kutty
  * @since 23 September,2015
- *
  */ 
 
 public class InfluenceAnalytics {
@@ -124,7 +123,7 @@ public class InfluenceAnalytics {
 				while(iter.hasNext()) {  
 					
 					temp = iter.next();
-					topMap.put((String)temp.get("_id"), (Double)temp.get("averageIndex"));
+					topMap.put((String)temp.get("_id"), normalizeAndScaleIndex((Double)temp.get("averageIndex")));
 				}
 			}
 			
@@ -136,13 +135,55 @@ public class InfluenceAnalytics {
 		return topMap;
 	}
 	
+	/** 
+	 * Normalizes the Index value in the scale of [0,1]
+	 * @param index Double containing the value of the index
+	 * @return Double value containing the value of the normalized and scaled index
+	 */
+	public static double normalizeAndScaleIndex(Double index) { 
+		
+		double scaledValue = 0.0;
+		double normalizedValue = 0.0;
+		double max;
+		double min; 
+		
+		try { 
+			
+			max = (double) MongoDBUtils.getMaxMinValue(Constants.ANALYTICS_DB, Constants.INFLUENCE_COLLECTION, "Index", "max");
+			min = (double) MongoDBUtils.getMaxMinValue(Constants.ANALYTICS_DB, Constants.INFLUENCE_COLLECTION, "Index", "min");
+			normalizedValue = (index - min)/(max - min + 1);
+			scaledValue = scale(normalizedValue);  
+			
+		} catch (UnknownHostException e) { 
+			
+			e.printStackTrace();
+		} 
+		
+		return scaledValue;
+	}
+	
+	/** 
+	 * Scales influence score in a range of 0 - 100
+	 * @param Normalized influence value which is to be scaled
+	 * @return scaled value of Influence Index
+	 */ 
+	public static double scale(double satisfactionScore) { 
+		
+		double oldMax = Constants.NORMAL_END;
+		double oldMin = Constants.NORMAL_BEGIN;
+		double newMax = Constants.NEW_MAX;
+		double newMin = Constants.NEW_MIN; 
+		
+		double scaledValue = (newMax - newMin)/(oldMax-oldMin)*(satisfactionScore - oldMin) + newMin;
+		
+		return scaledValue;
+	}
+	
 	public static void main(String args[]) throws UnknownHostException { 
 		
 		DateTime to = new DateTime(); 
-		DateTime from = to.minusDays(3); 
+		DateTime from = to.minusDays(12); 
 		
-		System.out.println(getTopUsers(10,from.toDate(),to.toDate()));
-		
-		System.out.println(MongoDBUtils.getMaxMinValue("Analytics", "Influence", "Index", "max"));
+		PrintUtil.printMap(getTopUsers(20,from.toDate(),to.toDate()));
 	}
 }
