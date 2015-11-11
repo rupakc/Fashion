@@ -105,8 +105,8 @@ public class TweetUserFetch {
 
 	public void setKeys() { 
 
-		accessToken = new AccessToken("450529986-MRceSC7o2s5Ql6UtRjrD2QjKvkAMXrV5I1bbampV", "zLkRczDjc2jVPUj2KJa7euT37Ge9WjJgOK6ZcaidyKYsT");
-		twitter.setOAuthConsumer("h5ly20TCX2cC0Pj8Ul269NFdX", "SoXEB7wlPZruHfL2aPnLbjEQz0TKaySqV3eLlKlp2AEaEpvvZ8");
+		accessToken = new AccessToken("450529986-NHoEbRM17WPG09PWkio1jdrXVoAful1PpXpNdcu9", "szKuwUIwUDajg2i7xhCpJL5V2hynDW1IQBNA2twYBJR1d");
+		twitter.setOAuthConsumer("9WGPCSVTpzdgXWfAvVoHI4hBS", "etT7bOgzdtUMzNRMY4G089iYRhD7OgM9VI2eV13q0Xbo37DCGb");
 		twitter.setOAuthAccessToken(accessToken);
 	}
 

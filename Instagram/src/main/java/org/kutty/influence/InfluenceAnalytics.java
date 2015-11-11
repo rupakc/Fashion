@@ -27,7 +27,6 @@ import com.mongodb.DBObject;
  * @for Kutty
  * @since 23 September,2015
  */ 
-
 public class InfluenceAnalytics {
 	
 	/** 
@@ -184,6 +183,6 @@ public class InfluenceAnalytics {
 		DateTime to = new DateTime(); 
 		DateTime from = to.minusDays(12); 
 		
-		PrintUtil.printMap(getTopUsers(20,from.toDate(),to.toDate()));
+		PrintUtil.printMap(getTopUsers(50,from.toDate(),to.toDate()));
 	}
 }

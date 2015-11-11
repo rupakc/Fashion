@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.kutty.db.MongoBase;
+import org.kutty.dbo.TweetUser;
 
 import twitter4j.Query;
 import twitter4j.QueryResult;
@@ -138,8 +139,9 @@ public class TweetFetch extends Thread {
 			try { 
 				
 				mongo.setCollection(product_name);
-				mongo.putInDB(result, product_name); 
-
+				mongo.putInDB(result, product_name);
+				
+				putUserInDB(result);
 			} catch (UnknownHostException e) {
 
 				e.printStackTrace();
@@ -150,7 +152,18 @@ public class TweetFetch extends Thread {
 			e.printStackTrace();
 		}
 	} 
-
+	
+	public void putUserInDB(QueryResult result) { 
+		
+		List<Status> tweets = result.getTweets();
+		TweetUserFetch userFetch = new TweetUserFetch();
+		TweetUser tweetUser; 
+		
+		for(Status tweet : tweets) { 
+			tweetUser = new TweetUser();
+			userFetch.userFetchPipeline(tweet.getUser(), tweetUser);
+		}
+	}
 	/** 
 	 * Sets the Access Token, Access Token Secret, Consumer-key
 	 * and Consumer-key secret with user given values in the function 
@@ -232,7 +245,7 @@ public class TweetFetch extends Thread {
 
 	public QueryResult getQuery(String query) throws TwitterException {
 
-		Query q = new Query(query).count(100).lang("en");
+		Query q = new Query(query).count(50).lang("en");
 		QueryResult result = null;
 		result = twitter.search(q);
 
