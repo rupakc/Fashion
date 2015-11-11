@@ -86,4 +86,28 @@ public class DateConverter {
 		Date java_date = new Date((long) (julian*1000));
 		return java_date;
 	}
+	
+	/** 
+	 * Returns the hour of the day in the date
+	 * @param date Java Date 
+	 * @return Integer containing the number of hours
+	 */
+	public static int getHourOfDay(Date date) { 
+		
+		DateTime jodaDate = new DateTime(date);
+		
+		return jodaDate.getHourOfDay();
+	}
+	
+	/** 
+	 * Returns the number of hours in a given julian date
+	 * @param julianDate Double containing the julian date
+	 * @return Integer containing the hour of the day
+	 */
+	public static int getHourOfDay(double julianDate) { 
+		
+		DateTime date = new DateTime((long)julianDate*1000);
+		
+		return date.getHourOfDay();
+	}
 }

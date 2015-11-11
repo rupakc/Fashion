@@ -17,6 +17,8 @@ public class Constants {
 		"september","october","november","december"};
 	public static String [] DAYS_OF_WEEK = {"monday","tuesday","wednesday","thursday","friday","saturday","sunday"};
 	public static String [] MONTH_SHORT = {"jan","feb","mar","apr","may","jun","jul","aug","sept","oct","nov","dec"};
+	public static char [] PUNCT_SET  = {' ',',',':',';','\'','\t','\n','?','-','$'};
+	public static String [] EMOJI_SET = {":)",":(","^_^","-_-","<3",":D",":P",":/"};
 	
 	public static final int DAYS = 5;
 	public static final int MEAN_DAYS = 30;
@@ -50,4 +52,5 @@ public class Constants {
 	public static final String FACEBOOK_FOLDER = "facebook";
 	public static final String YOUTUBE_FOLDER = "youtube";
 	public static final String INSTAGRAM_FOLDER = "instagram";
+	public static final String AFINN_LEXICON = "AFINN.txt";
 }

@@ -18,7 +18,10 @@ public class ViralPost {
 	private int determinantCount;
 	private int adjectiveCount;
 	private int positiveWordCount;
-	private int negativeWordCount; 
+	private int negativeWordCount;
+	private int emoticonCount;
+	private boolean isViral;
+	private String channel;
 	
 	/**
 	 * @return the content
@@ -194,5 +197,67 @@ public class ViralPost {
 	public void setNegativeWordCount(int negativeWordCount) { 
 		
 		this.negativeWordCount = negativeWordCount;
+	}
+
+	/**
+	 * @return the isViral
+	 */
+	public boolean isViral() { 
+		
+		return isViral;
+	}
+
+	/**
+	 * @param isViral the isViral to set
+	 */
+	public void setViral(boolean isViral) { 
+		
+		this.isViral = isViral;
+	}
+
+	/**
+	 * @return the channel
+	 */
+	public String getChannel() { 
+		
+		return channel;
+	}
+
+	/**
+	 * @param channel the channel to set
+	 */
+	public void setChannel(String channel) { 
+		
+		this.channel = channel;
+	}
+
+	/**
+	 * @return the emoticonCount
+	 */
+	public int getEmoticonCount() {
+		return emoticonCount;
+	}
+
+	/**
+	 * @param emoticonCount the emoticonCount to set
+	 */
+	public void setEmoticonCount(int emoticonCount) {
+		this.emoticonCount = emoticonCount;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ViralPost [content=" + content + ", spreadCount=" + spreadCount
+				+ ", hourOfDay=" + hourOfDay + ", hashTags=" + hashTags
+				+ ", punctCount=" + punctCount + ", nounCount=" + nounCount
+				+ ", verbCount=" + verbCount + ", determinantCount="
+				+ determinantCount + ", adjectiveCount=" + adjectiveCount
+				+ ", positiveWordCount=" + positiveWordCount
+				+ ", negativeWordCount=" + negativeWordCount
+				+ ", emoticonCount=" + emoticonCount + ", isViral=" + isViral
+				+ ", channel=" + channel + "]";
 	}
 }	

@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 import org.kutty.db.MongoBase;
+import org.kutty.dbo.ViralPost;
+import org.kutty.utils.CharacterCountUtil;
 import org.kutty.utils.DateConverter;
 
 import com.mongodb.BasicDBList;
@@ -22,7 +24,71 @@ import com.mongodb.DBCursor;
  */
 public class FeatureExtractionUtil {
 	
+	/** 
+	 * Defines the pipeline for extracting the post related feature for virality prediction
+	 * @param dbName String containing the database name
+	 * @param collectionName String containing the collection name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return List<ViralPost> containing the list of post specific features
+	 */
+	public static List<ViralPost> getPostFeaturePipeline(String dbName,String collectionName,String channel,Date from,Date to) { 
+		 
+		List<ViralPost> viralPost = new ArrayList<ViralPost>();
+		List<BasicDBObject> postList = getPostForChannel(dbName, collectionName, channel, from, to);
+		ViralPost viral;  
+		
+		for (BasicDBObject post : postList) { 
+			
+			viral = new ViralPost();
+			viral.setChannel(channel);
+			
+			if (!channel.equalsIgnoreCase("Instagram")) { 
+				
+				viral.setContent(post.getString("Message"));
+				
+			} else { 
+				
+				viral.setContent(post.getString("CaptionText"));
+			}
+			
+			if (channel.equalsIgnoreCase("Instagram")) { 
+				
+				viral.setHourOfDay(DateConverter.getHourOfDay(post.getDouble("Timestamp")));
+			}
+			
+			else if (channel.equalsIgnoreCase("Reddit")) {  
+				
+				viral.setHourOfDay(DateConverter.getHourOfDay(post.getDouble("TimeStamp")));
+			}
+			
+			else { 
+				
+				viral.setHourOfDay(DateConverter.getHourOfDay(post.getDate("TimeStamp")));
+			}
+			
+			viral.setHashTags(CharacterCountUtil.getCharacterCount(viral.getContent(), '#'));
+			viral.setPunctCount(CharacterCountUtil.getPunctuationCount(viral.getContent()));
+			viral.setPositiveWordCount(CharacterCountUtil.getCountPositiveWords(viral.getContent()));
+			viral.setNegativeWordCount(CharacterCountUtil.getCountNegativeWords(viral.getContent()));
+			viral.setEmoticonCount(CharacterCountUtil.getEmoticonCount(viral.getContent()));
+			
+			viralPost.add(viral);
+		} 
+		
+		return viralPost;
+	}
 	
+	/** 
+	 * Retrieves a set of post objects from the database for a given channel
+	 * @param dbName String containing the database name
+	 * @param collectionName String containing the collection name
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return List<BasicDBObject> containing the list of post objects
+	 */
 	public static List<BasicDBObject> getPostForChannel(String dbName,String collectionName,String channel,Date from,Date to) { 
 		
 		List<BasicDBObject> postList = new ArrayList<BasicDBObject>();
@@ -62,6 +128,13 @@ public class FeatureExtractionUtil {
 		return postList;
 	}
 	
+	/** 
+	 * Generates queries for retrieving the posts for a given channel
+	 * @param channel String containing the channel name
+	 * @param from Date containing the starting date
+	 * @param to Date containing the ending date
+	 * @return BasicDBObject containing the query
+	 */
 	public static BasicDBObject queryGenerator(String channel,Date from,Date to) { 
 		
 		BasicDBObject query = null;
@@ -104,6 +177,6 @@ public class FeatureExtractionUtil {
 		DateTime to = new DateTime();
 		DateTime from = to.minusMonths(3); 
 		//System.out.println(MongoDBUtils.getMaxMinValue("Central","Forever21", "CommentCount", "max"));
-		System.out.println(getPostForChannel("Central", "Forever21", "Instagram", from.toDate(), to.toDate()));
+		System.out.println(getPostFeaturePipeline("Central", "Forever21", "Instagram", from.toDate(), to.toDate()));
 	}
 }
