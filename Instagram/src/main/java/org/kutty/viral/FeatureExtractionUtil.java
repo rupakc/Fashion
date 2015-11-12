@@ -6,10 +6,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.joda.time.DateTime;
+import org.kutty.clean.Clean;
 import org.kutty.db.MongoBase;
 import org.kutty.dbo.ViralPost;
 import org.kutty.utils.CharacterCountUtil;
 import org.kutty.utils.DateConverter;
+import org.kutty.utils.POSTagUtil;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
@@ -38,6 +40,7 @@ public class FeatureExtractionUtil {
 		List<ViralPost> viralPost = new ArrayList<ViralPost>();
 		List<BasicDBObject> postList = getPostForChannel(dbName, collectionName, channel, from, to);
 		ViralPost viral;  
+		String taggedText = ""; 
 		
 		for (BasicDBObject post : postList) { 
 			
@@ -73,6 +76,13 @@ public class FeatureExtractionUtil {
 			viral.setPositiveWordCount(CharacterCountUtil.getCountPositiveWords(viral.getContent()));
 			viral.setNegativeWordCount(CharacterCountUtil.getCountNegativeWords(viral.getContent()));
 			viral.setEmoticonCount(CharacterCountUtil.getEmoticonCount(viral.getContent()));
+			
+			taggedText = POSTagUtil.getTagged(Clean.cleanHTML(Clean.removePunctuationAndJunk(viral.getContent())));
+			
+			viral.setAdjectiveCount(POSTagUtil.getPOSCount(taggedText, "adjective"));
+			viral.setNounCount(POSTagUtil.getPOSCount(taggedText, "noun"));
+			viral.setVerbCount(POSTagUtil.getPOSCount(taggedText, "verb"));
+			viral.setDeterminantCount(POSTagUtil.getPOSCount(taggedText, "determiner"));
 			
 			viralPost.add(viral);
 		} 
