@@ -71,20 +71,25 @@ public class FeatureExtractionUtil {
 				viral.setHourOfDay(DateConverter.getHourOfDay(post.getDate("TimeStamp")));
 			}
 			
-			viral.setHashTags(CharacterCountUtil.getCharacterCount(viral.getContent(), '#'));
-			viral.setPunctCount(CharacterCountUtil.getPunctuationCount(viral.getContent()));
-			viral.setPositiveWordCount(CharacterCountUtil.getCountPositiveWords(viral.getContent()));
-			viral.setNegativeWordCount(CharacterCountUtil.getCountNegativeWords(viral.getContent()));
-			viral.setEmoticonCount(CharacterCountUtil.getEmoticonCount(viral.getContent()));
-			
-			taggedText = POSTagUtil.getTagged(Clean.cleanHTML(Clean.removePunctuationAndJunk(viral.getContent())));
-			
-			viral.setAdjectiveCount(POSTagUtil.getPOSCount(taggedText, "adjective"));
-			viral.setNounCount(POSTagUtil.getPOSCount(taggedText, "noun"));
-			viral.setVerbCount(POSTagUtil.getPOSCount(taggedText, "verb"));
-			viral.setDeterminantCount(POSTagUtil.getPOSCount(taggedText, "determiner"));
-			
-			viralPost.add(viral);
+			if (viral.getContent() != null) {  
+				
+				viral.setHashTags(CharacterCountUtil.getCharacterCount(viral.getContent(), '#'));
+				viral.setPunctCount(CharacterCountUtil.getPunctuationCount(viral.getContent()));
+				viral.setPositiveWordCount(CharacterCountUtil.getCountPositiveWords(viral.getContent()));
+				viral.setNegativeWordCount(CharacterCountUtil.getCountNegativeWords(viral.getContent()));
+				viral.setEmoticonCount(CharacterCountUtil.getEmoticonCount(viral.getContent()));
+				
+				taggedText = POSTagUtil.getTagged(Clean.cleanHTML(Clean.removePunctuationAndJunk(viral.getContent())));
+				
+				viral.setAdjectiveCount(POSTagUtil.getPOSCount(taggedText, "adjective"));
+				viral.setNounCount(POSTagUtil.getPOSCount(taggedText, "noun"));
+				viral.setVerbCount(POSTagUtil.getPOSCount(taggedText, "verb"));
+				viral.setDeterminantCount(POSTagUtil.getPOSCount(taggedText, "determiner"));
+				
+				viral.setSpreadCount(spreadCountGenerator(post, channel)); 
+				
+				viralPost.add(viral);
+			}
 		} 
 		
 		return viralPost;
@@ -182,11 +187,64 @@ public class FeatureExtractionUtil {
 		return query;
 	}
 	
+	/** 
+	 * Returns the spread count for a given channel
+	 * @param post BasicDBObject containing the post object
+	 * @param channel String containing the channel name
+	 * @return Long containing the spread count value
+	 */
+	@SuppressWarnings("unused")
+	public static Long spreadCountGenerator(BasicDBObject post,String channel) {  
+		
+		Long spreadCount = 0L; 
+		Object k; 
+		
+		if (channel.equalsIgnoreCase("Instagram")) { 
+			
+			spreadCount = post.getLong("LikeCount") + post.getLong("CommentCount");
+		}
+		
+		else if(channel.equalsIgnoreCase("Reddit")) { 
+			
+			spreadCount = post.getLong("Score") + post.getLong("CommentCount");
+		}
+		
+		else if(channel.equalsIgnoreCase("Youtube")) { 
+			
+			spreadCount = (long) (post.getInt("ReplyCount") + post.getInt("LikeCount"));
+		}
+		
+		else if(channel.equalsIgnoreCase("Facebook")) { 
+			
+			if ((k = post.get("Likes")) != null) { 
+				
+				spreadCount = spreadCount + (long) post.getInt("Likes");
+			}
+			
+			if ((k = post.get("Shares")) != null) { 
+				
+				spreadCount = spreadCount + (long) post.getInt("Shares");
+			}
+			
+			if ((k = post.get("Comments")) != null) { 
+				
+				spreadCount = spreadCount + (long) post.getInt("Comments");
+			}
+		}
+		
+		else if(channel.equalsIgnoreCase("Twitter")) { 
+			
+			spreadCount = (long) post.getInt("RetweetCount");
+		}
+		
+		return spreadCount;
+	}
+	
 	public static void main(String args[]) throws UnknownHostException { 
 		
 		DateTime to = new DateTime();
 		DateTime from = to.minusMonths(3); 
 		//System.out.println(MongoDBUtils.getMaxMinValue("Central","Forever21", "CommentCount", "max"));
-		System.out.println(getPostFeaturePipeline("Central", "Forever21", "Instagram", from.toDate(), to.toDate()));
+		System.out.println(getPostFeaturePipeline("Central", "Forever21", "Youtube", from.toDate(), to.toDate()));
 	}
 }
