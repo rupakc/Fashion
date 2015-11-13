@@ -103,4 +103,22 @@ public class MatrixUtils {
 		
 		return sum;
 	}
+	
+	/** 
+	 * Given 2 vectors returns the hadamard product of them
+	 * @param first First vector
+	 * @param second Second vector
+	 * @return Double containing the hadamard product
+	 */
+	public static <T> Double getHadamardProduct(T[] first, T[] second) { 
+		
+		double hadamard = 0.0; 
+		
+		for (int i = 0; i < first.length; i++) { 
+			
+			hadamard = hadamard + ((Double)first[i]*(Double)second[i]);
+		}
+		
+		return hadamard;
+	}
 }
