@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 import org.kutty.clean.Clean;
+import org.kutty.constants.Constants;
 import org.kutty.db.MongoBase;
+import org.kutty.dbo.Feature;
 import org.kutty.dbo.ViralPost;
 import org.kutty.utils.CharacterCountUtil;
 import org.kutty.utils.DateConverter;
@@ -240,11 +242,57 @@ public class FeatureExtractionUtil {
 		return spreadCount;
 	}
 	
+	/** 
+	 * Adaptor function to convert a Viral Post object into a Feature object
+	 * @param viralPosts List<ViralPost> containing the viral post objects
+	 * @return List<Feature> containing the feature vector objects
+	 */
+	public static List<Feature> getFeatureAdaptor(List<ViralPost> viralPosts) { 
+		
+		Double featureVector[];
+		Feature feature;
+		List<Feature> featureList = new ArrayList<Feature>();
+		
+		for (ViralPost viral : viralPosts) { 
+			
+			feature = new Feature();
+			feature.setDimension(Constants.DIMENSION_OF_VIRAL);
+			featureVector = new Double[Constants.DIMENSION_OF_VIRAL];
+			
+			featureVector[0] = (double)(long)viral.getSpreadCount();
+			featureVector[1] = (double) viral.getHourOfDay();
+			featureVector[2] = (double) viral.getHashTags();;
+			featureVector[3] = (double) viral.getPunctCount();
+			featureVector[4] = (double) viral.getNounCount();
+			featureVector[5] = (double) viral.getVerbCount();
+			featureVector[6] = (double) viral.getDeterminantCount();
+			featureVector[7] = (double) viral.getAdjectiveCount();
+			featureVector[8] = (double) viral.getPositiveWordCount();
+			featureVector[9] = (double) viral.getNegativeWordCount();
+			featureVector[10] = (double) viral.getEmoticonCount();
+			
+			feature.setFeatureVector(featureVector);
+			
+			if (viral.isViral()) {  
+				
+				feature.setClassLabel(1); 
+				
+			} else { 
+				
+				feature.setClassLabel(0);
+			}
+			
+			featureList.add(feature);
+		}
+		
+		return featureList;
+	} 
+	
 	public static void main(String args[]) throws UnknownHostException { 
 		
 		DateTime to = new DateTime();
 		DateTime from = to.minusMonths(3); 
 		//System.out.println(MongoDBUtils.getMaxMinValue("Central","Forever21", "CommentCount", "max"));
-		System.out.println(getPostFeaturePipeline("Central", "Forever21", "Youtube", from.toDate(), to.toDate()));
+		System.out.println(getFeatureAdaptor(getPostFeaturePipeline("Central", "Forever21", "Youtube", from.toDate(), to.toDate())));
 	}
 }

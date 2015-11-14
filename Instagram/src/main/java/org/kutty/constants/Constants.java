@@ -30,6 +30,7 @@ public class Constants {
 	public static final int NORMAL_BEGIN = 0;
 	public static final int NORMAL_END = 1;
 	public static final int LIMIT_OF_SIG = 5;
+	public static final int DIMENSION_OF_VIRAL = 11;
 	
 	public static final String SENTIMENT_TYPE = "sentiment";
 	public static final String POSITIVE_LABEL = "positive";

@@ -57,9 +57,9 @@ public class StatUtils {
 	}
 	
 	/** 
-	 * 
-	 * @param list
-	 * @return
+	 * Calculates the variance of a given list of numbers
+	 * @param list List<Double> containing the numbers whose variance is to be calculated
+	 * @return Double containing the value of the variance
 	 */
 	public static Double getVariance(List<Double> list) { 
 		
@@ -74,10 +74,10 @@ public class StatUtils {
 		return (var/list.size());
 	}
 	
-	/**
-	 * 
-	 * @param list
-	 * @return
+	/** 
+	 * Calculates the standard deviation of a given list of numbers
+	 * @param list List<Double> containing the numbers whose standard deviation is to be calculated
+	 * @return Double containing the value of the standard deviation
 	 */
 	public static Double getStandardDeviation(List<Double> list) { 
 		
