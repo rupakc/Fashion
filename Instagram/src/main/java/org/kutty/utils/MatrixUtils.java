@@ -121,4 +121,59 @@ public class MatrixUtils {
 		
 		return hadamard;
 	}
+	
+	/** 
+	 * Given a vector multiplies it with a scalar 
+	 * @param vector Double [] containing the vector
+	 * @param scalar Scalar value which is to be multiplied with the vector
+	 * @return Double[] containing the result of the multiplication of the scalar with vector
+	 */
+	public static <T, T1> Double[] multiplyByScalar(T[] vector, T1 scalar) { 
+		
+		Double [] v = (Double[]) vector.clone();
+		Double scale = (Double)scalar;
+		
+		for (int i = 0; i < vector.length; i++) { 
+			
+			v[i] = v [i]*scale;
+		}
+		
+		return v;
+	}
+	
+	/** 
+	 * Subtracts the two given vectors first from the second
+	 * @param first Double[] containing the first vector
+	 * @param second Double [] containing the second vector
+	 * @return Double[] containing the difference of the two vectors
+	 */
+	public static <T> Double [] subtractVectors(T[] first, T[]second) { 
+		
+		Double [] difference = new Double[first.length];
+		
+		for (int i = 0; i < first.length; i++) { 
+			
+			difference[i] = (Double)first[i] - (Double)second[i];
+		}
+		
+		return difference;
+	}
+	
+	/** 
+	 * Given two vectors adds them up and returns their sum
+	 * @param first First vector which is to be added
+	 * @param second Second vector which is added to the first
+	 * @return Double[] containing the sum of the two vectors
+	 */
+	public static <T> Double[] addVectors(T[] first,T[] second) { 
+		
+		Double [] sum = new Double[first.length];
+		
+		for (int i = 0; i < first.length; i++) { 
+			
+			sum[i] = (Double)first[i] + (Double)second[i];
+		}
+		
+		return sum;
+	}
 }

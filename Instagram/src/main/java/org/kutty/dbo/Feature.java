@@ -10,7 +10,7 @@ public class Feature {
 	
 	private int dimension;
 	private Double [] featureVector;
-	private String classLabel; 
+	private int classLabel; 
 	
 	/**
 	 * @return the dimension
@@ -47,7 +47,7 @@ public class Feature {
 	/**
 	 * @return the classLabel
 	 */
-	public String getClassLabel() { 
+	public int getClassLabel() { 
 		
 		return classLabel;
 	} 
@@ -55,7 +55,7 @@ public class Feature {
 	/**
 	 * @param classLabel the classLabel to set
 	 */
-	public void setClassLabel(String classLabel) { 
+	public void setClassLabel(int classLabel) { 
 		
 		this.classLabel = classLabel;
 	}
