@@ -20,6 +20,7 @@ import org.kutty.dbo.Tag;
 import org.kutty.dbo.TweetUser;
 import org.kutty.dbo.Update;
 import org.kutty.dbo.User;
+import org.kutty.dbo.Viral;
 
 import twitter4j.GeoLocation;
 import twitter4j.QueryResult;
@@ -1156,13 +1157,13 @@ public class MongoBase {
 			insertDocument(getSpamAdaptor(spam));
 		}
 	}
-	
+
 	/** 
 	 * Adaptor function to convert a satisfaction object into a BasicDBObject
 	 * @param satisfaction Satisfaction object which is to be converted
 	 * @return BasicDBObject containing the representation of the Satisfaction object
 	 */
-	
+
 	public BasicDBObject getSatisfactionAdaptor(Satisfaction satisfaction) { 
 
 		BasicDBObject satDoc = new BasicDBObject("Channel",satisfaction.getChannelName()).
@@ -1180,18 +1181,18 @@ public class MongoBase {
 
 		return satDoc;
 	}
-	
+
 	/** 
 	 * Checks whether a given satisfaction object exists in the database or not
 	 * @param satisfaction Satisfaction object which is to be checked
 	 * @return true if the object exists false otherwise
 	 */
-	
+
 	public boolean checkExists(Satisfaction satisfaction) { 
 
 		DBObject query; 
 		DBCursor cursor; 
-		
+
 		if (!satisfaction.getChannelName().equalsIgnoreCase("Instagram")) { 
 
 			query = new BasicDBObject("Channel",satisfaction.getChannelName()).
@@ -1204,40 +1205,40 @@ public class MongoBase {
 					append("Product", satisfaction.getBrandName()).
 					append("OtherDate", satisfaction.getOtherDate());
 		}
-		
+
 		cursor = collection.find(query);
-		
+
 		if (cursor.hasNext()) { 
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	/** 
 	 * Inserts a satisfaction object in the database if it already doesnot exist
 	 * @param satisfaction Satisfaction object
 	 */
-	
+
 	public void putInDB(Satisfaction satisfaction) { 
-		
+
 		if (!checkExists(satisfaction)) { 
-			
+
 			insertDocument(getSatisfactionAdaptor(satisfaction));
 		}
 	}
-	
+
 	/** 
 	 * Adaptor function to convert a twitter user into a BasicDBObject
 	 * @param tweetUser TweetUser which is to be inserted in the database
 	 * @return BasicDBObject containing the representation of the tweetuser
 	 */ 
-	
+
 	public BasicDBObject getTweetUserAdaptor(TweetUser tweetUser) {
 
 		BasicDBObject tweetUserDoc; 
-		
+
 		tweetUserDoc = new BasicDBObject("ActiveSince",tweetUser.getActiveSince()).
 				append("Description",tweetUser.getDescription()).
 				append("FollowerCount", tweetUser.getFollowerCount()).
@@ -1251,75 +1252,94 @@ public class MongoBase {
 				append("FollowerList", tweetUser.getFollowerList()).
 				append("FriendList", tweetUser.getFriendList()).
 				append("Channel", "Twitter"); 
-		
+
 		return tweetUserDoc;
 	}
-	
+
 	/** 
 	 * Inserts a tweet user in the database if it already doesn't exist
 	 * @param tweetUser TweetUser which is to be inserted
 	 */ 
-	
+
 	public void putInDB(TweetUser tweetUser) { 
-		
+
 		DBObject query;
 		DBObject update;
 		DBCursor cursor; 
-		
+
 		query = new BasicDBObject("ActiveSince",tweetUser.getActiveSince()).
 				append("UserId", tweetUser.getUserId()); 
-		
+
 		update = new BasicDBObject("$set",new BasicDBObject("FollowerCount",tweetUser.getFollowerCount()).
 				append("FavoriteCount", tweetUser.getFavoriteCount()).
 				append("FriendCount", tweetUser.getFriendCount()).
 				append("StatusCount", tweetUser.getStatusCount()).
 				append("FollowerList", tweetUser.getFollowerList()).
 				append("FriendList", tweetUser.getFriendList()));
-		
+
 		cursor = collection.find(query);
-		
+
 		if(!cursor.hasNext()) {  
-			
+
 			insertDocument(getTweetUserAdaptor(tweetUser)); 
-			
+
 		} else { 
-			
+
 			updateDocument(query, update);
 		}
 	}
-	
+
 	/** 
 	 * Given an update object converts it into an Update object for easy insertion
 	 * @param update Update object which is to be inserted
 	 * @return BasicDBObject containing the representation of the  update object
 	 */
-	
+
 	public BasicDBObject getUpdateAdaptor(Update update) { 
-		
+
 		BasicDBObject updateDoc;
 		updateDoc = new BasicDBObject("Model",update.getModelNum()).
-					append("Ngram", update.getNgramNum()).
-					append("Probability", update.getProbPercent()).
-					append("Label",update.getClassLabel());
-		
+				append("Ngram", update.getNgramNum()).
+				append("Probability", update.getProbPercent()).
+				append("Label",update.getClassLabel());
+
 		return updateDoc;
 	}
-	
+
 	/** 
 	 * Converts a list of updates into a List of BasicDBObjects
 	 * @param updates List<Update> containing the update object
 	 * @return List<BasicDBObject> containing the update objects
 	 */
 	public Set<BasicDBObject> getUpdateAdaptorList(Set<Update> updates) { 
-		
+
 		Set<BasicDBObject> updateList = new HashSet<BasicDBObject>();
-		
+
 		for(Update update : updates) { 
-			
+
 			updateList.add(getUpdateAdaptor(update));
 		}
-		
+
 		return updateList;
+	}
+	
+	/** 
+	 * Converts a viral object into a BasicDBObject for easy insertion in the database
+	 * @param viral Viral object containing the details
+	 * @return BasicDBObject containing the viral object details
+	 */
+	public BasicDBObject getViralAdaptor(Viral viral) { 
+
+		BasicDBObject viralDoc;
+
+		viralDoc = new BasicDBObject("Channel",viral.getChannel()).
+				append("TimeStamp", viral.getTimeStamp()).
+				append("OtherDate", viral.getOtherDate()).
+				append("Content", viral.getContent()).
+				append("Label", viral.getLabel()).
+				append("Probability", viral.getProbability());
+		
+		return viralDoc;
 	}
 }
 
