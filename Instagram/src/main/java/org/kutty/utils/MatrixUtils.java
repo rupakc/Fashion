@@ -176,4 +176,42 @@ public class MatrixUtils {
 		
 		return sum;
 	}
+	
+	/** 
+	 * Returns the norm (i.e length) of a given vector
+	 * @param vector Array containing the set of numbers
+	 * @return Double containing the norm of the given vector
+	 */
+	public static <T> Double getNorm(T[] vector) { 
+		
+		Double norm = 0.0;
+		for (int i = 0; i < vector.length; i++) { 
+			
+			norm = norm + (Double)vector[i];
+		}
+		
+		norm = Math.sqrt(norm);
+		
+		return norm;
+	}
+	
+	public static <T> Double[] getMeanVector(T[][] matrix) { 
+		
+		Double meanVector [] = new Double[matrix[0].length];
+		Double sum = 0.0;
+		
+		for (int i = 0; i < matrix[i].length; i++) {  
+			
+			sum = 0.0; 
+			
+			for (int j = 0; j < matrix.length; j++) { 
+				
+				sum = sum + (Double)matrix[j][i];
+			}
+			
+			meanVector[i] = sum/matrix[i].length;
+		}
+		
+		return meanVector;
+	}
 }

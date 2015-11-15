@@ -2,6 +2,7 @@ package org.kutty.utils;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.ListIterator;
 
 /** 
  * Defines Statistical Utilities commonly used
@@ -84,5 +85,71 @@ public class StatUtils {
 		Double std = getVariance(list);
 		
 		return Math.sqrt(std);
+	}
+	
+	/** 
+	 * Standardizes the data by subtracting the mean and dividing by the standard deviation
+	 * @param list List<Double> containing the list of Numbers which are to be standardized
+	 */
+	public static void standardizeData(List<Double> list) { 
+		
+		Double mean;
+		Double standardDeviation;
+		Double temp; 
+		
+		mean = getMean(list);
+		standardDeviation = getStandardDeviation(list);
+		
+		for(int i = 0; i < list.size(); i++) { 
+			
+			temp = list.get(i);
+			temp = (temp - mean)/(standardDeviation + 1);
+			list.set(i, temp);
+		}
+	}
+	
+	/** 
+	 * Standardizes the data by subtracting the mean and dividing by the standard deviation
+	 * @param list List<Double> containing the list of Numbers which are to be standardized
+	 * @param mean Double containing the mean of the feature
+	 * @param standardDeviation Double containing the standard deviation of the feature
+	 */
+	public static void standardizeData(List<Double> list,Double mean,Double standardDeviation) { 
+		
+		Double temp;  
+		
+		for(int i = 0; i < list.size(); i++) { 
+			
+			temp = list.get(i);
+			temp = (temp - mean)/(standardDeviation + 1);
+			list.set(i, temp);
+		}
+	}
+
+	/** 
+	 * Removes the outliers present in the list (considering that they following a normal distribution)
+	 * @param list List<Double> containing the list of numbers
+	 * @param mean Double containing the mean of the numbers
+	 * @param std Double containing the standard deviation of the numbers
+	 */
+	public static void removeOutliers(List<Double> list,Double mean,Double std) { 
+		
+		Double lowerTail;
+		Double upperTail;
+		Double element; 
+		
+		lowerTail = mean - 3*std;
+		upperTail = mean + 3*std;
+		ListIterator<Double> listIterator = list.listIterator();
+		
+		while(listIterator.hasNext()) { 
+			
+			element = listIterator.next();
+			
+			if (element < lowerTail || element > upperTail) { 
+				
+				listIterator.remove();
+			}
+		}
 	}
 }

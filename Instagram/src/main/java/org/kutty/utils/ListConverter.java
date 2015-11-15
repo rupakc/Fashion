@@ -198,4 +198,38 @@ public class ListConverter {
 		
 		return updateObjectList;
 	}
+	
+	/** 
+	 * Given a list of Double type numbers converts it to an array of numbers
+	 * @param featureList List<Double> containing the numbers
+	 * @return Double[] containing the array of double numbers
+	 */
+	public static Double[] getFeatureArray(List<Double> featureList) { 
+		
+		Double [] featureSet = new Double[featureList.size()]; 
+		
+		for (int i = 0; i < featureList.size(); i++) { 
+			
+			featureSet[i] = featureList.get(i);
+		} 
+		
+		return featureSet;
+	}
+	
+	/** 
+	 * Given an array of values converts it to a List
+	 * @param array T[] containing the generic array type
+	 * @return List<T> containing the list representation of the array
+	 */
+	public static <T> List<T> getFeatureList(T[] array) { 
+		
+		List<T> list = new ArrayList<>(); 
+		
+		for(T temp : array) { 
+			
+			list.add(temp);
+		}
+		
+		return list;
+	}
 }

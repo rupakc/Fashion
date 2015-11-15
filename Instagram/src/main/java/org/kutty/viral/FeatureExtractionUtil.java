@@ -13,6 +13,8 @@ import org.kutty.dbo.Feature;
 import org.kutty.dbo.ViralPost;
 import org.kutty.utils.CharacterCountUtil;
 import org.kutty.utils.DateConverter;
+import org.kutty.utils.ListConverter;
+import org.kutty.utils.MatrixUtils;
 import org.kutty.utils.POSTagUtil;
 
 import com.mongodb.BasicDBList;
@@ -287,6 +289,27 @@ public class FeatureExtractionUtil {
 		
 		return featureList;
 	} 
+	
+	public static void standardizeFeatureSet(List<Feature> featureList) { 
+		
+		List<Double> featureSet; 
+		Double [] featureArray;
+		Double [] meanArray;
+		Double [] stdArray; 
+		Double trainSet[][] = new Double[featureList.size()][featureList.get(0).getFeatureVector().length];
+		
+		for(int i = 0; i < featureList.size(); i++) { 
+			
+			featureArray = featureList.get(i).getFeatureVector();
+			
+			for (int j = 0; j < featureArray.length; j++) { 
+				
+				trainSet[i][j] = featureArray[j];
+			}
+		}
+		
+		meanArray = MatrixUtils.getMeanVector(trainSet);
+	}
 	
 	public static void main(String args[]) throws UnknownHostException { 
 		
