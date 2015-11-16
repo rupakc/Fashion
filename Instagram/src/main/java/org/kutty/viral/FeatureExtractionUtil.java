@@ -13,9 +13,10 @@ import org.kutty.dbo.Feature;
 import org.kutty.dbo.ViralPost;
 import org.kutty.utils.CharacterCountUtil;
 import org.kutty.utils.DateConverter;
-import org.kutty.utils.ListConverter;
 import org.kutty.utils.MatrixUtils;
 import org.kutty.utils.POSTagUtil;
+import org.kutty.utils.PrintUtil;
+import org.kutty.utils.StatUtils;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
@@ -290,10 +291,10 @@ public class FeatureExtractionUtil {
 		return featureList;
 	} 
 	
-	public static void standardizeFeatureSet(List<Feature> featureList) { 
+	public static List<Feature> standardizeFeatureSet(List<Feature> featureList) { 
 		
-		List<Double> featureSet; 
-		Double [] featureArray;
+		List<Double> featureSet = new ArrayList<Double>(); 
+		Double [] featureArray = new Double[featureList.get(0).getFeatureVector().length];
 		Double [] meanArray;
 		Double [] stdArray; 
 		Double trainSet[][] = new Double[featureList.size()][featureList.get(0).getFeatureVector().length];
@@ -309,13 +310,54 @@ public class FeatureExtractionUtil {
 		}
 		
 		meanArray = MatrixUtils.getMeanVector(trainSet);
+		stdArray = MatrixUtils.getStdVector(trainSet);
+		//PrintUtil.printMatrix(trainSet);
+		for (int i = 0; i < trainSet[i].length; i++) { 
+			
+			featureSet.clear(); 
+			
+			for (int j = 0; j < trainSet.length; j++) { 
+				
+				featureSet.add(trainSet[j][i]);
+			}
+			
+			StatUtils.standardizeData(featureSet, meanArray[i], stdArray[i]);
+			
+			for (int j = 0; j < featureSet.size(); j++) { 
+				
+				trainSet[j][i] = featureSet.get(j);
+			}
+		}
+		//PrintUtil.printMatrix(trainSet);
+		for (int i = 0; i < featureList.size(); i++) { 
+			
+			//featureArray = new Double[featureList.get(0).getFeatureVector().length]; 
+			
+			for (int j = 0; i < trainSet[i].length; i++) { 
+				
+				featureArray[j] = trainSet[i][j];
+			
+			}
+			PrintUtil.printArray(featureArray);
+			//PrintUtil.printMatrix(trainSet);
+			featureList.get(i).setFeatureVector(featureArray);
+		}
+		
+		return featureList;
 	}
 	
 	public static void main(String args[]) throws UnknownHostException { 
 		
 		DateTime to = new DateTime();
-		DateTime from = to.minusMonths(3); 
+		DateTime from = to.minusMonths(7); 
 		//System.out.println(MongoDBUtils.getMaxMinValue("Central","Forever21", "CommentCount", "max"));
-		System.out.println(getFeatureAdaptor(getPostFeaturePipeline("Central", "Forever21", "Youtube", from.toDate(), to.toDate())));
+		List<ViralPost> featureList = getPostFeaturePipeline("Central", "Forever21", "Facebook", from.toDate(), to.toDate());
+		List<Feature> features = getFeatureAdaptor(featureList);
+		features = standardizeFeatureSet(features);
+		System.out.println(featureList.size());
+		for (Feature f : features) { 
+			
+			//System.out.println(f);
+		}
 	}
 }

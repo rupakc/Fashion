@@ -1,5 +1,8 @@
 package org.kutty.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /** 
  * Defines a set of utility functions used for matrix operations
  * @author Rupak Chakraborty
@@ -213,5 +216,25 @@ public class MatrixUtils {
 		}
 		
 		return meanVector;
+	}
+	
+	public static <T> Double[] getStdVector(T[][] matrix) { 
+		
+		Double stdVector [] = new Double[matrix[0].length];
+		List<Double> numberList = new ArrayList<Double>();
+		
+		for (int i = 0; i < matrix[i].length; i++) {   
+			
+			numberList.clear(); 
+			
+			for (int j = 0; j < matrix.length; j++) { 
+				
+				numberList.add((Double)matrix[j][i]);
+			}
+			
+			stdVector[i] = StatUtils.getStandardDeviation(numberList);
+		}
+		
+		return stdVector;
 	}
 }
