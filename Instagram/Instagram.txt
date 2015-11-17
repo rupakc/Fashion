@@ -7219,7 +7219,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. M ????????????? 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7231,7 +7231,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7243,7 +7243,7 @@ fashion,girl,bcbg,bebe,fashiondiary,guess,asiangirl,fashionblog,ootd,asian,
 #ootd #fashiondiary #fashion #girl #asian #asiangirl #fashionblog #bcbg #bebe #guess
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7255,7 +7255,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 New 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7267,7 +7267,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Cop zara 200.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7279,7 +7279,7 @@ famous,giveaway,followme,white,paint,paintpallet,like,cute,procreate,drawing,dra
 Just a little update. Still , nobody can guess who it is? #celebrity #pencil #paint #pencil #painting #procreate #paintpallet #paintbrushes #paintsamplers #woman #draw #drawing #like #comment #follow #followme #me #black #white #blackandwhite #cute #girl #famous #guess #giveaway
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7291,7 +7291,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S 100.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7303,7 +7303,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S tag vallarygirl 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7315,7 +7315,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S-m 200.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7327,7 +7327,7 @@ flipflops,mygerrl,atthemall,stoned,goodvibes,stonerchicks,girlsgoneweed,me,hotto
 "I love shopping. There is a little bit of magic found in buying something new. It is instant gratification, a quick fix."????
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7339,7 +7339,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Topshop us2 500.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7351,7 +7351,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. M 200.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7363,7 +7363,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Tag matilda Sz. S 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7375,7 +7375,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. M 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7387,7 +7387,7 @@ trends,fashion,desi,outfit,nofiter,fashionblogger,throwbackfriday,hm,delhiblogge
 Last weekend shenanigans at this beautiful place in my favorite fringe style #throwbackfriday  #fashionblogger #bayarea #dailyfeature #instastyle #instadaily #igshare #igfeature #igfashion #desi #california #style #trends #looks #potd #lotd #wiw #igshare #igfeature #igfashion #blogger #streetstyle #styleblogger #delhiblogger #HM #guess #happy #nofiter #ootd #outfit #details
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7399,7 +7399,7 @@ outlet,siam,marjacob,preorderusa,rayban,pantip,coachfactory,shoppingcoach,kiplin
 ??????? ?? ???????? ???????????????? ???? 5,590?  ???????????????? #coach#sale #coachfactory #coachoutlet #kipling #katespade #mk #michalekore #guess #fipflop#mbm#marjacob #pre #preorder #preorderusa #siam#siamparagon #shoppingcoach#dkny#pantown#pantip#siambrandname#????????#???#???#?????#rayban#outlet#outletsale
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7411,7 +7411,7 @@ zara,cpschaps,sretsis,hm,jaspal,asos,lyn,disaya,kloset,vatanika,kayasis,brandnam
 Used once Topshop uk8 ?????????? ?????? 850??? ???????? snackfisho  #siambrandname #sbn #brandname #topshop #milin #kloset #vickteerut #lynaround #jaspal #cps #chaps #guess #hm #zara #kwankao #sretsis #wila #varithorn #vatanika #disaya #asava #lovebird #cpschaps #madeoffabric #queenp #kayasis #asos #lyn
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7423,7 +7423,7 @@ versace,louisvuitton,prada,harrywinston,fashion,chanel,tiffanys,outfit,jewelry,j
 Gorgeous blue Zuhair Murad dress #eliesaab#ralphlauren#tiffanys#prada#shoes#dior#fashion#guess#gucci#hermes#hautecouture#harrywinston#handbags#jewelry#jimmychoo#luxury#louboutin#louisvuitton#michaelkors#marcjacobs#burberry#bvlgari#versace#valentino#vogue#chanel#cartier#couture#outfit#nails
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7435,7 +7435,7 @@ zara,cpschaps,sretsis,hm,jaspal,asos,lyn,disaya,kloset,vatanika,kayasis,brandnam
 New Grizzly resistance cables ??????? ?????????????????? ??? light???? ????????????????????????? ?????????????????????????? ???????????????? ???????????????? ?????? 890 ???????? snackfisho  #siambrandname #sbn #brandname #topshop #milin #kloset #vickteerut #lynaround #jaspal #cps #chaps #guess #hm #zara #kwankao #sretsis #wila #varithorn #vatanika #disaya #asava #lovebird #cpschaps #madeoffabric #queenp #kayasis #asos #lyn
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7447,7 +7447,7 @@ prada,charleskeith,olshopindo,tasbranded,resellerwelcome,givenchy,tasbatam,tasce
 315rb Dior Ring Antigona Leather Semprem# Atas 32Bwh26,5×15×24(L.Green, L.Purple, Beige, Black, Grey, Red) Cantik #tasbranded#tasbatam#tasbrandedbatam#jualtasmurah#olshopindo#resellerwelcome#jualtas#tascewek#tasmurah#tasbatam#channel#charleskeith#guess#gucci#lv#vb#mk#bottega#givenchy#hermes#prada#salvatoreferagamo#dll
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7459,7 +7459,7 @@ zara,cpschaps,sretsis,hm,jaspal,asos,lyn,disaya,kloset,vatanika,kayasis,brandnam
 Used Forever21 sizeM ????????????? ?????? 390 ???????? snackfisho  #siambrandname #sbn #brandname #topshop #milin #kloset #vickteerut #lynaround #jaspal #cps #chaps #guess #hm #zara #kwankao #sretsis #wila #varithorn #vatanika #disaya #asava #lovebird #cpschaps #madeoffabric #queenp #kayasis #asos #lyn
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7471,7 +7471,7 @@ edm,feather,sun,twin,of,abbylee,milk,instahealth,yourself,cutie,tfios,office,cow
 VISIT @GET_FOLLOWERS_5112  #of #tattoos #you #tfios #english #solecollector #cowgirl #yourself #cutie #commentback #sun #egypt #twin #celebration #feather #posing #instahealth #now #office #guess #oldschool #milk #edm #filter #tweetgram #abbylee #goodnight
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7483,7 +7483,7 @@ zara,cpschaps,sretsis,hm,jaspal,lyn,disaya,kloset,vatanika,kayasis,brandname,var
 -----Sale!!!! 300----- Used Lesportsac ???????????????? ????????? ?????????????????? ???????? snackfisho #siambrandname #sbn #brandname #topshop #milin #kloset #vickteerut #lynaround #jaspal #cps #chaps #guess #hm #zara #kwankao #sretsis #wila #varithorn #vatanika #disaya #asava #lovebird #cpschaps #madeoffabric #queenp #kayasis #lyn
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7495,7 +7495,7 @@ ilove,jt,believe,ratchet,lifeisgood,princesa,instahub,cardio,fbf,do,hungry,icecr
 VISIT @GET.FOLLOWERS.N0W8653  #follow4follow #bestfriends #text #instahub #ilove #jt #muah #believe #country #thursday #navy #that #do #swedish #ratchet #cardio #nike #hungry #fbf #guess #princesa #qatar #relationship #icecream #statigram #lifeisgood #kisses
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7507,7 +7507,7 @@ lol,thats,selfies,instagram,is,compliment,being,a,tennessee,and,posting,i,hotlip
 So I was told by some 35+ year old lady that I have hot lips today. That's neat. #hotlips #i #guess #thats #a #compliment #lol? #sorry #420 #being #basic #on #instagram #and #posting #selfies #tennessee #is #boring
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7519,7 +7519,7 @@ instagold,photograph,jualankakak,movies,geometric,amigas,instadog,draw,munich,aw
 VISIT @GET_FOLLOWERS_5122  #munich #draw #sick #campus #rcnocrop #louis #jualankakak #secret #cutie #dost #navy #amigas #ombre #malik #sabado #mum #photograph #couple #aww #guess #movies #instadog #girl #leo #instagold #pitbullsofinstagram #geometric
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7531,7 +7531,7 @@ zara,cpschaps,sretsis,hm,jaspal,asos,lyn,disaya,kloset,vatanika,kayasis,brandnam
 New Peter Pilotto sizeM ?????????? ?????? ????????????????????????? ?????? 690  ???????? snackfisho  #siambrandname #sbn #brandname #topshop #milin #kloset #vickteerut #lynaround #jaspal #cps #chaps #guess #hm #zara #kwankao #sretsis #wila #varithorn #vatanika #disaya #asava #lovebird #cpschaps #madeoffabric #queenp #kayasis #asos #lyn
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7543,7 +7543,7 @@ eider,romanson,kdrama,minshin,faith,leeminhot,???,lmh,gangnamblues,cityhunter,in
 #LeeMinHo #??? #LMH #SongForYou #Eider #Faith #Guess #GangnamBlues #innisfree #korea #kdrama #korean #KoreanDrama #Leeminhot #Minho #minoz #minshin  #REMINHO #ROMANSON #Semir #Seoul #TheHeirs #cityhunter
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7555,7 +7555,7 @@ zara,cpschaps,sretsis,hm,jaspal,asos,lyn,disaya,kloset,vatanika,kayasis,brandnam
 Used like new ?????????28 ???????????? ?????? 250 ???????? snackfisho  #siambrandname #sbn #brandname #topshop #milin #kloset #vickteerut #lynaround #jaspal #cps #chaps #guess #hm #zara #kwankao #sretsis #wila #varithorn #vatanika #disaya #asava #lovebird #cpschaps #madeoffabric #queenp #kayasis #asos #lyn
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7567,7 +7567,7 @@ model,fashion,beautyphotography,makeup,mac,beauty,photography,photooftheday,mua,
 #tbt to one of my favorites ever.  Model: Bailey Kai w LA Models Photographer: David Nguyen Retoucher: Dondee Quincena Makeup/Hair: Me :) Crystal Golden  @bkvaluemeal @dondee_q @crystal.golden @lamodels  Using Makeup Forever, MAC, Senna Cosmetics, Ben Nye and L'Oreal products @makeupforeverofficial @maccosmetics @sennacosmetics @bennyemakeup @lorealparisusa  #makeup #makeupartist #makeupforever #makeupartistry #makeupoftheday #makeupbycrystalgolden #mua #motd #model #modeling #mac #guess #fashion #fashionphotography #beauty #beautymakeup #fashionmakeup #beautyphotography #photo #photoshoot #photography #photographer #photooftheday #lamodels #lamodelsdirect #cleanmakeup #cleanbeauty
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7579,7 +7579,7 @@ zara,cpschaps,sretsis,hm,jaspal,lyn,disaya,kloset,vatanika,kayasis,brandname,var
 New Charles & Keith size38 ?????????????????????? ???????????????? ?????????????? ???3???? ???????? 1,990 ?????? 750????????? ???????? snackfisho #siambrandname #sbn #brandname #topshop #milin #kloset #vickteerut #lynaround #jaspal #cps #chaps #guess #hm #zara #kwankao #sretsis #wila #varithorn #vatanika #disaya #asava #lovebird #cpschaps #madeoffabric #queenp #kayasis #lyn
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7591,7 +7591,7 @@ fashion,selenagomez,pacsun,gigihadid,vs,kissinfashion,kendalljenner,hm,brandymel
 @nikzsop ????#saboskirt #peppermayo #hairsandstyles #americanstyle #hollister #guess #selenagomez #alexisren #pacsun #victoriassecret #vs #nousmodels #candiceswanepoel #WLYG #brandymelvilleusa #forever21 #mirandakerr #kendalljenner #brandymelville #hollister #kissinfashion #gigihadid #fashionnova #hm #ootd #shopping #style #fashion #hair #dress ????
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7603,7 +7603,7 @@ q8,animals,can,healthyliving,girlfriend,inspo,thankyou,shinee,horizon,depression
 LOOK @GET_FOLLOWERS_5122  #nigga #guitar #selfienation #picstitch #sticker #horizon #champs #massage #healthyliving #shinee #depression #takemeback #can?m #shoutmeout #animals #fivesecondsofsummer #leeyum #shooting #crab #guess #girlfriend #gameday #inspo #thankyou #follow #waltdisney #q8
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7615,7 +7615,7 @@ glowstick,led,guess,
 What will starfish and Tia do with glow sticks and LED balloons?! #led #glowstick #guess
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7627,7 +7627,7 @@ jualankakak,gymlife,chanelboy,italia,attractive,focus,tattoo,evening,italy,cards
 LOOK @GET.FOLLOWERS.N0W9441  #arianagrande #steak #lasvegas #keepcalm #recovery #sfs #jualankakak #attractive #double #or #workshop #italy #focus #blonde #legs #disney #feeling #cards #evening #guess #airmax #snowday #gymlife #leo #chanelboy #tattoo #italia
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7639,7 +7639,7 @@ takeoff,taxi,depart,airplane,ottawa,instaaviation,flight,aviation,plane,fly,airl
 Guess the aircraft #guess #aircraft #ottawa #yow #airlines #airplane #plane #depart #takeoff #taxi #runway #avgeek #aviation #avgeek #instaaviation  #flight #fly
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7651,7 +7651,7 @@ versace,instagold,loewe,whiskey,cousin,city,lesbian,gymlife,swifties,zaynmalik,u
 LOOK @GET_FOLLOWERS_5122  #smart #mygirl #city #seohyun #picoftheday #swifties #cousin #senioryear #whiskey #versace #positive #instahappy #zaynmalik #river #ford #universal #lmfao #loewe #tourism #guess #eminem #lesbian #gymlife #mybaby #instagold #music #lovepuppies
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7663,7 +7663,7 @@ ilove,gift,sad,5secondsofsummer,pinup,hm,insta_crew,gifts,happythanksgiving,ford
 LOOK @GET.FOLLOWERS.N0W2532  #practice #vegas #brown #textme #ilove #babes #hm #happythanksgiving #madness #fotorus #hohoho #takemeback #insta_crew #tumblr #ford #sad #sneakerfiend #smiler #fifa14 #guess #got #pinup #gifts #gift #5secondsofsummer #regalo #with
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7675,7 +7675,7 @@ shoes,coachoutlet,brandname,purse,bag,coach,watch,coachthailand,rockportshoes,la
 ??????? Michael Kors Satchel Brown Small ???????? Cross body ???????? ???????????? ?????????????? ???? mint ????????????????100% ?????? EMS ????????????????????  10" (H) x 8" (W) x 6" (D) ????????? Line : Kindkrystal  #coach #coachthailand #michaelkors #mk #brandname #bag #weloveshopping #coachfactory #coachoutlet #preorderusa #guess #watch #clinique #lancome #cosmetics #shoes #ninewest #ccdoubleo#purse#adidas#rockportshoes#coachthailand#siambrandname
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7687,7 +7687,7 @@ whatkind,bake,food,guess,summer,leaves,
 Can anyone guess what I'm making a batch of ??? #leaves #whatkind #guess #bake #food #summer ?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7699,7 +7699,7 @@ whos,guess,back,
 #guess#whos#back
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7711,7 +7711,7 @@ victoriansecretbag,zara,fashion,jualantasmurah,brandedbag,zarabag,forever21bag,t
 Cath kidston B2434 Ready avail : Patchwork , field rose Rp335.000 Free dustbag  #authenticbag#originalbag#brandedbag#jualtas#tasmurah#zarabag#charlesnkeithbag#mangobag#parfoisbag#forever21bag#victoriansecretbag#fashion#promote#promosi#indonesia#bandung#jualantasmurah#jualtaslucu#tascewe#readystock#mango#zara#cnk#guess#calvinklein#tasbagus#taskeren
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7723,7 +7723,7 @@ both,followme,writing,thought,impossible,beauty,youdontevenknow,poetry,pretty,wh
 #poem #poet #love #his #exited #exited #poetic #poetry #pretty #beautiful #beauty #loveyourself #starsinhereyes #impossible #love #youdontevenknow #both #stars #amazing #stars #favourite #more #writing #deserving #followme #deadly #gun #thought #opportunity #trigger #guess #who #surprise
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7735,7 +7735,7 @@ watch,guess,jamtangan,openorder,myshop,
 #watch #openorder #jamtangan #myshop  #guess  Jam tangan guess motif  Price: 200rb Belum termasuk ongkir  Minat pm Bbm: 52A38A15 Hp/w.a: 081258435428  Have a nice day :)
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7747,7 +7747,7 @@ dw,fbmm,travel,oakley,vans,cashmomey,linqstyle,technicaltheatre,drum,drummerlife
 Day 5: Guess who I ran into? @cameron__roberts #vegas #tech #techie #TALNTS #travel #techielife #technicaltheatre #yamaha #stagecustom #Oakley #sound #sounddesign #soundengineer #dw #drum #drums #drummer #drummerlife #drumworkshop #fbmm #guess #getmoney #LINQ #LINQstyle #cashmomey #vans #music #musicianlife
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7759,7 +7759,7 @@ dinner,selfie,growingup,birthday,blackandwhite,happy,family,guess,celebrations,f
 #blackandwhite #fitgirl #birthday #celebrations #dinner #family #growingup #selfie #happy #guess
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7771,7 +7771,7 @@ gift,watch,guess,
 Happy early bday to me ?? #gift #watch #Guess ???
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7783,7 +7783,7 @@ jacket,nextlevel,cool,glasses,mexicocity,mexico,random,fabian,fun,alive,summerfu
 Selfie with Michael jackson.? #michaeljackson #michael #jackson #mexico #mexicocity #fun #summer #summerfun #style #fabian  #selfie #filter #lotofhashtags #dead #alive #cool #weird #random #glasses #jacket #shirt #guess #getonmylevel #nextlevel
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7795,7 +7795,7 @@ shoes,burberry,watch,cap,guess,menstyle,jeans,adidasoriginals,me,brit,men,adidas
 Smoking is kill you =================== #me #men #menstyle #jeans #guess #shirt #burberry #brit #watch #cap #shoes #adidas #adidasoriginals
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7807,7 +7807,7 @@ dt,zara,firework,monday,piercing,lp,good,island,robin,zoo,goodmusic,polishboy,he
 VISIT @GET_FOLLOWERS_5115  #thetruth #job #trees #drums #recent4recent #heels #mexican #lp #polishboy #zara #island #robin #matthewespinosa #firework #zoo #piercing #lmfao #instababy #good #guess #catchingfire #amo #sketch #goodmusic #dt #yum #monday
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7819,7 +7819,7 @@ lovenikuya,watch,guess,
 Thank you Papadi #Guess #watch #loveniKuya ._.
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7831,7 +7831,7 @@ foodpic,old,saying,domingo,lfl,blossom,sun,robin,malik,followforlike,italia,fbf,
 VISIT @GET_FOLLOWERS_5114  #domingo #instacollage #homecoming #picstitch #old #kpop #saying #sundayfunday #blossom #goodtime #sun #robin #foe #malik #snack #lfl #senior #cod #fbf #guess #foodpic #bass #songwriter #icon #russia #followforlike #italia
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7843,7 +7843,7 @@ music,selfie,selfish,guess,blondie,blondesdoitbetter,thismorning,latergram,
 #selfie #selfish #latergram #blondie #blondesdoitbetter #thismorning #guess #music
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7855,7 +7855,7 @@ text,crazy,crazywomen,guess,cantstoplaughing,
 So...my dad just sent me this... Anyone wanna guess what my name is. @fryisadork11 @blazinn__sketch you needs to shush cuz you already know >~<. #crazywomen #text #cantstoplaughing #guess #crazy
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7867,7 +7867,7 @@ sparkly,guess,black,
 Loving my new shoes! #GUESS #black #sparkly
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7879,7 +7879,7 @@ what_i_saw_in_nyc,skyline,newyorkcity,silver,poor,manhattan,always,humid,captiva
 The #silver #lining to a #hot and #humid #summer #day in #newyorkcity which #culminated in a #downpour this #Bellini #colored #sunset over the #always #captivating #Manhattan #skyline. I #guess #poor #air #quality can have an #upside. #what_I_saw_in_nyc
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7891,7 +7891,7 @@ fashion,brandymelville,libra,guess,astrology,ootd,virgo,
 Fit for the day?#ootd#brandymelville#astrology#virgo#libra#guess#fashion
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7903,7 +7903,7 @@ thebodyshop,americaneagle,victoriasecretpink,burgerking,aldo,td,americanapparel,
 ?? #TD ?? ???? #BMO ??? ?????? I got this card from BMO which means BMO wants me to go shopping.lol #Aldo #guess #americanapparel #americaneagle #burgerking  #pizzahut #bananapublic #thebodyshop #victoriasecretpink  #tommyhilfiger #forever21 #gap ???? ?????????? #spc  card discounts at more than 100 national retail chains.
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -7915,7 +7915,7 @@ follower,fashionista,ready,who,laughing,munchen,italia,abbylee,su,healthychoices
 LOOK @GET_FOLLOWERS_5116  #su #like4tags #sdv #ready #professional #healthychoices #turkey #doha #fashionista #who #follower #takemeback #teddy #cross #equestrian #munchen #regram #laughing #sand #guess #liking #vegan #songwriter #peaceful #cream #abbylee #italia
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7927,7 +7927,7 @@ victoriansecretbag,zara,fashion,jualantasmurah,brandedbag,zarabag,forever21bag,t
 Charles n keith B2414 Rp425.000 Free dustbag  #authenticbag#originalbag#brandedbag#jualtas#tasmurah#zarabag#charlesnkeithbag#mangobag#parfoisbag#forever21bag#victoriansecretbag#fashion#promote#promosi#indonesia#bandung#jualantasmurah#jualtaslucu#tascewe#readystock#mango#zara#cnk#guess#calvinklein#tasbagus#taskeren
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7939,7 +7939,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 ????????? 33 set 100.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7951,7 +7951,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S ?????? 100.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7963,7 +7963,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 ?????? sz. 32 200.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -7975,7 +7975,7 @@ whos,rihanna,monster,eminem,back,marshallmathers,slimshady,tellafriend,hellyeah,
 #eminem #rihanna #monster #tour #riri #marshallmathers #slimshady #hellyeah #yo #guess #whos #back #tellafriend
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7987,7 +7987,7 @@ guess,toronto,sherrida,
 One of my fave comp card pics ? #guess inspired outfit #sherrida #toronto
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -7999,7 +7999,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S ?????? 200.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8011,7 +8011,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S 350.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8023,7 +8023,7 @@ jamtanganmurah,fossilwatch,musthave,watch,trustedseller,jualjamtanganori,gshock,
 NEW COLLECTION! Hari ini terakhir free ongkir! Fossil Men's DelRey CH2952 IDR 1.866.000  2yr warranty Include box, manual book & warranty card Shipping seluruh Indonesia BBM : 7EC1F826 WA : 081938398905 Line : wualberthardy  #fossil #fossiloriginal #fossilwatch #musthave #authenticonly #jamtangan #jamtanganfossil #jualjamtangan #jualjamtanganori #watch #watchgeek #watchporn #guess #guesswatch #casio #gshock #swatch # nautica #pierrecardin #jamtanganmurah #trustedseller #trustedolshop
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8035,7 +8035,7 @@ music,cool,song,jessgodwin,purple,whatever,somanyhashtags,white,im,i,and,love,se
 I’ve been there too many times to Hope for things to change?
 </CaptionText>
 <SentimentLabel>
-
+0,nulll
 </SentimentLabel>
 </Tag>
 
@@ -8047,7 +8047,7 @@ jamtanganmurah,fossilwatch,musthave,watch,trustedseller,jualjamtanganori,gshock,
 RESTOCKK! Yg kemarin kehabisan silahkan disikattt Hari ini terakhir free ongkir! Fossil Men's DelRey CH2972 IDR 1.866.000  2yr warranty Include box, manual book & warranty card Shipping seluruh Indonesia BBM : 7EC1F826 WA : 081938398905 Line : wualberthardy  #fossil #fossiloriginal #fossilwatch #musthave #authenticonly #jamtangan #jamtanganfossil #jualjamtangan #jualjamtanganori #watch #watchgeek #watchporn #guess #guesswatch #casio #gshock #swatch # nautica #pierrecardin #jamtanganmurah #trustedseller #trustedolshop
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8059,7 +8059,7 @@ grandindonesia,chanel,jumpsuitcewek,kulotpremium,syahrini,jualdressbranded,bodys
 ?Masculine Set 750rb  Ready : xs s m l xl  Thick cotton stretch + elastane ?? Premium Quality?? ?order : ? line : foxybabe_clothing ? wa : 0812 2829 2822 ?pin : 54C2AFC6  #jualdressbranded#dressbrandedmurah#supplierdressbranded#glamours#jumpsuitcewek#bodyshop#fashionweek#jualkulotbagus#kulotpremium#jualbikinipremium#bajuartis#samarinda#pontianak#batam#suppliermurah#guess#chanel#bebe#grandindonesia#victoriabecham#victoria#syahrini
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8071,7 +8071,7 @@ grandindonesia,chanel,jumpsuitcewek,kulotpremium,syahrini,jualdressbranded,bodys
 ?Asian Midi 550rb  Ready : xs s m l xl  Thick cotton stretch + elastane ?? Premium Quality?? ?order : ? line : foxybabe_clothing ? wa : 0812 2829 2822 ?pin : 54C2AFC6  #jualdressbranded#dressbrandedmurah#supplierdressbranded#glamours#jumpsuitcewek#bodyshop#fashionweek#jualkulotbagus#kulotpremium#jualbikinipremium#bajuartis#samarinda#pontianak#batam#suppliermurah#guess#chanel#bebe#grandindonesia#victoriabecham#victoria#syahrini
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8083,7 +8083,7 @@ selfie,guess,dress,momlife,
 When you score a Guess dress for under $10 and a Fox shirt for $5 ?? I'm not cheap, I'm thrifty. I'm a momma with good taste so I make sure I get those name brands at a bargain price ?? #selfie #guess #dress #momlife
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -8095,7 +8095,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. M 250.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8107,7 +8107,7 @@ wig,cnkbranded,tasbranded,gosholic,tassecond,rambutpalsu,cnkprelove,tasmurah,gue
 Wig kondisi masih bagus owner cm pake 5x....(seperti rambut asli ) Rambut lembut , sangat terawat  Alasan jual skrg rambut owner udh warna hitam jdi ini djual  @230 nego tipis #gosh #gosholic #goshpreloved #goshsecond #tasbranded #tasmurah #tassecond #guesssecond #guess #cnkbranded #cnkprelove #wig #wigsecond #rambutpalsu #wedgesmurah #wedgesbrandedsecond
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8119,7 +8119,7 @@ grandindonesia,chanel,jumpsuitcewek,kulotpremium,syahrini,jualdressbranded,bodys
 ?Little Magic 550rb  Ready : xs s m l xl  Thick cotton stretch + elastane ?? Premium Quality?? ?order : ? line : foxybabe_clothing ? wa : 0812 2829 2822 ?pin : 54C2AFC6  #jualdressbranded#dressbrandedmurah#supplierdressbranded#glamours#jumpsuitcewek#bodyshop#fashionweek#jualkulotbagus#kulotpremium#jualbikinipremium#bajuartis#samarinda#pontianak#batam#suppliermurah#guess#chanel#bebe#grandindonesia#victoriabecham#victoria#syahrini
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8131,7 +8131,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Set 3 ???? 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8143,7 +8143,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S ???????? 300.- Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8155,7 +8155,7 @@ grandindonesia,chanel,jumpsuitcewek,kulotpremium,syahrini,jualdressbranded,bodys
 ?Balmain Dove 625rb  Ready : xs s m l xl  Thick cotton stretch + elastane ?? Premium Quality?? ?order : ? line : foxybabe_clothing ? wa : 0812 2829 2822 ?pin : 54C2AFC6  #jualdressbranded#dressbrandedmurah#supplierdressbranded#glamours#jumpsuitcewek#bodyshop#fashionweek#jualkulotbagus#kulotpremium#jualbikinipremium#bajuartis#samarinda#pontianak#batam#suppliermurah#guess#chanel#bebe#grandindonesia#victoriabecham#victoria#syahrini
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8167,7 +8167,7 @@ nobody,going,summerfollowparty,jayfollowparty,hardships,guess,uglyfollowtrain,ca
 #guess #nobody #going #through #hardships #summerfollowparty #uglyfollowtrain #jayfollowparty #cashfollowtrain #jaygaintrain
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8179,7 +8179,7 @@ grandindonesia,chanel,jumpsuitcewek,kulotpremium,syahrini,jualdressbranded,bodys
 ?Balmain Diana 575rb  Ready : xs s m l xl  Thick cotton stretch + elastane ?? Premium Quality?? ?order : ? line : foxybabe_clothing ? wa : 0812 2829 2822 ?pin : 54C2AFC6  #jualdressbranded#dressbrandedmurah#supplierdressbranded#glamours#jumpsuitcewek#bodyshop#fashionweek#jualkulotbagus#kulotpremium#jualbikinipremium#bajuartis#samarinda#pontianak#batam#suppliermurah#guess#chanel#bebe#grandindonesia#victoriabecham#victoria#syahrini
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8191,7 +8191,7 @@ fashion,zara,cottonon,secretkorea,use,used,hm,jaspal,lyn,kloset,d,2hand,matilda,
 Sz. S tag kayasis(cop) 300.- ???????? Line : gunggriing #????? #sbn #siambrandname #coach #arista #lyn #lynaround #matilda #honeyme #secretwonderland #secretkorea #use #used #2hand #secondhand #hm #chaps #jaspal #zara #guess #sale #cottonon #d&g #fashion #kloset
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8203,7 +8203,7 @@ grandindonesia,chanel,jumpsuitcewek,kulotpremium,syahrini,jualdressbranded,bodys
 ?One Set Exchange 650rb  Ready : xs s m l xl  Thick cotton stretch + elastane ?? Premium Quality?? ?order : ? line : foxybabe_clothing ? wa : 0812 2829 2822 ?pin : 54C2AFC6  #jualdressbranded#dressbrandedmurah#supplierdressbranded#glamours#jumpsuitcewek#bodyshop#fashionweek#jualkulotbagus#kulotpremium#jualbikinipremium#bajuartis#samarinda#pontianak#batam#suppliermurah#guess#chanel#bebe#grandindonesia#victoriabecham#victoria#syahrini
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8215,7 +8215,7 @@ music,dope,shades,fashion,swag,aka,makeup,nÿ,xoxo,workflow,love,selfie,pose,chil
 "U SØ Fine, U BlØw My Mind" #NŸ #Aka#AJ#Swag#Fashion#Style#Baby#Summer#Shades#Guess#Gold#Music#Love#Pose#Pose#Chilling#Dope#Selfie#WorkFlow#Tbt#Curls#MakeUp#HairStyle#xoxo#Ajxo
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8227,7 +8227,7 @@ books,skinnies,guessjeans,cantwait,longhair,jeans,socks,tanktop,photography,imco
 It's a beautiful life. Live it. ? #lazy #night #books #somany #socks #wool #imcold #basementbedroom #guessjeans #denim #skinnies #jeans #guess #tanktop #bodyshot #longhair #curls #earrings #almosttheweekend #cantwait #countrygirl #photography #summer
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8239,7 +8239,7 @@ grandindonesia,chanel,jumpsuitcewek,kulotpremium,syahrini,jualdressbranded,bodys
 ?Melani Top 370rb  Ready : xs s m l xl  Thick cotton stretch + elastane ?? Premium Quality?? ?order : ? line : foxybabe_clothing ? wa : 0812 2829 2822 ?pin : 54C2AFC6  #jualdressbranded#dressbrandedmurah#supplierdressbranded#glamours#jumpsuitcewek#bodyshop#fashionweek#jualkulotbagus#kulotpremium#jualbikinipremium#bajuartis#samarinda#pontianak#batam#suppliermurah#guess#chanel#bebe#grandindonesia#victoriabecham#victoria#syahrini
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8251,7 +8251,7 @@ guess,toronto,
 Assistant managers meeting???#guess #toronto
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8263,7 +8263,7 @@ guesswhat,scrabble,creative,guessinggame,grass,green,lostforwords,wheeloffortune
 HINT: We all want this in our yard... and you know where to get it! ? #fridayfunday #lostforwords #tgif #nuts #fun #funny #bonkers #wordgame #scrabble #not #wheeloffortune #tgif #creative #photography #woodletters #guess #game #guessinggame #guesswhat #twinviewturf #turffarm #green #grass #newlawn
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8275,7 +8275,7 @@ freepeopleforsale,instashop,igshop,freepeople,igcloset,shopmywardrobe,boho,bohem
 Free People Nomad Child dress, retails $148 and NWT. Size small, 20" bust, 33.5" long. Has pockets and double tassel detail. $52 + SH #igsale #igshop #igcloset #igcloset #shopmywardrobe #instashop #instashop #ootd #freepeople #freepeopleforsale #boho #bohemian #bohochic
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8287,7 +8287,7 @@ fashion,fashionista,instaboho,jewelry,boho,cute,bohemian,hippie,freepeople,style
 Hand drawn and etched round tag in silver and turquoise patina. Beaded with chain. #boho #bohemian #gypsy #gypsylove #gypsylife #jewelry #instajewelry #beautiful #necklace #bohochic #instaboho #instagood #hipster #hippie #hippiechic #lovely #vintage #vibes #fashion #fashionista #tribal #style #stylish #accessories #cute #freepeople #tribal #ethnic #primitive #crystal #quartz
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8299,7 +8299,7 @@ mylook,lookbook,fashion,fashionista,outfit,singersongwriter,outfitoftheday,fashi
 And in the end, letting go was a lot like finding love... I had to learn to say goodbye to the one who gave me the courage to say hello ?  Photo @ryantothec  Styling/Makeup @alexwoodstylist  Wardrobe @freepeople  #freepeople #singer #singersongwriter #ootd #outfitoftheday #lookoftheday #vasquezrocks #fashiongram #quote  #beautiful #currentlywearing #beauty #lookbook #whatiwore #nature #mylook #whatiworetoday #ootdshare #outfit #clothes #fashionista #style #quotes #instastyle #instafashion #outfitpost #fashionpost #todaysoutfit #fashiondiaries #fashion
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8311,7 +8311,7 @@ clevelandgram,freepeople,fpemilypansy,fpfolkrock,fpme,thisiscle,clestyle,clevela
 :: f o l k || r o c k :: #freepeople #fpme #fpfolkrock #clevelandgram #clevelandrocks #clestyle #thisiscle #fpemilypansy ?: @samlandreth
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8323,7 +8323,7 @@ bmf,freepeople,stunnas,
 #BMF#freepeople #stunnas
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8335,7 +8335,7 @@ moon,blueeyes,instablonde,cancerlady,boho,eyes,love,instaquote,girl,dreamer,hipp
 It's both a blessing and a curse to feel everything so very deeply . . ?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8347,7 +8347,7 @@ shoplocal,cutoutdresses,freepeople,detailsboutique,comfysweaters,
 For those cool autumn nights, the new Free People Vera sweater and Lilly dress have got you covered! #freepeople #comfysweaters #cutoutdresses #shoplocal #detailsboutique
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -8359,7 +8359,7 @@ lookbook,michellemoore,seattlephotographer,posepatch,fashionblogger,fashionphoto
 I am SO SO honored to have been selected one of the 50 Most Inspiring Photographers in 2015 - huge thank you to @katiemyrickphoto for the nomination!  Interview now up on @thesnapsociety "...This woman single handedly changed the way we run our senior photography businesses today and she deserves 110% to be awarded the honor of being nominated.” – Katie  Q: What has been your biggest setback?  Getting in my own way – or waiting for the “right set of circumstances”. We have to get out of our own way – just get out there and do it. The only way to make opportunity for ourselves is to create our own opportunities. Get out there, introduce yourself and keep asking.  Read the rest here! http://www.thesnapsociety.com/inspirational-photographers-featuring-michelle-moore/  PS If you are dying to break out of your rut and start photographing your dream clients every day, I have created the perfect workshop for you!  Just head to the link in my bio to purchase.  I teach you the ways I took MY business from shooting anything and everything - to ONLY shooting the clients that speak to my soul!  @shaepowder for @freepeople HMU @bootsbrady  Natural light & 50mm
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8371,7 +8371,7 @@ shoplocal,karlie,shop,braggjam,maconga,freepeople,rumorhasit,rumogals,danceallni
 | BRAGG JAM | is here, and we've got the perfect romper for you to rock all night long!! @karlieclothes watercolor romper paired perfectly with these edgy @freepeople booties from @headoverheelsga!! You'll be turnin' heads for sure. #whatwelove #braggjam #MaconGA #shoplocal #shop #karlie #freepeople #shopHOH #rumorhasit #rumogals #rock #cheers #danceallnight
 </CaptionText>
 <SentimentLabel>
-
+1,1
 </SentimentLabel>
 </Tag>
 
@@ -8383,7 +8383,7 @@ explore,widn,letsgosomewhere,california,puravida,mood,liveinit,farylrobin,postit
 // currently ?
 </CaptionText>
 <SentimentLabel>
-
+0,null
 </SentimentLabel>
 </Tag>
 
@@ -8395,7 +8395,7 @@ freepeople,greece,newscafe,beach,heraklio,
 Life is a beach ???? #beach #heraklio #greece #newscafe #freepeople
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8407,7 +8407,7 @@ vscogrid,vscofilter,vscomania,bestofvsco,vscophile,vscoaward,vscoedit,vscoph,vsc
 First day: hurry, wake up #vscogrid #vscofilter #vscomania #vscophile #vscoaward #vscoedit #vscoedit #vscoph #vscolovers  #vsco #vscodaily #vscoonly #vscogood #vscocam #vscovibe #vscoartist #vscopic #topvsco #bestofvsco #visuals4all #tirol #alpbach #boho #bohostyle #freespirit #freepeople #tumblr #flowers #cute #lovetirol
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8419,7 +8419,7 @@ freepeopleforsale,freepeople,
 ?reduced ? See original for details  Please do not inquire unless you are truly interested offers welcome on this item $49 shipped #freepeople #freepeopleforsale
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8431,7 +8431,7 @@ fashion,bohemianfashion,beachwedding,weddingplanning,hippyfashion,igdaily,boho,b
 Peachy pink or pale blue, which colour will I choose? (#bridesmaids dress inspo for a boho-beach wedding) @freepeople #freepeople #bohowedding #beachwedding #boho #bohemian #bohemianfashion #hippy #hippyfashion #gyspy #gypsyfashion #weddinginspo #fashion #instafashion #weddingplanning #igdaily #instadaily
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8443,7 +8443,7 @@ bcinbc,freepeople,vancan,vancouverbc,summertime,vancity,
 ? night & day #summertime #vancouverbc #vancan #vancity #bcinbc #freepeople
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 
@@ -8455,7 +8455,7 @@ freepeople,
 Killing time before Ant-man. These are new boots. ????#freepeople
 </CaptionText>
 <SentimentLabel>
-
+1,0
 </SentimentLabel>
 </Tag>
 

@@ -43,7 +43,8 @@ public class Feature {
 	 */
 	public void setFeatureVector(Double[] featureVector) { 
 		
-		this.featureVector = featureVector;
+		this.featureVector = new Double[featureVector.length];
+		
 		for (int i = 0; i < featureVector.length; i++) { 
 			
 			this.featureVector[i] = featureVector[i];

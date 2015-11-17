@@ -15,7 +15,6 @@ import org.kutty.utils.CharacterCountUtil;
 import org.kutty.utils.DateConverter;
 import org.kutty.utils.MatrixUtils;
 import org.kutty.utils.POSTagUtil;
-import org.kutty.utils.PrintUtil;
 import org.kutty.utils.StatUtils;
 
 import com.mongodb.BasicDBList;
@@ -291,6 +290,11 @@ public class FeatureExtractionUtil {
 		return featureList;
 	} 
 	
+	/** 
+	 * Standardizes the feature set by subtracting mean and dividing by standard deviation
+	 * @param featureList List<Feature> to be standardized
+	 * @return List<Feature> containing the feature list
+	 */
 	public static List<Feature> standardizeFeatureSet(List<Feature> featureList) { 
 		
 		List<Double> featureSet = new ArrayList<Double>(); 
@@ -298,6 +302,7 @@ public class FeatureExtractionUtil {
 		Double [] meanArray;
 		Double [] stdArray; 
 		Double trainSet[][] = new Double[featureList.size()][featureList.get(0).getFeatureVector().length];
+		Feature tempFeature; 
 		
 		for(int i = 0; i < featureList.size(); i++) { 
 			
@@ -308,10 +313,10 @@ public class FeatureExtractionUtil {
 				trainSet[i][j] = featureArray[j];
 			}
 		}
-		
+	
 		meanArray = MatrixUtils.getMeanVector(trainSet);
 		stdArray = MatrixUtils.getStdVector(trainSet);
-		//PrintUtil.printMatrix(trainSet);
+	
 		for (int i = 0; i < trainSet[i].length; i++) { 
 			
 			featureSet.clear(); 
@@ -327,20 +332,19 @@ public class FeatureExtractionUtil {
 				
 				trainSet[j][i] = featureSet.get(j);
 			}
-		}
-		//PrintUtil.printMatrix(trainSet);
+		} 
+		
 		for (int i = 0; i < featureList.size(); i++) { 
-			
-			//featureArray = new Double[featureList.get(0).getFeatureVector().length]; 
 			
 			for (int j = 0; i < trainSet[i].length; i++) { 
 				
 				featureArray[j] = trainSet[i][j];
 			
-			}
-			PrintUtil.printArray(featureArray);
-			//PrintUtil.printMatrix(trainSet);
-			featureList.get(i).setFeatureVector(featureArray);
+			} 
+			
+			tempFeature = featureList.get(i);
+			tempFeature.setFeatureVector(featureArray);
+			featureList.set(i, tempFeature);
 		}
 		
 		return featureList;
@@ -349,15 +353,10 @@ public class FeatureExtractionUtil {
 	public static void main(String args[]) throws UnknownHostException { 
 		
 		DateTime to = new DateTime();
-		DateTime from = to.minusMonths(7); 
-		//System.out.println(MongoDBUtils.getMaxMinValue("Central","Forever21", "CommentCount", "max"));
-		List<ViralPost> featureList = getPostFeaturePipeline("Central", "Forever21", "Facebook", from.toDate(), to.toDate());
+		DateTime from = to.minusDays(17); 
+		List<ViralPost> featureList = getPostFeaturePipeline("Central", "Forever21", "Twitter", from.toDate(), to.toDate());
 		List<Feature> features = getFeatureAdaptor(featureList);
 		features = standardizeFeatureSet(features);
 		System.out.println(featureList.size());
-		for (Feature f : features) { 
-			
-			//System.out.println(f);
-		}
 	}
 }

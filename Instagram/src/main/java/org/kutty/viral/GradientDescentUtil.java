@@ -58,6 +58,8 @@ public class GradientDescentUtil {
 	public static Double[] getModelWeights(List<Feature> trainSet) { 
 
 		Double[] weights = getInitialWeight(trainSet.get(0).getDimension());
+		Double oldWeights[] = new Double[weights.length];
+		Double differenceVector[] = new Double[weights.length];
 		Double predictedValue;
 		int predictedClassLabel;
 		int differenceLabel;
@@ -67,10 +69,12 @@ public class GradientDescentUtil {
 		Double [] trainFeature;
 		Double [] updateVector; 
 		Double errorThreshold = 0.01;
+		
+		Double error = Double.MAX_VALUE;
 		int maxIterations = 100; 
 		int count = 0; 
 
-		while(count < maxIterations) { 
+		while(count < maxIterations && error > errorThreshold) { 
 
 			for (int i = 0; i < trainSet.size(); i++) { 
 
@@ -91,8 +95,11 @@ public class GradientDescentUtil {
 				differenceLabel = (predictedClassLabel - trainSet.get(i).getClassLabel());
 				adjustmentFactor = learningRate*differenceLabel;
 				updateVector = MatrixUtils.multiplyByScalar(trainFeature, adjustmentFactor);
+				oldWeights = weights.clone();
 				weights = MatrixUtils.subtractVectors(weights,updateVector);
-
+				differenceVector = MatrixUtils.subtractVectors(oldWeights,weights);
+				error = MatrixUtils.getNorm(differenceVector);
+				
 			} 
 			
 			count++;
