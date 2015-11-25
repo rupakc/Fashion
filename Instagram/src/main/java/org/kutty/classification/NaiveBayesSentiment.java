@@ -88,6 +88,7 @@ public class NaiveBayesSentiment {
 
 		String processCaption = preProcessingPipelineForContent(captionText);
 		String processTagSet = preProcessingPipelineForTag(tagset);
+		String ngram;
 		double [] caption_probability = new double[3];
 		double [] tag_probability = new double[3]; 
 		Map <String, Double> ngram_probabilty = new HashMap <String, Double>(); 
@@ -100,10 +101,10 @@ public class NaiveBayesSentiment {
 
 		for (int i = 1; i <= 3; i++) { 
 
-			processCaption = FeatureUtil.getNGram(processCaption, i);
-			caption_probability[0] = getProbability(processCaption, positive_map)*tag_probability[0];
-			caption_probability[1] = getProbability(processCaption, negative_map)*tag_probability[1];
-			caption_probability[2] = getProbability(processCaption, neutral_map)*tag_probability[2];
+			ngram = FeatureUtil.getNGram(processCaption, i);
+			caption_probability[0] = getProbability(ngram, positive_map)*tag_probability[0];
+			caption_probability[1] = getProbability(ngram, negative_map)*tag_probability[1];
+			caption_probability[2] = getProbability(ngram, neutral_map)*tag_probability[2];
 			ClassificationUtils.convertToPercentage(caption_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(caption_probability,i));
 		} 
@@ -125,17 +126,17 @@ public class NaiveBayesSentiment {
 	public String classifySentimentOtherChannels(String text) { 
 
 		String processText = preProcessingPipelineForContent(text);
-
+		String ngram;
 		double [] content_probability = new double[3]; 
 		Map <String, Double> ngram_probabilty = new HashMap <String, Double>(); 
 		Entry<String, Double> max_entry; 
 
 		for (int i = 1; i <= 3; i++) { 
 
-			processText = FeatureUtil.getNGram(processText, i);
-			content_probability[0] = getProbability(processText, positive_map);
-			content_probability[1] = getProbability(processText, negative_map);
-			content_probability[2] = getProbability(processText, neutral_map);
+			ngram = FeatureUtil.getNGram(processText, i);
+			content_probability[0] = getProbability(ngram, positive_map);
+			content_probability[1] = getProbability(ngram, negative_map);
+			content_probability[2] = getProbability(ngram, neutral_map);
 			ClassificationUtils.convertToPercentage(content_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(content_probability,i));
 		} 

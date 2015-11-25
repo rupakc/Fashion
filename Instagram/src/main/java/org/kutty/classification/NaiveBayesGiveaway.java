@@ -72,6 +72,7 @@ public class NaiveBayesGiveaway {
 		
 		String processCaption = preProcessingPipelineForContent(captionText);
 		String processTagSet = preProcessingPipelineForTag(tagset);
+		String ngram;
 		double [] caption_probability = new double[2];
 		double [] tag_probability = new double[2]; 
 		Map <String, Double> ngram_probabilty = new HashMap <String, Double>(); 
@@ -83,9 +84,9 @@ public class NaiveBayesGiveaway {
 		
 		for (int i = 1; i <= 3; i++) { 
 			
-			processCaption = FeatureUtil.getNGram(processCaption, i);
-			caption_probability[0] = getProbability(processCaption, real_map)*tag_probability[0];
-			caption_probability[1] = getProbability(processCaption, fake_map)*tag_probability[1];
+			ngram = FeatureUtil.getNGram(processCaption, i);
+			caption_probability[0] = getProbability(ngram, real_map)*tag_probability[0];
+			caption_probability[1] = getProbability(ngram, fake_map)*tag_probability[1];
 			ClassificationUtils.convertToPercentage(caption_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(caption_probability,i));
 		} 

@@ -80,6 +80,7 @@ public class NaiveBayesSpam {
 
 		String processCaption = preProcessingPipelineForContent(captionText);
 		String processTagSet = preProcessingPipelineForTag(tagset);
+		String ngram;
 		double [] caption_probability = new double[2];
 		double [] tag_probability = new double[2]; 
 		Map <String, Double> ngram_probabilty = new HashMap <String, Double>(); 
@@ -91,9 +92,9 @@ public class NaiveBayesSpam {
 
 		for (int i = 1; i <= 3; i++) { 
 
-			processCaption = FeatureUtil.getNGram(processCaption, i);
-			caption_probability[0] = getProbability(processCaption, spam_map)*tag_probability[0];
-			caption_probability[1] = getProbability(processCaption, ham_map)*tag_probability[1];
+			ngram = FeatureUtil.getNGram(processCaption, i);
+			caption_probability[0] = getProbability(ngram, spam_map)*tag_probability[0];
+			caption_probability[1] = getProbability(ngram, ham_map)*tag_probability[1];
 			ClassificationUtils.convertToPercentage(caption_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(caption_probability,i));
 		} 
@@ -115,15 +116,16 @@ public class NaiveBayesSpam {
 	public String classifySpamOtherChannels(String text) { 
 
 		String processText = preProcessingPipelineForContent(text);
+		String ngram;
 		double [] content_probability = new double[2];
 		Map <String, Double> ngram_probabilty = new HashMap <String, Double>(); 
 		Entry<String, Double> max_entry; 
 
 		for (int i = 1; i <= 3; i++) { 
 
-			processText = FeatureUtil.getNGram(processText, i);
-			content_probability[0] = getProbability(processText, spam_map);
-			content_probability[1] = getProbability(processText, ham_map);
+			ngram = FeatureUtil.getNGram(processText, i);
+			content_probability[0] = getProbability(ngram, spam_map);
+			content_probability[1] = getProbability(ngram, ham_map);
 			ClassificationUtils.convertToPercentage(content_probability);
 			ngram_probabilty.putAll(getClassLabelAndConfidence(content_probability,i));
 		} 
