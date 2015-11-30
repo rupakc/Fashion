@@ -1,11 +1,18 @@
 package org.kutty.classification;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.kutty.constants.Constants;
 import org.kutty.dbo.Benchmark;
+import org.kutty.features.FeatureUtil;
+import org.kutty.features.Post;
+import org.kutty.utils.ClassificationUtils;
 
 /** 
  * Calculates the accuracy of each model and saves it for later use
@@ -18,18 +25,33 @@ public class ModelWeight {
 	
 	public int modelNumber;
 	public String channelName;
+	public String type;
 	public String modelFilePath;
+	public String heldSetPath;
+	
+	public ModelWeight() { 
+		
+	}
 	
 	/** 
 	 * public constructor used to set the model number and channel name
 	 * @param modelNumber Integer containing the model number
 	 * @param channelName String containing the channel name
 	 */
-	public ModelWeight(int modelNumber,String channelName) {  
+	public ModelWeight(int modelNumber,String channelName,String type) {  
 		
 		this.modelNumber = modelNumber;
 		this.channelName = channelName;
-		this.modelFilePath = this.channelName.toLowerCase().trim() + "/" + "model_weights.txt";
+		this.type = type;
+		this.heldSetPath = this.channelName.toLowerCase().trim() + "/" + "held_out_set.txt"; 
+		
+		if (this.type.equalsIgnoreCase(Constants.SENTIMENT_TYPE)) {
+			this.modelFilePath = this.channelName.toLowerCase().trim() + "/" + "sentiment_model_weights.txt";
+			
+		}
+		else if(this.type.equalsIgnoreCase(Constants.SPAM_TYPE)) { 
+			this.modelFilePath = this.channelName.toLowerCase().trim() + "/" + "spam_model_weights.txt";
+		}
 	}
 	
 	/** 
@@ -60,6 +82,7 @@ public class ModelWeight {
 					int wrong = Integer.valueOf(weightArray[1]);
 					weight = (correct/(wrong+1));
 					weight = Math.exp(weight);
+					weight = Math.round(weight); // Test with Math.round()
 				}
 			}
 		}
@@ -68,6 +91,99 @@ public class ModelWeight {
 		fr.close();
 		
 		return weight;
+	}
+	
+	/** 
+	 * Given the file containing the held out dataset converts it into a list of benchmark objects
+	 * @param filenameHeldOutSet String containing the name of the held out data set
+	 * @return List<Benchmark> containing the list of benchmark objects
+	 */
+	public List<Benchmark> getBenchmarkList(String filenameHeldOutSet) { 
+		
+		List<Post> postList = new ArrayList<Post>();
+		FeatureUtil.populateOtherChannelData(filenameHeldOutSet, postList);
+		List<Benchmark> resultList = ClassificationUtils.getBenchmarkAdaptor(postList, this.type);
+		
+		return resultList;
+	}
+	
+	/** 
+	 * Fills up the predicted label for each of the benchmark objects
+	 * @param resultList List<Benchmark> objects containing the result set
+	 */
+	public void calculateModelPrediction(List<Benchmark> resultList) { 
+		
+		String predictedLabel = ""; 
+		
+		if (this.type.equalsIgnoreCase(Constants.SENTIMENT_TYPE)) { 
+			
+			NaiveBayesSentiment naive = new NaiveBayesSentiment(this.modelNumber, this.channelName); 
+			
+			for (Benchmark benchmark : resultList) { 
+				
+				predictedLabel = ClassificationUtils.sanitizeString(naive.classifySentimentOtherChannels(benchmark.getContent()));
+				benchmark.setPredictedLabel(predictedLabel);
+			}
+		}
+		
+		else if (this.type.equalsIgnoreCase(Constants.SPAM_TYPE)) { 
+			
+			NaiveBayesSpam naive = new NaiveBayesSpam(this.modelNumber, this.channelName);
+			
+			for (Benchmark benchmark : resultList) { 
+				
+				predictedLabel = ClassificationUtils.sanitizeString(naive.classifySpamOtherChannels(benchmark.getContent()));
+				benchmark.setPredictedLabel(predictedLabel);
+			}
+		}
+	}
+	
+	/** 
+	 * Writes the number of correct and incorrect samples to a given text file
+	 * @param resultList List<Benchmark> containing the result set
+	 * @throws IOException
+	 */
+	public void writeWeightToFile(List<Benchmark> resultList) throws IOException { 
+		
+		int correctLabels = getCorrectLabels(resultList);
+		int incorrectLabels = resultList.size() - correctLabels;
+		String modelParam = this.modelNumber + "=" + String.valueOf(correctLabels) + "," + String.valueOf(incorrectLabels);
+		BufferedWriter bw;
+		FileWriter fw;
+		
+		fw = new FileWriter(modelFilePath,true);
+		bw = new BufferedWriter(fw);
+		bw.write(modelParam);
+		bw.newLine();
+		bw.close();
+		fw.close();
+	}
+	
+	/** 
+	 * Defines the pipeline for calculating the model weights
+	 */
+	public void modelWeightCalculationPipeline() { 
+		
+		List<Benchmark> resultList = getBenchmarkList(this.heldSetPath);
+		calculateModelPrediction(resultList);
+		try {
+			writeWeightToFile(resultList);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/** 
+	 * Calculates the weight of all models for a given channel
+	 * @param channelName String containing the channel name for which this has to be calculated
+	 * @param type String containing the type of the analysis to be made
+	 */
+	public void modelWeightCalculationPipelineAllModels(String channelName,String type) { 
+		
+		for (int i = 1; i <= Constants.MAX_MODEL_NUM; i++) { 
+			
+			new ModelWeight(i,channelName,type).modelWeightCalculationPipeline();
+		}
 	}
 	
 	/** 
@@ -88,5 +204,11 @@ public class ModelWeight {
 		}
 		
 		return correctCount;
+	}
+	
+	public static void main(String args[]) { 
+		
+		ModelWeight mw = new ModelWeight();
+		mw.modelWeightCalculationPipelineAllModels("facebook", "spam");
 	}
 }

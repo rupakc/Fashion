@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.kutty.constants.Constants;
+import org.kutty.dbo.Benchmark;
 import org.kutty.features.FeatureUtil;
+import org.kutty.features.Post;
 
 /** 
  * Defines a set of utility functions to aid in the classification task
@@ -166,4 +169,65 @@ public class ClassificationUtils {
 		
 		return ngramList;
 	}
+	
+	/** 
+	 * Removes the suffixed model number and NGram number for the given string
+	 * @param s String containing the suffixes
+	 * @return String without the suffixes
+	 */
+	public static String sanitizeString(String s) { 
+		
+		String clean = s;
+		int index = -1;
+		
+		index = s.indexOf('_');
+		
+		if (index != -1) { 
+			
+			clean = s.substring(0, index).trim();
+		}
+		
+		return clean;
+	}
+	
+	/** 
+	 * Adaptor function to convert a list of Post objects to a list of Benchmark objects
+	 * @param postList List<Post> containing the post objects
+	 * @param type String determining the kind of analysis to be done on the post objects
+	 * @return List<Benchmark> containing the Benchmark objects 
+	 */
+	public static List<Benchmark> getBenchmarkAdaptor(List<Post> postList,String type) { 
+		
+		List<Benchmark> resultList = new ArrayList<Benchmark>();
+		Benchmark benchmark; 
+		
+		for (Post post : postList)  { 
+			
+			benchmark = new Benchmark();
+			benchmark.setContent(post.getContent());
+			benchmark.setType(type); 
+			
+			if (type.equalsIgnoreCase(Constants.SENTIMENT_TYPE)) { 
+				
+				if (post.getSentimentLabel() != null && !post.getSentimentLabel().equalsIgnoreCase("null")) { 
+					
+					benchmark.setActualLabel(post.getSentimentLabel());
+					resultList.add(benchmark);
+				}
+			}
+			
+			else if(type.equalsIgnoreCase(Constants.SPAM_TYPE)) { 
+				
+				if(post.getSpamLabel() != null && !post.getSpamLabel().equalsIgnoreCase("null")) { 
+					
+					benchmark.setActualLabel(post.getSpamLabel());
+					resultList.add(benchmark);
+				}
+			}
+			
+		}
+		
+		return resultList;
+	}
+
 }

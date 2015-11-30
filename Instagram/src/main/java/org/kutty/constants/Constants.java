@@ -31,6 +31,7 @@ public class Constants {
 	public static final int NORMAL_END = 1;
 	public static final int LIMIT_OF_SIG = 5;
 	public static final int DIMENSION_OF_VIRAL = 11;
+	public static final int MAX_MODEL_NUM = 5;
 	
 	public static final String SENTIMENT_TYPE = "sentiment";
 	public static final String POSITIVE_LABEL = "positive";
@@ -54,4 +55,5 @@ public class Constants {
 	public static final String YOUTUBE_FOLDER = "youtube";
 	public static final String INSTAGRAM_FOLDER = "instagram";
 	public static final String AFINN_LEXICON = "AFINN.txt";
+	
 }

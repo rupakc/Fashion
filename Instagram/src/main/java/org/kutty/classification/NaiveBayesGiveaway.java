@@ -52,7 +52,7 @@ public class NaiveBayesGiveaway {
 		real_tag_map = LoadModel.getTrainedModel(REAL_TAG_FILENAME);
 		fake_tag_map = LoadModel.getTrainedModel(FAKE_TAG_FILENAME);
 		
-		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER, Constants.GIVEAWAY_TYPE);
+		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER, "giveaway",Constants.GIVEAWAY_TYPE);
 		
 		try {
 			this.MODEL_WEIGHT = modelWeight.getModelWeight();

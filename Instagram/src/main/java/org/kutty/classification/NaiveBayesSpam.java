@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.kutty.constants.Constants;
 import org.kutty.features.FeatureUtil;
 import org.kutty.utils.ClassificationUtils;
 
@@ -45,7 +46,7 @@ public class NaiveBayesSpam {
 		this.CHANNEL_NAME = channel_name.toLowerCase().trim();
 		SPAM_FILENAME = this.CHANNEL_NAME + this.SPAM_FILENAME + this.MODEL_NUMBER + ".txt";
 		HAM_FILENAME = this.CHANNEL_NAME + this.HAM_FILENAME + this.MODEL_NUMBER + ".txt"; 
-		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER,this.CHANNEL_NAME);
+		ModelWeight modelWeight = new ModelWeight(MODEL_NUMBER,this.CHANNEL_NAME,Constants.SPAM_TYPE);
 		
 		/*try { 
 			this.MODEL_WEIGHT = modelWeight.getModelWeight();
