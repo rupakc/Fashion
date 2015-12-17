@@ -1,3 +1,0 @@
-# Fashion
-
-Fashion Analytics
