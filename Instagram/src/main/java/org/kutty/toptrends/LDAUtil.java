@@ -1,8 +1,11 @@
 package org.kutty.toptrends;
 
 import org.kutty.clean.Clean;
+import org.kutty.dbo.Topic;
 import org.kutty.features.FeatureUtil;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 /** 
@@ -34,6 +37,7 @@ public class LDAUtil {
 		
 		s = Clean.cleanHTML(s);
 		s = Clean.removeNewLines(s);
+		s = s.replace(".", " ");
 		s = Clean.removePunctuationAndJunk(s);
 		
 		return s;
@@ -64,9 +68,58 @@ public class LDAUtil {
 		
 		for (int i = 0; i < numberOfWords; i++) { 
 			
-			topicIndex[i] = (random.nextInt(maxTopicNum) + 1);
+			topicIndex[i] = (random.nextInt(maxTopicNum));
 		}
 		
 		return topicIndex;
+	}
+	
+	/** 
+	 * Given a string tokenizes it based on the presence of spaces
+	 * @param s String which is to be tokenized
+	 * @return String array containing the set of word tokens
+	 */
+	public static String[] wordTokenize(String s) { 
+		
+		String words[] = s.split(" "); 
+		
+		for (int i = 0;i < words.length; i++) {   
+			
+			words[i] = words[i].trim();
+		}
+		
+		return words;
+	}
+	
+	/** 
+	 * Initializes the topic objects in the topic array
+	 * @param topicArray Topic array containing the topic objects
+	 */
+	public static void initTopicObjects(Topic[] topicArray) { 
+		
+		for (int i = 0; i < topicArray.length; i++) {  
+			
+			topicArray[i] = new Topic();
+			topicArray[i].topicWords = new ArrayList<String>();
+			topicArray[i].word_probabilities = new HashMap<String, Double>();
+		}
+	}
+	
+	/** 
+	 * Returns the count of a given word in a given topic
+	 * @param topic Topic on which the word is to be counted
+	 * @param s String containing the word which is to be counted
+	 * @return Double containing the word count
+	 */
+	public static double getWordCount(Topic topic,String s) { 
+		
+		double count = 0.0001;
+		for (String word:topic.topicWords) { 
+			if (word.equalsIgnoreCase(s)) { 
+				count++;
+			}
+		}
+		
+		return count;
 	}
 }
