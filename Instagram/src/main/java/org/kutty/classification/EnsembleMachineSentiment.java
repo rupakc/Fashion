@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.kutty.dbo.Update;
+import org.kutty.utils.ClassificationUtils;
 
 /** 
  * Defines the ensemble machine for classification of sentiments
@@ -40,7 +41,7 @@ public class EnsembleMachineSentiment {
 			ensemble[i] = new NaiveBayesSentiment(i+1, channel_name);
 			result = ensemble[i].classifySentimentInstagram(captionText, tagSet);
 			result = sanitizeString(result);
-			result_list.add(result);
+			result_list.addAll(ClassificationUtils.getAugmentedLabelList(result, (int)(double)ensemble[i].MODEL_WEIGHT));
 		}
 		
 		result = getMaxLabel(result_list);
@@ -69,7 +70,7 @@ public class EnsembleMachineSentiment {
 			ensemble[i] = new NaiveBayesSentiment(i+1, channel_name);
 			result = ensemble[i].classifySentimentOtherChannels(text);
 			result = sanitizeString(result);
-			result_list.add(result);
+			result_list.addAll(ClassificationUtils.getAugmentedLabelList(result, (int)(double)ensemble[i].MODEL_WEIGHT));
 		}
 		
 		result = getMaxLabel(result_list);

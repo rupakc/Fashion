@@ -1,10 +1,12 @@
 package org.kutty.db;
 
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.kutty.dbo.ChannelTrend;
 import org.kutty.dbo.Comment;
 import org.kutty.dbo.CountryBase;
 import org.kutty.dbo.GeoData;
@@ -17,6 +19,7 @@ import org.kutty.dbo.Satisfaction;
 import org.kutty.dbo.Sentiment;
 import org.kutty.dbo.Spam;
 import org.kutty.dbo.Tag;
+import org.kutty.dbo.Topic;
 import org.kutty.dbo.TweetUser;
 import org.kutty.dbo.Update;
 import org.kutty.dbo.User;
@@ -1341,5 +1344,75 @@ public class MongoBase {
 		
 		return viralDoc;
 	}
+	
+	/** 
+	 * Returns a BasicDBObject containing the representation of the topic object
+	 * @param topic Topic object containing the details of the topic
+	 * @return BasicDBObject containing the representation of the topic object
+	 */
+	public BasicDBObject getTopicAdaptor(Topic topic) { 
+		
+		BasicDBObject topicDoc; 
+		
+		topicDoc = new BasicDBObject("Probability", topic.getTopicProbability()).
+				append("Name", topic.getTopicName()).
+				append("Number", topic.getTopicNum()).
+				append("Words", topic.getTopicWords()).
+				append("WordDistribution", topic.getWord_probabilities());
+		
+		return topicDoc;
+	}
+	
+	/** 
+	 * Given an array of Topics converts it into a list of BasicDBObjects
+	 * @param topicList Array containing the list of topics
+	 * @return List<BasicDBObject> containing the representation of the topic objects
+	 */
+	public List<BasicDBObject> getTopicListAdaptor(Topic[] topicList) { 
+		
+		List<BasicDBObject> topicDocList = new ArrayList<BasicDBObject>(); 
+		
+		for(Topic topic : topicList) { 
+			
+			topicDocList.add(getTopicAdaptor(topic));
+		}
+		
+		return topicDocList;
+	}
+	
+	/** 
+	 * Given a channel trend object returns the BasicDBObject representation of it
+	 * @param channelTrend ChannelTrend object which is to be converted
+	 * @return BasicDBObject containing the representation of the channel trend
+	 */
+	public BasicDBObject getChannelTrendAdaptor(ChannelTrend channelTrend) { 
+		
+		BasicDBObject trendDoc;
+		
+		trendDoc = new BasicDBObject("Channel",channelTrend.getChannelName()).
+				append("StartDate", channelTrend.getStartDate()).
+				append("EndDate", channelTrend.getEndDate()).
+				append("TopicList", getTopicListAdaptor(channelTrend.getTopicList())).
+				append("PostIds", channelTrend.getPostIds());
+		
+		return trendDoc;
+	}
+	
+	/** 
+	 * Given a channelTrend object inserts it into the database if it doesn't exists
+	 * @param channelTrend ChannelTrend object which is to be inserted in the database
+	 */
+	public void putInDB(ChannelTrend channelTrend) { 
+		
+		BasicDBObject query = new BasicDBObject("Channel", channelTrend.getChannelName()).
+							append("StartDate", channelTrend.getStartDate()).
+							append("EndDate", channelTrend.getEndDate());
+		
+		DBCursor cursor = collection.find(query);
+		
+		if (!cursor.hasNext()) { 
+			
+			insertDocument(getChannelTrendAdaptor(channelTrend));
+		}
+	}
 }
-

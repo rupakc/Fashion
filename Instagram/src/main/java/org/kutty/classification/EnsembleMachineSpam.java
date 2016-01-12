@@ -68,7 +68,7 @@ public class EnsembleMachineSpam {
 			ensemble[i] = new NaiveBayesSpam(i+1, channel_name);
 			result = ensemble[i].classifySpamOtherChannels(text);
 			result = sanitizeString(result);
-			result_list.add(result);
+			result_list.addAll(ClassificationUtils.getAugmentedLabelList(result, (int)(double)ensemble[i].MODEL_WEIGHT));
 		}
 		
 		result = getMaxLabel(result_list);
