@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 import org.kutty.dbo.Topic;
+import org.kutty.utils.PrintUtil;
 
 /** 
  * Implements LDA for topic detection using condensed Gibbs Sampling
@@ -181,7 +182,8 @@ public class LDA {
 
 			System.out.println("----------------------------------------\n");
 			System.out.println(t.topicWords.size());
-			System.out.println(t.word_probabilities);
+			PrintUtil.printMap(t.word_probabilities);
+			//System.out.println(t.word_probabilities);
 			System.out.println(t.topicName);
 			System.out.println("-----------------------------------------\n");
 		}

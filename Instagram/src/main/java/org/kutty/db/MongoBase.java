@@ -1390,6 +1390,7 @@ public class MongoBase {
 		BasicDBObject trendDoc;
 		
 		trendDoc = new BasicDBObject("Channel",channelTrend.getChannelName()).
+				append("Product",channelTrend.getBrandName()).
 				append("StartDate", channelTrend.getStartDate()).
 				append("EndDate", channelTrend.getEndDate()).
 				append("TopicList", getTopicListAdaptor(channelTrend.getTopicList())).
@@ -1406,6 +1407,7 @@ public class MongoBase {
 		
 		BasicDBObject query = new BasicDBObject("Channel", channelTrend.getChannelName()).
 							append("StartDate", channelTrend.getStartDate()).
+							append("Product",channelTrend.getBrandName()).
 							append("EndDate", channelTrend.getEndDate());
 		
 		DBCursor cursor = collection.find(query);

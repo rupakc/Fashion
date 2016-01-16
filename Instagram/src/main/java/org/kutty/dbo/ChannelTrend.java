@@ -17,6 +17,7 @@ public class ChannelTrend {
 	public Date endDate;
 	public Topic[] topicList;
 	public List<Object> postIds; 
+	public String brandName;
 	
 	/**
 	 * @return the channelName
@@ -86,5 +87,19 @@ public class ChannelTrend {
 	 */
 	public void setPostIds(List<Object> postIds) {
 		this.postIds = postIds;
+	}
+
+	/**
+	 * @return the brandName
+	 */
+	public String getBrandName() {
+		return brandName;
+	}
+
+	/**
+	 * @param brandName the brandName to set
+	 */
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
 	}
 }

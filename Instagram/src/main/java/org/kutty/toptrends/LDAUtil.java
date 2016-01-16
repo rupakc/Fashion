@@ -39,6 +39,10 @@ public class LDAUtil {
 		s = Clean.removeNewLines(s);
 		s = s.replace(".", " ");
 		s = Clean.removePunctuationAndJunk(s);
+		s = Clean.removeURL(s);
+		s = Clean.removeDays(s);
+		s = Clean.removeDigits(s);
+		s = Clean.removeMonths(s);
 		
 		return s;
 	}
