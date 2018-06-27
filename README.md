@@ -1,3 +1,3 @@
 # Fashion
 
-Fashion Analytics
+Fashion Analytics - Analytics for Fashion Industry
